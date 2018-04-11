@@ -1,0 +1,16 @@
+<% Collection.forEach(function(item, index){ %>
+<tr data-id="<%=item._id%>">
+    <td class="notForm centerCell">
+    <label class="_customCHeckbox">
+        <input type="checkbox" value="<%=item._id%>"  class="checkbox"/>
+        <span></span>
+    </label>
+    </td>
+    <td style="text-align:center"><%=item.name%></td>
+    <td style="text-align:center"><%=item.dayTime%></td>
+    <td style="text-align:center"><%=item.minPrice%></td>
+    <td style="text-align:center"><%=item.maxPrice%></td>
+    <td style="text-align:center"><%=item.average%></td>
+    <td style="text-align:center"><%=item.yAverage%></td>
+</tr>
+<% }) %>

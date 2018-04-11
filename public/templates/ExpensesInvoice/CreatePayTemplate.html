@@ -1,0 +1,120 @@
+<div class="form-holder">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <fieldset>
+            <div class="inner">
+                <ul class="dialog-tabs" data-class="childTabss">
+                    <li><a class="active" href="javascript:;">选择工程</a></li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items childTabss">
+                    <div class="dialog-tabs-item childTabss active">
+                        <div class="half-block left">
+                            <dl class="opp-info">
+                                <dt>项目名称</dt>
+                                <dd>
+                                    <a id="projectDd" class="current-selected" href="javascript:;">工程名称
+                                    </a>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <ul class="dialog-tabs" data-class="mainTabs">
+                    <li><a class="active" href="javascript:;">选择发票</a></li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items mainTabs">
+                    <div class="dialog-tabs-item mainTabs active">
+                        <dl class="opp-info">
+                            <table class="list">
+                                <colgroup>
+                                    <col width="15px">
+                                    <col width="22%">
+                                    <col width="23%">
+                                    <col width="25%">
+                                    <col width="30%">
+                                </colgroup>
+                                <thead>
+                                <tr class="productListItemsColumns">
+                                    <th class="centerCell">
+
+                                    </th>
+                                    <th>发票编号</th>
+                                    <th>发票金额</th>
+                                    <th>未支付金额(元)</th>
+                                    <th>本次支付金额(元)</th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr></tr>
+                                </tfoot>
+                                <tbody id="invoiceList">
+                                </tbody>
+                            </table>
+                        </dl>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <ul class="dialog-tabs" data-class="childTabsd">
+                    <li><a class="active" href="javascript:;">选择付款方式</a></li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items childTabsd">
+                    <div class="dialog-tabs-item childTabsd active">
+                        <div class="half-block left">
+                            <dt>
+                                <label for="paymentMethod">银行帐号</label>
+                            </dt>
+                            <dd class="_newSelectListWrap">
+                                <a id="paymentMethod" class="current-selected" href="javascript:;">Select</a>
+                            </dd>
+                            <div id='journalDiv'>
+                                <dt>
+                                    <label for="paymentMethod">凭证</label>
+                                </dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="journal" class="current-selected" href="javascript:;">Select</a>
+                                </dd>
+                            </div>
+                            <dt><label for="paymentDate">支付日期</label></dt>
+                            <dd><input id="paymentDate" class="extrainfo" type="text" name="paymentDate" style="width: 100px"></dd>
+                            <dt><label for="payAmount">报销总额</label></dt>
+                            <dd class="payAmount"><input id="payAmount" type="text" name="payAmount" style="width: 100px;border: 0px" readonly></dd>
+                            <dt><label for="acceptAmount">承兑支付总额</label></dt>
+                            <dd class="acceptAmount"><input id="acceptAmount" type="text" name="payAmount" style="width: 100px;border: 0px" readonly></dd>
+                            <dt><label for="cashAmount">现金支付总额</label></dt>
+                            <dd class="cashAmount"><input id="cashAmount" type="text" name="payAmount" style="width: 100px;border: 0px" readonly></dd>
+
+                        </div>
+                        <div class="half-block right">
+                            <dt>
+                                <label>承兑汇票</label>
+                            </dt>
+                            <dd class="addAccept">
+                                <a href="javascript:;">添加</a>
+                            </dd>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th align="left">
+                                       承兑名称
+                                    </th>
+
+                                    <th align="left">
+                                        承兑金额
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody id="acceptList">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </fieldset>
+    </form>
+</div>

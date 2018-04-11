@@ -1,0 +1,21 @@
+<% aluminum.forEach(function(aluminum){ %>
+<tr class="aluminumItem">
+    <td data-name="items" class="jobs trash " style="text-align: center;">
+       <input type="text" style="border: 0; text-align:center;" id="items" value="<%=aluminum.items%>" readonly="readonly"/>
+    </td>
+    <td data-name="price" class="jobs trash " style="text-align: center;">
+        <input type="text" style="width: 60px; text-align:center;" id="price" value="<%=aluminum.price%>"/>
+    </td>
+    <td data-name="unit" class="jobs trash " style="text-align: center;">
+        <input type="text" style="border: 0; text-align:center;" id="unit" value="<%=aluminum.unit%>" readonly="readonly"/>
+    </td>
+    <td data-name="notes" class="jobs trash " style="text-align: center;">
+        <input type="text" style="border: 0; text-align:center;" id="notes" value="<%=aluminum.notes%>" readonly="readonly"/>
+    </td>
+
+    <td class="deleteCell centerCell">
+        <span title="Delete" class="icon-close5 removeItem"></span>
+    </td>
+
+</tr>
+<% }); %>

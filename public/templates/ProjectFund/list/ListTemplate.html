@@ -1,0 +1,11 @@
+<% collection.forEach(function(model, index){ %>
+<tr data-id="<%=model.pmr?model.pmr._id:''%>" id="pmrList">
+    <td><%=index+1%></td>
+    <td><%=model.pmr?model.pmr.name.first+' '+model.pmr.name.last:''%></td>
+    <td><%=model.totalReceipt%> </td>
+    <td><%=model.totalSpend%>  </td>
+    <td><%=model.totalReceipt-model.totalSpend%>  </td>
+    <td><%=model.totalReceipt-model.totalSpend%></td>
+</tr>
+<%})%>
+

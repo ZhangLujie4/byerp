@@ -1,0 +1,256 @@
+<div class="form-holder busiTrip-create-holder"> 
+    <style>
+      .form .opp-info ._inputIconWrap{
+        width: 70%;
+      }
+      .form .opp-info dt {
+        width: 30%;
+      }
+    </style>
+    <form method="post" action="" id="createbusiTripForm" class="form">
+        <fieldset>
+            <div class="inner">
+                
+                <div class="topInputHolder">
+                    <h2>出差详细信息</h2>
+                </div>
+                <div class="half-block left">
+                    <dl class="opp-info">
+                        <dt><label for="ID">序号</label></dt>
+                        <dd class="_inputIconWrap">
+                                <a id="ID" data-id="<%=model.ID%>" href="javascript:;"><%=model.ID%></a>
+                        </dd>
+                        <dt><label for="employeesDd">员工姓名</label></dt>
+
+                        <dd class="_newSelectListWrap">
+                            <a id="employeesDd"
+                               class="current-selected"
+                               data-id="<%=model.name._id%>"
+                               href="javascript:;"><%=model.name.first + ' '+ model.name.last %>
+                            </a>
+                        </dd>
+
+                        <dt><label for="registrationDate">申请日期</label></dt>
+                        <dd class="_inputIconWrap">
+                                <a id="registrationDate" data-id="<%=model.registrationDate%>" href="javascript:;"><%=model.registrationDate%></a>
+                        </dd>
+
+                        <dt>
+                            <label for="datefrom">出差开始日期</label>
+                        </dt>
+                        <dd class="_inputIconWrap">
+                                <input class="extrainfo"
+                                       type="text"
+                                       name="datefrom"
+                                       id="datefrom"
+                                       value = "<%=model.date.from%> "
+                                       />
+                                <label></label>
+                        </dd>
+                        <dt>
+                            <label for="dateto">出差结束日期</label>
+                        </dt>
+                         <dd class="_inputIconWrap">
+                                <input class="extrainfo"
+                                       type="text"
+                                       name="dateto"
+                                       id="dateto"
+                                       value = "<%=model.date.to%> "/>
+                                <label></label>
+                        </dd>
+                        
+                        <dt><label for="traffic">出行方式：</label></dt>
+
+                        <dt><label for="air">飞机</label></dt>
+                        <dd class="_inputIconWrap">
+                                <dl>
+                                      <dt>公司代购：</dt>
+                                      <dd>
+                                        <input type="text"
+                                         id="aircompany"
+                                         style="width: 20px"
+                                         required
+                                         maxlength="32"
+                                         value = "<%=
+                                                  model.air.company
+                                                  %>"/>
+                                          <label>元</label>
+                                      </dd>
+                                  </dl>
+                                  <dl>
+                                      <dt>自购：</dt>
+                                      <dd>
+                                          <input type="text"
+                                         id="airself"
+                                         required
+                                         maxlength="32"
+                                         value = "<%=
+                                                  model.air.self
+                                                  %>"/>
+                                          <label>元</label>
+                                      </dd>
+                                  </dl>
+                        </dd>
+                     
+
+                        <dt><label for="train">火车</label></dt>
+                        <dd class="_inputIconWrap">
+                                <input type="text"
+                                 id="train"
+                                 required
+                                 maxlength="32"
+                                 value = "<%=
+                                          model.train
+                                          %>"/>
+                                  <label>元</label>
+                        </dd>
+
+                        <dt><label for="bus">公交(长途/地铁)</label></dt>
+                        <dd class="_inputIconWrap">
+                                <input type="text"
+                                 id="bus"
+                                 required
+                                 maxlength="32"
+                                 value = "<%=
+                                          model.bus
+                                          %>"/>
+                                  <label>元</label>
+                        </dd>
+
+                        <dt><label for="taxi">打的</label></dt>
+                        <dd class="_inputIconWrap">
+                                <input type="text"
+                                 id="taxi"
+                                 required
+                                 maxlength="32"
+                                 value = "<%=
+                                          model.taxi
+                                          %>"/>
+                                  <label>元</label>
+                        </dd>
+
+                        <dt><label for="selfdrive">自驾</label></dt>
+                        <dd class="_inputIconWrap">
+                            <dl>
+                                <dt>公里数:</dt>
+                                <dd>
+                                    <input type="text"
+                                     id="kilometer"
+                                     required
+                                     maxlength="32"
+                                     value = "<%=
+                                              model.selfdrive.kilometer
+                                              %>"/>
+                                      <label>公里</label>
+                                  </dd>
+                            </dl>
+                            <dl>
+                                <dt>过路费</dt>
+                                <dd>
+                                    <input type="text"
+                                     id="roadtoll"
+                                     required
+                                     maxlength="32"
+                                     value = "<%=
+                                              model.selfdrive.roadtoll
+                                              %>"/>
+                                      <label>元</label>
+                                </dd>
+                            </dt>
+                            <dl>
+                                <dt>停车费</dt>
+                                <dd>
+                                    <input type="text"
+                                     id="parkingfee"
+                                     required
+                                     maxlength="32"
+                                     value = "<%=
+                                              model.selfdrive.parkingfee
+                                              %>"/>
+                                    <label>元</label>
+                                </dd>
+                            </dl>
+                        </dd>
+
+                        
+                        
+                    </dl>
+                </div>
+                <div class="half-block left">
+                    <dl class="opp-info">
+
+                       <dt><label for="accommodationDay">住宿天数</label></dt>
+                       
+                         <dd class="_inputIconWrap">
+                              <dl>
+                                  <input type="text"
+                                   id="accommodationDay"
+                                   required
+                                   maxlength="32"
+                                   value = "<%=
+                                            model.accommodationDay
+                                            %>"/>
+                                    <label></label>
+                              </dl>
+                              <dl>
+                                <label>(报销范围：150-250元/天)</label>
+                              </dl>
+                          </dd>
+                        
+                        
+                        <dt><label for="diningNumber">就餐数</label></dt>
+                        <dd class="_inputIconWrap">
+                              <dl> 
+                                <input type="text"
+                                 id="diningNumber"
+                                 required
+                                 maxlength="32"
+                                 value = "<%=model.diningNumber%>"/>
+                                  <label></label> 
+                              </dl>
+                              <dl>
+                                <label>(报销范围：30元/餐)</label>
+                              </dl>
+                        </dd>
+                        <dt for="description">出差事由</dt>
+                        <dd class="taskDescriptionCreate">
+                            <textarea
+                                  name="description"                                 
+                                  id="description"
+                                  maxlength="400"
+                                  required >
+                                  <%=model.description%>
+                            </textarea>
+                        </dd>
+
+                        <dt><label for="status">状态</label></dt>
+                        <dd class="_inputIconWrap">
+                                  <%if(model.status == -2) {%> 
+                                   <a id="status" data-id="<%=model.status%>" href="javascript:;">等待用户编辑
+                                    </a>
+                                  <% } %>
+                                  <%if(model.status == 0 || model.status == 1 || model.status == 2) {%>
+                                  
+                                   <a id="status" data-id="<%=model.status%>" href="javascript:;"><%=(model.manager) ? ('待'+ model.manager.name.first  + model.manager.name.last + '审批') : ''%>
+                                   </a>
+                                  <% } %>
+                                  <%if(model.status == -1) {%>
+                                  
+                                   <a id="status" data-id="<%=model.status%>" href="javascript:;">未通过
+                                   </a>
+                                  <% } %>
+
+                                  <%if(model.status == 3) {%>
+                                  
+                                   <a id="status" data-id="<%=model.status%>" href="javascript:;">通过
+                                   </a>
+                                  <% } %>
+                        </dd>
+
+                        </dl>   
+                </div>
+            </div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

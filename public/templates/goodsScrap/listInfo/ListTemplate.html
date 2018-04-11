@@ -1,0 +1,12 @@
+<% goodsScrapCollection.forEach(function(goodsScrap, index){ %>
+<tr data-index="<%=index%>" data-id="<%= goodsScrap._id%>" >
+    <td class="centerCell">
+        <input type="checkbox" value="<%=goodsScrap._id%>" class="checkbox"/>
+    </td>
+    <td class="centerCell"><%=goodsScrap.barId%></td>
+    <td class="centerCell"><%=goodsScrap.orderRowId.lbmc%></td>
+    <td class="centerCell"><%=goodsScrap.orderRowId.lbbh%></td>
+    <td class="centerCell"><%=goodsScrap.wareOpinion%></td>
+    
+</tr>
+<% }) %>

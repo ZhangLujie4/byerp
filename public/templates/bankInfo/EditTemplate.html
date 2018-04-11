@@ -1,0 +1,95 @@
+﻿﻿<div class="form-holder task-create-holder">
+    <form method="post" action="" id="editTaskForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">主要内容</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                    <div >
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt>
+                                    <label for="day">日期</label>
+                                </dt>
+                                <dd>
+                                    <div class="_inputIconWrap">
+                                        <input class="extrainfo"
+                                               type="text"
+                                               name="day"
+                                               id="day"
+                                               style="width: 150px"
+                                               value="<%=model.journal.date%>"
+                                               readonly/>
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="note">摘要</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="note"
+                                                id="note"
+                                                style="width: 150px"
+                                                value="<%=model.journal.name%>"
+                                                readonly
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="debit">借方金额</label>
+                                </dt>
+                                <dd>
+                                    <div>
+                                        <input
+                                                type="text"
+                                                name="debit"
+                                                id="debit"
+                                                style="width: 150px"
+                                                value="<%=model.debit?model.debit:0%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="credit">贷方金额</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="credit"
+                                                id="credit"
+                                                style="width: 150px"
+                                                value="<%=model.credit?model.credit:0%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <% if(model.account.account=='结算中心'){ %>
+                                <dt>
+                                    <label for="state">到单情况</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="state"
+                                                id="state"
+                                                style="width: 150px;border: hidden"
+                                                value="<%=(model.bill=='notCome')?'未到单':'已到单'%>"
+                                                readonly
+                                        />
+                                    </div>
+                                </dd>
+                                <%}%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </fieldset>
+    </form>
+</div>

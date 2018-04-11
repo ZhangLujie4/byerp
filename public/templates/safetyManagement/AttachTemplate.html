@@ -1,0 +1,35 @@
+<div class="noteWrapper attachWrapper">
+
+    <div class="formTitle">
+        <h3>附件 </h3>
+    </div>
+
+    <form enctype="multipart/form-data" id="<%= elementId %>" action="" method="POST">
+        <div id="attachBody">
+            <ul class="attachContainer">
+                <% if (attachments){ attachments.reverse();%>
+                <% _.each(attachments, function(data,key){ %>
+                <li class="attachFile_<%=data['_id'] %>"><a href="download/<%=data.shortPas%>">
+                <%=data.name %></a>
+                    <a id="watch_<%=data['_id'] %>" data-id="<%=data['_id'] %>" href="javascript:;" class="watchAttach" style="float: right; line-height: 22px">查看</a>
+                    <a id="<%=data['_id'] %>" href="javascript:;" class="deleteAttach">删除</a>
+                </li>
+                <% }); attachments.reverse();} %>
+            </ul>
+        </div>
+
+        <div class="input-file <%=attachments.length ? 'smallBtn' : '' %>" >
+            <span class="atachPlaceHolder"><i class="icon-plus" aria-hidden="true"></i> 附件</span>
+            <input type="file" value="Choose File" id="inputAttach" accept=".pdf" class="inputAttach" name="attachfile" multiple="multiple" >
+
+        </div>
+        <div class="progress" style="float:left;">
+            <div class="bar">
+                <span class="status"></span>
+            </div>
+        </div>
+    </form>
+
+
+</div>
+

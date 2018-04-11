@@ -1,0 +1,91 @@
+<div class="form-holder _jobForeman">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <h3 class="_dialogTableTitle">新增</h3>
+            <div class="half-block left">       
+                <dl class="opp-info">
+                    <dt><label for="name">姓名: </label></dt>
+                    <dd class = "_inputIconWrap">
+                        <input id="name" type="text">
+                    </dd>
+
+                    <dt><label for="ID">身份证号码: </label></dt>
+                    <dd class = "_inputIconWrap">
+                        <input id="ID" type="text">
+                    </dd>
+
+                    <dt><label for="address">住址: </label></dt>
+                    <dd class = "_inputIconWrap">
+                          <div id="address">
+                            <select id="province"></select><!-- province -->
+                            <select id="city"></select><!-- city -->
+                            <select id="district"></select><!-- district -->
+                            <input type="text" id="zip" placeholder="详细地址" />
+                          </div>
+<!--                         <dl>
+                              <dt>省：</dt>
+                              <dd class="taskDescriptionCreate">
+                                 <input type="text"
+                                       id="province"
+                                       required
+                                       placeholder="省"
+                                       maxlength="32"/>
+                                        <label></label>
+                              </dd>
+                              <dt>市：</dt>
+                              <dd class="taskDescriptionCreate">
+                                 <input type="text"
+                                       id="city"
+                                       required
+                                       placeholder="市"
+                                       maxlength="32"/>
+                                        <label></label>
+                              </dd>
+                              <dt>县(区域)：</dt>
+                              <dd class="taskDescriptionCreate">
+                                 <input type="text"
+                                       id="district"
+                                       required
+                                       placeholder="区域"
+                                       maxlength="32"/>
+                                        <label></label>
+                              </dd>
+                              <dt>详细地址：</dt>
+                              <dd class="taskDescriptionCreate">
+                                 <input type="text"
+                                       id="zip"
+                                       required
+                                       placeholder="详细地址"
+                                       maxlength="32"/>
+                                        <label></label>
+                              </dd>
+                        </dl> -->
+                    </dd>
+
+                    
+                </dl>
+            </div>
+            <div class="half-block right">
+                <dl class="opp-info">
+                    <dt><label for="phone">联系电话: </label></dt>
+                    <dd class = "_inputIconWrap">
+                        <input id="phone" type="text">
+                    </dd>
+
+                    <dt><label for="enterTime">进工地时间: </label></dt>
+                    <dd class = "_inputIconWrap">
+                        <input id="enterTime" type="text">
+                    </dd>
+
+                    <dt><label for="estimate">班组评价: </label></dt>
+                    <dd class = "_inputIconWrap">
+                        <input id="estimate" type="text">
+                    </dd>
+
+                    <dt><label for="remark">备注: </label></dt>
+                    <dd class = "_inputIconWrap">
+                        <input id="remark" type="text">
+                    </dd>
+                </dl>
+            </div>
+    </form>
+</div>

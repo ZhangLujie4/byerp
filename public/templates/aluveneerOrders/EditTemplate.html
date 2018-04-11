@@ -1,0 +1,139 @@
+﻿﻿<div class="form-holder task-create-holder" style="margin-bottom: 12px;">
+    <form method="post" action="" id="editWorkOrderForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <div class="clearfix"></div>
+            <div class="topInputHolder">
+                <h2>铝单板订单信息</h2>
+            </div>
+                   
+            <div class="half-block left withPaddingRightProject">
+                <div class="inner">
+                    <div class="task-info">
+                        <dt>
+                            <label>工程名称</label>
+                        </dt>
+                        <dd>
+                            <a id="opportunitieDd"  data-id="<%=model.projectName%>"  href="javascript:;" ><%=model.projectName.name%></a>
+                        </dd>
+                        
+                        <dt>
+                            <label for="lbmc">铝板名称</label>
+                        </dt>
+                        <dd>
+                            <input type="text" 
+                                   name="lbmc"
+                                   id="lbmc" style="border: 0;"
+                                   value="<%= model.lbmc %>" readonly="readonly" />
+                        </dd>
+
+                        <!-- <dt>
+                            <label for="sfyx">是否异形</label>
+                        </dt>
+                        <dd>
+                            <select name="sfyx" id="sfyx">
+                                <% if(model.sfyx == '是'){ %>
+                                  <option selected="selected" value="是">是</option>
+                                  <option value="否">否</option>
+                                <% } else if(model.sfyx == '否'){ %>
+                                
+                                  <option value="是">是</option>
+                                  <option selected="selected" value="否">否</option>
+                                <% } %>
+
+                            </select>
+                        </dd>
+
+                        <dt>
+                            <label for="dj">单价</label>
+                        </dt>
+                        <dd>
+                            <input type="text" 
+                                   name="dj"
+                                   id="dj" 
+                                   value="<%= model.dj %>" />
+                        </dd>
+
+                        <dt>
+                            <label for="comment">备注</label>
+                        </dt>
+                        <dd>
+                            <input type="text" 
+                                   name="comment"
+                                   id="comment" 
+                                   value="<%= model.comment %>" />
+                        </dd> -->
+
+                        <dt>
+                            <label for="routing">工序</label>
+                        </dt>
+                        <dd>
+                            <input type="text" 
+                                   name="routing"
+                                   id="routing" 
+                                   value="<%= model.routing %>" />
+                        </dd>
+
+                    </div>
+                </div>
+            </div>
+           
+            <div class="half-block left withPaddingRightProject">
+                <div class="inner">
+                    <div class="task-info">
+                        <dt>
+                            <label for="cgdh">采购单号</label>
+                        </dt>
+                        <dd>
+                            <input type="text" 
+                                   name="cgdh"
+                                   id="cgdh" style="border: 0;"
+                                   value="<%= model.cgdh %>" readonly="readonly" />
+                        </dd>
+
+                        <dt>
+                            <label for="lbbh">铝板编号</label>
+                        </dt>
+                        <dd>
+                            <input type="text" 
+                                   name="lbbh"
+                                   id="lbbh" style="border: 0;"
+                                   value="<%= model.lbbh %>" readonly="readonly" />
+                        </dd>
+
+                        <dt>
+                            <label for="boardType">板材类别</label>
+                        </dt>
+                        <dd>
+                            <input type="text" 
+                                   name="boardType"
+                                   id="boardType" placeholder="铝板,钢板..."
+                                   value="<%= model.boardType %>"/>
+                        </dd>
+
+                        <!-- <dt>
+                            <label for="hf">焊缝(m)</label>
+                        </dt>
+                        <dd>
+                            <input type="text" 
+                                   name="hf"
+                                   id="hf" 
+                                   value="<%= model.hf %>" />
+                        </dd>
+                       
+                        <dt>
+                            <label for="ck">超宽</label>
+                        </dt>
+                        <dd>
+                            <input type="text" 
+                                   name="ck"
+                                   id="ck" 
+                                   value="<%= model.ck %>" />
+                        </dd> -->
+
+                    </div>
+                </div>
+            </div>
+            
+        </fieldset>
+    </form>
+</div>

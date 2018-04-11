@@ -1,0 +1,48 @@
+<div id="minScheduleDate">
+    <span></span>
+</div>
+<%var curVal;%>
+<%if (model && model.currency && model.currency._id) {%>
+<%curVal = model.currency._id.symbol%>
+<%} else {%>
+<%curVal = "￥"%>
+<%}%>
+<%var unTaxed;%>
+<%var taxes;%>
+<%var total;%>
+<%var discount;%>
+<%var balance;%>
+<table class="_totalAmountTable">
+    <tbody>
+    <tr class="totalAmountBig _markedRow">
+        <td>
+            <label class="" data-original-title="" title="">价税合计（大写）</label>
+        </td>
+        <td></td>
+        <%if (model && model.paymentInfo && model.paymentInfo.total) {%>
+        <%totalAmountBig = model.totalAmountBig%>
+        <%} else {%>
+        <%totalAmountBig = "0.00"%>
+        <%}%>
+        <td>
+            <span class="currencySymbol"><%=curVal %></span>
+            <span id="totalAmountBig"><%=currencySplitter(totalAmountBig)%></span>
+        </td>
+    </tr>
+    <tr class="totalAmountSmall _markedRow">
+        <td>
+            <label class="" data-original-title="" title="">价税合计（小写）</label>
+        </td>
+        <td></td>
+        <%if (model && model.paymentInfo && model.paymentInfo.total) {%>
+        <%total = model.paymentInfo.total%>
+        <%} else {%>
+        <%total = "0.00"%>
+        <%}%>
+        <td>
+            <span class="currencySymbol"><%=curVal %></span>
+            <span id="totalAmountSmall"><%=currencySplitter(total)%></span>
+        </td>
+    </tr>
+    </tbody>
+</table>

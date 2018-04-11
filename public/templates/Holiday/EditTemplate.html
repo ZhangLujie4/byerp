@@ -1,0 +1,34 @@
+
+<div class="form-holder _departmentExteral">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <h3 class="_dialogTableTitle">新增</h3>
+          <div class="half-block left">
+            <div>
+              <dt><label for="date">时间: </label></dt>
+              <dd class="_inputIconWrap">
+                    <input type="text"
+                     id="date"
+                     required
+                     maxlength="32"
+                     value="<%=model.date%>" />
+                      <label></label>  
+              </dd>
+              <dt><label for="employeesDd">备注: </label></dt>
+              <dd class = "_inputIconWrap">
+                <input id="comment" type="text" value="<%=model.comment%>">
+              </dd>
+            </div>
+          </div>
+          <div class="half-block right">
+            <div>
+              <dt><label for="type">类型: </label></dt>
+              <dd class="_newSelectListWrap">
+                <a id="type"
+                   class="current-selected"
+                   href="javascript:;"><%=model.type%>
+                </a>
+              </dd>
+            </div>
+          </div>
+    </form>
+</div>

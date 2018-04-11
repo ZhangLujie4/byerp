@@ -1,0 +1,18 @@
+<% oemBarcodeCollection.forEach(function(oemBarcode, index){ %>
+<tr data-index="<%=index%>" data-id="<%= oemBarcode._id%>" >
+    <td class="centerCell">
+        <input type="checkbox" value="<%=oemBarcode._id%>" class="checkbox"/>
+    </td>
+    <td class="centerCell"><%=oemBarcode.orderRowId.description%></td>
+    <% oemBarcode.orderRowId.parameters.forEach(function(para,index){ %>
+        <% if(index === 0){ %>
+            <% parameter = para.paraname + " : " + para.value; %>
+        <% }else if(para.value !== ""){ %>
+            <% parameter = parameter + " / " + para.paraname + " : " + para.value; %>
+        <% } %>
+    <% }); %>
+    <td class="centerCell"><%=parameter%></td>
+    <td class="centerCell"><%=oemBarcode.quantity%></td>
+    <td class="centerCell"><%=oemBarcode.wareOpinion%></td>   
+</tr>
+<% }) %>

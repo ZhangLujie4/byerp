@@ -1,0 +1,76 @@
+<% if (!collection.length) { %>
+<h2>没有找到工程</h2>
+<% } %>
+<% collection.forEach(function(project){ %>
+<div class="thumbnail thumbnailElement" id="<%=project._id%>">
+    <div class="dropDown">
+        <a href="#easyErp/Tasks/kanban/<%= project._id %>" class="icon icon-btn"></a>
+        <a href="javascript:;" id="<%=project._id %>" class="icon icon-btn project"></a>
+    </div>
+    <div class="inner">
+        <div class="project-text left">
+            <span class="bold blockLeft" data-content="project"><%=project.name%></span>
+            <div class="health-wrapper left">
+				<span class="health-container">
+				  <a href="javascript:;" data-value="<%=project.health%>" class="health<%=project.health%>"></a>
+				  <ul>
+                      <li>
+                          <div class="health1"></div>
+                      </li>
+                      <li>
+                          <div class="health2"></div>
+                      </li>
+                      <li>
+                          <div class="health3"></div>
+                      </li>
+                  </ul>
+
+				</span>
+            </div>
+            <div class="clearfix">
+            </div>
+            <span data-content="customer"><label> 建设单位：</label><%=(project.customer.name)? project.customer.name.first + ' ' + project.customer.name.last: ' '%></span>
+        </div>
+        <div class="clearfix">
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="_thumbnailDescripiton">
+            <!--div-- class="_projectsTypeWrap">
+                <div class="left"><label>工程类型: </label>&nbsp;</div>
+                <div class="forProjectsTypes _newSelectListWrap">
+                    <p data-value="<%=project.projecttype? project.projecttype:'Select'%>"><%=project.projecttype? project.projecttype:'Select'%></p>
+                </div>
+            </div-->
+            <div class="inner">
+
+                <span class="bold blockLeft" data-content="project"><label> 项目经理：</label><%=(project.pmr.name)?(project.pmr.name.first+' '+project.pmr.name.last):'Select'%></span>
+            </div>
+
+            <div class="inner"><span><label> 开工日期：</label><%=project.StartDate%></span></div>
+
+
+            <!--p class="inner">
+                <a id="<%= project._id%>" class="tasksByProject" href="#easyErp/Tasks/kanban/<%= project._id %>"><%=project.task.length%>Tasks</a>
+            </p-->
+
+            <!--div class="inner">
+                <div class="left"><label>状态: </label>&nbsp;</div>
+                <div class="left forStage">
+                    <div class="_newSelectListWrap">
+                        <a href="javascript:;"
+                           class="stageSelect <%=(project.workflow) ? (project.workflow.name.toLowerCase().replace(' ','') === 'closed' ? 'projectClosed' : project.workflow.name.toLowerCase().replace(' ','') ) : '' %>">
+                            <%=(project.workflow) ? project.workflow.name : ''%>
+                        </a>
+                    </div>
+                </div>
+                <!--<span class="status <%=(project.workflow && project.workflow.status) ? project.workflow.status.toLowerCase().split(' ').join('') : ''%>"><%=(project.workflow) ? project.workflow.status : ''%></span>-->
+        </div>
+
+        <!--div class="avatar right"
+             data-id="<%=(project.salesManager && project.salesManager._id) ? project.salesManager._id: ''%>">
+            <img alt="" src=""/>
+        </div-->
+    </div>
+</div>
+<% }) %>

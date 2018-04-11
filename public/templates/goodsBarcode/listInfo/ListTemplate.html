@@ -1,0 +1,27 @@
+<% goodsBarcodeCollection.forEach(function(goodsBarcode, index){ %>
+<tr data-index="<%=index%>" data-id="<%= goodsBarcode._id%>" >
+    <td class="centerCell">
+        <input type="checkbox" value="<%=goodsBarcode._id%>" class="checkbox"/>
+    </td>
+    <td class="centerCell"><%=goodsBarcode.barId%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.lbmc%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.lbbh%></td>
+    <!-- <td class="centerCell"><%=goodsBarcode.orderRowId.sfyx%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.sqm%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.szjys%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.cjlhf%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.kc%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.W%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.L1%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.L2%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.L3%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.L4%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.L5%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.L6%></td>
+    <td class="centerCell"><%=(goodsBarcode.orderRowId.dkjjmj) ? goodsBarcode.orderRowId.dkjjmj.toFixed(3) : ''%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.jgsh%></td>
+    <td class="centerCell"><%=goodsBarcode.orderRowId.jgth%></td> -->
+    <td class="centerCell"><%=goodsBarcode.wareOpinion%></td>
+    
+</tr>
+<% }) %>

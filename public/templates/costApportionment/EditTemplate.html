@@ -1,0 +1,201 @@
+<div class="form-holder task-create-holder" style="margin-bottom: 0px;">
+    <form method="post" action="" id="editBuilding" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <div class="clearfix"></div>
+            <% var typeName %>
+            <% if(type=='metalPlateOutput'|| type=='sprayOutput'){%>
+            <% typeName='订单列表' %>
+            <% }else if(type=='rawMaterialCosting'){%>
+            <% typeName='领料出库列表' %>
+            <% }else if(type=='processingCost'){%>
+            <% typeName='加工扫码列表' %>
+            <% }else if(type=='publicTotal'){%>
+            <% typeName='公摊成本列表' %>
+            <% }else if(type=='shippingCost'){%>
+            <% typeName='运费列表' %>
+            <% }else if(type=='sales'){%>
+            <% typeName='销售列表' %>
+            <%}%>
+            <div class="topInputHolder">
+                <h2><%=model.building.name%>:<%=typeName%></h2>
+                <h1>日期：<%=moment(date.value[0]).format('YYYY-MM-DD')%>至<%=moment(date.value[1]).format('YYYY-MM-DD')%></h1>
+            </div>
+
+            <table class="list stripedList">
+                <% if(type=='metalPlateOutput'){%>
+                <colgroup>
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>订单编号</th>
+                    <th>生成日期</th>
+                    <th>已完成数量（块）</th>
+                    <th>已完成面积(平方米)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% aluList.forEach(function(alu,index){%>
+                <tr data-id="<%=alu.cgdh%>">
+                    <td class="metalPlateOutput" data-id="metalPlateOutput"><%=alu.cgdh%></td>
+                    <td class="metalPlateOutput" data-id="metalPlateOutput"><%=moment(alu.creationDate).format('YYYY-MM-DD')%></td>
+                    <td class="metalPlateOutput" data-id="metalPlateOutput"><%=alu.alreadyQuantity%></td>
+                    <td class="metalPlateOutput" data-id="metalPlateOutput"><%=alu.alreadyOutput.toFixed(3)%></td>
+                </tr>
+                <%})%>
+                <%} else if(type=='sprayOutput'){%>
+                <colgroup>
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>订单编号</th>
+                    <th>生成日期</th>
+                    <th>已完成数量（块）</th>
+                    <th>已完成面积(平方米)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% sprayList.forEach(function(spray,index){%>
+                <tr data-id="<%=spray.cgdh%>">
+                    <td class="sprayOutput" data-id="sprayOutput"><%=spray.cgdh%></td>
+                    <td class="sprayOutput" data-id="sprayOutput"><%=moment(spray.creationDate).format('YYYY-MM-DD')%></td>
+                    <td class="sprayOutput" data-id="sprayOutput"><%=spray.alreadyQuantity%></td>
+                    <td class="sprayOutput" data-id="sprayOutput"><%=spray.alreadyOutput.toFixed(3)%></td>
+                </tr>
+                <%})%>
+                <% materialsList.forEach(function(materials,index){%>
+                <tr data-id="<%=materials.orderName%>">
+                    <td class="materials" data-id="materials"><%=materials.orderName%></td>
+                    <td class="materials" data-id="materials"><%=moment(materials.creationDate).format('YYYY-MM-DD')%></td>
+                    <td class="materials" data-id="materials"><%=materials.alreadyQuantity%></td>
+                    <td class="materials" data-id="materials"><%=materials.alreadyOutput.toFixed(2)%></td>
+                </tr>
+                <%})%>
+                <% }else if(type=='rawMaterialCosting'){%>
+                <colgroup>
+                    <col width="40%">
+                    <col width="30%">
+                    <col width="30%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>出库单编号</th>
+                    <th>领料日期日期</th>
+                    <th>领料总额(元)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% orderRowList.forEach(function(orderRow,index){%>
+                <tr data-id="<%=orderRow.noteName%>">
+                    <td class="rawMaterialCosting" data-id="rawMaterialCosting"><%=orderRow.noteName%></td>
+                    <td class="rawMaterialCosting" data-id="rawMaterialCosting"><%=moment(orderRow.date).format('YYYY-MM-DD')%></td>
+                    <td class="rawMaterialCosting" data-id="rawMaterialCosting"><%=orderRow.goodsOutNoteCost%></td>
+                </tr>
+                <%})%>
+                <% }else if(type=='processingCost'){%>
+                <colgroup>
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>工序号</th>
+                    <th>工序名称</th>
+                    <th>数量</th>
+                    <th>加工费（元）</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% scanList.forEach(function(scan,index){%>
+                <tr data-id="<%=scan.workCentreCode%>">
+                    <td class="processingCost" data-id="processingCost"><%=scan.workCentreCode%></td>
+                    <td class="processingCost" data-id="processingCost"><%=scan.workCentreName%></td>
+                    <td class="processingCost" data-id="processingCost"><%=scan.quantity%></td>
+                    <td class="processingCost" data-id="processingCost"><%=scan.price%></td>
+                </tr>
+                <%})%>
+                <% }else if(type=='publicTotal'){%>
+                <colgroup>
+                    <col width="40%">
+                    <col width="30%">
+                    <col width="30%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>凭证摘要</th>
+                    <th>数量（笔）</th>
+                    <th>金额（元）</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% journalEntryList.forEach(function(journalEntry,index){%>
+                <tr data-id="<%=journalEntry.journalId%>">
+                    <td class="publicTotal" data-id="publicTotal"><%=journalEntry.journalName%></td>
+                    <td class="publicTotal" data-id="publicTotal"><%=journalEntry.quantity%></td>
+                    <td class="publicTotal" data-id="publicTotal"><%=journalEntry.totalAmount/100%></td>
+                </tr>
+                <%})%>
+                <% }else if(type=='shippingCost'){%>
+                <colgroup>
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>发货单号</th>
+                    <th>发货日期</th>
+                    <th>运费</th>
+                    <th>面积(平方米)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%shippingList.forEach(function(shipping,index){%>
+                <tr data-id="<%=shipping._id%>">
+                    <td class="shippingCost" data-id="shippingCost"><%=shipping.name%></td>
+                    <td class="shippingCost" data-id="shippingCost"><%=moment(shipping.date).format('YYYY-MM-DD')%></td>
+                    <td class="shippingCost" data-id="shippingCost"><%=shipping.totalNoteFee.toFixed(2)%></td>
+                    <td class="shippingCost" data-id="shippingCost"><%=shipping.totalNoteArea.toFixed(3)%></td>
+                </tr>
+                <%})%>
+                <% }else if(type=='sales'){%>
+                <colgroup>
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>发货单号</th>
+                    <th>发货日期</th>
+                    <th>销售金额</th>
+                    <th>销售面积(平方米)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%shippingList.forEach(function(shipping,index){%>
+                <tr data-id="<%=shipping._id%>">
+                    <td class="shippingCost" data-id="shippingCost"><%=shipping.name%></td>
+                    <td class="shippingCost" data-id="shippingCost"><%=moment(shipping.date).format('YYYY-MM-DD')%></td>
+                    <td class="shippingCost" data-id="shippingCost"><%=shipping.totalNoteSale.toFixed(2)%></td>
+                    <td class="shippingCost" data-id="shippingCost"><%=shipping.totalNoteArea.toFixed(3)%></td>
+                </tr>
+                <%})%>
+                <%}%>
+
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+</div>

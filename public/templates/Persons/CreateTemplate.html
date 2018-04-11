@@ -1,0 +1,254 @@
+<div class="form-holder">
+    <form method="post" action="" id="createPersonsForm" class="form">
+        <fieldset>
+            <div class="inner">
+                <ul class="dialog-tabs">
+                    <li>
+                        <a class="active" href="javascript:;">基本信息</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">业务关系</a>
+                    </li>
+                    <!--  <li><a href="javascript:;">Assignees</a></li>-->
+                </ul>
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items">
+                    <div class="dialog-tabs-item active">
+                        <div class="formTitle">
+                            <h3 class="left">个人信息</h3>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="avatar">
+                            <div class="upload">编辑
+                                <input type="file"
+                                       value="Edit"
+                                       id="inputImg"
+                                       accept="image/*">
+                            </div>
+                            <canvas id="avatar"
+                                    width="140"
+                                    height="140">
+
+                            </canvas>
+                        </div>
+                        <div class="avatarInfoContainer">
+                            <div class="half-block left">
+                                <dl class="person-info">
+                                    <dt>
+                                        <label for="firstName">名字</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   name="firstName"
+                                                   id="firstName"
+                                                   placeholder="First Name"
+                                                   autofocus
+                                                   required
+                                                   maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="lastName">姓氏</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   name="lastName"
+                                                   id="lastName"
+                                                   placeholder="Last Name"
+                                                   required
+                                                   maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="jobPositionInput">工作职位</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="jobPositionInput"
+                                                   placeholder="如部门经理"
+                                                   maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="dateBirth">生日</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input id="dateBirth"
+                                                   class="dateBirth"
+                                                   placeholder="生日"
+                                                   type="text"
+                                                   readonly/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="emailInput">电子邮件</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="emailInput"
+                                                   placeholder="如 email@site.com"
+                                                   maxlength="48"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="skype">Skype</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="skype"
+                                                   placeholder="Skype"
+                                                   maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="LI">LinkedIn</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="LI"
+                                                   placeholder="LinkedIn"
+                                                   maxlength="256"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="FB">Facebook</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="FB"
+                                                   placeholder="Facebook"
+                                                   maxlength="256"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="companiesDd">公司</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="companiesDd" class="current-selected" href="javascript:;">选择</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="half-block left">
+                                <dl class="person-info">
+                                    <dt>
+                                        <label for="addressInput">街道</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="addressInput"
+                                                   placeholder="街道"
+                                                   maxlength="60"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="cityInput">城市</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="cityInput"
+                                                   placeholder="城市"
+                                                   maxlength="60"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="countryInputCreate">地区</label>
+                                    </dt>
+                                    <dd>
+                                        <a class="address current-selected" name="country" data-id="address_country"
+                                           id="countryInputCreate">选择</a>
+                                    </dd>
+                                    <dt>
+                                        <label for="stateInput">状态</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="stateInput"
+                                                   placeholder="状态"
+                                                   maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="zipInput">邮政编码</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="zipInput"
+                                                   placeholder="邮政编码"
+                                                   maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="phoneInput">电话号码</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="phoneInput"
+                                                   placeholder="电话号码"
+                                                   maxlength="20"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="mobileInput">手机号码</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="mobileInput"
+                                                   placeholder="手机号码"
+                                                   maxlength="20"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                        <div class="clearfix">
+                            <div class="cropImages form" style="display:none;">
+                                <div class="formTitle">
+                                    <h3 class="left">裁剪图片</h3>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="image_input" style="float: left;margin-right: 20px;"></div>
+                                <img class="image_output"/>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="dialog-tabs-item">
+                        <div id="salesPurchases-container"></div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

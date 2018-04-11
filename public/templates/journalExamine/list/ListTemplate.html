@@ -1,0 +1,24 @@
+<% var number=1%>
+<% collection.forEach(function(journal, index){ %>
+<tr data-id="<%=journal._id%>">
+    <td><%=number%></td>
+    <% number=number+1 %>
+    <td class="editable" data-content="date"><%=journal.createdBy.date%></td>
+    <td class="editable" data-content="name"><%=journal.name%></td>
+    <td class="editable" id="debitAccount"><%=(journal.debitAccount && journal.debitAccount.name) ? journal.debitAccount.name : ''%></td>
+    <td class="editable" id="creditAccount"><%=(journal.creditAccount && journal.creditAccount.name) ? journal.creditAccount.name : ''%></td>
+    <% if(journal.examine=='unExamine'){%>
+    <td class="editable" data-content="examine">未审核</td>
+    <%} else {%>
+    <td class="editable" data-content="examine">审核通过</td>
+    <%}%>
+    <% if(journal.examine=='pass'){%>
+    <% if(journal.post=='Post') {%>
+    <td class="editable" data-content="post" id="post" data-name="bePost">已过账</td>
+    <%} else {%>
+    <td class="editable" data-content="post" id="post" data-name="canPost">可过账</td>
+    <%}} else  {%>
+    <td class="editable" data-content="post" id="post" data-name="canNotPost">无法过账</td>
+    <%}%>
+</tr>
+<% }) %>

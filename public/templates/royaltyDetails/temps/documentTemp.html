@@ -1,0 +1,49 @@
+<% var cost = model.project.bidCost*(model.comRate/100); %>
+<div class="_invoiceTemplate">
+    <div class="extractPdf">
+        <div class="_templateHeader">
+            <div class="_headerRightPart">
+                <div class="_entityBlock">
+                    <div class="_entityTitle">提成明细</div>
+                    <div class="_entityNumber"><b><%=model.project.name || ''%></b></div>
+                </div>
+            </div>
+        </div>
+        <table class="_templateTable tableFixed">
+            <colgroup>
+                <col width="80px">
+                <col width="20%">
+                <col width="20%">
+                <col width="20%">
+                <col width="20%">
+                <col width="20%">
+            </colgroup>
+            <thead>
+            <tr>
+                <th style="text-align:center">序号</th>
+                <th style="text-align:center">姓名</th>
+                <th style="text-align:center">比例</th>
+                <th style="text-align:center">扣款</th>
+                <th style="text-align:center">提成</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% model.persons.forEach(function(person, index){ %>
+            <tr data-id="<%=person.name._id%>">
+                <td style="text-align:center"><%=index + 1%></td>
+                <td style="text-align:center"><%=person.name.name.first+person.name.name.last%></td>
+                <td style="text-align:center"><%=person.scale%></td>
+                <td style="text-align:center"><%=person.deductions?person.deductions: 0%></td>
+                <td style="text-align:center"><%=cost*(person.scale/100)-person.deductions%></td>
+                <td>
+                    <a href="javascript:;" class="icon-note goToEdit _actionCircleBtn" aria-hidden="true"></a>
+                    <a href="javascript:;" class="icon-trash goToRemove _actionCircleBtn" aria-hidden="true"></a>
+                </td>
+            </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+</div>

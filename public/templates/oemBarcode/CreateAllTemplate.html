@@ -1,0 +1,47 @@
+<div class="form-holder">
+    <form method="post" action="" class="form" id="stockCorrection">
+        <fieldset>
+            <div class="inner">
+
+                <div class="clearfix"></div>
+
+                <div class="topPanel">
+                    <h2>批量来料退货</h2>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="topInputHolder">
+                    <div class="half-block left">
+                        <dl class="">
+                            <dt><label for="projectId">工程名称</label></dt>
+                            <dd><input id="projectId" type="text" style="border: 0;" data-id="<%=model[0]._id%>" value="<%= model[0].projectId.name %>" readonly="readonly"/></dd>
+                        </dl>
+
+                        <dl class="opp-info">
+                            <dt><label for="deliverNumber">发货车次</label></dt>
+                            <dd><input id="deliverNumber" type="text" style="border: 0;" value="<%= model[0].trips %>" readonly="readonly"/></dd>
+                        </dl>
+
+                    </div>
+                    <div class="half-block right">
+                        <dl class="opp-info">
+                            <dt><label for="orderNumber">退货单号</label></dt>
+                            <dd><input id="orderNumber" type="text" style="border: 0;" value="<%= model[0].orderNumber %>" readonly="readonly"/></dd>
+                        </dl>
+
+                        <dl class="opp-info">
+                            <dt><label for="wareOpinion">仓库退货意见</label></dt>
+                            <dd><input id="wareOpinion" type="text" value=""/></dd>
+                        </dl>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div id="productItemsHolder" class="_SkuItemsHolder"></div>
+                <div id="goodsHolder" class="_goodsHolder">
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </fieldset>
+    </form>
+</div>

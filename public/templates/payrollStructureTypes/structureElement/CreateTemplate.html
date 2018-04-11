@@ -1,0 +1,55 @@
+<div class="form-holder">
+    <div class="settings_modal">
+        <form method="post" action="" class="form" id="invoiceForm">
+            <div class="clearfix"></div>
+            <h3><%= name ? '更新' : '新建'%> <%= type %> 组成项</h3>
+            <div class="clearfix"></div>
+            <div class="setting_element half-block left">
+                <span class="_setInputTitle">名称: </span>
+                <input id="structureComponentName"
+                       maxlength="40"
+                       size="40"
+                       type="text"
+                       value="<%= name || ''%>">
+            </div>
+            <div class="setting_element half-block right">
+                <dl class="opp-info">
+                    <label for="range">变动范围</label>
+                    <div class="check_wrap">
+                        <input id="range" type="checkbox"/>
+                    </div>
+                    <dt>
+                        <label style="display: none"
+                               for="minRange"
+                               class="minRange">最低
+                        </label>
+                    </dt>
+                    <dd>
+                        <input style="display: none"
+                               class="minRange"
+                               id="minRange" value="0"/>
+                    </dd>
+                    <dt>
+                        <label style="display: none"
+                               class="maxRange"
+                               for="maxRange">最高
+                        </label>
+                    </dt>
+                    <dd>
+                        <input style="display: none"
+                               class="maxRange"
+                               id="maxRange"
+                               value="0"/>
+                    </dd>
+                </dl>
+            </div>
+            <div class="setting_element half-block left">
+                <span class="_setInputTitle">计算公式: </span>
+                <span id="formula"></span>
+                <span>
+                    <a href="javascript:;" id="addFormulaElement">...</a>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>

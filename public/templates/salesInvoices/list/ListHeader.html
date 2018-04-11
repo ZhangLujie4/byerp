@@ -1,0 +1,56 @@
+﻿<div id="searchContainer"></div>
+<div class="_tableSalesInvoicesWrap">
+    <table class="list stripedList">
+        <colgroup>
+            <col width="42px">
+            <col width="14%">
+            <col width="14%">
+            <col width="14%">
+            <col width="14%">
+            <col width="7%">
+            <col width="7%">
+            <col width="7%">
+            <col width="7%">
+            <col width="7%">
+            <col width="9%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="centerCell"><input type="checkbox" id="checkAll"/></th>
+            <th class="oe_sortable" data-sort="supplier.name.first">客户<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="name">发票号码<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="paymentDate">付款日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="salesPerson.name.first"><%= currentDb ? '分配' : 'SalesPerson'%><span
+                    class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="dueDate">剩余时间<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="paymentInfo.balance">未付款<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="paid">已付款<span
+                    class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="paymentInfo.total">总量<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="workflow.name approved">状态<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="invoiceDate">发票日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <!--<th class="oe_sortable" data-sort="validated">Validated<span class="arrow down"></span><span-->
+            <!--class="arrow up"></span></th>-->
+        </tr>
+        </thead>
+        <tbody id="listTable" class="enableTableOdd"></tbody>
+        <tfoot id="listTotal">
+        <tr>
+            <td colspan="6"></td>
+            <td class="money"> <span id="balance"></span></td>
+            <td class="money"><span id="paid"></span></td>
+            <td class="money"><span id="total"></span></td>
+        </tr>
+        </tfoot>
+    </table>
+</div>

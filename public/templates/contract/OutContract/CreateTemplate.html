@@ -1,0 +1,386 @@
+<div class="form-holder task-create-holder">
+    <form method="post"
+          action=""
+          id="createTaskForm"
+          class="form notDialog">
+        <fieldset>
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">主要内容</a></li>
+                <li><a href="javascript:;">付款相关选项</a></li>
+                <li><a href="javascript:;">相关责任</a></li>
+                <li><a href="javascript:;">质量要求&备注</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                    <!--div class="half-block left withPaddingLeftProject">
+                        <div class="inner">
+                            <div class="textarea-wrapper">
+                                <textarea class="taskDescriptionCreate"
+                                          name="description"
+                                          placeholder="Add a Description..."
+                                          id="description"
+                                          maxlength="500"
+                                          required >
+                                </textarea>
+                            </div>
+                        </div>
+                    </div-->
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt>
+                                    <label>工程名称</label>
+                                </dt><dd><div class="_modalList">
+                                <div class=" _modalSelect _newSelectListWrap">
+                                    <a id="projectDd"
+                                       class="current-selected"
+                                       href="javascript:;">工程名称
+                                    </a>
+                                </div></div></dd>
+                                <!--<dt><label for="workflowNamesDd">Workflow</label></dt>
+                                    <dd>
+                                      <a id="workflowNamesDd" class="current-selected" href="javascript:;"></a>
+                                    </dd>-->
+                                <dt>
+                                    <label for="workflowsDd">阶段</label>
+                                </dt><dd><div class="_modalList">
+                                <div id="selectWorkflow"
+                                     class="_modalSelect _newSelectListWrap">
+                                    <a id="workflowsDd"
+                                       class="current-selected"
+                                       href="javascript:;">
+                                    </a>
+                                </div></div></dd>
+                                <dt>
+                                    <label for="type">合同类型</label>
+                                </dt>
+                                <dd><input type="text" id="type" style="border: hidden" value="外加工合同" readonly="true"> </dd>
+
+                                <!--dt>
+                                    <label>建设单位</label>
+                                </dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="customerDd"
+                                       class="current-selected"
+                                       href="javascript:;">单位
+                                    </a>
+                                </dd-->
+                                <dt>
+                                    <label>项目经理</label>
+                                </dt>
+                                <dd><input type="text" id="pmrDd" style="border: hidden" readonly="true"> </dd>
+                                <input id="pmrId" type="hidden">
+                                <dt>
+                                    <label for="supplier">供货商</label>
+                                </dt>
+
+                                <dd>
+                                    <div class="_modalList">
+                                        <div id="selectsupplier"
+                                             class="_modalSelect _newSelectListWrap">
+                                            <a id="supplier"
+                                               class="current-selected"
+                                               href="javascript:;">供货商
+
+                                            </a>
+                                        </div>
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="descriptions">工程简述</label>
+                                </dt>
+                                <dd><input type="text" id="descriptions" style="width: 280px;border: hidden" readonly="true" > </dd>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--<dt><label for="deadline">Deadline </label></dt>
+                        <dd><input class="blueback" type="text" name="deadline" id="deadline" readonly /></dd>-->
+                    <!--dt>
+                        <label for="priorityDd">优先级</label>
+                    </dt>
+                    <dd class="_newSelectListWrap">
+                        <a id="priorityDd"
+                           class="current-selected"
+                           href="javascript:;">
+                        </a>
+                    </dd-->
+                    <!--dt>
+                        <label for="StartDate">开始日期</label>
+                    </dt>
+                    <dd>
+                        <div class="_inputIconWrap">
+                            <input class="extrainfo"
+                                   type="text"
+                                   name="StartDate"
+                                   id="StartDate"
+                                   value=""
+                                   readonly
+                                   placeholder="Start Date"/>
+                            <label></label>
+                        </div>
+                    </dd-->
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt>
+                                    <label for="signedDate">合同签订日期</label>
+                                </dt>
+                                <dd>
+                                    <div class="_inputIconWrap">
+                                        <input class="extrainfo"
+                                               type="text"
+                                               name="StartDate"
+                                               id="signedDate"
+                                               value=""
+                                               readonly/></div>
+                                </dd>
+                                <dt>
+                                    <label for="proDate">供货期</label>
+                                </dt>
+                                <dd>
+                                    <div class="_inputIconWrap">
+                                        <input class="extrainfo"
+                                               type="text"
+                                               name="StartDate"
+                                               id="proDate"
+                                               value=""
+                                               readonly/></div>
+                                </dd>
+                                <dt>
+                                    <label for="taskAmount">合同金额</label>
+                                </dt>
+                                <dd>
+                                    <input type="text" id="taskAmount" class="onlyNumber" style="width: 160px" /><i>万元</i>
+                                </dd>
+                                <dt>
+                                    <label for="sealType">申请印章类别</label>
+                                </dt>
+                                <dd><div class="_modalList">
+                                    <div id="selectSealType"
+                                         class="_modalSelect _newSelectListWrap">
+                                        <a id="sealType"
+                                           class="current-selected"
+                                           href="javascript:;">类别
+                                        </a>
+                                    </div>
+                                </div></dd>
+                                <!--dt>
+                                    <label for="payTerm">付款方式</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           id="payTerm"/>
+                                </dd-->
+                                <!--dt>
+                                    <label for="estimated">工程量</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+
+                                           name="estimated"
+                                           id="estimated"
+                                           class="onlyNumber"
+                                           placeholder="Estimated"/>
+                                </dd>
+
+                                        <dt>
+                                            <label for="summaryTask">总量</label>
+                                        </dt>
+                                        <dd>
+                                            <input type="text"
+                                               name="summary"
+
+                                               id="summaryTask"
+                                               required
+                                               placeholder="Summary"/>
+                                        </dd-->
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-tabs-item">
+                    <div class="half-block left withPaddingLeftProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt>
+                                    <label for="payTerm">付款方式</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           id="payTerm"/>
+                                </dd>
+                                <dt>
+                                    <label for="payProp">付款比例</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           id="payProp"
+                                           style="width: 90%"    /><i>%</i>
+                                </dd>
+                                <dt>
+                                    <label for="preAmount">预付款</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           id="preAmount" style="width: 80%"/><i>万元</i>
+                                </dd>
+                                <dt>
+                                    <label for="preAmountType">预付款相关条件</label>
+                                </dt>
+                                <dd><div class="_modalList">
+                                    <div id="selectPreAmountType"
+                                         class="_modalSelect _newSelectListWrap">
+                                        <a id="preAmountType"
+                                           class="current-selected"
+                                           href="javascript:;">类型
+                                        </a>
+                                    </div></div></dd>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt>
+                                    <label for="paymentType">付款条件</label>
+                                </dt>
+                                <dd><div class="_modalList">
+                                    <div id="selectPaymentType"
+                                         class="_modalSelect _newSelectListWrap">
+                                        <a id="paymentType"
+                                           class="current-selected"
+                                           href="javascript:;">类型
+                                        </a>
+                                    </div>
+                                </div> </dd>
+                                <dt>
+                                    <label for="payType">所有附加条件</label>
+                                </dt><dd><div class="_modalList">
+                                <div id="selectPayType"
+                                     class="_modalSelect _newSelectListWrap">
+                                    <a id="payType"
+                                       class="current-selected"
+                                       href="javascript:;">类型
+                                    </a>
+                                </div></div> </dd>
+                                <dt>
+                                    <label for="carriage">运费选项</label>
+                                </dt><dd><div class="_modalList">
+                                <div id="selectCarriage"
+                                     class="_modalSelect _newSelectListWrap">
+                                    <a id="carriage"
+                                       class="current-selected"
+                                       href="javascript:;">类型
+                                    </a>
+                                </div></div> </dd>
+                                <dt>
+                                    <label for="quota">限额选项</label>
+                                </dt><dd><div class="_modalList">
+                                <div id="selectQuota"
+                                     class="_modalSelect _newSelectListWrap">
+                                    <a id="quota"
+                                       class="current-selected"
+                                       href="javascript:;">类型
+                                    </a>
+                                </div></div></dd>
+
+                                <!--dt>
+                                    <label for="payTerm">付款方式</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           id="payTerm"/>
+                                </dd-->
+                                <!--dt>
+                                    <label for="estimated">工程量</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+
+                                           name="estimated"
+                                           id="estimated"
+                                           class="onlyNumber"
+                                           placeholder="Estimated"/>
+                                </dd>
+
+                                        <dt>
+                                            <label for="summaryTask">总量</label>
+                                        </dt>
+                                        <dd>
+                                            <input type="text"
+                                               name="summary"
+
+                                               id="summaryTask"
+                                               required
+                                               placeholder="Summary"/>
+                                        </dd-->
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-tabs-item">
+                    <div class="half-block left withPaddingLeftProject">
+                        <div class="inner">
+                            <dt>
+                                <label for="respons">双方责任:</label>
+                            </dt>
+                            <div class="textarea-wrapper">
+                                <textarea class="taskDescriptionCreate"
+                                          name="description"
+                                          id="respons"
+                                          maxlength="500"
+                                          required ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="half-block left withPaddingLeftProject">
+                        <div class="inner">
+                            <dt>
+                                <label for="violation">违约责任:</label>
+                            </dt>
+                            <div class="textarea-wrapper">
+                                <textarea class="taskDescriptionCreate"
+                                          name="description"
+                                          id="violation"
+                                          maxlength="500"
+                                          required ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-tabs-item">
+                    <div class="inner">
+                        <dt>
+                            <label for="quality">质量要求:</label>
+                        </dt>
+                        <div class="textarea-wrapper">
+                                <textarea class="taskDescriptionCreate"
+                                          name="description"
+                                          id="quality"
+                                          maxlength="500"
+                                          required ></textarea>
+                        </div>
+                        <dt>
+                            <label for="note">备注:</label>
+                        </dt>
+                        <div class="textarea-wrapper">
+                                <textarea class="taskDescriptionCreate"
+                                          name="description"
+                                          id="note"
+                                          maxlength="500"
+                                          required ></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

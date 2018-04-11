@@ -1,0 +1,12 @@
+<% workPointCollection.forEach(function(item, index){ %>
+<tr data-id="<%=item._id%>">
+    <td class="notForm">
+        <label class="_customCHeckbox">
+            <input type="checkbox" value="<%=item._id%>" class="checkbox"/>
+            <span></span>
+        </label>
+    </td>
+    <td><%=(item.employee && item.employee.name)? (item.employee.name.first+item.employee.name.last): ''%></td>
+    <td><%= item.point%></td>
+</tr>
+<%})%>

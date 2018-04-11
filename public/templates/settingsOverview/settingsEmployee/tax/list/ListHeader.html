@@ -1,0 +1,33 @@
+<div class="_acountingTitleBlock _forOverview">
+    <a href="javascript:;" class="btn blue slim icon-plus btnPositioned" title="Create" id="top-bar-createBtn">新建</a>
+</div>
+
+<div id="searchContainer"></div>
+<div class="_acountingTableBlock">
+    <table class="list task-list">
+        <col width="5%">
+        <col width="10%">
+        <col width="10%">
+        <col width="10%">
+        <col width="10%">
+        <col width="55%">
+        <thead>
+        <tr>
+            <th class="centerCell" data-sort="level">N</th>
+            <th data-sort="low">
+                下界
+            </th>
+            <th data-sort="high">
+                上界
+            </th>
+            <th data-sort="rate">
+                税率
+            </th>
+            <th data-sort="countDeduction">
+                速算扣除数
+            </th>
+        </tr>
+        </thead>
+        <tbody id="listTable<%= type %>" class="enableTableOdd"></tbody>
+    </table>
+</div>

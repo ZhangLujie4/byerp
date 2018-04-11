@@ -1,0 +1,39 @@
+﻿﻿<div class="_tableOpportunitiesWrap">
+    <h2 style="font-size: 20px;">扫码情况</h2>
+    <table class="list stripedList" style="min-width: 1000px;">
+        <colgroup>
+            <col width="25%">
+            <col width="25%">
+            <col width="25%">
+            <col width="25%">
+            <col width="25%">
+        </colgroup>
+        <thead>
+        <tr>
+
+            <th class="oe_sortable" data-sort="scantime" style="text-align: center;">扫码日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="barcodeId" style="text-align: center;">条码EAN13码<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="groupid" style="text-align: center;">班组<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="price" style="text-align: center;">单价(元)<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="acreage" style="text-align: center;">面积(㎡)<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+
+        </tr>
+        </thead>
+        <tbody>
+            <% model.forEach(function(model, index){ %>
+            <tr data-index="<%=index%>" data-id="<%= model._id%>" >
+                <td class="centerCell"><%=new Date(model.scantime).toLocaleString()%></td>
+                <td class="centerCell"><%=model.barCode.barId%></td>
+                <td class="centerCell"><%=model.workGroup.groupId%></td>
+                <td class="centerCell"><%=model.price%></td>
+                <td class="centerCell"><%=model.area.toFixed(3)%></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>

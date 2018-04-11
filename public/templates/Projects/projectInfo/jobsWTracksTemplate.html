@@ -1,0 +1,39 @@
+<div class="innerTableProject">
+    <table class="list">
+        <thead>
+        <tr>
+            <th>资源</th>
+            <th>工单位置</th>
+            <th>部门</th>
+            <th>工时</th>
+
+        </tr>
+        </thead>
+
+        <tbody id="wTracks" class="enableTableOdd">
+        <% jobItem.revenue.forEach(function(element,i){ %>
+            <%if(element && element.employee && element.employee._id){%>
+                <tr data-id="<%=element.employee._id%>" id="<%=jobItem._id + '_' + element.employee._id%>">
+                    <td><%=element.employee.name%></td>
+                    <td><%=element.employee.jobPosition%></td>
+                    <td><%=element.department%></td>
+                    <td><%=currencySplitter(element.employee.worked.toFixed())%></td>
+                    <!--<td colspan="15"></td>-->
+                </tr>
+            <%}%>
+        <% })%>
+        </tbody>
+
+        <tfoot class="innerTableProject-footer">
+        <tr>
+            <td colspan="15"></td>
+            <td>
+                <a href="javascript:;" data-id="<%=jobItem._id%>" data-value="<%=jobItem.name%>"
+                   id="createItem">
+                    生成更多工时卡
+                </a>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>

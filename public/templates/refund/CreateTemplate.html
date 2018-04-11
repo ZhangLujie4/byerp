@@ -1,0 +1,70 @@
+<div class="form-holder _newForm">
+    <form method="post" action="" id="createPaymentForm">
+        <h2 class="_dialogMainTitle">创建退款</h2>
+        <div class="_formWrap">
+            <div class="_formBlock">
+                <div class="_animateInputBox">
+                    <span class="_staticLabel">供应商</span>
+                    <span class="_staticInfo"
+                          id="supplierDd"
+                          data-id="<%=model.supplier._id%>">
+                            <%=model.supplier.name.first + ' ' + model.supplier.name.last%>
+                    </span>
+                </div>
+                <div class="_animateInputBox" id="prepaidAmountDd">
+                    <input type="text"
+                           class="_animate"
+                           name="amount"
+                           id="amount"
+                           maxlength="10"
+                           value="<%=amount%>"
+                           required>
+                    <label class="_animate">金额
+                        <span><%=model.currency && model.currency._id &&  model.currency._id.symbol ? model.currency._id.symbol :  model.currency.symbol%></span>
+                    </label>
+                </div>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">银行帐号</span>
+                    <div class="_newSelectListWrap">
+                        <a id="paymentMethod"
+                           class="current-selected"
+                           href="javascript:;"
+                           data-id="<%=model.paymentMethod ?model.paymentMethod._id : 'null'%>">
+                            <%=model.paymentMethod ?model.paymentMethod.name : 'Select'%>
+                        </a>
+                    </div>
+                </div>
+                <div class="_animateInputBox" id='journalDiv'>
+                    <span class="_staticLabel">科目</span>
+                    <span class="_staticInfo"
+                          id="account"
+                          data-id="<%=account ? account._id : 'null'%>">
+                        <%=account ? account.name : ''%>
+                    </span>
+                </div>
+                <div class="_animateInputBox">
+                    <span class="_staticLabel">日期</span>
+                    <input id="paymentDate"
+                           class="_animate extrainfo"
+                           type="text"
+                           name="paymentDate"
+                           required>
+                </div>
+                <div class="_animateInputBox">
+                    <span class="_staticLabel">原始文件</span>
+                    <span class="_staticInfo"
+                          id="paymentRef"
+                          data-id="<%=model._id%>"><%=model.name%></span>
+                </div>
+                <div class="_animateInputBox">
+                    <span class="_staticLabel">货币</span>
+                    <span class="_staticInfo"
+                          id="currencyDd"
+                          data-id="<%= model.currency && model.currency._id && model.currency._id._id ? model.currency._id._id : model.currency._id%>">
+                     <%= model.currency && model.currency._id && model.currency._id.name ? model.currency._id.name : model.currency.name%>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

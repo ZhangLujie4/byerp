@@ -1,0 +1,193 @@
+﻿﻿<div class="form-holder task-create-holder" style="margin-bottom: 12px;">
+    <form method="post" action="" id="editWorkOrderForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <div class="clearfix"></div>
+            <div class="topInputHolder">
+                <h2>退货条码详情</h2>
+            </div>
+                   
+            <div class="half-block left withPaddingRightProject">
+                <div class="inner">
+                    <div class="task-info">
+                        <dt><label for="barId">条码编号</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="barId"
+                                   id="barId" 
+                                   value="<%= model.barId %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="lbmc">铝板名称</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="lbmc"
+                                   id="lbmc" 
+                                   value="<%= model.orderRowId.lbmc %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="sfyx">是否异形</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="sfyx"
+                                   id="sfyx" 
+                                   value="<%= model.orderRowId.sfyx %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="sqm">双曲面</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="sqm"
+                                   id="sqm" 
+                                   value="<%= model.orderRowId.sqm %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="szjys">三折及以上</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="szjys"
+                                   id="szjys" 
+                                   value="<%= model.orderRowId.szjys %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="cjlhf">长距离焊缝(mm)</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="cjlhf"
+                                   id="cjlhf" 
+                                   value="<%= model.orderRowId.cjlhf %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="kc">开槽长度(m)</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="kc"
+                                   id="kc" 
+                                   value="<%= model.orderRowId.kc %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="dkjjmj">单位计价面积(㎡)</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="dkjjmj"
+                                   id="dkjjmj" 
+                                   value="<%= model.orderRowId.dkjjmj %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="jgsh">加工色号</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="jgsh"
+                                   id="jgsh" 
+                                   value="<%= model.orderRowId.jgsh %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="jgth">加工图号</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="jgth"
+                                   id="jgth" 
+                                   value="<%= model.orderRowId.jgth %>" style="border:none;" readonly=""/>
+                        </dd>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="half-block left withPaddingRightProject">
+                <div class="inner">
+                    <div class="task-info">
+                        <dt><label for="orderNumber">退货单号</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="orderNumber"
+                                   id="orderNumber" 
+                                   value="<%= model.orderNumber %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="lbbh">铝板编号</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="lbbh"
+                                   id="lbbh" 
+                                   value="<%= model.orderRowId.lbbh %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="W">W(mm)</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="W"
+                                   id="W" 
+                                   value="<%= model.orderRowId.W %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="L1">L1(mm)</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="L1"
+                                   id="L1" 
+                                   value="<%= model.orderRowId.L1 %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="L2">L2(mm)</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="L2"
+                                   id="L2" 
+                                   value="<%= model.orderRowId.L2 %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="L3">L3(mm)</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="L3"
+                                   id="L3" 
+                                   value="<%= model.orderRowId.L3 %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="L4">L4(mm)</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="L4"
+                                   id="L4" 
+                                   value="<%= model.orderRowId.L4 %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="L5">L5(mm)</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="L5"
+                                   id="L5" 
+                                   value="<%= model.orderRowId.L5 %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="L6">L6(mm)</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="L6"
+                                   id="L6" 
+                                   value="<%= model.orderRowId.L6 %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="wareOpinion">仓库意见</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="wareOpinion"
+                                   id="wareOpinion" 
+                                   value="<%= model.wareOpinion %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <dt>
+                  <label style="margin-left: 7px;">仓库处理意见:</label>
+                </dt>
+                <div class="inputBox">
+                    <textarea class="editable" id="handlOpinion" style="min-height: 70px;" value="<%=model.handlOpinion%>"><%=model.handlOpinion%></textarea>
+                </div>
+            </div>
+            
+        </fieldset>
+    </form>
+</div>

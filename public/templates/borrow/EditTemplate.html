@@ -1,0 +1,148 @@
+﻿﻿<div class="form-holder task-create-holder">
+    <form method="post" action="" id="editTaskForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">主要内容</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                    <div class="half-block left withPaddingLeft">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt><label for="pmr">项目经理:</label></dt>
+                                <dd  style="margin-top: 5px">
+                                    <input id="pmr" style="width: 150px;border: 0px" value="<%=model.pmr.name.first+' '+model.pmr.name.last%>" readonly>
+                                </dd>
+                                <dt><label for="project">工程名称:</label></dt>
+                                <dd  style="margin-top: 5px">
+                                    <input id="project" style="width: 150px;border: 0px" value="<%=model.project.name%>" readonly>
+                                </dd>
+                                <dt>
+                                    <label for="amount">金额</label>
+                                </dt>
+                                <dd>
+                                    <div>
+                                        <input
+                                                type="text"
+                                                name="amount"
+                                                id="amount"
+                                                style="width: 150px"
+                                                value="<%=model.amount%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="interest">累计利息</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="interest"
+                                                id="interest"
+                                                style="width: 150px;border: 0px;"
+                                                value="<%=model.interest%>"
+                                                readonly
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="examine">审核意见</label>
+                                </dt>
+                                <dd>
+                                    <div>
+                                        <input
+                                                type="text"
+                                                name="examine"
+                                                id="examine"
+                                                style="width: 150px"
+                                                value="<%=model.examine%>"
+                                        />
+                                    </div>
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt style="width: 200px">
+                                    <label for="day">借款日期</label>
+                                </dt>
+                                <dd style="width: 100px;">
+                                    <div class="_inputIconWrap">
+                                        <input class="extrainfo"
+                                               type="text"
+                                               name="day"
+                                               id="day"
+                                               style="width: 150px"
+                                               value="<%=model.day%>"
+                                               readonly/>
+                                    </div>
+                                </dd>
+                                <dt style="width: 200px">
+                                    <label for="targetDate">预计还款日期</label>
+                                </dt>
+                                <dd style="width: 100px;">
+                                    <div class="_inputIconWrap">
+                                        <input class="extrainfo"
+                                               type="text"
+                                               name="targetDate"
+                                               id="targetDate"
+                                               style="width: 150px"
+                                               value="<%=model.targetDate%>"
+                                               readonly/>
+                                    </div>
+                                </dd>
+                                <dt style="width: 200px">
+                                    <label for="rate1" >月息(预计还款日之前）</label>
+                                </dt>
+                                <dd style="width: 100px;">
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="rate1"
+                                                id="rate1"
+                                                style="width: 80px"
+                                                value="<%=model.rate1%>"
+                                        /><i>%</i>
+                                    </div>
+                                </dd>
+                                <dt style="width: 200px">
+                                    <label for="rate2">月息(预计还款日之后一年以内)</label>
+                                </dt>
+                                <dd style="width: 100px;">
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="rate2"
+                                                id="rate2"
+                                                style="width: 80px"
+                                                value="<%=model.rate2%>"
+                                        /><i>%</i>
+                                    </div>
+                                </dd>
+                                <dt style="width: 200px">
+                                    <label for="rate3">月息(预计还款日之后一年之后)</label>
+                                </dt>
+                                <dd style="width: 100px;">
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="rate3"
+                                                id="rate3"
+                                                style="width: 80px"
+                                                value="<%=model.rate3%>"
+                                        /><i>%</i>
+                                    </div>
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </fieldset>
+    </form>
+</div>

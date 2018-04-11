@@ -1,0 +1,100 @@
+<div class="form-holder _newForm">
+    <form method="post" action=""  id="invoiceForm">
+        <h4 class="_dialogMainTitle">新建 <%=title%></h4>
+        <div class="_formWrap _enlargedItemMargin">
+            <div class="_formBlock _equal">
+                <div class="_animateInputBox">
+                    <input type="text"
+                           class="_animate "
+                           id="name"
+                           required
+                           maxlength="48"/>
+                    <label class="_animate">仓库名称</label>
+                </div>
+                <div class="_checkboxWrap">
+                    <div class="_checkboxContainer">
+                        <label class="_animatedCheckbox">
+                            <input id="isOwn"
+                                   type="checkbox"
+                                   checked>
+                            <span></span>
+                        </label>
+                        <label for="isOwn">是否自有仓库</label>
+                    </div>
+                    <div class="_checkboxContainer">
+                        <label class="_animatedCheckbox">
+                            <input id="main"
+                                   type="checkbox"
+                                   checked>
+                            <span></span>
+                        </label>
+                        <label for="main">设定为主仓库</label>
+                    </div>
+                </div>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle"></span>
+                    <div class="_newSelectListWrap">
+                        <a id="account"
+                           name="account"
+                           class="current-selected"
+                           href="javascript:;">选择
+                        </a>
+                    </div>
+                </div>
+                <div class="_animateInputBox">
+                    <input type="text"
+                           name="street"
+                           class="_animate "
+                           id="street"
+                           required
+                           maxlength="60"/>
+                    <label class="_animate">街道</label>
+                </div>
+                <div class="_animateInputBox">
+                    <input type="text"
+                           name="city"
+                           class="_animate "
+                           id="city"
+                           required
+                           maxlength="60"/>
+                    <label class="_animate">城市</label>
+                </div>
+            </div>
+            <div class="_formBlock _equal">
+                <div class="_animateInputBox">
+                    <input type="text"
+                           name="state"
+                           class="_animate "
+                           id="state"
+                           required
+                           maxlength="32"/>
+                    <label class="_animate">省</label>
+                </div>
+                <div class="_animateInputBox">
+                    <input type="text"
+                           name="zip"
+                           class="_animate "
+                           id="zip"
+                           required
+                           maxlength="32"/>
+                    <label class="_animate">邮编</label>
+                </div>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">国家</span>
+                    <div class="_newSelectListWrap">
+                        <a id="country"
+                           name="address_country"
+                           class="current-selected"
+                           href="javascript:;">选择
+                        </a>
+                    </div>
+                </div>
+                <div class="_formBlock _equal">
+                    <div class="checkText">
+                        <span>如果设置为主仓库，将覆盖已有的设置</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

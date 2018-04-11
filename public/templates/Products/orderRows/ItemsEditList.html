@@ -1,0 +1,161 @@
+<% var firstProduct = true %>
+<% products.forEach(function(product){ %>
+<% var colorRow = (product.quantity === product.shipped) ? '' : (product.onHand || (product.quantity === product.fulfilled))  ? 'green' : 'red' %>
+<%var rowSpan = product.product ? 2 : 0;%>
+<%var colSpan = 0;%>
+<tr data-id="<%=product._id%>" data-hand="<%=product.onHand || 0%>"
+    <%if (product.product) {%>
+    class="productItem"
+    <%} else {%>
+    id='shippingRow'
+<%}%>
+>
+    <%if (!expense) {%>
+    <td data-name="productName" class="width20" rowspan="<%=rowSpan%>">
+        <div class="_newSelectListWrap">
+            <% if (notEditable) { %>
+            <%if (product.product) {%>
+            <span class="productsDd" data-content="productsDd"
+                  data-id="<%= product && product.product ? product.product._id : null%>"><%=product && product.product&& product.product.info ? product.product.info.SKU || product.product.name : '' %>
+            </span>
+            <% } else {%>
+            <span id="shippingDd" data-id="<%=shippingMethod ? shippingMethod._id : null%>"><%=shippingMethod ? shippingMethod.name : '运货'%></span>
+            <% } %>
+            <%} else {%>
+                <%if (product.product) {%>
+                <a class="<%= product.allocated || product.fulfilled ? '' : 'current-selected'%> productsDd"
+                   data-content="productsDd" href="javascript:;"
+                   data-id="<%= product && product.product ? product.product._id : null%>"><%=product && product.product &&
+                    product.product.info ? product.product.info.SKU || product.product.name : '' %></a>
+                <% } else {%>
+                <a href="javascript:;" id="shippingDd" class="current-selected" data-id="<%=shippingMethod ? shippingMethod._id : null%>"><%=shippingMethod ? shippingMethod.name : '运货'%></a>
+                <% } %>
+            <% } %>
+        </div>
+        <%colSpan++;%>
+    </td>
+    <%}%>
+    <td data-name="description" class="text-overflow jobs selectJobTd" rowspan="<%=rowSpan%>">
+        <div>
+            <div class="jobsWescWrap _newSelectListWrap">
+                <textarea class="productDescr" <%=notEditable ? 'readonly' : ''%>><%= product.description %></textarea>
+            </div>
+        </div>
+        <%colSpan++;%>
+    </td>
+    <td data-name="quantity" class="<%=!forSales ? 'editable' : ''%> forNum">
+        <%colSpan++;%>
+        <div>
+            <% if (notEditable) { %>
+            <span><%=product.quantity%></span>
+            <% } else { %>
+            <input id="quantity" class="quantity statusInfo forNum" <%=!product.product ? 'disabled' : ''%> maxlength="9" size=10 type="text"
+                   value="<%=product.quantity%>"/>
+            <% } %>
+        </div>
+    </td>
+    <td data-name="price" class="<%=notEditable  ? '' : 'editable'%> forNum">
+        <%colSpan++;%>
+        <div>
+            <% if(notEditable) { %>
+            <span class="currencySymbol"><%=(currency && currency._id ? currency._id.symbol : '') %></span>
+            <span><%=currencySplitter(product.unitPrice.toString())%></span>
+            <% } else { %>
+            <span class="currencySymbol"><%=(currency && currency._id ? currency._id.symbol : '') %></span>
+            <input
+                    id="editInput" class="statusInfo" maxlength="9" size=7 type="text"
+                    value="<%=currencySplitter(product.unitPrice.toString())%>"/>
+
+            <%} %>
+        </div>
+    </td>
+    <td data-name="priceQty" class="<%=!forSales ? 'editable' : ''%> forNum">
+        <%colSpan++;%>
+        <div>
+            <% if (notEditable) { %>
+            <span><%=product.priceQty ? product.priceQty : 0%></span>
+            <% } else { %>
+            <input id="priceQty" class="priceQty statusInfo forNum" <%=!product.product ? 'disabled' : ''%> maxlength="9" size=10 type="text"
+                   value="<%=product.priceQty ? product.priceQty : 0%>" readonly/>
+            <% } %>
+        </div>
+    </td>
+    <td data-name="subtotal" class="subtotal" style="text-align:left">
+        <%colSpan++;%>
+        <div>
+            <span class="currencySymbol"><%=(currency && currency._id ? currency._id.symbol : '') %></span><span
+                class="sum"><%= product.subTotal ? currencySplitter(product.subTotal.toString()) : ''%></span>
+        </div>
+    </td>
+    <% var parameter = ""; %>
+    <% product.parameters.forEach(function(para,index){ %>
+        <% if(index === 0){ %>
+            <% parameter = para.paraname + " : " + para.value; %>
+        <% }else if(para.value !== ""){ %>
+            <% parameter = parameter + " / " + para.paraname + " : " + para.value; %>
+        <% } %>
+    <% }); %>
+    <td style="text-align:left">
+        <div><span style="white-space:normal"><%=parameter%></span>
+        </div>
+    </td>
+    <td></td>
+</tr>
+<%if (rowSpan) {%>
+<tr class="info" data-id="<%=product._id%>">
+    <td colspan="<%=colSpan - 2%>" class="fullfilledHolder <%if (product.product) {%>
+       <%=colorRow%> scuItemHolder
+    <%}%>>">
+        <div class="fullfilledWrap">
+            <% if (forSales && product.product){ %>
+            <div class="scuList">
+                <% if (product.goodsNotes && product.goodsNotes.length){%>
+                出库单:
+               <% product.goodsNotes.forEach(function(elem,ind){%>
+                <%var filter = {name: {key: '_id',value: []}};%>
+                <%filter.name.value.push(elem._id);%>
+                <%var href = '/#easyErp/goodsOutNotes/tform/'+ elem._id + '/p=1/c=50/filter=' +
+                encodeURIComponent(JSON.stringify(filter));%>
+                <a href="<%=href%>"><%=ind !== 0 ? ', ' + elem.name || '___' : elem.name%></a><span><%=' (' + elem.quantity + ')'%></span>
+                <%})} %>
+            </div>
+            <div class="fullfilledInfo">
+                 <% if (product.fulfilled === product.quantity) { %>
+                <span class=""><span id="fullfilled"><%=(product.fulfilled || 0)%></span> 已出库,<%=(product.inStock || 0)  + ' 总量, ' + (product.onHand || 0) + ' 可用量' %></span>
+                <% } else { %>
+                <input type="number" id="allocated" class="_alocated" <%=availableVisible ? ' title=""' : 'disabled  title=""'%> value="<%=product.allocated || 0%>"/><span>已分配,</span>
+                <span class=""><span id="fullfilled"><%=(product.fulfilled || 0)%></span>  已出库,<%=(product.inStock || 0)  + ' 总量, ' + (product.onHand || 0) + ' 可用量' %></span>
+                <%}%>
+            </div>
+
+            <%} else {%>
+            <%if (!expense && product.product) {%>
+            <div class="fullfilledInfo">
+                <span class=""><span id="fullfilled"><%=(product.fulfilled || 0)%></span> 已入库, <%=(product.inStock || 0)  + ' 总量, ' + (product.onHand || 0) + ' 可用量' %></span>
+            </div>
+            <%}%>
+            <%}%>
+        </div>
+    </td>
+
+    <% if (!firstProduct && !product.allocated && !product.fulfilled && !product.goodsNotes) { %>
+        <td class="deleteCell centerCell">
+            <span title="Delete" class="icon-close5 removeProduct"></span>
+        </td>
+    <% } else { firstProduct = false } %>
+</tr>
+<%}%>
+
+<tr>
+    <!-- <td colspan="9" class="addProductItem"></td> -->
+</tr>
+<% }); %>
+
+<%if(!notEditable) {%>
+<!-- <tr>
+    <td colspan="9" class="addProductItem">
+        <a href="javascript:;">新增</a>
+    </td>
+</tr> -->
+<%}%>
+

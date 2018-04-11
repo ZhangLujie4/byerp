@@ -1,0 +1,53 @@
+<div class="_invoiceTemplate">
+    <div class="extractPdf">
+        <div class="_entityTitle" style="text-align: end">发货单记录</div>
+        <table class="_templateTable tableFixed">
+            <colgroup>
+                <col width="55px">
+                <col width="13%">
+                <col width="13%">
+                <col width="13%">
+                <col width="13%">
+                <col width="13%">
+                <col width="12%">
+                <col width="13%">
+            </colgroup>
+            <thead>
+            <tr>
+                <th >序号</th>
+                <th style="text-align: left">发货单编号</th>
+                <th>发货日期</th>
+                <th style="text-align: left">到货日期</th>
+                <th style="text-align: left">截止日期</th>
+                <th style="text-align: left">总金额</th>
+                <th style="text-align: left">总面积</th>
+                <th style="text-align: left">已支付金额</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <% model.forEach(function(note, index){ %>
+            <tr data-id="<%=note._id%>">
+                <td class="note"><%=index + 1%></td>
+                <td style="text-align: left" class="note"><%=note.name%></td>
+                <td class="note"><%=moment(note.date).format('YYYY-MM-DD')%></td>
+                <% if(note.confirmDate){%>
+                <td style="text-align: left" class="note"><%=moment(note.confirmDate).format('YYYY-MM-DD')%></td>
+                <%} else {%>
+                <th style="text-align: left" class="note">未到货</th>
+                <%}%>
+                <% if(note.dueDate){%>
+                <td style="text-align: left" class="note"><%=moment(note.dueDate).format('YYYY-MM-DD')%></td>
+                <%} else {%>
+                <th style="text-align: left">未到货</th>
+                <%}%>
+                <td style="text-align: left" class="totalAmount"><%=note.totalAmount%></td>
+                <td style="text-align: left" class="totalArea"><%=note.totalArea%></td>
+                <td style="text-align: left" class="note"><%=note.paidAmount/100%></td>
+            </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+</div>

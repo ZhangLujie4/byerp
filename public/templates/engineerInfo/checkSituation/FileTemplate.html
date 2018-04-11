@@ -1,0 +1,21 @@
+<div class="form-holder checkSituation-show-holder"> 
+    <form enctype="multipart/form-data" id="<%= elementId %>" action="" method="POST">
+        <h3>附件</h3>
+        <div id="attachBody">
+            <ul class="attachContainer">
+                <% if (attachments){ attachments.reverse();%>
+                <% _.each(attachments, function(data,key){ %>
+                <li class="attachFile_<%=data['_id'] %>"><a href="download/<%=data.shortPas%>">
+                <%=data.name %></a>
+                </li>
+                <% }); attachments.reverse();} %>
+            </ul>
+        </div>
+
+        <div class="progress" style="float:left;">
+            <div class="bar">
+                <span class="status"></span>
+            </div>
+        </div>
+    </form>
+</div>

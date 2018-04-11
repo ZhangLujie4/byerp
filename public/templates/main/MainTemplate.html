@@ -1,0 +1,55 @@
+<div id="popup-holder">
+    <div class="popup"></div>
+</div>
+
+<%  var isBaned = profile.profileName === 'baned';
+var imgUrl;
+var name;
+
+if (!imageSrc && relatedEmployee) {
+imgUrl = relatedEmployee.imageSrc;
+name = relatedEmployee.name ? relatedEmployee.name.first + ' ' + relatedEmployee.name.last : '';
+}
+
+name = name || login || 'Nick';
+imgUrl = imageSrc || imgUrl || 'http://cdn.slidesharecdn.com/profile-photo-johndoewho-48x48.jpg';
+%>
+
+<div id="topbar-holder" class="topbarHolder <%= isBaned ? 'banned' : '' %>">
+    <div id="logo" class="topbarLogo">
+        <a href="javascript:;" class="mainLogo">宝业<span>Erp</span></a>
+        <div class="sidebarToggler">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="loginPanel" id="loginPanel">
+        <div class="dropdownButton">
+            <img src="<%= imgUrl %>"
+                 alt="logo"
+                 class="iconEmployee"/>
+            <span id="userName" class="userName"><%= name %></span>
+
+            <ul class="loginList">
+                <% if(!isBaned) {%>
+                <li id="userpage"><a href="#easyErp/myProfile">我的配置</a></li>
+                <%};%>
+                <li id="logout"><a href="/logout">退出</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="submenuHolder" class="sideMenu">
+    <nav></nav>
+</div>
+
+<div class="content_wrapper">
+    <div id="top-bar" class="top-bar"></div>
+    <div id="content-holder" class="content-holder">
+    </div>
+</div>
+<!-- <div class="clearfix"></div> -->
+
+<!-- </div> -->

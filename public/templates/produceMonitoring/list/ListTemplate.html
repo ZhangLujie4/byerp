@@ -1,0 +1,9 @@
+<% produceMonitoringCollection.forEach(function(produceMonitoring, index){ %>
+<tr data-index="<%=index%>" data-id="<%= produceMonitoring._id%>" id="master">
+    <td class="centerCell"><input type="checkbox" value="<%=produceMonitoring._id%>" class="checkbox"/></td>
+    <td class="centerCell"><%=(produceMonitoring.projectName) ? produceMonitoring.projectName.name : ''%></td>
+    <td class="centerCell"><%=produceMonitoring.orderNumber%></td>
+    <td class="centerCell"><%=produceMonitoring.day%></td>
+    <td class="centerCell"><%=produceMonitoring.totalProcess%></td>
+</tr>
+<% }) %>

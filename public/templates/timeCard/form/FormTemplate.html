@@ -1,0 +1,34 @@
+<div class="tableFixedWrap payRoll-list-wrap">
+
+        <table class="list stripedList" id="payRoll-listTable">
+            <colgroup class="borders" span="7">
+                <col span="1" width="25%">
+                <col span="1" width="25%">
+                <col span="1" width="25%">
+                <col span="1" width="25%">
+
+            </colgroup>
+            <thead>
+            <tr>
+                <th class="oe_sortable" data-sort="employee.name.first">姓名<span class="arrow down"></span><span
+                        class="arrow up"></span></th>
+                <th>时间</th>
+                <th>上班时间</th>
+                <th>下班时间</th>
+            </tr>
+            </thead>
+            <tbody id="payRoll-TableBody">
+            <% collection.forEach(function(model, index){ %>
+
+            <tr data-id="<%=model._id%>" class="mainTr">
+                <td class="" data-id="<%=model.employee%>" data-content="employee"><%=model.name%></td>
+                <td data-content="date"><%=model.year +'年'+ model.month+ '月' +model.day+'日'%></td>
+                <td data-content="stdate"><%=moment(new Date(model.amin)).format('YYYY-MM-DD HH:mm:ss')%></td>
+                <td data-content="enddate"><%=model.otout ? moment(new Date(model.otout)).format('YYYY-MM-DD HH:mm:ss'): moment(new Date(model.pmout)).format('YYYY-MM-DD HH:mm:ss')%></td>
+            </tr>
+
+            <% }) %>
+            </tbody>
+        </table>
+
+</div>

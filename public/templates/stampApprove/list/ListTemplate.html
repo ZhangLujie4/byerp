@@ -1,0 +1,12 @@
+<% stampApproveCollection.forEach(function(stamp, index){ %>
+<tr data-index="<%= index %>" data-id="<%= stamp._id%>">
+    <td class="centerCell"><input type="checkbox" value="<%=stamp._id%>" data-id="<%=stamp._id%>" class="checkbox"/></td>
+    <td data-id="<%=stamp.projectName._id%>"><%=stamp.projectName.name%></td>
+    <td><%=stamp.stamp.name%></td>
+    <td><%=stamp.fileNumber%></td>
+    <td><%=stamp.pageNumber%></td>
+    <td><%=stamp.applyDate%></td>
+    <td><%=stamp.applyMan ? (stamp.applyMan.name.first + ' ' +stamp.applyMan.name.last): ''%></td>
+    <td><%=stamp.department ? stamp.department.name: '' %></td>
+</tr>
+<% }) %>

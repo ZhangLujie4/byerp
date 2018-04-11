@@ -1,0 +1,12 @@
+<% buildingCollection.forEach(function(building, index){ %>
+<tr data-index="<%=index%>" data-id="<%= building._id%>" >
+    <td class="centerCell"><input type="checkbox" value="<%=building._id%>" class="checkbox"/></td>
+    <td class="centerCell"><%=building.name%></td>
+    <td class="centerCell"><%=(building.customerId) ? building.customerId.name.first + ' ' + building.customerId.name.last : ''%></td>
+    <td class="centerCell"><%=building.projectManager%></td>
+    <td class="centerCell"><%=building.totalAmount%></td>
+    <td class="centerCell"><%=building.receivedAmount%></td>
+    <td class="centerCell"><%=building.paidAmount%></td>
+    <td class="centerCell"><%=building.totalLoan%></td>
+</tr>
+<% }) %>

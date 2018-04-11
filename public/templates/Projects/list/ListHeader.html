@@ -1,0 +1,42 @@
+﻿<div id="searchContainer"></div>
+<div class="_tableProjectsWrap">
+    <table class="list stripedList">
+        <colgroup>
+            <col width="42px">
+            <col width="15%">
+            <col width="15%">
+            <col width="15%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="15%">
+            <col width="10%">
+
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="centerCell"><input type="checkbox" id="checkAll"/></th>
+            <th  data-sort="name">项目名称</th>
+            <th  data-sort="customer.name">建设单位</th>
+            <th  data-sort="name">项目经理</th>
+            <th  data-sort="name">合同类型</th>
+            <th  data-sort="amount">合同金额(万元)</th>
+            <th  data-sort="StartDate">开工日期</th>
+
+            <!--th-- class="oe_sortable" data-sort="EndDate">实际截止日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th-->
+            <th  data-sort="TargetEndDate">要求竣工日期</th>
+            <!--th-- class="oe_sortable" data-sort="progress">进度<span class="arrow down"></span><span
+                    class="arrow up"></span></th-->
+            <th  data-sort="workflow.name">状态</th>
+            <!--th class="oe_sortable" data-sort="health">健康状况<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="createdBy.date">创建者<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th-- class="oe_sortable sortDn" data-sort="editedBy.date">编辑者<span class="arrow down"></span><span
+                    class="arrow up"></span></th-->
+        </tr>
+        </thead>
+        <tbody id="listTable" class="enableTableOdd"></tbody>
+    </table>
+</div>

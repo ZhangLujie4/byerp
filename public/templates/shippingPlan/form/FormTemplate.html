@@ -1,0 +1,80 @@
+<%var printed = model.status && model.status.printed%>
+<%var picked = model.status && model.status.picked%>
+<%var packed = model.status && model.status.packed%>
+<%var shipped = model.status && model.status.shipped%>
+<%var approved = model.status && model.status.approved%>
+
+<div class="form-holder">
+    <form class="form" id="goodsNote">
+        <fieldset>
+            <div class="inner">
+                <div class="_goodOutWrap">
+                    <div class="topPanel">
+                        <h2><strong>出库单</strong>
+                            <span><%var name = model.name.split('*');%> 
+                            <% if(model.order.orderType === "salesOrder"){ %>
+                                <span id="name">#<a class="blue" href="<%='/#easyErp/order/tform/'+ model.order._id %>"><%=name[0]%></a>
+                            <% }else{ %>
+                                <span id="name">#<a class="blue" href="<%='/#easyErp/goodsPlan/tform/'+ model.order._id %>"><%=name[0]%></a>
+                            <% }%>
+                                *<%=name[1]%></span>
+                            </span>
+                        </h2>
+                        <div class="right">
+                        <% if(!approved){ %>
+                            <button class="btn confirm" id="confirm">
+                                <span>审核</span>
+                            </button>
+                        <% } else {%>
+                            <span>已审核</span>
+                        <%}%>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items mainTabs">
+                    <div class="dialog-tabs-item mainTabs active">
+
+                            <div class="half-block left">
+                                <dl class="opp-info">
+                                    <dt><label>发货地</label></dt>
+                                    <dd>
+                                        <input id="load" class="_inputBordered" value="<%=model.load%>"/>
+                                    </dd>
+
+                                    <dt><label>卸货地</label></dt>
+                                    <dd>
+                                        <input id="unLoad" class="_inputBordered" value="<%=model.unLoad%>"/>
+                                    </dd>
+
+                                    <dt><label>预计发货时间</label></dt>
+                                    <dd>
+                                        <input id="date" class="_inputBordered" value="<%=model.date%>"/>
+                                    </dd>
+
+                                    <dt><label>备注</label></dt>
+                                    <dd>
+                                        <textarea name="description"
+                                                  id="description"
+                                                  maxlength="500"
+                                                  class="internal_Notes opp-internal-create"><%=model.description%>                             
+                                        </textarea>
+                                    </dd>
+                                </dl>
+                            </div>
+                             <div class="half-block left">
+                                <div id="jstree_div" class="demo"></div>
+                             </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div id="templateDiv">
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </fieldset>
+    </form>
+</div>

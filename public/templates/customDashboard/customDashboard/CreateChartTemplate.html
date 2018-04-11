@@ -1,0 +1,133 @@
+<div class="form-holder _listModalWrap">
+    <form method="post" action="" class="form" id="customDashboardForm">
+        <div class="dialog-tabs-items">
+            <div class="dialog-tabs-item active">
+                <div class="_listModal _customDashboardDialog">
+                    <div class="_listModalTitle _pl-10"><label><b>Custom Dashboard</b></label></div>
+                    <div class="_listModalColumn">
+                        <div class="_modalList">
+                            <label for="inputName">图表名称</label>
+                            <input class="form-control" id="inputName" placeholder="">
+                        </div>
+                    </div>
+                    <div class="_listModalColumn">
+                        <div class="_modalList">
+                            <label for="typeSelect">选择图表类型</label>
+                            <select class="optionSelect _formCustomSelect" id="typeSelect">
+                                <option class="chartOptions" id="line">线型图</option>
+                                <option class="chartOptions" id="horizontalBar">横条图</option>
+                                <option class="chartOptions" id="verticalBar">直方图</option>
+                                <option class="chartOptions" id="horizontalBarLayout">横条布局</option>
+                                <option class="chartOptions" id="verticalBarLayout">直方布局</option>
+                                <option class="chartOptions" id="donut">圆环图</option>
+                                <option class="chartOptions" id="singleValue">Single Value</option>
+                                <option class="chartOptions" id="table">表格</option>
+                                <option class="chartOptions" id="overview">Overview</option>
+                                <!-- <option class="chartOptions" id="singleValue">Single value</option>
+                                 <option class="chartOptions" id="verticalBarLayout">Vertical Bar Layout</option>
+                                 <option class="chartOptions" id="table">Table</option>-->
+                                <!--<option class="chartOptions" id="mapChart">Map chart</option>-->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="_listModalColumn">
+                        <div class="_modalList">
+
+                            <label for="dataSelect">图表数据</label>
+                            <select class="optionSelect _formCustomSelect" id="dataSelect">
+                                <option class="datasets" id="invoiceByWeek">每周销售发票</option>
+                                <option class="datasets" id="purchaseInvoiceByWeek">每周采购发票</option>
+                                <option class="datasets" id="revenueBySales">销售经理收益</option>
+                                <option class="datasets" id="revenueByCountry">Revenue By Country</option>
+                                <option class="datasets" id="revenueByCustomer">Revenue By Customer</option>
+
+                                <option class="datasets" id="purchaseRevenueBySales">销售经理支出</option>
+                                <option class="datasets" id="purchaseRevenueByCountry">Costs By Country</option>
+                                <option class="datasets" id="purchaseRevenueByCustomer">供应商支出</option>
+
+                                <option class="datasets" id="totalSalesRevenue">销售发票</option>
+                                <option class="datasets" id="totalPurchaseRevenue">采购发票</option>
+                                <option class="datasets" id="leadsBySource">Leads By Source</option>
+                                <option class="datasets" id="leadsByDay">Leads By Day (created by)</option>
+                                <option class="datasets" id="leadsByWeek">Leads By Week (created by)</option>
+                                <option class="datasets" id="leadsByMonth">Leads By Month (created by)</option>
+                                <option class="datasets" id="leadsByDayAssigned">Leads By Day (Assigned to)</option>
+                                <option class="datasets" id="leadsByWeekAssigned">Leads By Week (Assigned to)</option>
+                                <option class="datasets" id="leadsByMonthAssigned">Leads By Month (Assigned to)</option>
+
+                                <option class="datasets" id="orders">销售订单</option>
+                                <option class="datasets" id="purchaseOrders">采购订单</option>
+                                <option class="datasets" id="pastDueInvoices">逾期销售发票</option>
+                                <option class="datasets" id="pastDuePurchaseInvoices">逾期采购发票</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="_listModalColumn">
+                        <div class="_modalList clearfix">
+                            <div class="chartTopBox _formCustomSelect clearfix">
+                                <div class="vocationFilter _filterDropDownWrap">
+                                    <ul class="dateFilter _zInitial">
+                                        <li class="dateRange">
+                                            <span class="icon-calendar"></span>
+                                            <span id="startTime"><%= startDate%></span> - <span id="endTime"><%= endDate%></span>
+                                            <span class="icon-arrow-down2"></span>
+                                        </li>
+                                        <li>
+                                            <ul class="frameDetail _filterDropDownBody hidden">
+                                                <li id="thisMonth" class="filterValues checked checkedValue"
+                                                    data-type="">本月
+                                                </li>
+                                                <li id="thisYear" class="filterValues checked" data-type="">本年度
+                                                </li>
+                                                <li class="listLine"></li>
+                                                <li id="lastMonth" class="filterValues checked" data-type="">上个月
+                                                </li>
+                                                <li id="lastQuarter" class="filterValues checked" data-type="">上个季度
+                                                </li>
+                                                <li id="lastYear" class="filterValues checked" data-type="">上个年度
+                                                </li>
+                                                <li class="listLine"></li>
+                                                <li id="custom" class="_filterArrow filterValues checked" data-type="">
+                                                    Custom Dates
+                                                </li>
+                                                <li class="customTime customTime hidden">
+                                                    <div class="customTimeItem">
+                                                        <label for="startDate">开始日期: </label>
+                                                        <input readonly type="text" id="startDate">
+                                                    </div>
+                                                    <div class="customTimeItem">
+                                                        <label for="endDate">结束日期: </label>
+                                                        <input readonly type="text" id="endDate">
+                                                    </div>
+                                                </li>
+                                                <li class="buttons">
+                                                    <button id="updateDate" class="btn">
+                                                        <span>更新</span>
+                                                    </button>
+                                                    <button id="cancelBtn" class="btn">
+                                                        <span>取消</span>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="clearfix"></div>
+                <div class="attach-container"></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="dialog-tabs-item">
+                <div class="assignees-container"></div>
+            </div>
+        </div>
+    </form>
+</div>
+

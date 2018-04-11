@@ -1,0 +1,52 @@
+ <div class="_tableVacationListwrap">
+    <table class="vacation-list">
+
+        <colgroup class="borders">
+            <col width="10%">
+            <col width="7%">
+        </colgroup>
+
+        <colgroup id="columnForDays" class="borders">
+        </colgroup>
+
+        <thead>
+        <tr id="caption">
+            <th colspan="2" rowspan="2" class="name">
+                <a id="nameSelect" data-type="nameSelect" 
+                   data-id="<%=options.employee._id%>"><%=options.employee.name%></a>
+            </th>
+            <th id="legandCaption" class="subHeaderHolder">
+                考勤率
+            </th>
+            <th class="V">
+                V
+            </th>
+            <th colspan="2">
+                迟到及早退
+            </th>
+            <th class="P">
+                P
+            </th>
+            <th colspan="2">
+                迟到
+            </th>
+            <th class="S">
+                S
+            </th>
+            <th colspan="2">
+                早退
+            </th>
+            <th colspan="2" rowspan="2" class="_newSelectListWrap">
+                <a id="yearSelect" class="current-selected" data-content="<%=options.year%>" href="javascript:;"><%=options.year%></a>
+            </th>
+        </tr>
+        <tr class="subHeaderHolder">
+        </tr>
+        <tr class="subHeaderHolder">
+        </tr>
+        </thead>
+
+        <tbody id="listTable"></tbody>
+        <tfoot id="listTotal"></tfoot>
+    </table>
+</div>

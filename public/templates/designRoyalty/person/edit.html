@@ -1,0 +1,23 @@
+<% person.forEach(function(person){ %>
+<tr class="personItem">
+    <td data-name="personDd" class="_newSelectListWrap" style="text-align: center">
+        <a id="personDd"
+           class="current-selected"
+           data-id="<%=person.name._id%>"
+           href="javascript:;"><%=person.name.name.first+' '+person.name.name.last%>
+        </a>
+    </td>
+    <td  class="jobs trash " style="text-align: center">
+        <input type="text"  id="rate" value="<%=person.rate%>" style="width: 80px "/>
+    </td>
+    <td class="deleteCell centerCell">
+        <span title="Delete" class="icon-close5 removeItem"></span>
+    </td>
+    <div class="clearfix"></div>
+</tr>
+<% }); %>
+<tr>
+    <td colspan="2" class="addItem">
+        <a href="javascript:;">添加</a>
+    </td>
+</tr>

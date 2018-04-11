@@ -1,0 +1,131 @@
+<div class="form-holder task-create-holder">
+    <form method="post"
+          action=""
+          id="createTaskForm"
+          class="form notDialog">
+        <fieldset>
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">主要内容</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt><label for="pmr">项目经理:</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="pmr"
+                                       class="current-selected"
+                                       href="javascript:;">选择</a>
+                                </dd>
+                                <dt>
+                                    <label for="project">工程名称</label>
+                                </dt>
+
+                                <dd class="_newSelectListWrap">
+                                    <a id="project"
+                                       class="current-selected"
+                                       href="javascript:;">选择</a>
+
+                                </dd>
+                                <dt>
+                                    <label for="amount">金额</label>
+                                </dt>
+                                <dd style="width: 100px;">
+                                    <div>
+                                        <input
+                                               type="text"
+                                               name="amount"
+                                               id="amount"
+                                               style="width: 150px"
+                                               value=""
+                                               />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="day">借款日期</label>
+                                </dt>
+                                <dd style="width: 100px;">
+                                    <div class="_inputIconWrap">
+                                        <input class="extrainfo"
+                                               type="text"
+                                               name="day"
+                                               id="day"
+                                               style="width: 150px"
+                                               value=""
+                                               readonly/>
+                                    </div>
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt style="width: 200px">
+                                    <label for="targetDate" style="width: 120px">预计还款日期</label>
+                                </dt>
+                                <dd style="width: 100px;">
+                                    <div class="_inputIconWrap">
+                                        <input class="extrainfo"
+                                               type="text"
+                                               name="targetDate"
+                                               id="targetDate"
+                                               style="width: 100px"
+                                               value=""
+                                               readonly/>
+                                    </div>
+                                </dd>
+                                <dt style="width: 200px">
+                                    <label for="rate1" >月息(预计还款日之前）</label>
+                                </dt>
+                                <dd style="width: 100px;">
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="rate1"
+                                                id="rate1"
+                                                style="width: 80px"
+                                                value="1.2"
+                                        /><i>%</i>
+                                    </div>
+                                </dd>
+                                <dt style="width: 200px">
+                                    <label for="rate2">月息(预计还款日之后一年以内)</label>
+                                </dt>
+                                <dd style="width: 100px;">
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="rate2"
+                                                id="rate2"
+                                                style="width: 80px"
+                                                value="1.8"
+                                        /><i>%</i>
+                                    </div>
+                                </dd>
+                                <dt style="width: 200px">
+                                    <label for="rate3">月息(预计还款日之后一年之后)</label>
+                                </dt>
+                                <dd style="width: 100px;">
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="rate3"
+                                                id="rate3"
+                                                style="width: 80px"
+                                                value="2"
+                                        /><i>%</i>
+                                    </div>
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

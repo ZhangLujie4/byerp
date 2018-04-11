@@ -1,0 +1,9 @@
+<% goodsScrapCollection.forEach(function(goodsScrap, index){ %>
+<tr data-index="<%=index%>" data-id="<%= goodsScrap._id%>" >
+    <td class="centerCell"><%=goodsScrap.projectId.name%></td>
+    <td class="centerCell"><%=goodsScrap.orderNumber%></td>
+    <td class="centerCell"><%=goodsScrap.deliverNumber.trips%></td>
+    <td class="centerCell"><%=goodsScrap.reason%></td>
+    <td class="centerCell"><%=goodsScrap.quantity%></td>
+</tr>
+<% }) %>

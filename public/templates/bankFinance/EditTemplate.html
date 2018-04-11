@@ -1,0 +1,139 @@
+﻿﻿<div class="form-holder task-create-holder">
+    <form method="post" action="" id="editTaskForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">主要内容</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                    <div >
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt style="width: 100px">
+                                    <label for="day">日期:</label>
+                                </dt>
+                                <dd>
+                                    <div class="_inputIconWrap">
+                                        <input class="extrainfo"
+                                               type="text"
+                                               name="day"
+                                               id="day"
+                                               style="width: 200px"
+                                               value="<%=model.journal.date%>"
+                                               readonly/>
+                                    </div>
+                                </dd>
+                                <dt style="width: 100px">
+                                    <label for="note">摘要:</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="note"
+                                                id="note"
+                                                style="width: 200px"
+                                                value="<%=model.journal.name%>"
+                                                readonly
+                                        />
+                                    </div>
+                                </dd>
+                                <dt style="width: 100px">
+                                    <label for="bank">定存银行:</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="bank"
+                                                id="bank"
+                                                style="width: 200px"
+                                                value="<%=model.account.account%>"
+                                                readonly
+                                        />
+                                    </div>
+                                </dd>
+                                <dt style="width: 100px">
+                                    <label for="debit">借方金额:</label>
+                                </dt>
+                                <dd>
+                                    <div>
+                                        <input
+                                                type="text"
+                                                name="debit"
+                                                id="debit"
+                                                style="width: 200px"
+                                                value="<%=model.debit?model.debit:0%>"
+                                                readonly
+                                        />
+                                    </div>
+                                </dd>
+                                <dt style="width: 100px">
+                                    <label for="credit">贷方金额:</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="credit"
+                                                id="credit"
+                                                style="width: 200px"
+                                                value="<%=model.credit?model.credit:0%>"
+                                                readonly
+                                        />
+                                    </div>
+                                </dd>
+                                <% var startDay %>
+                                <% var endDay %>
+                                <% var str=model.journal.name %>
+                                <% day=str.substring(str.indexOf('定存')+2,str.indexOf('天')); %>
+                                <% startDay=new Date(model.journal.date) %>
+                                <% startDay = startDay.valueOf() %>
+                                <% endDay=startDay+day* 24 * 60 * 60 * 1000 %>
+                                <% endDay=new Date(endDay) %>
+                                <dt style="width: 100px">
+                                    <label for="endDay">到期日期:</label>
+                                </dt>
+                                <dd>
+                                    <div class="_inputIconWrap">
+                                        <input class="extrainfo"
+                                               type="text"
+                                               name="day"
+                                               id="endDay"
+                                               style="width: 200px"
+                                               value="<%=endDay.getFullYear() + '-' + (endDay.getMonth() + 1) + '-' + endDay.getDate() %>"
+                                               readonly/>
+                                    </div>
+                                </dd>
+                                <dt style="width: 100px">
+                                    <label>利息凭证：</label>
+                                </dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="journal" class="current-selected" href="javascript:;">选择</a>
+                                </dd>
+                                <dt style="width: 100px">
+                                    <label for="credit">利息:</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="credit"
+                                                id="interest"
+                                                style="width: 200px"
+                                                value=""
+
+                                        />
+                                    </div>
+                                </dd>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,51 @@
+<% inventory.forEach(function(inventorys){ %>
+<tr class="inventoryItem">
+    <td data-name="finishData" class="">
+        <input
+               type="text"
+               id="finishData"
+               data-name="finishData"
+               value="<%=inventorys.finishData%>"
+                />
+        <!--div class="_inputIconWrap">
+            <input class="extrainfo "
+                   type="text"
+                   name="StartDate"
+                   id="finishDate"
+                   data-name="finishDate"
+                   value="<%=inventorys.finishData%>"
+                   readonly />
+        </div-->
+    </td>
+    <td data-name="items" class="jobs trash ">
+        <input type="text" id="items" value="<%=inventorys.items%>"/>
+    </td>
+    <td data-name="subitems" class="jobs trash ">
+        <input type="text"  id="subitems" value="<%=inventorys.subitems%>"/>
+    </td>
+    <td data-name="unit" class="jobs trash ">
+        <input type="text"  id="unit" value="<%=inventorys.unit%>"/>
+    </td>
+    <td data-name="amount" class="jobs trash ">
+        <input type="text"  id="amount" value="<%=inventorys.amount%>"/>
+    </td>
+    <td data-name="price" class="jobs trash ">
+        <input type="text"   id="price" value="<%=inventorys.price%>"/>
+    </td>
+    <td data-name="money" class="jobs trash ">
+        <input type="text"  id="money" value="<%=inventorys.money%>"/>
+    </td>
+    <td data-name="notes" class="jobs trash ">
+        <input type="text"  id="note" value="<%=inventorys.notes%>"/>
+    </td>
+
+    <td class="deleteCell centerCell">
+        <span title="Delete" class="icon-close5 removeItem"></span>
+    </td>
+</tr>
+<% }); %>
+<tr>
+    <td colspan="8" class="addItem">
+        <a href="javascript:;">添加</a>
+    </td>
+</tr>

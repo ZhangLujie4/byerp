@@ -1,0 +1,39 @@
+<% paymentCollection.forEach(function(element, index) {%>
+
+<% var color;%>
+<% if(element.description.indexOf('红冲') != -1){%>
+        <% color = 'red';%>
+<% }%>
+<% if(element.description.indexOf('蓝冲') != -1){%>
+        <% color = 'blue';%>
+<% }%>
+<% if(element.description.indexOf('原') != -1 || element.description.indexOf('冲账') != -1){%>
+        <% color = 'yellow';%>
+<% }%>
+<tr data-id="<%=element._id%>" style="background-color:<%= color%>">
+    <td class="notForm centerCell">
+        <label class="_customCHeckbox">
+            <input type="checkbox" value="<%=element._id%>"
+            <% if ( !element.status.approved) { %>
+                class="checkbox"
+            <% } else {%>
+                class="checkbox notRemovable" disabled='disabled'
+            <% } %>
+            />
+            <span></span>
+        </label>
+    </td>
+    </td>
+    <td style="text-align: center"><%=element.name %></td>
+    <td style="text-align: center"><%=element.shippinglist %></td>
+    <td style="text-align: center"><%=element.customer ? element.customer.name : ''%></td>
+    <td style="text-align: center"><%=element.warehouse ? element.warehouse.name : '' %></td>
+    <td style="text-align: center" class="centerCell _statusOrders">
+        <span class="<%=element.status.approved ? 'icon-checked2 green transparented' : 'icon-close3 red transparented'%>"></span>
+    </td>
+    <td style="text-align: center" class="centerCell _statusOrders">
+        <span class="<%=element.isValid ? 'icon-checked2 green transparented' : 'icon-close3 red transparented'%>"></span>
+    </td>
+    <td style="text-align: center"><%=element.description !== ""? element.description : '无' %></td>
+</tr>
+<%})%>

@@ -1,0 +1,177 @@
+<div class="form-holder engineerInfo-create-holder"> 
+    <form method="post" action="" id="createbusiTripForm" class="form">
+        <fieldset>
+            <div class="inner">
+                <div class="topInputHolder">
+                    <h2>新建工程信息</h2>
+                </div>
+                <div class="half-block left">
+                    <dl class="opp-info">
+                      
+                        <dt><label for="name">工程名称</label></dt>
+
+                        <dd class="_newSelectListWrap">
+                            <input type="text"
+                                 id="name"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label>  
+                        </dd>
+
+                        <dt><label for="quality">质量目标</label></dt>
+
+                        <dd class="_inputIconWrap">
+                                <input type="text"
+                                 id="quality"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label>  
+                        </dd>
+
+                        <dt>
+                            <label for="issArea">面积</label>
+                        </dt>
+                        <dd class="_inputIconWrap">
+                                <input class="issArea"
+                                       type="text"
+                                       name="issArea"
+                                       id="issArea"/>
+                                <label></label>
+                        </dd>
+
+                        <dt>
+                            <label for="amount">造价</label>
+                        </dt>
+                         <dd class="_inputIconWrap">
+                                <input class="extrainfo"
+                                       type="text"
+                                       name="amount"
+                                       id="amount"/>
+                                <label></label>
+                        </dd>
+
+                        <dt><label for="StartDate">开工日期</label></dt>
+                        <dd class="_inputIconWrap">
+                                <input type="text"
+                                 id="StartDate"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label> 
+                        </dd>
+                        <dt><label for="EndDate">竣工日期</label></dt>
+                        <dd class="_inputIconWrap">
+                                <input type="text"
+                                 id="EndDate"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label>
+                        </dd>
+                        <dt><label for="pmr">项目经理</label></dt>
+                        <dd class="_inputIconWrap">
+                                <input type="text"
+                                 id="pmr"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label>
+                        </dd>
+                        <dt><label for="pmv">备案项目经理</label></dt>
+                        <dd class="_inputIconWrap">
+                                <input type="text"
+                                 id="pmv"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="half-block left">
+                    <dl class="opp-info">
+                        <dt for="cancelDate">取消日期</dt>
+                        <dd class="taskDescriptionCreate">
+                           <input type="text"
+                                 id="cancelDate"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label>
+                        </dd>
+
+                        <dt for="address">地址</dt>
+                        <dd>
+                          <div id="address">
+                            <select id="province"></select><!-- province -->
+                            <select id="city"></select><!-- city -->
+                            <select id="district"></select><!-- district -->
+                            <input type="text" id="zip" placeholder="详细地址" />
+                          </div>
+                          <!-- <dl>
+                              <dt>省：</dt>
+                              <dd class="taskDescriptionCreate">
+                                 <input type="text"
+                                       id="province"
+                                       required
+                                       placeholder="省"
+                                       maxlength="32"/>
+                                        <label></label>
+                              </dd>
+                              <dt>市：</dt>
+                              <dd class="taskDescriptionCreate">
+                                 <input type="text"
+                                       id="city"
+                                       required
+                                       placeholder="市"
+                                       maxlength="32"/>
+                                        <label></label>
+                              </dd>
+                              <dt>县(区域)：</dt>
+                              <dd class="taskDescriptionCreate">
+                                 <input type="text"
+                                       id="district"
+                                       required
+                                       placeholder="区域"
+                                       maxlength="32"/>
+                                        <label></label>
+                              </dd>
+                              <dt>详细地址：</dt>
+                              <dd class="taskDescriptionCreate">
+                                 <input type="text"
+                                       id="zip"
+                                       required
+                                       placeholder="详细地址"
+                                       maxlength="32"/>
+                                        <label></label>
+                              </dd>
+                            </dl> -->
+                          </dd>
+                        <dt for="constructionUnit">建设单位</dt>
+                        <dd class="taskDescriptionCreate">
+                           <input type="text"
+                                 id="constructionUnit"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label>
+                        </dd>
+
+                        <dt for="supervisionUnit">监理单位</dt>
+                        <dd class="taskDescriptionCreate">
+                           <input type="text"
+                                 id="supervisionUnit"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label>
+                        </dd>
+
+                        <dt for="contractUnit">总包单位</dt>
+                        <dd class="taskDescriptionCreate">
+                           <input type="text"
+                                 id="contractUnit"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label>
+                        </dd>
+                    </dl>   
+                </div>
+            </div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

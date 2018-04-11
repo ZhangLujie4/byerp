@@ -1,0 +1,11 @@
+<% scanlogsCollection.forEach(function(scanlog, index){ %>
+<tr data-index="<%=index%>" data-id="<%= scanlog._id%>" >
+    <td class="centerCell"><input type="checkbox" value="<%=scanlog._id%>" class="checkbox"/></td>
+    <td class="centerCell"><%=(scanlog.barCode) ? scanlog.barCode.barId : ''%></td>
+    <td class="centerCell"><%=(scanlog.workCentre) ? scanlog.workCentre.name : ''%></td>
+    <td class="centerCell"><%=(scanlog.workGroup) ? scanlog.workGroup.groupId : ''%></td>
+    <td class="centerCell"><%=scanlog.scantime%></td>
+    <td class="centerCell"><%=scanlog.uploadtime%></td>
+    <td class="centerCell"><%=scanlog.note%></td>
+</tr>
+<% }) %>

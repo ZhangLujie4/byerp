@@ -1,0 +1,116 @@
+<div class="_tableWrap">
+    <table class="list stripedList">
+        <thead>
+            <tr>
+                <th class="centerCell" colspan="20" style="font-size: 20px">浙江宝业建材科技有限公司</th>
+            </tr>
+            <tr>
+                <th colspan="3">客户单位</th>
+                <th colspan="7" class="customer"><%=model.customer? model.customer : ''%></th>
+                <th colspan="2">发货车次</th>
+                <th colspan="8" class="trips"><%=model.orderRows[0] && model.orderRows[0].trips ? model.orderRows[0].trips : ''%></th>
+            </tr>
+            <tr>
+                <th colspan="3">工程名称</th>
+                <th colspan="7" class="projectName"><%=model._id.projectName%></th>
+                <th colspan="2">订单编号</th>
+                <th colspan="8" class="cgdh"><%=model._id.cgdh%></th>
+            </tr>
+            <tr>
+                <th colspan="3">合同编号</th>
+                <th colspan="7" class=""><%=model.buildingContractId%></th>
+                <th colspan="2">发货日期</th>
+                <th colspan="8" class="shipDate"><%=moment(model.orderRows[0].shipDate).format('YYYY-MM-DD')%></th>
+            </tr>
+            <tr>
+                <th rowspan="2">序号</th>
+                <th colspan="2" rowspan="2">铝板编号</th>
+                <th colspan="2" >规格(mm)</th>
+                <th colspan="2" rowspan="2">颜色</th>
+                <th>数量</th>
+                <th>单件面积</th>
+                <th>小计面积</th>
+                <th>单块焊缝</th>
+                <th>小计焊缝</th>
+                <th>单块开槽</th>
+                <th>小计开槽</th>
+                <th>单价</th>
+                <th class="centerCell" colspan="3">金额</th>
+                <th rowspan="2">板型</th>
+                <th>备注</th>
+            </tr>
+            <tr>
+                <th>展开宽</th>
+                <th>高</th>
+                <th>(块)</th>
+                <th>(m²)</th>
+                <th>(m²)</th>
+                <th>长度(m)</th>
+                <th>长度(m)</th>
+                <th>长度(m)</th>
+                <th>长度(m)</th>                                                                              
+                <th>(元)</th>
+                <th class="centerCell" colspan="3">(元)</th>
+                <th>(mm)</th>
+            </tr>
+        </thead>
+        <tbody id="listTable" class="enableTableOdd">
+            <%var numTotal = 0%>
+            <%var areaTotal = 0%>
+            <%var hfTotal = 0%>
+            <%var kcTotal = 0%>
+            <%var totalMoney = 0%>
+            <%model.orderRows.forEach(function(item, index){%>
+                <%var total = item.num*item.aluOrder.dkjjmj*item.aluOrder.dj%>
+                <%if(item.aluOrder.kc && item.aluOrder.kcdj){%>
+                    <%total = total + item.num*item.aluOrder.kc*item.aluOrder.kcdj%>
+                <%}%>
+                <%if(item.aluOrder.cjlhf && item.aluOrder.hfdj){%>
+                    <%total = total + item.num*item.aluOrder.cjlhf*item.aluOrder.hfdj/1000%>
+                <%}%>
+                <%numTotal = numTotal + item.num%>
+                <%areaTotal = areaTotal + item.aluOrder.dkjjmj*item.num%>
+                <%hfTotal = item.aluOrder.cjlhf?(hfTotal + item.aluOrder.cjlhf*item.num/1000) : hfTotal%>
+                <%kcTotal = item.aluOrder.kc?(item.aluOrder.kc*item.num): kcTotal%>
+                <%totalMoney = totalMoney + total%>
+                <tr class="<%=item.cancelNum? 'red': ''%>">
+                    <td><%=index+1%></td>
+                    <td colspan="2"><%=item.aluOrder.lbbh%></td>
+                    <td><%=item.aluOrder.W%></td>
+                    <td><%=item.aluOrder.L1+item.aluOrder.L2+item.aluOrder.L3+item.aluOrder.L4+item.aluOrder.L5+item.aluOrder.L6%></td>
+                    <td colspan="2"><%=item.aluOrder.jgsh%></td>
+                    <td><%=item.cancelNum ? item.num + '('+ item.cancelNum + ')' : item.num%></td>
+                    <td><%=(item.aluOrder.dkjjmj).toFixed(3)%></td>
+                    <td><%=(item.aluOrder.dkjjmj*item.num).toFixed(3)%></td>
+                    <td><%=item.aluOrder.cjlhf? item.aluOrder.cjlhf/1000 : ''%></td>
+                    <td><%=item.aluOrder.cjlhf ? (item.aluOrder.cjlhf*item.num/1000).toFixed(3) : ''%></td>
+                    <td><%=item.aluOrder.kc? item.aluOrder.kc : ''%></td>
+                    <td><%=item.aluOrder.kc? (item.aluOrder.kc*item.num).toFixed(3) : ''%></td>
+                    <td><%=item.aluOrder.dj%></td>
+                    <td colspan="3" class="centerCell"><%=total.toFixed(3)%></td>
+                    <td><%=item.aluOrder.boardType%></td>
+                    <td><%=item.thickness? item.thickness: ''%></td>
+                </tr>
+            <%})%>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td colspan="2">小计</td>
+                <td></td>
+                <td></td>
+                <td colspan="2"></td>
+                <td><%=numTotal%></td>
+                <td></td>
+                <td><%=areaTotal.toFixed(3)%></td>
+                <td></td>
+                <td><%=hfTotal? (hfTotal/1000).toFixed(3): ''%></td>
+                <td></td>
+                <td><%=kcTotal? kcTotal.toFixed(3): ''%></td>
+                <td></td>
+                <td colspan="3" class="centerCell"><%=totalMoney.toFixed(3)%></td>
+                <td colspan="2"></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

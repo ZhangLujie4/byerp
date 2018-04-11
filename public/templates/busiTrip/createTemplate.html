@@ -1,0 +1,94 @@
+<div class="form-holder busiTrip-create-holder"> 
+    <form method="post" action="" id="createbusiTripForm" class="form">
+        <fieldset>
+            <div class="inner">
+                <div class="topInputHolder">
+                    <h2>新建出差申请</h2>
+                </div>
+                <div class="half-block left">
+                    <dl class="opp-info">
+                      
+                        <dt><label for="employeesDd">员工姓名</label></dt>
+
+                        <dd class="_newSelectListWrap">
+                            <a id="employeesDd"
+                               class="current-selected"
+                               href="javascript:;">
+                            </a>
+                        </dd>
+
+                        <dt><label for="registrationDate">申请日期</label></dt>
+
+                        <dd class="_inputIconWrap">
+                                <input type="text"
+                                 id="registrationDate"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label>  
+                        </dd>
+
+                        <dt>
+                            <label for="datefrom">出差开始日期</label>
+                        </dt>
+                        <dd class="_inputIconWrap">
+                                <input class="extrainfo"
+                                       type="text"
+                                       name="datefrom"
+                                       id="datefrom"
+                                       
+                                       placeholder="开始日期"/>
+                                <label></label>
+                        </dd>
+
+                        <dt>
+                            <label for="dateto">出差结束日期</label>
+                        </dt>
+                         <dd class="_inputIconWrap">
+                                <input class="extrainfo"
+                                       type="text"
+                                       name="dateto"
+                                       id="dateto"
+                                       
+                                       placeholder="结束日期"/>
+                                <label></label>
+                        </dd>
+
+                        <dt><label for="accommodationDay">住宿天数</label></dt>
+                        <dd class="_inputIconWrap">
+                                <input type="text"
+                                 id="accommodationDay"
+                                 required
+                                 maxlength="32"
+                                 placeholder="住宿天数"/>
+                                  <label></label> 
+                        </dd>
+                        <dt><label for="diningNumber">就餐数</label></dt>
+                        <dd class="_inputIconWrap">
+                                <input type="text"
+                                 id="diningNumber"
+                                 required
+                                 maxlength="32"
+                                 placeholder="就餐数"/>
+                                  <label></label>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="half-block left">
+                    <dl class="opp-info">
+                        <dt for="description">出差事由</dt>
+                        <dd class="taskDescriptionCreate">
+                            <textarea
+                                  name="description"
+                                  placeholder="添加出差事由"
+                                  id="description"
+                                  maxlength="400"
+                                  required >
+                            </textarea>
+                        </dd>
+                        </dl>   
+                </div>
+            </div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

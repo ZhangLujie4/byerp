@@ -1,0 +1,133 @@
+<%var currencySymb = model.currency && model.currency._id ? model.currency._id.symbol : '$'%>
+<div class="_invoiceTemplate" style="padding: 0.100000in 0.400000in 0.700000in 0.40000in; max-width: 1100px;">
+    <div class="extractPdf">
+        <div class="_templateDateBlock">
+            <div class="_rightPart">
+                <table class="_templateDateTable tableFixed">
+                    <colgroup>
+                        <col width="60%">
+                        <col width="40%">
+                    </colgroup>
+                    <tbody>
+                    <%if(model.reason == 'RI' || model.reason == 'FI'){%>
+                    <tr>
+                        <td class="_dateLeftPart">
+                            <div class="_billingBlock">
+                                <div class="_billingTitle">码单号</div>
+                                <div class="_billingCustomerName"><%=(model.shippinglist) ? model.shippinglist : ""%></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <%}%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <table class="_templateTable tableFixed">
+            <colgroup>
+                <col width="10%">
+                <%if(model.reason == 'RI' || model.reason == 'FI' || model.reason == 'FO'){%>
+                <col width="10%">
+                <%}%>
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                <col width="40%">
+            </colgroup>
+            <thead>
+            <tr>
+                <th style="text-align: center">品名</th>
+                <%if(model.reason == 'RI' || model.reason == 'FI'){%>
+                <th style="text-align: center">库位</th>
+                <%} else if(model.reason == 'FO'){%>
+                <th style="text-align: center">计划数量</th>
+                <th style="text-align: center" class="selectedQuantity">实际数量</th>
+                <%} %>
+                <%if(model.reason != 'FO'){%>
+                <th style="text-align: center" class="selectedQuantity">数量</th>
+                <%} %>
+                <th style="text-align: center">单位计价数量</th>
+                <th style="text-align: center">单价</th>
+                <th style="text-align: center">总价</th>
+                <th style="text-align: center">参数</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% var subqty = 0 %>
+            <% var subtaxes = 0 %>
+            <% var subcost = 0 %>
+            <% model.orderRows.forEach(function(row, index){ %>
+            <tr class="productItem">
+                <%orderRow = row.orderRowId || {}%>
+                <td style="text-align: center"><%=row.description%></td>
+                <%if(model.reason == 'RI' || model.reason == 'FI'){%>
+                <td style="text-align: center"><%row.locationsReceived.forEach(function(item){%>
+                <%=item.location.name%>
+                <% })%>
+                </td>
+                <%} else if(model.reason == 'FO'){%>
+                <td data-name="Planqty">
+                    <input style="text-align: center;" class="Planqty statusInfo" maxlength="9" value="<%=row.Planqty%>" type="text" readonly/>
+                </td>
+                <%} %>
+                <td data-name="quantity">
+                    <input style="text-align: center;" class="quantity statusInfo" maxlength="9" value="<%=row.selectedQuantity%>" type="text" readonly/>
+                </td>
+                <% subqty += row.Planqty || row.selectedQuantity%>
+                <td data-name="unit">
+                    <input style="text-align: center;" class="unit statusInfo" maxlength="9" value="<%=(row.unit).toFixed(3) || 0%>" type="text" readonly/>
+                </td>
+                <td data-name="unitPrice">
+                    <input style="text-align: center;" class="price statusInfo" maxlength="9" value="<%=(row.cost/100).toFixed(2)%>" type="text" readonly/>
+                </td>
+                <%var subtotal = 0;%>
+                <%var viceprice = 0;%>
+                <%var vicepriceqty = 0;%>
+                <%if(row.parameters.length){%>
+                    <% row.parameters.forEach(function(para,index){ %>
+                        <%if(para.paraname == '保护膜（mm）'){%>
+                            <%viceprice = para.value;%>
+                        <%} else if(para.paraname == '副计量单价'){%>
+                            <%vicepriceqty = para.value;%>
+                        <%} %>
+                    <%}) %>
+                <%} %>
+                <%if(model.reason == 'FO'){%>
+                    <%subtotal = (row.Planqty*row.unit*row.cost/100 + viceprice*vicepriceqty*row.Planqty/1000).toFixed(2)%>
+                <%} else{%>
+                    <%subtotal = (row.selectedQuantity*row.unit*row.cost/100 + viceprice*vicepriceqty*row.selectedQuantity/1000).toFixed(2)%>
+                <%} %>
+                <td style="text-align: center" data-name="subtotal" class="subtotal">
+                    <input style="text-align: center;" class="subtotal statusInfo" maxlength="9" value="<%=subtotal%>" type="text" readonly/>
+                </td>
+                <% subcost += parseFloat(subtotal)%>
+                <td style="text-align: left" data-name="paras">
+                    <table>
+                        <% if(row.parameters.length){%>
+                            <%var parameter = ""; %>
+                            <% row.parameters.forEach(function(para,index){ %>
+                                <% if(index === 0){ %>
+                                    <% parameter = para.paraname + " : " + para.value; %>
+                                <% }else if(para.value !== ""){ %>
+                                    <% parameter = parameter + " / " + para.paraname + " : " + para.value; %>
+                                <% } %>
+                            <% }); %> 
+                            <tr>
+                               <td><%=parameter%></td>
+                            </tr>
+                        <%}else{ %>
+                        <tr></tr>
+                        <% } %>
+                    </table>
+                </td>
+            </tr>
+            <% }); %>
+            </tbody>
+        </table>
+        <div class="totalAmount">
+            <div data-name="subqty">总量：<span><%=subqty%></span></div>
+            <div data-name="subcost">总计：<span><%=subcost.toFixed(2)%></span></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<% collection.forEach(function(model, index){ %>
+<tr data-type='empList' data-id="<%=model._id%>" class="mainTr">
+    <td class="" data-id="<%=model._id%>" data-content="employee"><%=model.name ? model.name.first + ' ' + model.name.last : ''%></td>
+    <td data-content="dateKey"><%=model.datekey%></td>
+    <td data-content="price" data-cash="<%=model.price%>"><%=model.price.toFixed(2)%></td>
+</tr>
+<% }) %>

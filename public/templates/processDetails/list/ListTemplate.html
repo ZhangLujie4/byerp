@@ -1,0 +1,12 @@
+<% processDetailsCollection.forEach(function(processDetail, index){ %>
+<tr data-index="<%=index%>" data-id="<%= processDetail._id%>" >
+    <td class="centerCell"><input type="checkbox" value="<%=processDetail._id%>" class="checkbox"/></td>
+    <td><%=processDetail.projectName%></td>
+    <td><%=processDetail.workNumber%></td>
+    <td><%=processDetail.completePercent.toFixed(2)%> %</td>
+    <td><%=processDetail.checked%></td>
+    <td><%=processDetail.projectDepCost.toFixed(2)%></td>
+    <td><%=processDetail.processCost.toFixed(2)%></td>
+    <td><%=processDetail.operator%></td>
+</tr>
+<% }) %>

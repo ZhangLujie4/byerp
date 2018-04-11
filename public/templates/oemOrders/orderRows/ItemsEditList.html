@@ -1,0 +1,94 @@
+<% var firstProduct = true %>
+<% products.forEach(function(product){ %>
+<% var colorRow = (product.quantity === product.shipped) ? '' : (product.onHand || (product.quantity === product.fulfilled))  ? 'green' : 'red' %>
+<%var colSpan = 0;%>
+<tr data-id="<%=product._id%>" data-hand="<%=product.onHand || 0%>" class="productItem">
+    <td data-name="description" class="text-overflow jobs selectJobTd">
+        <div>
+            <div class="jobsWescWrap _newSelectListWrap">
+                <textarea class="productDescr" <%=notEditable ? 'readonly' : ''%>><%= product.description %></textarea>
+            </div>
+        </div>
+        <%colSpan++;%>
+    </td>
+    <td data-name="quantity" class="<%=!forSales ? 'editable' : ''%> forNum">
+        <%colSpan++;%>
+        <div>
+            <% if (notEditable) { %>
+            <span><%=product.quantity%></span>
+            <% } else { %>
+            <input id="quantity" class="quantity statusInfo forNum" maxlength="9" size=10 type="text" value="<%=product.quantity%>">
+            <% } %>
+        </div>
+    </td>
+    <td data-name="price" class="<%=notEditable  ? '' : 'editable'%> forNum">
+        <%colSpan++;%>
+        <div>
+            <% if(notEditable) { %>
+            <span class="currencySymbol"><%=(currency && currency._id ? currency._id.symbol : '') %></span>
+            <span><%=currencySplitter(product.unitPrice.toString())%></span>
+            <% } else { %>
+            <span class="currencySymbol"><%=(currency && currency._id ? currency._id.symbol : '') %></span>
+            <input
+                    id="editInput" class="statusInfo" maxlength="9" size=7 type="text"
+                    value="<%=currencySplitter(product.unitPrice.toString())%>"/>
+
+            <%} %>
+        </div>
+    </td>
+    <td data-name="priceQty" class="<%=!forSales ? 'editable' : ''%> forNum">
+        <%colSpan++;%>
+        <div>
+            <% if (notEditable) { %>
+            <span><%=product.priceQty ? product.priceQty : 0%></span>
+            <% } else { %>
+            <input id="priceQty" class="priceQty statusInfo forNum" maxlength="9" size=10 type="text" value="<%=product.priceQty ? product.priceQty : 0%>" readonly/>
+            <% } %>
+        </div>
+    </td>
+    <% var vicepriceQty = 0;%>
+    <% var vicePrice = 0;%>
+    <% product.parameters.forEach(function(para,index){ %>
+        <%if(para.paraname == "保护膜（mm）"){%>
+            <%vicepriceQty = para.value;%>
+        <%} else if(para.paraname == "副计量单价"){%>
+            <%vicePrice = para.value;%>
+        <%}%>
+    <%});%>
+    <td data-name= "priceQty2">
+        <div>
+            <input type="text" id="priceQty2" class="priceQty2 statusInfo forNum" maxlength="9" size=10 value="<%=vicepriceQty%>" readonly/>
+        </div>
+    </td>
+    <td data-name="price2">
+        <div>
+            <input type="text" id="price2" class="price2 statusInfo forNum" maxlength="9" size=10 value="<%=vicePrice%>" >
+        </div>
+    </td>
+    <td data-name="subtotal" class="subtotal" style="text-align:left">
+        <%colSpan++;%>
+        <div>
+            <span class="currencySymbol"><%=(currency && currency._id ? currency._id.symbol : '') %></span><span
+                class="sum"><%= product.subTotal ? currencySplitter(product.subTotal.toString()) : ''%></span>
+        </div>
+    </td>
+    <td data-name="product">
+        <div>
+            <input type="text" id="product" class="product statusInfo" style="height: 17px;" maxlength="11" size=10 value="<%=product.product.name%>" readonly/>
+        </div>
+    </td>
+    <% var parameter = ""; %>
+    <% product.parameters.forEach(function(para,index){ %>
+        <% if(index === 0){ %>
+            <% parameter = para.paraname + " : " + para.value; %>
+        <% }else if(para.value !== ""){ %>
+            <% parameter = parameter + " / " + para.paraname + " : " + para.value; %>
+        <% } %>
+    <% }); %>
+    <td style="text-align:left">
+        <div><span style="white-space:normal"><%=parameter%></span>
+        </div>
+    </td>
+</tr>
+<% }); %>
+

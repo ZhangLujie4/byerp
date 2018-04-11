@@ -1,0 +1,79 @@
+<div class="_invoiceTemplate">
+    <div class="extractPdf">
+        <div class="_templateHeader">
+            <div class="_headerRightPart">
+                <div class="_entityBlock">
+                    <div class="_entityTitle">出库单明细</div>
+                    <div class="_entityNumber"><b><%=model.name%></b></div>
+                </div>
+            </div>
+        </div>
+        <% if(model.order.orderType === "goodsPlan"){ %>
+            <table class="_templateTable tableFixed">
+                <colgroup>
+                    <col width="100px">
+                    <col width="100px">
+                    <col width="100px">
+                    <col width="100px">
+                    <col width="100px">
+                    <col width="50px">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>材料</th>
+                        <th>入库单</th>
+                        <th>库位</th>
+                        <th>参数</th>
+                        <th>数量</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                    <% model.orderRows.forEach(function(orderRow){ %>
+                        <% orderRow.gnotesDeliver.forEach(function(gnote){ %>
+                            <% var parameter = ""; %>
+                            <% gnote.parameters.forEach(function(para){ %>
+                                <% if(para.value !== ""){ %>
+                                    <% parameter = parameter + "<br>" + para.paraname + " : " + para.value; %>
+                                <% } %>
+                            <% });%>
+                            <tr>
+                                <td><%=orderRow.product.name%></td>
+                                <td><%=gnote.goodsInNoteId.name%></td>
+                                <td><%=gnote.location.name%></td>
+                                <td><%=parameter%></td>
+                                <td><%=gnote.quantity%></td>
+                                <td></td>
+                            </tr>
+                        <% }); %>
+                    <% }); %>
+                <tbody>
+                </tbody>
+            </table>
+        <% }else{ %>
+            <table class="_templateTable tableFixed">
+                <colgroup>
+                    <col width="200px">
+                    <col width="200px">
+                    <col width="50px">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>材料</th>
+                        <th>数量</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                    <% model.orderRows.forEach(function(orderRow){ %>
+                        <tr>
+                            <td><%=orderRow.product.name%></td>
+                            <td><%=orderRow.quantity%></td>
+                            <td></td>
+                        </tr>
+                    <% }); %>
+                <tbody>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+
+</div>

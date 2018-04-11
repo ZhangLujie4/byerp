@@ -1,0 +1,33 @@
+<% aluveneerOrdersCollection.forEach(function(aluveneerOrder, index){ %>
+<tr data-index="<%=index%>" data-id="<%= aluveneerOrder._id%>" id="detail">
+    <td class="centerCell">
+        <input type="checkbox" value="<%=aluveneerOrder._id%>" class="checkbox"/>
+    </td>
+    <!-- <td class="centerCell"><%=aluveneerOrder.projectName%></td> -->
+    <td class="centerCell"><%=aluveneerOrder.lbmc%></td>
+    <td class="centerCell"><%=aluveneerOrder.lbbh%></td>
+    <td class="centerCell"><%=aluveneerOrder.sfyx%></td>
+    <td class="centerCell"><%=aluveneerOrder.sqm%></td>
+    <td class="centerCell"><%=aluveneerOrder.szjys%></td>
+    <td class="centerCell"><%=aluveneerOrder.cjlhf%></td>
+    <td class="centerCell"><%=aluveneerOrder.kc%></td>
+    <td class="centerCell"><%=aluveneerOrder.dj%></td>
+    <td class="centerCell"><%=aluveneerOrder.ck%></td>
+    <td class="centerCell"><%=aluveneerOrder.W%></td>
+    <td class="centerCell"><%=aluveneerOrder.L1%></td>
+	<td class="centerCell"><%=aluveneerOrder.L2%></td>
+    <td class="centerCell"><%=aluveneerOrder.L3%></td>
+    <td class="centerCell"><%=aluveneerOrder.L4%></td>
+    <td class="centerCell"><%=aluveneerOrder.L5%></td>
+    <td class="centerCell"><%=aluveneerOrder.L6%></td>
+    <td class="centerCell"><%=aluveneerOrder.sl%></td>
+    <td class="centerCell"><%=aluveneerOrder.dw%></td>
+    <td class="centerCell"><%=aluveneerOrder.dkjjmj.toFixed(3)%></td>
+    <td class="centerCell"><%=aluveneerOrder.zmj.toFixed(3)%></td>
+    <td class="centerCell"><%=aluveneerOrder.jgsh%></td>
+    <td class="centerCell"><%=aluveneerOrder.jgth%></td>
+    <td class="centerCell"><%=aluveneerOrder.routing%></td>
+    <td class="centerCell"><%=aluveneerOrder.comment%></td>
+    
+</tr>
+<% }) %>

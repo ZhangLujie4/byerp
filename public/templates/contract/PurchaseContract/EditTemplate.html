@@ -1,0 +1,353 @@
+﻿﻿<div class="form-holder task-create-holder">
+    <form method="post" action="" id="editTaskForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">主要内容</a></li>
+                <li><a href="javascript:;">付款相关选项</a></li>
+                <li><a href="javascript:;">相关责任</a></li>
+                <li><a href="javascript:;">质量要求&备注</a></li>
+                <li><a href="javascript:;">供货产品</a></li>
+                <li><a href="javascript:;">文件上传</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                    <div class="half-block left withPaddingLeft">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt>
+                                    <label>工程名称:</label>
+                                </dt>
+                                <% if(model.project){%>
+                                <dd  >
+                                    <p id="projectDd" data-id="<%=model.project._id%>"  href="javascript:;" ><%=model.project.name%></p>
+                                </dd>
+                                <%}else{%>
+                                <dd  >
+                                    <p id="building" data-id="<%=model.building._id%>"  href="javascript:;" ><%=model.building.name%></p>
+                                </dd>
+                                <%}%>
+                                <dt><label for="workflowsDd">阶段 </label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="workflowsDd" data-id="<%=(model.workflow) ? model.workflow._id : ''%>" class="current-selected" href="javascript:;"><%=(model.workflow)?model.workflow.name:'Undefinded'%></a>
+                                </dd>
+                                <dt><label>合同类型 </label></dt>
+                                <dd >
+                                    <input type="text" id="type"  value="材料采购合同" style="border: none" readonly="true">
+                                </dd>
+
+                                <dt><label>项目经理 :</label></dt>
+                                <dd>
+                                    <input id="pmrDd" type="text" style="border: none" readonly="true" />
+                                </dd>
+                                <dt>
+                                    <label for="supplier">供货商</label>
+                                </dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="supplier" data-id="<%=(model.supplier) ? model.supplier._id : ''%>" class="current-selected" href="javascript:;">
+                                        <%=(model.supplier)?(model.supplier.name.first+' '+model.supplier.name.last):'选择'%></a></dd-->
+                                </dd>
+                                <dt><label for="descriptions">工程简述</label></dt>
+                                <dd><input type="text" name="logged" id="descriptions"   style="width: 280px;border: none" readonly="true" /></dd>
+                                <input id="pmrId" type="hidden">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt><label for="signedDate">合同签订日期</label></dt>
+                                <dd><input class="extrainfo blueback" type="text" name="signedDate" id="signedDate" value="<%= model.signedDate %>" readonly/></dd>
+                                <dt><label for="proDate">供货期</label></dt>
+                                <dd><input  type="text" name="logged" id="proDate" style="width: 80%" value="<%=model.proDate%>"/></dd>
+                                <dt><label for="proProduct">供货产品</label></dt>
+                                <dd><input  type="text" name="logged" id="proProduct" style="width: 80%" value="<%=model.proProduct%>"/></dd>
+                                <dt><label for="taskAmount">合同金额</label></dt>
+                                <dd><input class="onlyNumber"  type="text" name="logged" id="taskAmount" style="width: 80%" value="<%=model.taskAmount%>"/><i>万元</i></dd>
+                                <dt><label>申请印章类别 </label></dt>
+                                 <% var sealName %>
+                                <% if(model.sealType=='GZ'){%>
+                                <% sealName='公章' %>
+                                <%} else if(model.sealType=='HTZYZ'){%>
+                                <% sealName='合同专用章' %>
+                                <%}%>
+                                <dd class="_newSelectListWrap">
+                                    <a id="sealType" data-id="<%=model.sealType?model.sealType:''%>" class="current-selected" href="javascript:;"><%=sealName?sealName:'选择'%></a>
+                                </dd>
+                                <!--dt><label for="fujian" >工程量</label></dt>
+                                <dd id="fujian"><a style="font-size:14px">查看</a></dd>
+                                <!--dt><label for="summaryEdit">总量</label></dt><dd>
+                                <input type="text" name="summary"  id="summaryEdit" value="<%=model.summary%>" required /></dd-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-tabs-item">
+                    <div class="half-block left withPaddingLeftProject">
+                        <div class="inner">
+                            <dt><label for="payTerm">付款方式</label></dt>
+                            <dd><input   type="text" name="payTerm" id="payTerm" value="<%=model.payTerm%>"/></dd>
+                            <dt><label for="payProp">付款比例</label></dt>
+                            <dd><input  maxlength="4" type="text" name="payProp" id="payProp" style="width: 90%" value="<%=model.payProp%>"/><i>%</i></dd>
+                            <dt><label for="preAmount">预付款</label></dt>
+                            <dd><input class="onlyNumber" type="text" name="preAmount" id="preAmount" style="width: 80%" value="<%=model.preAmount%>"/><i>万元</i></dd>
+                            <dt style="width: 130px;margin-top:25px">
+                                <label for="preAmountType">预付款相关条件：</label>
+                            </dt>
+                            <dd>
+                                <table class="list">
+                                    <tr>
+                                        <td width="50px">
+                                            <input id="preAmountRateLabel"  data-id="preAmountRateLabel" name="preAmount" type="radio" value="比例" style="width: 10px;height: 50px" <%=model.preAmountType.mold=='preAmountRateLabel' ? 'checked' : ''%>/>
+                                        </td>
+                                        <td width="50px">
+                                            <label for="preAmountRateLabel">比例</label>
+                                        </td>
+                                        <td width="70px">
+                                            <input type="text" id="preAmountRate" style="width: 40px" value="<%=model.preAmountType.mold=='preAmountRateLabel' ? model.preAmountType.number : ''%>"/><i>%</i>
+                                        </td>
+                                        <td width="50px">
+                                            <input id="preAmountLabel" data-id="preAmountLabel" name="preAmount" type="radio" value="金额" style="width: 10px;height: 50px" <%=model.preAmountType.mold=='preAmountLabel' ? 'checked' : ''%>/>
+                                        </td>
+                                        <td width="50px">
+                                            <label for="preAmountLabel">金额</label>
+                                        </td>
+                                        <td width="50px">
+                                            <input type="text" id="preAmountAll" style="width: 70px" value="<%=model.preAmountType.mold=='preAmountLabel' ? model.preAmountType.number : ''%>"/><i>元</i>
+                                        </td>
+                                        <td style="text-align: left">
+                                            <% var name %>
+                                            <% if(model.preAmountType.payType=='HQHKZBZKC'){%>
+                                            <% name='后期货款中不做扣除'%>
+                                            <%} else if(model.preAmountType.payType=='SCFKZKC'){%>
+                                            <% name='首次付款中扣除'%>
+                                            <%} else if(model.preAmountType.payType=='TBLKC'){%>
+                                            <% name='同比例扣除'%>
+                                            <%} else if(model.preAmountType.payType=='WKZKC'){%>
+                                            <% name='尾款中扣除'%>
+                                            <%}%>
+                                            <div class="_modalList" style="width: 150px">
+                                                <div id="selectPreAmountType"
+                                                     style="width: 150px"
+                                                     class="_modalSelect _newSelectListWrap">
+                                                    <a id="preAmountType"
+                                                       class="current-selected"
+                                                       data-id="<%=model.preAmountType.payType%>"
+                                                       href="javascript:;"><%=model.preAmountType.payType ? name : '选择'%>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </dd>
+
+                            <dt style="width: 130px;margin-top: 20px">
+                                <label for="quota" >限额选项</label>
+                            </dt>
+                            <dd>
+                                <table class="list">
+                                    <tr>
+                                        <td width="50px">
+                                            <input id="quota"  data-id="quota" type="checkbox" value="quota" style="width: 10px" <%=model.quota.choose=='true' ? 'checked' : ''%>/><label for="quota">订单单条数据，数量小于</label>
+                                            <input type="text" id="quotaNumber" style="width: 80px" value=" <%=model.quota.number1%>"/><i>单位</i>
+                                            <input type="text" id="quotaUnit" style="width: 80px" value=" <%=model.quota.number2%>"/><i>时，作</i>
+                                            <input type="text" id="quotaAccount" style="width: 80px" value=" <%=model.quota.number3%>"/><i>核算</i>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </dd>
+                        </div>
+                    </div>
+                    <div class="half-block left withPaddingLeftProject">
+                        <div class="inner">
+                            <dt style="width: 130px;margin-top: 20px">
+                                <label for="paymentType">付款条件:</label>
+                            </dt>
+                            <dd>
+                                <table class="list">
+                                    <tr>
+                                        <td width="50px">
+                                            <input id="paymentTypeByMonth" data-id="paymentTypeByMonth" name="paymentType" type="radio" value="按月（单批）" style="width: 10px;height: 50px" <%=model.paymentType.mold=='paymentTypeByMonth' ? 'checked' : ''%>/>
+                                        </td>
+                                        <td width="50px">
+                                            <label for="paymentTypeByMonth">按月（单批）:按月支付</label>
+                                        </td>
+                                        <td width="70px">
+                                            <input type="text" id="paymentTypeByMonthRate" style="width: 40px" value="<%=model.paymentType.monthNumber%>"/><i>%</i>
+                                        </td>
+                                        <td width="50px">
+                                            <input id="paymentTypeByNode" data-id="paymentTypeByNode" name="paymentType" type="radio" value="按金额" style="width: 10px;height: 50px" <%=model.paymentType.mold=='paymentTypeByNode' ? 'checked' : ''%>/>
+                                        </td>
+                                        <td width="50px">
+                                            <label for="preAmountLabel">按节点：</label>
+                                        </td>
+                                        <td width="50px" style="text-align: left">
+                                            <input id="paymentTypeByAmount" data-id="paymentTypeByAmount" name="paymentTypeBranch" type="radio" value="按金额" style="width: 10px" <%=model.paymentType.nodeType=='paymentTypeByAmount' ? 'checked' : ''%>/>
+                                            <label for="paymentTypeByAmount" >按金额</label>
+                                            <input type="text" id="paymentTypeByAmountNumber" style="width: 40px" value="<%=model.paymentType.nodeType=='paymentTypeByAmount' ? model.paymentType.number1 : ''%>" /><i>元,支付</i>
+                                            <input type="text" id="paymentTypeByAmountRate" style="width: 40px" value="<%=model.paymentType.nodeType=='paymentTypeByAmount' ? model.paymentType.number2 : ''%>"/><i>%</i><br>
+                                            <input id="paymentTypeByQuantity"  data-id="paymentTypeByQuantity" name="paymentTypeBranch" type="radio" value="按数量" style="width: 10px;height: 20px"  <%=model.paymentType.nodeType=='paymentTypeByQuantity' ? 'checked' : ''%>/>
+                                            <label for="paymentTypeByQuantity">按数量</label>
+                                            <input type="text" id="paymentTypeByQuantityNumber" style="width: 40px" value="<%=model.paymentType.nodeType=='paymentTypeByQuantity' ? model.paymentType.number1 : ''%>"/><i>(单位:m2/Kg/)，支付</i>
+                                            <input type="text" id="paymentTypeByQuantityRate" style="width: 40px" value="<%=model.paymentType.nodeType=='paymentTypeByQuantity' ? model.paymentType.number2 : ''%>"/><i>%</i><br>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </dd>
+                            <dt style="width: 130px;margin-top: 20px">
+                                <label for="payType">所有附加条件：</label>
+                            </dt>
+                            <% var name1=''%>
+                            <% var name2=''%>
+                            <% var name3=''%>
+                            <% var name4=''%>
+                            <% var number1=0%>
+                            <% var number2=0%>
+                            <% var number3=0%>
+                            <% var number4=0%>
+                            <% model.payType.forEach(function(payType,index){%>
+                            <% if(payType.mold=='NDZF'){name1='NDZF',number1=payType.number%>
+                            <% }else if(payType.mold=='AZWCZF'){name2='AZWCZF',number2=payType.number%>
+                            <%} else if(payType.mold=='YSHGZF'){name3='YSHGZF',number3=payType.number%>
+                            <% }else if(payType.mold=='ZBJ'){name4='ZBJ',number4=payType.number%>
+                            <%}})%>
+                            <dd>
+                                <table class="list">
+                                    <tr>
+                                        <td width="50px">
+                                            <input id="NDZF"  data-id="NDZF" type="checkbox" value="NDZF" style="width: 10px"<%=name1 ? 'checked' : ''%>/><label for="NDZF">年底支付</label>
+                                            <input type="text" id="NDZFRate" style="width: 40px" value="<%=name1 ? number1:''%>"/><i>%</i>
+                                        </td>
+                                        <td width="50px">
+                                            <input id="AZWCZF"  data-id="AZWCZF" type="checkbox" value="NDZF" style="width: 10px;" <%=name2 ? 'checked' : ''%>/><label for="AZWCZF">安装完成支付</label>
+                                            <input type="text" id="AZWCZFRate" style="width: 40px" value="<%=name2 ? number2:''%>"/><i>%</i>
+                                        </td>
+                                        <td width="50px">
+                                            <input id="YSHGZF"  data-id="YSHGZF" type="checkbox" value="NDZF" style="width: 10px;" <%=name3 ? 'checked' : ''%>/><label for="YSHGZF">验收合格支付</label>
+                                            <input type="text" id="YSHGZFRate" style="width: 40px" value="<%=name3 ? number3:''%>"/><i>%</i>
+                                        </td>
+                                        <td width="50px">
+                                            <input id="ZBJ"  data-id="ZBJ" type="checkbox" value="NDZF" style="width: 10px;"<%=name4 ? 'checked' : ''%> /><label for="ZBJ">质保金</label>
+                                            <input type="text" id="ZBJRate" style="width: 40px" value="<%=name4 ? number4:''%>"/><i>%</i>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </dd>
+                            <dt style="width: 130px;margin-top: 20px">
+                                <label for="carriage">运费选项：</label>
+                            </dt>
+                            <dd>
+                                <table class="list">
+                                    <tr class="carriageList">
+                                        <td width="50px">
+                                            <input id="carriageByAmount" data-id="carriageByAmount" name="carriage" type="radio" value="按金额" style="width: 10px;height: 50px" <%=model.carriage.mold=='carriageByAmount' ? 'checked' : ''%>/>
+                                        </td>
+                                        <td width="50px">
+                                            <label for="carriageByAmount">按金额：</label>
+                                        </td>
+                                        <td width="50px" style="text-align: left">
+                                            <label for="carriageByAmountRange" >金额范围：</label>
+                                            <input type="text" id="carriageByAmountRange1" style="width: 80px" value="<%=model.carriage.byAmount[0]? model.carriage.byAmount[0].number1 : ''%>"/><i>-</i>
+                                            <input type="text" id="carriageByAmountRange2" style="width: 80px" value="<%=model.carriage.byAmount[0]? model.carriage.byAmount[0].number2 : ''%>"/><i>;运费金额</i>
+                                            <input type="text" id="carriageByAmountRange3" style="width: 80px" value="<%=model.carriage.byAmount[0]? model.carriage.byAmount[0].number3 : ''%>"/><i>元</i><br>
+                                        </td>
+                                    </tr>
+                                    <% model.carriage.byAmount.forEach(function(byAmount,index){%>
+                                    <% if(index>0){%>
+                                    <tr class="carriageList">
+                                        <td colspan="2"></td>
+                                        <td width="50px" style="text-align: left">
+                                            <label for="carriageByAmountRange" >金额范围：</label>
+                                            <input type="text" id="carriageByAmountRange1" style="width: 80px" value="<%=byAmount.number1 %>"/><i>-</i>
+                                            <input type="text" id="carriageByAmountRange2" style="width: 80px" value="<%=byAmount.number2 %>"/><i>;运费金额</i>
+                                            <input type="text" id="carriageByAmountRange3" style="width: 80px" value="<%=byAmount.number3 %>"/><i>元</i><br>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                                    <%})%>
+                                    <tr>
+                                        <td colspan="6" class="addCarriage">
+                                            <a href="javascript:;">添加新项</a>
+                                        </td>
+                                    </tr>
+                                    <% var carriageType11=''%>
+                                    <% var carriageType12=''%>
+                                    <% var carriageType21=0%>
+                                    <% var carriageType22=0%>
+                                    <% var carriageNumber1=0%>
+                                    <% var carriageNumber2=0%>
+                                    <% model.carriage.byAddress.forEach(function(byAddress,index){%>
+                                    <% if(byAddress.addressType=='AddressCompany'){carriageType11='AddressCompany',carriageNumber1=byAddress.addressNumber,carriageType12=byAddress.addressTypes%>
+                                    <% }else if(byAddress.addressType=='AddressConstruction'){carriageType21='AddressConstruction',carriageNumber2=byAddress.addressNumber,carriageType22=byAddress.addressTypes%>
+                                    <%}})%>
+                                    <tr>
+                                        <td width="50px">
+                                            <input id="carriageByAddress" data-id="carriageByAddress" name="carriage" type="radio" value="按到货地址" style="width: 10px;height: 50px" <%=model.carriage.mold=='carriageByAddress' ? 'checked' : ''%>/>
+                                        </td>
+                                        <td width="50px">
+                                            <label for="carriageByAmount">按到货地址：</label>
+                                        </td>
+                                        <td width="50px" style="text-align: left">
+                                            <input id="AddressCompany"  data-id="AddressCompany" type="checkbox" value="AddressCompany" style="width: 10px;" <%=carriageType11=='AddressCompany' ? 'checked' : ''%> /><label for="AddressCompany" >公司：</label>
+                                            <input id="AddressCompanyDP" data-id="AddressCompanyDP" name="AddressCompanyType" type="radio" value="单批" style="width: 10px;" <%=carriageType12=='AddressCompanyDP' ? 'checked' : ''%>/ >
+                                            <label for="AddressCompanyDP">单批,运费金额</label>
+                                            <input type="text" id="AddressCompanyDPAmount" style="width: 80px" value="<%=carriageType12=='AddressCompanyDP' ? carriageNumber1 : ''%>"/><i>元</i><br>
+                                            <input id="AddressCompanyDWSL" data-id="AddressCompanyDWSL"  name="AddressCompanyType" type="radio" value="单位数量" style="width: 10px;margin-left: 62px" <%=carriageType12=='AddressCompanyDWSL' ? 'checked' : ''%>/>
+                                            <label for="AddressCompanyDWSL">单位数量,运费金额</label>
+                                            <input type="text" id="AddressCompanyDWSLAmount" style="width: 80px" value="<%=carriageType12=='AddressCompanyDWSL' ? carriageNumber1 : ''%>"/><i>元</i><br>
+                                            <input id="AddressConstruction"  data-id="AddressConstruction" type="checkbox" value="AddressConstruction" style="width: 10px;" <%=carriageType21=='AddressConstruction' ? 'checked' : ''%> /><label for="AddressConstruction">工地：</label>
+                                            <input id="AddressConstructionDP" data-id="AddressConstructionDP" name="AddressConstructionType" type="radio" value="单批" style="width: 10px;" <%=carriageType22=='AddressConstructionDP' ? 'checked' : ''%> />
+                                            <label for="AddressConstructionDP">单批,运费金额</label>
+                                            <input type="text" id="AddressConstructionDPAmount" style="width: 80px" value="<%=carriageType22=='AddressConstructionDP' ? carriageNumber2 : ''%>"/><i>元</i><br>
+                                            <input id="AddressConstructionDWSL" data-id="AddressConstructionDWSL" name="AddressConstructionType" type="radio" value="单位数量" style="width: 10px;margin-left: 62px" <%=carriageType22=='AddressConstructionDWSL' ? 'checked' : ''%>/>
+                                            <label for="AddressConstructionDWSL">单位数量,运费金额</label>
+                                            <input type="text" id="AddressConstructionDWSLLAmount" style="width: 80px" value="<%=carriageType22=='AddressConstructionDWSL' ? carriageNumber2 : ''%>"/><i>元</i><br>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </dd>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-tabs-item">
+                    <div class="inner">
+                        <dt>
+                            <label for="respons">双方责任:</label>
+                        </dt>
+                        <textarea type="text" name="description" class="taskDescriptionEdit"  id="respons" required maxlength="500"><%=model.respons%> </textarea>
+                        <dt>
+                            <label for="violation">违约责任:</label>
+                        </dt>
+                        <textarea type="text" name="description" class="taskDescriptionEdit"  id="violation" required maxlength="500"><%=model.violation%> </textarea>
+                    </div>
+                </div>
+                <div class="dialog-tabs-item">
+                    <div class="inner">
+                        <dt>
+                            <label for="quality">质量要求:</label>
+                        </dt>
+                        <textarea type="text" name="quality" class="taskDescriptionEdit"  id="quality" required maxlength="500"><%=model.quality%> </textarea>
+                        <dt>
+                            <label for="note">备注:</label>
+                        </dt>
+                        <textarea type="text" name="description" class="taskDescriptionEdit"  id="note" required maxlength="500"><%=model.note%> </textarea>
+                    </div>
+                </div>
+                <div class="dialog-tabs-item">
+                    <div id="productItemsHolder">
+                    </div>
+                </div>
+                <div class="dialog-tabs-item">
+                    <div class="attachments"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

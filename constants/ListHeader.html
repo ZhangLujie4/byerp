@@ -1,0 +1,30 @@
+﻿<% workCentreCollection.forEach(function(item,index){ %>
+<% workCentres = item.workCentre; %>
+<% });%>
+<% var width = parseInt(100/(workCentres.length+2));%>
+<div id="searchContainer"></div>
+<div class="_tableOpportunitiesWrap">
+    <table class="list stripedList">
+        <colgroup>
+            <col width="42px">
+            <col width="15%">
+            <% workCentres.forEach(function(workCentre){ %>
+                <col width="<%=width%>%">
+            <% }); %>
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="centerCell">
+                <input type="checkbox" id="checkAll"/>
+            </th>
+            <th class="oe_sortable" data-sort="monitoringDate" style="text-align: center;">日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <% workCentres.forEach(function(workCentre){ %>
+                <th class="oe_sortable" data-sort="" style="text-align: center;"><%=workCentre.code%><%=workCentre.name%><span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <% }); %>
+        </tr>
+        </thead>
+        <tbody id="listTable"></tbody>
+    </table>
+</div>

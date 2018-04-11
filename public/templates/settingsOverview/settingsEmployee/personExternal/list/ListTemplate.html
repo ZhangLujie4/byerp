@@ -1,0 +1,15 @@
+<% personExternal.forEach(function(personExternal, index){ %>
+<tr data-id="<%=personExternal._id%>">
+    <td data-content="number" class="centerCell"><%=startNumber + index + 1%></td>
+    <td data-content="employeeDd" data-id="<%=personExternal ? personExternal._id : null%>">
+        <span><%=personExternal.employee.name.first +' '+ personExternal.employee.name.last%></span>
+    </td>
+    <td data-type="input"><%=personExternal.allowanceName%></td>
+    <td data-type="input"><%=personExternal.amount/100%></td>
+    <td data-type="input"><%=(personExternal.editedBy.user&&personExternal.editedBy ? personExternal.editedBy.user.login : '') + ' ' + personExternal.editedBy.date%></td>
+    <td>
+        <a href="javascript:;" class="icon-note goToEdit _actionCircleBtn" aria-hidden="true"></a>
+        <a href="javascript:;" class="icon-trash goToRemove _actionCircleBtn" aria-hidden="true"></a>
+    </td>
+</tr>
+<% }) %>

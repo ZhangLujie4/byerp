@@ -1,0 +1,9 @@
+<% goodsBarcodeCollection.forEach(function(goodsBarcode, index){ %>
+<tr data-index="<%=index%>" data-id="<%= goodsBarcode._id%>" >
+    <td class="centerCell"><%=goodsBarcode.projectId.name%></td>
+    <td class="centerCell"><%=goodsBarcode.orderNumber%></td>
+    <td class="centerCell"><%=goodsBarcode.deliverNumber.trips%></td>
+    <td class="centerCell"><%=goodsBarcode.reason%></td>
+    <td class="centerCell"><%=goodsBarcode.quantity%></td>
+</tr>
+<% }) %>

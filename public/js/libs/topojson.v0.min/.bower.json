@@ -1,0 +1,11 @@
+{
+  "name": "topojson.v0.min",
+  "_cacheHeaders": {
+    "Last-Modified": "Fri, 06 Jan 2017 17:13:04 GMT",
+    "Content-Type": "application/javascript; charset=utf-8"
+  },
+  "main": "index.js",
+  "_source": "http://d3js.org/topojson.v0.min.js",
+  "_target": "*",
+  "_originalSource": "http://d3js.org/topojson.v0.min.js"
+}

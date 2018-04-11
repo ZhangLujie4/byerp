@@ -1,0 +1,900 @@
+<div class="form-holder">
+
+    <form method="post" action="" id="createPersonsForm" class="form">
+        <fieldset>
+            <div class="inner">
+                
+                <div class="clearfix"></div>
+                
+                <div class="topInputHolder">
+                    <div class="half-block left">
+                        <dl class="person-info">
+
+                            <dt>
+                                <label for="building">工程名称</label>
+                            </dt>
+                            <dd class="_newSelectListWrap">
+                                <a id="building"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                </a>
+                            </dd>
+
+                            <dt>
+                                <label for="customerDd">客户</label>
+                            </dt>
+                            <!-- <dd class="_newSelectListWrap">
+                                <a id="customerDd"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                </a>
+                            </dd> -->
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="customerDd"
+                                   id="customerDd"
+                                   style="border: none;"
+                                   readonly="readonly" />
+                            </dd>
+
+                            <dt><label for="contactName">联系人</label></dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="contactName"
+                                   id="contactName"
+                                   placeholder="联系人"/>
+                            </dd>
+
+                            <dt><label for="customerPhone">客户联系电话</label></dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="customerPhone"
+                                   id="customerPhone"
+                                   placeholder="客户联系电话"/>
+                            </dd>
+                            <!-- <dt>
+                                <label for="projectDd">工程</label>
+                            </dt>
+                            <dd class="_newSelectListWrap">
+                                <a id="projectDd"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                </a>
+                            </dd> -->
+                            <dt>
+                                <label for="orderDate">合同签订日</label>
+                            </dt>
+                            <dd>
+                                <div class="_inputIconWrap">
+                                    <input id="orderDate" placeholder="合同签订日期" type="text"/>
+                                    <label></label>
+                                </div>
+                            </dd>
+
+                            <dt>
+                                <label for="projectManager">项目经理</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="projectManager"
+                                   id="projectManager"
+                                   placeholder="项目经理"/>
+                            </dd>
+
+                            <dt><label for="managerPhone">项目经理联系电话</label></dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="managerPhone"
+                                   id="managerPhone"
+                                   placeholder="项目经理联系电话"/>
+                            </dd>
+
+                            <dt>
+                                <label for="shipAddress">收货地址</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="shipAddress"
+                                   id="shipAddress"
+                                   placeholder="收货地址"/>
+                            </dd>
+
+                            <dt>
+                                <label for="deliveryDate">估计交货时间</label>
+                            </dt>
+                            <dd>
+                                <div>
+                                    <input id="deliveryDate1" type="text" style="width: 85px;" />
+                                    至
+                                    <input id="deliveryDate2" type="text" style="width: 85px;" />
+                                    <label></label>
+                                </div>
+                            </dd>
+                            <dt><label for="clerk1">业务员1</label></dt>
+                            <!-- <dd> <a id="clerk1"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                 </a>
+                            </dd> -->
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="clerk1"
+                                   id="clerk1"
+                                   placeholder="业务员1"/>
+                            </dd>
+                            <dt><label for="merchandiser1">跟单员1</label></dt>
+                            <!-- <dd><a id="merchandiser1"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                 </a></dd> -->
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="merchandiser1"
+                                   id="merchandiser1"
+                                   placeholder="跟单员1"/>
+                            </dd>
+                            <dt><label for="clerk2">业务员2</label></dt>
+                            <!-- <dd><a id="clerk2"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                 </a></dd> -->
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="clerk2"
+                                   id="clerk2"
+                                   placeholder="业务员2"/>
+                            </dd>
+                            <dt><label for="merchandiser2">跟单员2</label></dt>
+                            <!-- <dd><a id="merchandiser2"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                 </a></dd> -->
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="merchandiser2"
+                                   id="merchandiser2"
+                                   placeholder="跟单员2"/>
+                            </dd>
+                            <dt><label for="clerk3">业务员3</label></dt>
+                            <!-- <dd><a id="clerk3"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                 </a></dd> -->
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="clerk3"
+                                   id="clerk3"
+                                   placeholder="业务员3"/>
+                            </dd>
+                            <dt><label for="merchandiser3">跟单员3</label></dt>
+                            <!-- <dd><a id="merchandiser3"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                 </a></dd> -->
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="merchandiser3"
+                                   id="merchandiser3"
+                                   placeholder="跟单员3"/>
+                            </dd>
+                            
+                            <dt style="width: 124px; font-size:13px;">是否内部承接</dt>
+                            <dd style="width: 170px">
+                                <input type="radio" name="inUndertaking" style="width: 30px;height: 18px;border: 2px;border-radius: 50% " data-value="true">是
+                                <input type="radio" name="inUndertaking" style="width: 30px;height: 18px;border: 2px;border-radius: 50% " data-value="false">否
+                                
+                            </dd>
+
+                            <!-- <dt><label for="monthly">月结</label></dt>
+                            <dd><input type="number" name="monthly" id="monthly" value="" required maxlength="24" style="width: 90%"
+                                       placeholder="月结付款比例"/><i>%</i></dd>
+                            <dt><label for="area">节点结算（按面积）</label></dt>
+                            <dd><input type="number" name="area" id="area" value="" required maxlength="24" style="width: 90%"
+                                       placeholder="节点结算（按面积）付款比例"/><i>%</i></dd>
+                            <dt><label for="sum">节点结算（按金额）</label></dt>
+                            <dd><input type="number" name="sum" id="sum" value="" required maxlength="24" style="width: 90%"
+                                       placeholder="节点结算（按金额）付款比例"/><i>%</i></dd> -->                                       
+                        </dl>
+                    </div>
+                    <div class="half-block left">
+                        <dl class="person-info">
+
+                            <dt>
+                                <label for="contractNum">合同编号</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="contractNum"
+                                   id="contractNum"
+                                   placeholder="合同编号自动生成" readonly="readonly" />
+                            </dd>
+
+                            <dt><label for="clerkRate">业务员提成比例</label></dt>
+                            <dd><input type="number" name="clerkRate" id="clerkRate" value="" required maxlength="24" style="width: 90%"  placeholder="业务员提成比例"/><i>%</i></dd>
+
+                            <dt><label for="merchandiserRate">跟单员提成比例</label></dt>
+                            <dd><input type="number" name="merchandiserRate" id="merchandiserRate" value="" required maxlength="24" style="width: 90%"  placeholder="跟单员提成比例"/><i>%</i></dd>
+
+                            <dt><label for="consignee">收货人</label></dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="consignee"
+                                   id="consignee"
+                                   placeholder="收货人"/>
+                            </dd>
+
+                            <dt><label for="consigneePhone">收货人联系电话</label></dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="consigneePhone"
+                                   id="consigneePhone"
+                                   placeholder="收货人联系电话"/>
+                            </dd>
+                            
+                            <dt>
+                                <label for="expectDate">预计完成日期</label>
+                            </dt>
+                            <dd>
+                                <div class="_inputIconWrap">
+                                    <input id="expectDate" placeholder="预计完成日期" type="text"/>
+                                    <label></label>
+                                </div>
+                            </dd>
+                            <!-- <dt><label for="projectmanager">项目经理</label></dt>
+                            <dd><a id="projectmanager"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                 </a></dd> -->
+
+                            <dt><label for="projectCost">工程造价</label></dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="projectCost"
+                                   id="projectCost" style="width: 90%"
+                                   placeholder="工程造价"/><i>元</i>
+                            </dd>
+
+                            <dt><label for="projectQuantity">工程量</label></dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="projectQuantity"
+                                   id="projectQuantity" style="width: 90%"
+                                   placeholder="工程量"/><i>㎡</i>
+                            </dd>
+
+                            <dt><label for="minArea">最小面积</label></dt>
+                            <dd>
+                            <i> < </i>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="minArea"
+                                   id="minArea" style="width: 84%"
+                                   placeholder="最小面积"/><i>㎡</i>
+                            </dd>
+
+                            <dt><label for="clerkRate1">业务员1提成比例</label></dt>
+                            <dd><input type="number" name="clerkRate1" id="clerkRate1" value="" required maxlength="24" style="width: 90%"  placeholder="业务员1提成比例"/><i>%</i></dd>
+
+                            <dt><label for="merchandiserRate1">跟单员1提成比例</label></dt>
+                            <dd><input type="number" name="merchandiserRate1" id="merchandiserRate1" value="" required maxlength="24" style="width: 90%"  placeholder="跟单员1提成比例"/><i>%</i></dd>
+
+                            <dt><label for="clerkRate2">业务员2提成比例</label></dt>
+                            <dd><input type="number" name="clerkRate2" id="clerkRate2" value="" required maxlength="24" style="width: 90%"  placeholder="业务员2提成比例"/><i>%</i></dd>
+
+                            <dt><label for="merchandiserRate2">跟单员2提成比例</label></dt>
+                            <dd><input type="number" name="merchandiserRate2" id="merchandiserRate2" value="" required maxlength="24" style="width: 90%"  placeholder="跟单员2提成比例"/><i>%</i></dd> 
+
+                            <dt><label for="clerkRate3">业务员3提成比例</label></dt>
+                            <dd><input type="number" name="clerkRate3" id="clerkRate3" value="" required maxlength="24" style="width: 90%"  placeholder="业务员3提成比例"/><i>%</i></dd> 
+
+                            <dt><label for="merchandiserRate3">跟单员3提成比例</label></dt>
+                            <dd><input type="number" name="merchandiserRate3" id="merchandiserRate3" value="" required maxlength="24" style="width: 90%"  placeholder="跟单员3提成比例"/><i>%</i></dd>
+                        </dl>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+                
+                <!-- <div class="dialog-tabs-items childTabs">
+                    <div class="dialog-tabs-item childTabs active">
+                        <div id="productItemsHolder">
+
+                        </div>
+                    </div>
+                    
+                    <div class="clearfix"></div>
+                    
+                </div> -->
+
+                <table class="list task-list" width="98%" >
+                    <colgroup>
+                        <col width="20%">
+                        <col width="10%">
+                        <col width="10%">
+                        <col width="10%">
+                        <col width="10%">
+                        <col width="10%">
+                        <col width="20%">
+                        <col width="10%">
+                        <col width="10%">
+                        <col width="10%">
+                        <!-- <col width="5%"> -->
+                    </colgroup>
+                    <thead>
+                        <tr class="productListItemsColumns _deleteHeader">
+                            <th id="product" style="text-align: center;">
+                                产品名称
+                            </th>
+
+                            <th id="quantity" style="text-align: center;">
+                                数量
+                            </th>
+
+                            <th id="price" style="text-align: center;">
+                                约定单价(元)
+                            </th>
+
+                            <th id="unit" style="text-align: center;">
+                                单位
+                            </th>
+
+                            <th id="totalPrice" style="text-align: center;">
+                                合价(元)
+                            </th>
+
+                            <th id="alumSource" style="text-align: center;">
+                                铝锭来源
+                            </th>
+
+                            <th id="alumRange" style="text-align: center;">
+                                铝锭价范围
+                            </th>
+
+                            <th id="alumPrice" style="text-align: center;">
+                                铝锭价浮动
+                            </th>
+
+                            <th id="executePrice" style="text-align: center;">
+                                执行单价浮动
+                            </th>
+                        
+                            <th class="deleteCell"></th>
+                        </tr>
+
+                        <tbody>
+                            <tr>
+                                <td colspan="12" class="addItem">
+                                    <a href="javascript:;">添加</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </thead>
+                </table>
+
+    
+                <div >
+                    <div class="inner">
+                        <table class="list task-list" width="98%" >
+                            <colgroup>
+                                <col width="25%">
+                                <col width="15%">
+                                <col width="15%">
+                                <col width="45%">
+
+                            </colgroup>
+                            <thead>
+
+                              <tr>
+                                  <th id="items" style="text-align: center;">
+                                      项目
+                                  </th>
+                                  <th id="price" style="text-align: center;">
+                                      单价
+                                  </th>
+                                  <th id="unit" style="text-align: center;">
+                                      单位
+                                  </th>
+                                  <th id="notes" style="text-align: center;">
+                                      备注
+                                  </th>
+                                  <th class="deleteCell"></th>
+                              </tr>
+
+                            </thead>
+                            
+                            <tr class="aluminumItem">
+                                <td data-name="items" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="items" value="异形板增加" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="price" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="price" style="text-align:center;width: 60px;"/>
+                                </td>
+                                <td data-name="unit" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="unit" value="元/㎡" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="notes" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="notes" value="三角形、梯形、圆弧形及非矩形多边形等" style="text-align:center;border: 0px"/>
+                                </td>
+                            </tr>
+                            <tr class="aluminumItem">
+                                <td data-name="items" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="items" value="双曲面" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="price" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="price" style="text-align:center;width: 60px;"/>
+                                </td>
+                                <td data-name="unit" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="unit" value="元/㎡" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="notes" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="notes" value="无" style="text-align:center;border: 0px"/>
+                                </td>
+                            </tr>
+                            <tr class="aluminumItem"> 
+                                <td data-name="items" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="items" value="长距离焊缝" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="price" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="price" style="text-align:center;width: 60px;"/>
+                                </td>
+                                <td data-name="unit" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="unit" value="元/500mm" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="notes" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="notes" value="超过500mm为长距离焊缝" style="text-align:center;border: 0px"/>
+                                </td>
+                            </tr>
+                            <tr class="aluminumItem"> 
+                                <td data-name="items" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="items" value="开槽" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="price" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="price" style="text-align:center;width: 60px;"/>
+                                </td>
+                                <td data-name="unit" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="unit" value="元/m" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="notes" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="notes" value="开槽" style="text-align:center;border: 0px"/>
+                                </td>
+                            </tr>
+                            <tr class="aluminumItem">
+                                <td data-name="items" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="items" value="三折及以上" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="price" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="price" style="text-align:center;width: 60px;"/>
+                                </td>
+                                <td data-name="unit" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="unit" value="元/㎡" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="notes" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="notes" value="不含常规折边" style="text-align:center;border: 0px"/>
+                                </td>
+                            </tr>
+                            <tr class="aluminumItem">
+                                <td data-name="items" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="items" value="超宽版" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="price" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="price" style="text-align:center;width: 60px;"/>
+                                </td>
+                                <td data-name="unit" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="unit" value="元/㎡" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="notes" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="notes" value="1300mm以上" style="text-align:center;border: 0px"/>
+                                </td>
+                            </tr>
+                            <tr class="aluminumItem"> 
+                                <td data-name="items" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="items" value="超宽版" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="price" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="price" style="text-align:center;width: 60px;"/>
+                                </td>
+                                <td data-name="unit" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="unit" value="元/㎡" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="notes" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="notes" value="1400mm以上" style="text-align:center;border: 0px"/>
+                                </td>
+                            </tr>
+                            <tr class="aluminumItem"> 
+                                <td data-name="items" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="items" value="超宽版" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="price" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="price" style="text-align:center;width: 60px;"/>
+                                </td>
+                                <td data-name="unit" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="unit" value="元/㎡" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="notes" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="notes" value="1500mm以上" style="text-align:center;border: 0px"/>
+                                </td>
+                            </tr>
+                            <tr class="aluminumItem"> 
+                                <td data-name="items" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="items" value="超宽版" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="price" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="price" style="text-align:center;width: 60px;"/>
+                                </td>
+                                <td data-name="unit" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="unit" value="元/㎡" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="notes" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="notes" value="1600mm以上" style="text-align:center;border: 0px"/>
+                                </td>
+                            </tr>
+                            <tr class="aluminumItem"> 
+                                <td data-name="items" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="items" value="超宽版" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="price" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="price" style="text-align:center;width: 60px;"/>
+                                </td>
+                                <td data-name="unit" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="unit" value="元/㎡" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="notes" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="notes" value="1700mm以上" style="text-align:center;border: 0px"/>
+                                </td>
+                            </tr>
+                            <tr class="aluminumItem"> 
+                                <td data-name="items" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="items" value="超宽版" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="price" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="price" style="text-align:center;width: 60px;"/>
+                                </td>
+                                <td data-name="unit" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="unit" value="元/㎡" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="notes" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="notes" value="1800mm以上" style="text-align:center;border: 0px"/>
+                                </td>
+                            </tr>
+                            <tr class="aluminumItem"> 
+                                <td data-name="items" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="items" value="超宽版" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="price" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="price" style="text-align:center;width: 60px;"/>
+                                </td>
+                                <td data-name="unit" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="unit" value="元/㎡" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="notes" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="notes" value="1900mm以上" style="text-align:center;border: 0px"/>
+                                </td>
+                            </tr>
+                            <tr class="aluminumItem"> 
+                                <td data-name="items" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="items" value="超宽版" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="price" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="price" style="text-align:center;width: 60px;"/>
+                                </td>
+                                <td data-name="unit" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="unit" value="元/㎡" style="text-align:center;border: 0px"/>
+                                </td>
+                                <td data-name="notes" class="jobs trash " style="text-align: center;">
+                                   <input type="text" id="notes" value="2000mm以上" style="text-align:center;border: 0px"/>
+                                </td>
+                            </tr>
+                            <tbody>
+                            <tr>
+                                <td colspan="8" class="addItem2">
+                                    <a href="javascript:;">添加</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>   
+
+                <div>
+                    <div class="inner">
+                        <dt>
+                            <label for="addProvision" style="margin-left: 70px;">补充条款</label>
+                        </dt>
+                        <dd>
+                        <textarea type="text"
+                               maxlength="330"
+                               name="addProvision"
+                               id="addProvision"/>
+                        </dd>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div>
+                    <div class="inner">
+                        <p style="font-size: 15px; color: blue">付款方式</p>
+                        <div class="left">
+                            <dt>
+                                <label>预付款:</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   style="border: 0px;" />
+                            </dd>
+                        </div>
+                        <div class="left">
+                            <dt>
+                                <label for="payRate1">付款比例</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="payRate1"
+                                   id="payRate1" style="width: 50%"
+                                   placeholder="付款比例"/><i>%</i>
+                            </dd>
+                        </div>
+                        <div class="left">
+                            <dt>
+                                <label for="earnest">定金</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="earnest"
+                                   id="earnest" style="width: 50%"
+                                   placeholder="定金"/><i>元</i>
+                            </dd>
+                        </div>
+                    </div>  
+
+                </div>
+
+                <div class="clearfix"></div>
+                <div>
+                    <div class="inner">
+                        <p style="font-size: 15px; color: blue">应付款节点</p>
+                        <div class="left">
+                            <dt>
+                                <label>月结:</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   style="border: 0px;" />
+                            </dd>
+                        </div>
+                        <div class="left" style="margin-left: 12px;">
+                            <dt>
+                                <label for="payRate2">付款比例</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="payRate2"
+                                   id="payRate2" style="width: 50%"
+                                   placeholder="付款比例"/><i>%</i>
+                            </dd>
+                        </div>
+                        
+                    </div>  
+
+                </div>
+
+                <div class="clearfix"></div>
+                <div>
+                    <div class="inner">
+                        <div class="left">
+                            <dt style="width: 250px;">
+                                <label>节点结算(按面积)</label>
+                            </dt>
+                            <dd>
+                            <!-- <input type="text"
+                                   maxlength="30"
+                                   style="border: 0px;" />
+                            </dd> -->
+                        </div>
+                        <div class="left" style="margin-left: 18px;">
+                            <dt>
+                                <label for="payRate3">付款比例</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="payRate3"
+                                   id="payRate3" style="width: 50%"
+                                   placeholder="付款比例"/><i>%</i>
+                            </dd>
+                        </div>
+                        <div class="left">
+                            <dt>
+                                <label></label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="areaSettle"
+                                   id="areaSettle" style="width: 50%"/><i>㎡/次</i>
+                            </dd>
+                        </div>
+                    </div>  
+
+                </div>
+
+                <div class="clearfix"></div>
+                <div>
+                    <div class="inner">
+                        <div class="left">
+                            <dt style="width: 250px;">
+                                <label>节点结算(按金额)</label>
+                            </dt>
+                            <dd>
+                            <!-- <input type="text"
+                                   maxlength="30"
+                                   style="border: 0px;" />
+                            </dd> -->
+                        </div>
+                        <div class="left" style="margin-left: 18px;">
+                            <dt>
+                                <label for="payRate4">付款比例</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="payRate4"
+                                   id="payRate4" style="width: 50%"
+                                   placeholder="付款比例"/><i>%</i>
+                            </dd>
+                        </div>
+                        <div class="left">
+                            <dt>
+                                <label></label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="amountSettle"
+                                   id="amountSettle" style="width: 50%"/><i>元/次</i>
+                            </dd>
+                        </div>
+                    </div>  
+
+                </div>
+
+                <div class="clearfix"></div>
+                <div>
+                    <div class="inner">
+                        <div class="left">
+                            <dt style="width: 250px;">
+                                <label>按年度结算</label>
+                            </dt>
+                            <!-- <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   style="border: 0px;" />
+                            </dd> -->
+                        </div>
+                        <div class="left" style="margin-left: 16px;">
+                            <dt>
+                                <label for="payRate5">付款比例</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="payRate5"
+                                   id="payRate5" style="width: 50%"
+                                   placeholder="付款比例"/><i>%</i>
+                            </dd>
+                        </div>
+                        
+                    </div>  
+
+                </div>
+
+            </div>
+
+            <div class="clearfix"></div>
+                <div>
+                    <div class="inner">
+                        <div class="left">
+                            <!-- <dt style="width: 250px;"> -->
+                            <dd style="width: 70px;">
+                              <label>完工</label>
+                              <a class="current-selected assignName" href="javascript:;" data-id="aroundType" id="aroundType" style="margin-left: -11px;">
+                              选择
+                              </a>
+                              
+                            </dd>
+                            <dd style="width: 100px;margin-top: 10px;">
+                              <label>时间</label>
+                              <input type="text"
+                                   maxlength="30"
+                                   style="width: 35px;" name="time"
+                                   id="time" />
+                              <a class="current-selected assignName" href="javascript:;" data-id="unitType" id="unitType" style="margin-left: -11px;">
+                              选择
+                              </a>
+                            </dd>
+                            
+                        </div>
+                        <div class="left" style="margin-left: 7px; margin-top: 10px;">
+                            <dt>
+                                <label for="payRate6">付款比例</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="payRate6"
+                                   id="payRate6" style="width: 50%"
+                                   placeholder="付款比例"/><i>%</i>
+                            </dd>
+                        </div>
+                        
+                    </div>  
+
+                </div>
+
+            </div>
+
+            <div class="clearfix"></div>
+                <div>
+                    <div class="inner">
+
+                        <div class="left">
+                            <dt>
+                                <label>质保金</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   style="border: 0px;" />
+                            </dd>
+                        </div>
+                        <div class="left">
+                            <dt>
+                                <label for="payRate7">付款比例</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="payRate7"
+                                   id="payRate7" style="width: 50%"
+                                   placeholder="付款比例"/><i>%</i>
+                            </dd>
+                        </div>
+                        <div class="left">
+                            <dt>
+                                <label for="warrantyDate">时间</label>
+                            </dt>
+                            <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="warrantyDate"
+                                   id="warrantyDate" style="width: 50%"
+                                   placeholder="时间"/><i>天</i>
+                            </dd>
+                        </div>
+                    </div>  
+
+                </div>
+            <div class="attach-container"></div>
+    <div class="clearfix"></div>
+</div>

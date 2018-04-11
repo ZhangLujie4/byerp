@@ -1,0 +1,217 @@
+<% if(model.designContractType._id=='WBSJHT'||model.designContractType._id=='XMBSJHT'){%>
+<div class="form-holder employee">
+    <form class="form employee" id="employeeForm" data-id="<%=model._id%>">
+        <ul class="chart-tabs">
+            <li><a class="active" id="overviewTab" href="javascript:;">概述</a></li>
+            <li><a href="javascript:;" id="dateAboutTab" class="">日期</a></li>
+            <li><a href="javascript:;" id="noteTab" class="">备注</a></li>
+            <li><a href="javascript:;" id="uploadTab" class="">文件上传</a></li>
+            <li><a href="javascript:;" class="" id="assigneesTab">其他信息</a></li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="dialog-tabs-items">
+            <div class="dialog-tabs-item active">
+                <div class="half-block left">
+                    <dl class="project-edit-info">
+                        <dt>
+                            <label for="projectName">工程名称 </label>
+                        </dt>
+                        <dd>
+                            <!--a id="projectName" class="current-selected" href="javascript:;" data-id="<%=(model.BookProjectName&&model.BookProjectName._id)?model.BookProjectName._id:''%>"><%=(model.BookProjectName&&model.BookProjectName.name)?model.BookProjectName.name:'选择'%></a-->
+                            <input type="text" class="title-input blueback"  id="projectName" required
+                                   value="<%=model.BookProjectName.name%>"  style="border: 0px"  readonly maxlength="32"/>
+                        </dd>
+                        <dt>
+                            <label for="projectNumber">合同编号 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback"  id="projectNumber" required
+                                   value="<%=model.DesignBookNumber.projectNumber%>" style="border: 0px"  readonly maxlength="32"/>
+                        </dd>
+                        <dt>
+                            <label for="designDepartment">设计部门</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <!--a id="designDepartment" class="current-selected" href="javascript:;" data-id="<%=(model.BookDesignDepartment&&model.BookDesignDepartment._id)?model.BookDesignDepartment._id:''%>"><%=(model.BookDesignDepartment&&model.BookDesignDepartment.name)?model.BookDesignDepartment.name:'选择'%></a-->
+                            <input type="text" class="title-input blueback"  id="designDepartment" required
+                                   value="<%=model.BookDesignDepartment.name%>" style="border: 0px"  readonly maxlength="32"/>
+                        </dd>
+                        <dt><label for="designContractType">合同类别 </label></dt>
+                        <dd class="_newSelectListWrap">
+                            <!--a id="designContractType" class="current-selected" href="javascript:;" data-id="<%=(model.designContractType&&model.designContractType._id)?model.designContractType._id:''%>"><%=(model.designContractType&&model.designContractType.name)?model.designContractType.name:'选择'%></a-->
+                            <input type="text" class="title-input blueback"  id="designDepartment" required
+                                   value="<%=model.designContractType.name%>" style="border: 0px"  readonly maxlength="32"/>
+                        </dd>
+                        <dt>
+                            <label for="customerDd">委托方 </label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <!--a-- id="customerDd" data-id="<%=model.BookCustomer?model.BookCustomer._id:''%>"
+                               class="current-selected " href="javascript:;"><%=model.BookCustomer?(model.BookCustomer.name.first+' '+model.BookCustomer.name.last):'选择'%></a-->
+                            <input type="text" class="title-input blueback"  id="customerDd" required
+                                   value="<%=model.BookCustomer?(model.BookCustomer.name.first+' '+model.BookCustomer.name.last):'选择'%>" style="border: 0px"  readonly maxlength="32"/>
+                        </dd>
+                        <dt><label for="amount">合同金额:</label></dt>
+                        <dd><input type="text" class="title-input blueback"  id="amount" required
+                                   value="<%=(model.DesignBookNumber.amount)?model.DesignBookNumber.amount:'0'%>元" maxlength="32" style="width:250px;border: 0px" readonly/>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-item">
+                <div id="dateAbout" >
+                    <dt>
+                        <label for="signedDate">合同签订日期： </label>
+                    </dt>
+                    <dd>
+                        <input type="text" class="title-input blueback" name="projectName" id="signedDate" required
+                               value="<%=model.signedDate%>" maxlength="32" style="width:250px "/>
+                    </dd>
+                    <dt>
+                        <label for="archDate">合同存档日期： </label>
+                    </dt>
+                    <dd>
+                        <input type="text" class="title-input blueback" name="projectName" id="archDate" required
+                               value="<%=model.archDate%>" maxlength="32" style="width:250px "/>
+                    </dd>
+                    <dt>
+                        <label for="archiveMan">存档人</label>
+                    </dt>
+                    <dd class="_newSelectListWrap">
+                        <a id="archiveMan" class="current-selected" href="javascript:;" data-id="<%=(model.archiveMan&&model.archiveMan._id)?model.archiveMan._id:''%>"><%=(model.archiveMan&&model.archiveMan.fullName)?model.archiveMan.fullName:'选择'%></a>
+                    </dd>
+                </div>
+            </div>
+            <div class="dialog-tabs-item">
+                <dl>
+                    <dt>
+                        <label for="note">备注:</label>
+                    </dt>
+                    <div class="textarea-wrapper">
+                                <textarea class="projectDescriptionCreate"
+                                          placeholder="Add a Description..."
+                                          id="note"
+                                          maxlength="500"
+                                ><%=model.note%>
+                                    </textarea>
+                    </div>
+                </dl>
+            </div>
+            <div class="dialog-tabs-item">
+                <div class="attachments"></div>
+            </div>
+            <div class="dialog-tabs-item">
+                <div id="assignees">
+                    <div id="assignees-container"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</div>
+<%}else{%>
+<div class="form-holder employee">
+    <form class="form employee" id="employeeForm" data-id="<%=model._id%>">
+        <ul class="chart-tabs">
+            <li><a class="active" id="overviewTab" href="javascript:;">概述</a></li>
+            <li><a href="javascript:;" id="dateAboutTab" class="">日期</a></li>
+            <li><a href="javascript:;" id="noteTab" class="">备注</a></li>
+            <li><a href="javascript:;" id="uploadTab" class="">文件上传</a></li>
+            <li><a href="javascript:;" class="" id="assigneesTab">其他信息</a></li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="dialog-tabs-items">
+            <div class="dialog-tabs-item active">
+                <div class="half-block left">
+                    <dl class="project-edit-info">
+                        <dt>
+                            <label for="projectName">工程名称 </label>
+                        </dt>
+                        <dd>
+                            <a id="projectName" class="current-selected" href="javascript:;" data-id="<%=(model.projectName&&model.projectName._id)?model.projectName._id:''%>"><%=(model.projectName&&model.projectName.name)?model.projectName.name:'选择'%></a>
+                        </dd>
+                        <dt>
+                            <label for="projectNumber">合同编号 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback"  id="projectNumber" required
+                                   value="<%=model.projectNumber%>" maxlength="32"/>
+                        </dd>
+                        <dt>
+                            <label for="designDepartment">设计部门</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="designDepartment" class="current-selected" href="javascript:;" data-id="<%=(model.designDepartment&&model.designDepartment._id)?model.designDepartment._id:''%>"><%=(model.designDepartment&&model.designDepartment.name)?model.designDepartment.name:'选择'%></a>
+                        </dd>
+                        <dt><label for="designContractType">合同类别 </label></dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="designContractType" class="current-selected" href="javascript:;" data-id="<%=(model.designContractType&&model.designContractType._id)?model.designContractType._id:''%>"><%=(model.designContractType&&model.designContractType.name)?model.designContractType.name:'选择'%></a>
+                        </dd>
+                        <dt>
+                            <label for="customerDd">设计委托单位 </label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="customerDd" data-id="<%=model.customer?model.customer._id:''%>"
+                               class="current-selected " href="javascript:;"><%=model.customer?(model.customer.fullName):'选择'%></a>
+                        </dd>
+                        <dt><label for="amount">合同金额:</label></dt>
+                        <dd><input type="text" class="title-input blueback"  id="amount" required
+                                   value="<%=(model.amount)?model.amount:'0'%>" maxlength="32" style="width:250px "/><i>元</i>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-item">
+                <div id="dateAbout" >
+                    <dt>
+                        <label for="signedDate">合同签订日期： </label>
+                    </dt>
+                    <dd>
+                        <input type="text" class="title-input blueback" name="projectName" id="signedDate" required
+                               value="<%=model.signedDate%>" maxlength="32" style="width:250px "/>
+                    </dd>
+                    <dt>
+                        <label for="archDate">合同存档日期： </label>
+                    </dt>
+                    <dd>
+                        <input type="text" class="title-input blueback" name="projectName" id="archDate" required
+                               value="<%=model.archDate%>" maxlength="32" style="width:250px "/>
+                    </dd>
+                    <dt>
+                        <label for="archiveMan">存档人</label>
+                    </dt>
+                    <dd class="_newSelectListWrap">
+                        <a id="archiveMan" class="current-selected" href="javascript:;" data-id="<%=(model.archiveMan&&model.archiveMan._id)?model.archiveMan._id:''%>"><%=(model.archiveMan&&model.archiveMan.fullName)?model.archiveMan.fullName:'选择'%></a>
+                    </dd>
+                </div>
+            </div>
+            <div class="dialog-tabs-item">
+                <dl>
+                    <dt>
+                        <label for="note">备注:</label>
+                    </dt>
+                    <div class="textarea-wrapper">
+                                <textarea class="projectDescriptionCreate"
+                                          placeholder="Add a Description..."
+                                          id="note"
+                                          maxlength="500"
+                                ><%=model.note%>
+                                    </textarea>
+                    </div>
+                </dl>
+            </div>
+            <div class="dialog-tabs-item">
+                <div class="attachments"></div>
+            </div>
+            <div class="dialog-tabs-item">
+                <div id="assignees">
+                    <div id="assignees-container"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</div>
+<%}%>

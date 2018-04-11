@@ -1,0 +1,14 @@
+<% Collection.forEach(function(item, index){ %>
+<tr data-id="<%=item._id%>">
+    <td class="notForm centerCell">
+    <label class="_customCHeckbox">
+        <input type="checkbox" value="<%=item.classId%>"  class="checkbox"/>
+        <span></span>
+    </label>
+    </td>
+    <td style="text-align:center"><%=index+1%></td>
+    <td style="text-align:center"><%=item.classId%></td>
+    <td style="text-align:center"><%=item.name%></td>
+    <td style="text-align:center"><%=item.auto?"自动":"手动"%></td>
+</tr>
+<% }) %>

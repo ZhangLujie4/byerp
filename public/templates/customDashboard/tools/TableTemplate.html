@@ -1,0 +1,106 @@
+<%if (oneRow){%>
+<div class="notResize">
+    <div class="revenueCountWrap">
+        <div class="status">
+            <div class="hidden _statusOrdersWrap">
+                <span>已分配</span>
+                <div class="_statusOrders">
+                    <span class="icon-checked green fontSemiBold  _allocationed" title="Allocated"></span>
+                    <p class="allocated"></p>
+                </div>
+            </div>
+            <div class="hidden _statusOrdersWrap">
+                <span>已入库</span>
+                <div class="_statusOrders">
+                    <span class="icon-box green fontSemiBold  _fullfilled" title="Fulfilled"></span>
+                    <p class="fulfilled"></p>
+                </div>
+            </div>
+            <div class="hidden _statusOrdersWrap">
+                <span>已发货</span>
+                <div class="_statusOrders">
+                    <span class="icon-cargo green fontSemiBold  _shipped" title="Shipped"></span>
+                    <p class="shipped"></p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p class="totalCount fontSemiBold"></p>
+            <span>总数</span>
+        </div>
+        <div>
+            <p class="totalRevenue fontSemiBold money"></p>
+            <span>总金额</span>
+        </div>
+    </div>
+    <div class="_overviewOrderWrap">
+        <table class="list stripedList _overviewTable">
+            <thed>
+            </thed>
+            <tbody class="enableTableOdd">
+            <tr>
+                <%data.forEach(function (el){%>
+                <td>
+                    <div class="flex">
+                        <span class="workflowName"><%=el.name%></span>
+                        <span class="count fontSemiBold"><%=el.count%></span>
+                    </div>
+                </td>
+
+                <%})%>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%} else if ( !oneRow && !goodsNote) {%>
+<div class="_overviewOrderWrap">
+    <table class="list stripedList _overviewTable">
+        <thed>
+            <tr>
+                <%columns.forEach(function (el){%>
+                <th><%=el.text%></th>
+                <%})%>
+            </tr>
+        </thed>
+        <tbody class="enableTableOdd">
+
+        <%data.forEach(function (el){%>
+        <tr>
+            <td><%=moment(new Date(el.invoiceDate || el.orderDate)).format('YYYY-MM-DD')%></td>
+            <td><%=el.supplier.name%></td>
+            <td><%=(el.currency && el.currency._id ? el.currency._id.symbol : '$') +
+                currencySplitter((el.paymentInfo.total / 100).toFixed(2))%>
+            </td>
+        </tr>
+        </tbody>
+        <%})%>
+        </tbody>
+    </table>
+</div>
+<%} else if ( !oneRow && goodsNote) {%>
+<div class="_overviewOrderWrap">
+    <table class="list stripedList _overviewTable">
+        <thed>
+            <tr>
+                <%columns.forEach(function (el){%>
+                <th><%=el.text%></th>
+                <%})%>
+            </tr>
+        </thed>
+        <tbody class="enableTableOdd">
+
+        <%data.forEach(function (el){%>
+        <tr>
+            <td><%=el.customer%></td>
+            <td><%=el.project%></td>
+            <td><%=el.count%></td>
+        </tr>
+        </tbody>
+        <%})%>
+        </tbody>
+    </table>
+</div>
+<%}%>
+

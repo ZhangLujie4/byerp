@@ -1,0 +1,53 @@
+<div class="form-holder _structureTypes">
+    <div class="settings_modal">
+        <form method="post"
+              action=""
+              class="form"
+              id="invoiceForm">
+            <h3 class="_dialogTableTitle">新建工资结构类型</h3>
+            <div class="setting_element half-block left">
+                <span>名称: </span>
+                <input id="payrollStructureName"
+                       maxlength="40"
+                       size="40"
+                       type="text"
+                       value="<%= name || '' %>">
+            </div>
+            <div class="clearfix"></div>
+            <div class="setting_element half-block left"
+                 id="earningComponents"
+                 data-id="earning">
+                <div class="">
+                    <a href="javascript:;"
+                       class="createBtn icon-plus"
+                       data-id="earning"
+                       title="Create">
+                    </a>
+                    <!--<h3 class="setting_title">Earnings:</h3>-->
+                    <a href="javascript:;"
+                       id="earningTypeDd"
+                       class="selected _newSelectListWrap">收入项:
+                    </a>
+                </div>
+                <ul class="ui-sortable settings_list groupList"></ul>
+            </div>
+            <div class="setting_element half-block right" id="deductionComponents" data-id="deduction">
+                <div class="">
+                    <a href="javascript:;"
+                       class="createBtn icon-plus"
+                       title="创建"
+                       data-id="deduction">
+                    </a>
+                    <!--<h3 class="setting_title">Deductions:</h3>-->
+                    <a id="deductionTypeDd"
+                       class="selected _newSelectListWrap"
+                       href="javascript:;">扣减项:
+                    </a>
+                </div>
+                <ul class="ui-sortable settings_list groupList"></ul>
+            </div>
+            <div class="clearfix"></div>
+            <p id="resultFormula" class="resultFormula"></p>
+        </form>
+    </div>
+</div>

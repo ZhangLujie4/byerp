@@ -1,0 +1,118 @@
+<div class="form-holder task-create-holder" style="margin-bottom: 0px;">
+    <form method="post" action="" id="createChargeItemForm" class="form notDialog">
+        <fieldset>
+            <div class="clearfix"></div>
+            <div class="topInputHolder">
+                <h2>铝单板订单上传</h2>
+            </div>
+           
+            <div class="half-block left withPaddingRightProject">
+                <div class="inner">
+                    <dl class="task-info">
+                        
+                        <dt>
+                            <label>工程名称</label>
+                        </dt>
+                        <div class="_modalList">
+                            <div class="_modalSelect _newSelectListWrap">
+                                <a id="opportunitieDd"
+
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                </a>
+                            </div>
+                        </div>
+
+                        <dt>
+                            <label for="orderNumber">订单编号</label>
+                        </dt>
+                        <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="orderNumber"
+                                   id="orderNumber"
+                                   placeholder="10个汉字(20个英文字母)之内"/>
+                        </dd>
+
+                        <dt>
+                            <label for="protectType">保护膜类型</label>
+                        </dt>
+                        <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="protectType"
+                                   id="protectType"
+                                   placeholder="保护膜类型"/>
+                        </dd>
+                       
+                        
+
+                        <div class="clearfix"></div>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="half-block right withPaddingRightProject">
+                <div class="inner">
+                    <dl class="task-info">
+                        
+                        <!-- <dt>
+                            <label>设计员</label>
+                        </dt>
+                        <div class="_modalList">
+                            <div class="_modalSelect _newSelectListWrap">
+                                <a id="employeesDd"
+
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                </a>
+                            </div>
+                        </div> -->
+
+                        <dt>
+                            <label for="acreage">面积(㎡)</label>
+                        </dt>
+                        <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="acreage"
+                                   id="acreage"
+                                   placeholder="面积"/>
+                        </dd>
+
+                        <dt>
+                            <label for="arrivalDate">到货日期</label>
+                        </dt>
+                        <dd>
+                            <div class="_inputIconWrap">
+                                <input type="text"
+                                       name="arrivalDate"
+                                       id="arrivalDate"
+                                       readonly
+                                       placeholder="到货日期"/>                              
+                            </div>
+                        </dd>
+
+                        
+
+                        <div class="clearfix"></div>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="left withPaddingRightProject" style = "margin-left: 8px; margin-bottom: 14px;">
+                <div style="margin-top: 10px">
+                    <dt style="width: 124px; font-size:13px;">色号(是否需订料)</dt>
+                    <dd style="width: 600px">
+                        <input type="radio" name="orderMaterial" style="width: 30px;height: 18px;border: 2px;border-radius: 50% " data-value="true">是
+                        <input type="radio" name="orderMaterial" style="width: 30px;height: 18px;border: 2px;border-radius: 50% " data-value="false">否
+                        
+                    </dd>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

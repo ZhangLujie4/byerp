@@ -1,0 +1,63 @@
+<div class="form-holder _newForm">
+    <div class="_dialogMainTitle">创建税种</div>
+    <div class="_formWrap">
+        <div class="_formBlock _equal">
+            <div class="_animateInputBox">
+                <input type="text"
+                       class="_animate "
+                       id="code"
+                       autofocus
+                       required
+                       maxlength="3"/>
+                <label class="_animate">代码</label>
+            </div>
+            <div class="_animateInputBox">
+                <input type="text"
+                       class="_animate "
+                       id="name"
+                       required
+                       maxlength="16"/>
+                <label class="_animate">名称</label>
+            </div>
+            <div class="_animateInputBox _taxRateSelect">
+                <input type="text"
+                       class="_animate forNum"
+                       id="rate"
+                       value="0"
+                       required
+                       maxlength="5"/>
+                <label class="_animate">税率</label>
+                <span class="_persentItem">%</span>
+            </div>
+            <div class="_animateSelectBox">
+                <span class="_selectTitle">国家</span>
+                <div class="_newSelectListWrap">
+                    <a id="country"
+                       class="current-selected"
+                       href="javascript:;">选择国家
+                    </a>
+                </div>
+            </div>
+            <div class="_formRow" id="budgeted">
+                <label class="_animatedCheckbox">
+                    <input id="default"
+                           type="checkbox"
+                           checked>
+                    <span></span>
+                </label>
+                <label for="default">设为默认</label>
+            </div>
+        </div>
+        <div class="_formBlock _equal">
+            <div>
+                <span>税种代码在销售、产品、财务模块中通用.
+                    税率代码从 0.01% 到 100%.
+                </span>
+            </div>
+            <br/>
+            <div class="checkText">
+                <span>如果勾选“设为默认”，则改写原有的默认税种</span>
+            </div>
+        </div>
+    </div>
+</div>

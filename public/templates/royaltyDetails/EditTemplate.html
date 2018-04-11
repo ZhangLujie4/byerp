@@ -1,0 +1,18 @@
+<div class="form-holder">
+    <form method="post" action="" id="createCategoryForm" class="form">
+        <fieldset>
+            <div class="inner">
+                <h3 class="_dialogTitle">编辑</h3>
+                    <dl class="department-info">
+                        <dt><label for="optionClassid">投标工程</label></dt>
+                        <dd><%=model.project.name%></dd>
+                        <dt><label for="comRate">提成比例(%)</label></dt>
+                        <dd><input type="text" class="title-input blueback" name="comRate" id="comRate"
+                                   maxlength="16" placeholder="<%=model.comRate%>%" required/><input type="text" hidden
+                                                                                               required/></dd>
+                <div class="clearfix">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

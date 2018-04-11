@@ -1,0 +1,16 @@
+<% var number=1%>
+<% tasksCollection.forEach(function(task, index){%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC" >
+    <td style="text-align: center"><%=number%></td>
+    <% number=number+1%>
+    <td><%=task.type%></td>
+    <td><%=task.number%></td>
+    <td><%=task.enterprise?task.enterprise.fullName:''%></td>
+    <td><%=task.project?task.project.name:''%></td>
+    <td><%=task.amount%></td>
+    <td><%=task.applyDate%></td>
+    <td><%=task.flow?task.flow.name:''%></td>
+    <td><%=task.note%></td>
+</tr>
+<% }) %>
+

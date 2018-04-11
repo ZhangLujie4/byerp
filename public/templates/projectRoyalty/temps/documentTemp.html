@@ -1,0 +1,135 @@
+<div class="_invoiceTemplate">
+    <div class="extractPdf">
+        <div class="_templateHeader">
+            <div class="_headerRightPart">
+                <div class="_entityBlock">
+                    <div class="_entityTitle">工程明细</div>
+                    <div class="_entityNumber"><h3 style="margin-top: 10px;margin-right: 10px">合同编号:<%=buildingContract.contractNum%></h3></div>
+                    <div class="_entityNumber"><h3 style="margin-top: 10px;margin-right: 10px">工程名称:<%=building.name%></h3></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="_templateDateBlock">
+            <div class="_rightPart">
+                <table class="_templateDateTable tableFixed">
+                    <colgroup>
+                        <col width="60%">
+                        <col width="40%">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td class="_dateLeftPart">
+                            <table class="tableFixed">
+                                <colgroup>
+                                    <col width="40%">
+                                    <col width="25%">
+                                    <col width="25%">
+                                    <col width="100px">
+                                </colgroup>
+                                <tbody>
+                                <% if(model.payRate1){%>
+                                <tr>
+                                    <td>预付款比例(%):</td>
+                                    <td><%=model.payRate1%></td>
+                                </tr>
+                                <%}%>
+                                <% if(model.payRate2){%>
+                                <tr>
+                                    <td>月结付款比例(%) :</td>
+                                    <td><%=model.payRate2%></td>
+                                </tr>
+                                <%}%>
+                                <% if(model.payRate3){%>
+                                <tr>
+                                    <td>按面积付款比例(%) :</td>
+                                    <td><%=model.payRate3%></td>
+                                    <td>面积标准</td>
+                                    <td><%=model.areaSettle%></td>
+                                </tr>
+                                <%}%>
+                                <% if(model.payRate4){%>
+                                <tr>
+                                    <td>按金额付款比例(%) :</td>
+                                    <td><%=model.payRate4%></td>
+                                    <td>金额标准(元)</td>
+                                    <td><%=model.amountSettle%></td>
+                                </tr>
+                                <%}%>
+                                <% if(model.payRate5){%>
+                                <tr>
+                                    <td>年底付款比例(%) :</td>
+                                    <td><%=model.payRate5%></td>
+                                </tr>
+                                <%}%>
+                                <% if(model.payRate6){%>
+                                <tr>
+                                    <td>工程完工付款比例(%) :</td>
+                                    <td><%=model.payRate6%></td>
+                                    <td>日期:</td>
+                                    <td><%=model.finishDueDate?moment(model.finishDueDate).format('YYYY-MM-DD'):'未设置'%></td>
+                                </tr>
+                                <%}%>
+                                </tbody>
+                            </table>
+                        </td>
+
+                        <td class="_dateRightPart">
+                            <table class="tableFixed">
+                                <colgroup>
+                                    <col width="50%">
+                                    <col width="100px">
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <td>合同金额 :</td>
+                                    <td><%=buildingContract.projectCost%></td>
+                                </tr>
+                                <tr>
+                                    <td>已收金额 :</td>
+                                    <td><%=alreadyPay/100%></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <table class="_templateTable tableFixed">
+            <colgroup>
+                <col width="80px">
+                <col width="20%">
+                <col width="20%">
+                <col width="20%">
+                <col width="20%">
+                <col width="20%">
+
+            </colgroup>
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>类型</th>
+                <th>比例</th>
+                <th>提成(元)</th>
+                <th>奖金(元)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% persons.forEach(function(person, index){ %>
+            <tr data-id="<%=person.name._id%>">
+                <td><%=index + 1%></td>
+                <td><%=person.name%></td>
+                <td><%=person.type%></td>
+                <td><%=person.rate%></td>
+                <td><%=(person.basic/100).toFixed(2)%></td>
+                <td><%=(person.bonus/100).toFixed(2)%></td>
+            </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+</div>

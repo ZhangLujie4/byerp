@@ -1,0 +1,20 @@
+<h3>铝单板订单核价</h3>
+<% var url = window.location.hash.split('/');
+  if(url[2] == 'list' && url.length > 3) { %>
+
+  <div id="createBtnHolder" class="btnsBlock">
+  	<a href="javascript:;" class="btn blue slim plus" title="upload" id="top-bar-uploadBtn">批量审核</a>
+    <a href="#home/action-<%=contentType%>/Remove" class="btn blue slim" id="top-bar-deleteBtn" title="Remove">取消审核</a>
+  </div>
+
+<% } %>
+
+<% var url = window.location.hash.split('/'); 
+  if(url[2] == 'list' && url.length == 3) { %>
+
+  <div id="createBtnHolder" class="btnsBlock">
+
+  </div>
+
+<% } %>
+

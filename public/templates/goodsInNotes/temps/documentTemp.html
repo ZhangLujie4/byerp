@@ -1,0 +1,154 @@
+<%var currencySymb = model.currency && model.currency._id ? model.currency._id.symbol : '$'%>
+<div class="_invoiceTemplate" style="padding: 0.100000in 0.400000in 0.700000in 0.40000in; max-width: 1100px;">
+    <div class="extractPdf">
+        <% if( !model.status.approved&& model.reference === ""){ %>
+        <div class="_isValid">
+            <dl>
+                <dt><label for="isValid">是否已收到发票</label></dt>
+                <dd style="width: 10%">
+                    <label class="_customCHeckbox">
+                    <input id="isValid" class="isValid" type="checkbox"/>
+                    <span></span>
+                    </label>
+                </dd>
+            </dl>
+        </div>
+        <div class="_invoice" style="float: left;">发票号码 ： <input id="invoice" class="invoice" value='<%=model.invoiceName%>' style="width:200px;text-align: center;" type="text" placeholder="请输入发票号码"/></div>
+        <div class="right">
+            <button class="btn blue slim weightAdjust">
+                <span>计价数量调整</span>
+            </button>
+            <input id="weightAdjust" value='' style="width:150px;text-align: center;" type="text" placeholder="输入实际计价数量" /></div>
+        </div>
+        <% }else if(model.status.approved && model.isValid === false && !model.description){ %>
+            <div class="_Premium">发票差额 ： <input id="Premium" class="Premium" value=0 style="width:80px;text-align: center;" type="text"/>[发票金额大于订单金额则填写正数，小于订单金额则填写负数]</div>
+            <div class="_invoice">发票号码 ： <input id="invoice" class="invoice" value='<%=model.invoiceName%>' style="width:80px;text-align: center;" type="text"/></div>
+        <% } %>
+        <% if( model.status.approved&& model.invoiceName){ %>
+            <div class="_invoice">发票号码 : <%=model.invoiceName%></div>
+        <% } %>
+        <div class="_templateDateBlock">
+            <div class="_rightPart">
+                <table class="_templateDateTable tableFixed">
+                    <tbody>
+                    <tr>
+                        <td class="_dateLeftPart">
+                            <div class="_billingBlock">
+                                <div class="_billingTitle">供应商<%=(model.order && model.order.supplier )? model.order.supplier.name.first + ' ' + model.order.supplier.name.last:""%></div>
+                                <div ><%=(model.order && model.order.address )? model.order.supplier.address.street :""%></div>
+                                <div ><%=(model.order && model.order.supplier )? model.order.supplier.address.city :""%></div>
+                                <div ><%=(model.order && model.order.supplier )? model.order.supplier.address.state :""%></div>
+                                <div ><%=(model.order && model.order.supplier )? model.order.supplier.address.country :""%></div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <table class="_templateTable tableFixed">
+            <colgroup>
+                <col width="8%">
+                <col width="6%">
+                <col width="10%">
+                <col width="7%">
+                <col width="9%">
+                <col width="7%">
+                <col width="7%">
+                <col width="10%">
+                <col width="8%">
+                <col width="8%">
+                <col width="20%">
+            </colgroup>
+            <thead>
+            <tr>
+                <th style="text-align: center">品名</th>
+                <th style="text-align: center">订单号</th>
+                <th style="text-align: center">库位</th>
+                <th style="text-align: center" class="selectedQuantity">数量</th>
+                <th style="text-align: center">单位计价量</th>
+                <th style="text-align: center">单价</th>
+                <th style="text-align: center">备注</th>
+                <th style="text-align: center">税率</th>
+                <th style="text-align: center">税额</th>
+                <th style="text-align: center">总价</th>
+                <th style="text-align: center">参数</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% var subqty = 0 %>
+            <% var subtaxes = 0 %>
+            <% var subcost = 0 %>
+            <% var subweight = 0 %>
+            <% model.orderRows.forEach(function(row, index){ %>
+            <% if(row.selectedQuantity){%>
+            <tr class="productItem">
+                <%orderRow = row.orderRowId || {}%>
+                <td style="text-align: center"><%=(row.product) ? row.product.name:''%></td>
+                <td style="text-align: center" data-name="order" data-id="<%=row.order._id%>"><%=row.order.name%></td>
+                <td style="text-align: center"><%row.locationsReceived.forEach(function(item){%>
+                <%=item.location.name%>
+                <% })%>
+                </td>
+                <td data-name="quantity">
+                    <input style="text-align: center" class="quantity" maxlength="9" value="<%=row.selectedQuantity%>" type="text"/>
+                </td>
+                <% subqty += row.selectedQuantity%>
+                <td data-name="unit">
+                    <input style="text-align: center" class="unit" maxlength="9" value="<%=row.unit || 0%>" type="text"/>
+                </td>
+                <% subweight += (row.unit*row.selectedQuantity)%>
+                <td data-name="unitPrice">
+                    <input style="text-align: center" class="price" maxlength="9" value="<%=row.unitPrice%>" type="text"/>
+                </td>
+                <td style="text-align: center"><%=row.description%></td>
+                <td data-name="taxCode" class="taxCodeLine">
+                    <div class="_newSelectListWrap" style="text-align: center">
+                        <a class="current-selected taxCode" data-content="taxCode" id="taxCodeLine" href="javascript:;"
+                           data-tax="<%= (row && row.taxCode) ? row.taxCode.rate : null %>"
+                           data-id="<%=(row && row.taxCode) ? row.taxCode._id : null%>"><%=(row && row.taxCode) ? row.taxCode.fullName : '选择'%></a>
+                    </div>
+                </td>
+                <td data-name="taxesAccount">
+                    <input style="text-align: center" class="taxesAccount" maxlength="9" value="<%=row.tax%>" type="text" readonly/>
+                </td>
+                <% subtaxes += row.tax%>
+                <td style="text-align: center" data-name="subtotal" class="subtotal">
+                    <input style="text-align: center" class="subtotal" maxlength="9" value="<%=(row.selectedQuantity*row.unit*row.unitPrice).toFixed(2)%>" type="text" readonly/>
+                </td>
+                <% subcost += parseFloat((row.selectedQuantity*row.unit*row.unitPrice).toFixed(2))%>
+                <td style="text-align: left" data-name="paras">
+                    <table>
+                        <% if(row.params.length){%>
+                            <span id="parasLength" data-value="<%=row.params.length%>"></span>
+                            <% row.params.forEach(function(para){%>  
+                                <tr class="<%=row._id%>_parameterItem">
+                                   <td class="paraName" style="padding: 0px"><%=para.paraname%></td>
+                                   <td class="paraValue" style="padding: 0px"><input id="newParas" class="paraValue" maxlength="3" value="<%=para.value%>" size=3 type="text"/></td>
+                                </tr>
+                        <%})}else if(row.parameters.length){ %>
+                            <span id="parasLength" data-value="<%=row.parameters.length%>"></span>
+                            <% row.parameters.forEach(function(para){%>  
+                                <tr class="<%=row._id%>_parameterItem">
+                                   <td class="paraName" style="padding: 0px"><%=para.paraname%></td>
+                                   <td class="paraValue" style="padding: 0px"><input id="newParas" class="paraValue" maxlength="3" value="<%=para.value%>" size=3 type="text"/></td>
+                                </tr>
+                        <% })}else{ %>
+                                <tr></tr>
+                        <% } %>
+                    </table>
+                </td>
+            </tr>
+            <% } %>
+            <% }); %>
+
+            </tbody>
+        </table>
+        <div class="totalAmount">
+            <div data-name="subqty" style="float: left;height: 30px;width: 100px;"><%='总数量：'+subqty%></div>
+            <div data-name="subweight" style="float: left;height: 30px;width: 150px;">总计价量：<a><%=subweight.toFixed(2)%></a></div>
+            <div data-name="subtaxes" style="float: left;height: 30px;width: 150px;"><%='总税额：'+subtaxes.toFixed(2)%></div>
+            <div data-name="subcost" style="float: left;height: 30px;width: 150px;"><%='总计：'+subcost.toFixed(2)%></div>
+        </div>
+    </div>
+</div>

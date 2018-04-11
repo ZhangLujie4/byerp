@@ -1,0 +1,48 @@
+<% timeCardCollection.forEach(function(timeCard, index){ %>
+<%var total = 0;%>
+<%var valid = 0;%>
+<%for(var i=0; i< timeCard.rate.length; i++){
+    if(timeCard.rate[i] <= 1){
+        valid += timeCard.rate[i];
+        total += timeCard.rate[i];
+    }
+    else{
+        total += timeCard.rate[i]/10;
+    }
+}%>
+<tr>
+    <td class="editable employee" data-content="employee" data-id="<%=timeCard.employee? timeCard.employee: null%>">
+        <span><%=timeCard.name ? timeCard.name : ''%></span>
+    </td>
+    <td class="department" data-id="<%=timeCard.department? timeCard.department._id: null%>">
+        <span><%=timeCard.department ? timeCard.department.name : ''%></span>
+    </td>
+    <% if(timeCard.department.externalId == 'A'){%>
+    <% for (var i=0; i<=timeCard.rate.length - 1; i++) { %>
+    <% if(timeCard.rate[i] > 1){timeCard.rate[i] = timeCard.rate[i]/10} %>
+    <%=timeCard.rate[i] ? '<td data-dayID="' + (i) + '" class="editable ' + timeCard.type[i] + ' selectedType" data-content="vacType">' + timeCard.rate[i] + '<input type="text" readonly value="' + timeCard.rate[i] + '"></td>' : '<td data-dayID="' + (i) + '" class="editable" data-content="vacType"><input type="text" readonly value=""></td>'%>
+    <% }} else if(timeCard.department.externalId == 'C'){%>
+    <% for (var i=0; i<=timeCard.rate.length - 1; i++) { %>
+    <% if(timeCard.rate[i] > 1){timeCard.rate[i] = timeCard.rate[i]/10} %>
+    <%=timeCard.rate[i] ? '<td data-dayID="' + (i) + '" class="editable ' + timeCard.type[i] + ' selectedType" data-content="vacType">' + timeCard.rate[i].toString() + '/' + timeCard.otrate[i].toString() + '<input type="text" readonly value="' + timeCard.rate[i] + '"></td>' : '<td data-dayID="' + (i) + '" class="editable" data-content="vacType"><input type="text" readonly value=""></td>'%>    
+    <%}}%>
+    <td class="validDays">
+        <span><%=valid%></span>
+    </td>
+    <td class="totalDays">
+        <span><%=total%></span>
+    </td>
+</tr>
+<% }) %>
+
+<style type="text/css"> 
+    .early {
+        background-color: #3C86E0 
+    }
+    .late {
+        background-color: #F9A203
+    }
+    .both {
+        background-color: #E55253
+    }
+</style>

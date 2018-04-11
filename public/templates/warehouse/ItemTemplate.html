@@ -1,0 +1,56 @@
+<div>
+    <div class="_listModal">
+        <div class="_modalList">
+            <div class="_modalLabel"><label>仓库名称</label></div>
+            <div class="_modalSelect"><input id="name" type="text" placeholder=仓库名称"
+                                             value="<%=model.name%>"/>
+            </div>
+        </div>
+        <div class="_modalList _selectBlock">
+            <div class="_inputContainer">
+                <div class="_modalLabel"><label>是否自有</label></div>
+                <div class="_modalSelect"><input id="isOwn" type="checkbox" <%=model.isOwn ? 'checked' : ''%>/></div>
+            </div>
+            <div class="_inputContainer">
+                <div class="_modalLabel"><label>是否主仓库</label></div>
+                <div class="_modalSelect"><input id="main" type="checkbox" <%=model.main ? 'checked' : ''%>/></div>
+            </div>
+        </div>
+        <div class="_modalList">
+            <div class="_modalLabel"><label for="account">会计科目</label></div>
+            <div class="_modalSelect _newSelectListWrap">
+                <a class="account current-selected" id="account" name="account"
+                   data-id="<%=model.account ? model.account._id: null%>"><%=model.account ? model.account.name :
+                    '选择'%></a>
+            </div>
+        </div>
+        <div class="_modalList">
+            <div class="_modalLabel"><label for="address_street">地址</label></div>
+            <div class="_modalSelect"><input type="text" class="address" id="address_street" name="street"
+                                             placeholder="地址..." maxlength="60" value="<%=model.address.street%>"/>
+            </div>
+        </div>
+        <div class="_modalList">
+            <div class="_modalLabel"><label for="address_city">城市</label></div>
+            <div class="_modalSelect"><input type="text" class="address" id="address_city" name="city"
+                                             placeholder="城市" maxlength="60" value="<%=model.address.city%>"/></div>
+        </div>
+
+        <div class="_modalList">
+            <div class="_modalLabel"><label for="address_state">省份</label></div>
+            <div class="_modalSelect"><input type="text" class="address" id="address_state" name="state"
+                                             placeholder="省份" maxlength="32" value="<%=model.address.state%>"/></div>
+        </div>
+        <div class="_modalList">
+            <div class="_modalLabel"><label for="address_zip">邮编</label></div>
+            <div class="_modalSelect"><input type="text" class="address" id="address_zip" name="zip" placeholder="邮编"
+                                             maxlength="32" value="<%=model.address.zip%>"/></div>
+        </div>
+        <div class="_modalList">
+            <div class="_modalLabel"><label for="address_country">国家</label></div>
+            <div class="_modalSelect _newSelectListWrap"><a class="address current-selected" id="address_country"
+                                                            name="address_country"><%=model.address.country%></a></div>
+        </div>
+    </div>
+
+</div>

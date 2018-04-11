@@ -1,0 +1,372 @@
+<div class="form-holder _createNewProjectDialog">
+    <form method="post" action="" id="createProjectForm" class="form">
+        <div class="inner">
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">主要内容</a></li>
+                <li><a href="javascript:;">款项相关</a></li>
+                <li><a href="javascript:;">责任相关</a></li>
+                <li><a href="javascript:;">质量要求</a></li>
+                <li><a href="javascript:;">其他信息</a></li>
+                <!--<li><a href="javascript:;">Bonus</a></li>-->
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                    <div class="half-block right">
+                        <div class="inner">
+                        <div class="project-edit-info">
+
+                            <dt>
+                                <label for="pmr">项目经理:</label>
+                            </dt>
+                            <dd class="_modalSelect _newSelectListWrap">
+                                <a  id="pmr"
+                                    class="current-selected"
+                                    data-type="pmr"
+                                    href="javascript:;">项目经理
+                                </a>
+                            </dd>
+                            <input id="pmrName" type="hidden">
+                            <input id="customerName" type="hidden">
+                            <dt><label for="pmv">备案项目经理:</label></dt>
+                            <dd class="_newSelectListWrap">
+                                <a  id="pmv"
+                                    class="current-selected"
+                                    href="javascript:;">备案项目经理
+                                </a>
+                            </dd>
+                            <dt>
+                                <label for="signedDate">合同签订日期:</label>
+                            </dt>
+                            <dd >
+                                <div class="_inputIconWrap">
+                                    <input class="extrainfo blueback"
+                                           type="text"
+                                           name="StartDate"
+                                           id="signedDate"
+                                           value=""
+                                           readonly
+                                           placeholder="合同签订日期 "/>
+                                    <label></label>
+                                </div>
+                            </dd>
+                            <dt>
+                                <label for="archDate">合同存档日期:</label>
+                            </dt>
+                            <dd >
+                                <div class="_inputIconWrap">
+                                    <input class="extrainfo blueback"
+                                           type="text"
+                                           name="archDate"
+                                           id="archDate"
+                                           value=""
+                                           readonly
+                                           placeholder="合同存档日期"/>
+                                    <label></label>
+                                </div>
+                            </dd>
+                            <dt>
+                                <label for="archiveMan">存档人:</label>
+                            </dt>
+                            <dd class="_modalSelect _newSelectListWrap">
+                                <a  id="archiveMan"
+                                    class="current-selected"
+                                    href="javascript:;">存档人
+                                </a>
+                            </dd>
+                            <dt><label for="proDate">供货期:</label></dt>
+                            <dd><input type="text"
+                                       class="title-input blueback"
+                                       name="projectName"
+                                       id="proDate"
+                                       required
+                                       maxlength="32"
+                                       placeholder="供货期"/></dd>
+                            <dt><label for="sealType">申请印章类别:</label></dt>
+                            <dd class="_newSelectListWrap">
+                                <a id="sealType"
+                                  class="current-selected"
+                                   href="javascript:;">印章类别</a>
+                            </dd>
+                            <dt><label for="lssArea">承包范围:</label></dt>
+                            <dd><input type="text"
+                                       class="title-input blueback"
+                                       name="projectName"
+                                       id="lssArea"
+                                       required
+                                       maxlength="32"
+                                       placeholder="承包范围"/></dd>
+
+                            <!--div-- class="textarea-wrapper">
+                                <textarea class="projectDescriptionCreate"
+                                          name="description"
+                                          placeholder="Add a Description..."
+                                          id="description"
+                                          maxlength="500">
+                                    </textarea>
+                            </div-->
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    </div>
+                    <div class="half-block left">
+                        <dl class="project-edit-info">
+                            <dt style="margin-top:7px">
+                                <label for="lead">工程预登记:</label>
+                            </dt>
+                            <dd class="_modalSelect _newSelectListWrap" style="margin-top:7px">
+                                <a  id="lead"
+                                    class="current-selected"
+                                    href="javascript:;">选择
+                                </a>
+                            </dd>
+                            <dt>
+                                <label for="projectName">项目名称:</label>
+                            </dt>
+                            <dd>
+                                <input type="text"
+                                       class="title-input blueback"
+                                       name="projectName"
+                                       id="projectName"
+                                       required
+                                       maxlength="32"
+                                       placeholder="项目名称"/>
+                            </dd>
+                            <!--dt>
+                                <label for="projectShortDesc">工程简述</label>
+                            </dt>
+                            <dd>
+                                <input type="text"
+                                       class="title-input blueback"
+                                       name="projectShortDesc"
+                                       id="projectShortDesc"
+                                       required
+                                       maxlength="32"
+                                       placeholder="Project Short Description"/>
+                            </dd>
+                            <dt>
+                                <label for="projectTypeDD">合同类型:</label>
+                            </dt>
+                            <dd>
+                                <p id="projectTypeDD"
+                                   data-value="施工合同">施工合同</p>
+                            </dd-->
+                            <dt>
+                                <label for="customerDd">项目类型:</label>
+                            </dt>
+                            <dd class="_newSelectListWrap">
+                                <a id="projectType"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                </a>
+                            </dd>
+                            <dt>
+                                <label for="customerDd">建设单位:</label>
+                            </dt>
+                            <dd class="_newSelectListWrap">
+                                <a id="customerDd"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                </a>
+                            </dd>
+
+                            <dt>
+                                <label for="workflowsDd">状态:</label>
+                            </dt>
+                            <dd id="selectWorkflow" class="_newSelectListWrap">
+                                <a id="workflowsDd"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                </a>
+                            </dd>
+
+
+                            <!--dt>
+                                <label for="health">健康</label>
+                            </dt>
+                            <!--dd-- id="health" class="health-wrapper">
+                                <div class="_healthDd">
+                                    <a href="javascript:;"
+                                       data-value="1"
+                                       class="health1">
+                                    </a>
+                                    <ul class="_healthDdList">
+                                        <li>
+                                            <div class="health1"></div>
+                                        </li>
+                                        <li>
+                                            <div class="health2"></div>
+                                        </li>
+                                        <li>
+                                            <div class="health3"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </dd-->
+                            <dt>
+                                <label for="StartDate">开工日期:</label>
+                            </dt>
+                            <dd >
+                                <div class="_inputIconWrap">
+                                    <input class="extrainfo blueback"
+                                           type="text"
+                                           name="StartDate"
+                                           id="StartDate"
+                                           value=""
+                                           readonly
+                                           placeholder="开工日期"/>
+                                    <label></label>
+                                </div>
+                            </dd>
+                            <dt>
+                                <label for="EndDateTarget">要求竣工时间:</label>
+                            </dt>
+                            <dd id="targetEndDate">
+                                <div class="_inputIconWrap">
+                                    <input class="extrainfo blueback"
+                                           type="text"
+                                           name="TargetEndtDate"
+                                           id="EndDateTarget"
+                                           value=""
+                                           readonly
+                                           placeholder="要求竣工时间"/>
+                                    <label></label>
+                                </div>
+                            </dd>
+                            <dt><label for="projectShortDesc">工程简述:</label></dt>
+                            <dd><input type="text"
+                                        class="title-input blueback"
+                                        name="projectName"
+                                        id="projectShortDesc"
+                                        required
+                                        maxlength="32"
+                                        placeholder="工程简述"/></dd>
+                        </dl>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="attach-container"></div>
+                </div>
+
+                <!--<div class="dialog-tabs-item">
+                    <div class="bonus-container"></div>
+                </div>-->
+                <div class="dialog-tabs-item">
+                    <dl>
+                        <!--dt>
+                            <label for="paymentMethod">银行帐号:</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="paymentMethod"
+                               class="current-selected"
+                               href="javascript:;"
+                               data-id="">Select
+                            </a>
+                        </dd-->
+                        <!--dt>
+                            <label for="paymentTerms">付款方式:</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="paymentTerms"
+                               class="current-selected"
+                               href="javascript:;"
+                               data-id="">Select
+                            </a>
+                        </dd-->
+                        <dt><label for="payTerms">付款方式:</label></dt>
+                        <dd><input type="text"
+                                   class="title-input blueback"
+                                   name="projectName"
+                                   id="payTerms"
+                                   style="width:450px;"
+                                   required
+                                   maxlength="32"
+                                   placeholder="付款方式"/></dd>
+                        <dt><label for="settlementTerms">付款及结算方式:</label></dt>
+                        <dd><input type="text"
+                                   class="title-input blueback"
+                                   name="projectName"
+                                   id="settlementTerms"
+                                   style="width:450px;"
+                                   required
+                                   maxlength="32"
+                                   placeholder="付款方式"/></dd>
+                        <dt><label for="payProp">付款比例:</label></dt>
+                        <dd><input type="text"
+                                   class="title-input blueback"
+                                   name="projectName"
+                                   id="payProp"
+                                   style="width:450px;"
+                                   required
+                                   maxlength="32"
+                                   placeholder="付款比例"/><i>%</i></dd>
+                        <dt><label for="amount">合同金额:</label></dt>
+                        <dd><input type="text"
+                                   class="title-input blueback"
+                                   name="projectName"
+                                   id="amount"
+                                   style="width:450px;"
+                                   required
+                                   maxlength="32"
+                                   placeholder="合同金额"/><i>元</i></dd>
+                        <dt><label for="preAmount">预付款:</label></dt>
+                        <dd><input type="text"
+                                   class="title-input blueback"
+                                   name="projectName"
+                                   id="preAmount"
+                                   style="width:450px;"
+                                   required
+                                   maxlength="32"
+                                   placeholder="预付款"/><i>元</i></dd>
+                    </dl>
+                </div>
+                <div class="dialog-tabs-item">
+                    <dl>
+                        <dt>
+                            <label for="response">双方责任:</label>
+                        </dt>
+                        <di class="textarea-wrapper">
+                                <textarea class="projectDescriptionCreate"
+                                          name="description"
+                                          placeholder="Add a Description..."
+                                          id="response"
+                                          maxlength="500">
+                                    </textarea>
+                        </di>
+                        <dt>
+                            <label for="violation">违约责任:</label>
+                        </dt>
+                        <di class="textarea-wrapper">
+                                <textarea class="projectDescriptionCreate"
+                                          name="description"
+                                          placeholder="Add a Description..."
+                                          id="violation"
+                                          maxlength="500">
+                                    </textarea>
+                        </di>
+
+
+                    </dl>
+                </div>
+                <div class="dialog-tabs-item">
+                    <dl>
+                        <dt>
+                            <label for="quality">质量标准:</label>
+                        </dt>
+                        <di class="textarea-wrapper">
+                                <textarea class="projectDescriptionCreate"
+                                          name="description"
+                                          placeholder="Add a Description..."
+                                          id="quality"
+                                          maxlength="500">
+                                    </textarea>
+                        </di>
+                    </dl>
+                </div>
+                <div class="dialog-tabs-item">
+                    <div class="assignees-container"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</div>

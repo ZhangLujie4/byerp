@@ -1,0 +1,20 @@
+<% number=1 %>
+<% tasksCollection.forEach(function(task, index){%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC" >
+    <td><%=number%></td>
+    <% number=number+1 %>
+    <td><%=task.invoiceDate%></td>
+    <td><%=task.name%></td>
+    <td><%=task.type%></td>
+    <td><%=task.payer?task.payer.fullName:''%></td>
+    <td><%=task.project.name%></td>
+    <td><%=task.amount%></td>
+    <td><%=task.rate%></td>
+    <td><%=task.tax%></td>
+    <td><%=task.createdBy.user.login%></td>
+    <td></td>
+    <td></td>
+    <td><%=task.note%></td>
+</tr>
+<% }) %>
+

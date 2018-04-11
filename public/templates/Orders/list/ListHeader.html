@@ -1,0 +1,42 @@
+﻿<div id="searchContainer"></div>
+<div class="_tableOrdersWrap">
+    <table class="list stripedList">
+        <colgroup>
+            <col width="42px">
+            <col width="17%">
+            <col width="17%">
+            <col width="17%">
+            <col width="17%">
+            <col width="16%">
+            <col width="16%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="centerCell">
+                <input type="checkbox"
+                       id="checkAll"/>
+            </th>
+            <th class="oe_sortable"
+                data-sort="name">参考
+                <span class="arrow down"></span>
+                <span class="arrow up"></span>
+            </th>
+            <th class="oe_sortable" data-sort="supplier.name.first">供应商<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <!--<th class="oe_sortable" data-sort="expectedDate">Expected Date<span class="arrow down"></span><span
+                    class="arrow up"></span></th>-->
+            <!--<th class="oe_sortable" data-sort="sourceDocument">Source Document<span class="arrow down"></span><span class="arrow up"></span></th>-->
+            <th class="oe_sortable" data-sort="paymentInfo.unTaxed">不含税<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="paymentInfo.total">总计<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="workflow.name">状态<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="orderDate">订单日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+        </tr>
+        </thead>
+        <tbody id="listTable" class="enableTableOdd"></tbody>
+        <tfoot id="listTotal"></tfoot>
+    </table>
+</div>

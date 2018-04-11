@@ -1,0 +1,69 @@
+<% tasksCollection.forEach(function(task, index){%>
+<% if(task.acceptState=='已使用'){%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC" style="color: #CC0000">
+    <td class="centerCell"><input type="checkbox" value="<%=task._id%>" class="checkbox"/></td>
+    <td><%=task.acceptDate%></td>
+    <td><%=task.endDate%></td>
+    <td><%=task.amount%></td>
+    <td><%=task.acceptNumber%></td>
+    <td><%=task.acceptMan%></td>
+    <td><%=task.receiveMan%></td>
+    <td><%=task.payDepartment%></td>
+    <td><%=task.payBank%></td>
+    <td><%=task.payDate%></td>
+    <td><%=task.note%></td>
+    <td><%=task.Department%></td>
+</tr>
+<%} if(task.acceptState=='未使用') {%>
+<% var day %>
+<% day=new Date(task.endDate)-new Date(toDay) %>
+<% day=Math.ceil(day / (1000 * 3600 * 24))%>
+<% if(day>0 && day<7 ){%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC" style="color: #00B4EA;">
+    <td class="centerCell"><input type="checkbox" value="<%=task._id%>" class="checkbox"/></td>
+    <td><%=task.acceptDate%></td>
+    <td><%=task.endDate%></td>
+    <td><%=task.amount%></td>
+    <td><%=task.acceptNumber%></td>
+    <td><%=task.acceptMan%></td>
+    <td><%=task.receiveMan%></td>
+    <td><%=task.payDepartment%></td>
+    <td><%=task.payBank%></td>
+    <td><%=task.payDate%></td>
+    <td>即将过期</td>
+    <td><%=task.Department%></td>
+</tr>
+<%} else if(day<0){%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC" style="color: lightslategrey">
+    <td class="centerCell"><input type="checkbox" value="<%=task._id%>" class="checkbox"/></td>
+    <td><%=task.acceptDate%></td>
+    <td><%=task.endDate%></td>
+    <td><%=task.amount%></td>
+    <td><%=task.acceptNumber%></td>
+    <td><%=task.acceptMan%></td>
+    <td><%=task.receiveMan%></td>
+    <td><%=task.payDepartment%></td>
+    <td><%=task.payBank%></td>
+    <td><%=task.payDate%></td>
+    <td>已过期</td>
+    <td><%=task.Department%></td>
+</tr>
+<%}else{%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC" >
+    <td class="centerCell"><input type="checkbox" value="<%=task._id%>" class="checkbox"/></td>
+    <td><%=task.acceptDate%></td>
+    <td><%=task.endDate%></td>
+    <td><%=task.amount%></td>
+    <td><%=task.acceptNumber%></td>
+    <td><%=task.acceptMan%></td>
+    <td><%=task.receiveMan%></td>
+    <td><%=task.payDepartment%></td>
+    <td><%=task.payBank%></td>
+    <td><%=task.payDate%></td>
+    <td><%=task.note%></td>
+    <td><%=task.Department%></td>
+</tr>
+<%}%>
+<%}%>
+<% }) %>
+

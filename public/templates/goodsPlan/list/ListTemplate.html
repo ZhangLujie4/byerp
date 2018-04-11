@@ -1,0 +1,29 @@
+<% orderCollection.forEach(function(order, index){ %>
+<tr data-id="<%=order._id%>">
+    <td class="notForm centerCell">
+        <label class="_customCHeckbox">
+            <input type="checkbox" value="<%=order._id%>"
+            <% if (!order.removable) { %>
+            class="checkbox notRemovable" disabled='disabled'
+            <% } else {%>
+            class="checkbox"
+            <% } %>
+            />
+            <span></span>
+        </label>
+    </td>
+    <td style="text-align:center"><%=order.name%></td>
+    <% var allocateStatus = order.status ? order.status.allocateStatus : 'NOT' %>
+    <% var fulfillStatus = order.status ? order.status.fulfillStatus : 'NOT' %>
+    <% var shippingStatus = order.status ? order.status.shippingStatus : 'NOT' %></td>
+    <td style="text-align:center"><%=order.project && order.project.name ? order.project.name : ''%></td>
+    <td  style="text-align:center" class="centerCell _statusOrders smallPadding">
+        <span title="Allocated" class="_allocationed <%=allocateStatus === 'NOA' ? 'icon-checked yellow' : allocateStatus === 'ALL' ? 'icon-checked green' : '_notDid'%>"></span>
+    </td>
+    <td  style="text-align:center" class="centerCell _statusOrders smallPadding">
+        <span  title="Fulfilled" class="icon-box <%=fulfillStatus === 'NOA' ? 'yellow' : fulfillStatus === 'ALL' ? 'green' : 'red'%> _fullfilled"></span>
+    </td>
+    <td  style="text-align:center" class="smallPadding"><%=order.workflow ? order.workflow.name : ""%></td>
+    <td style="text-align:center"><%=common.utcDateToLocaleDate(order.orderDate)%></td>
+</tr>
+<% }) %>

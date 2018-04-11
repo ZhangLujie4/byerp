@@ -1,0 +1,53 @@
+<div class="form-holder _earningsType">
+    <div class="settings_modal">
+        <form method="post"
+              action=""
+              class="form"
+              id="invoiceForm">
+            <h3 class="_dialogTableTitle">编辑工资 <%= type %> 类型</h3>
+            <div class="setting_element half-block left">
+                <span>名称: </span>
+                <input id="payrollComponentTypeName"
+                       maxlength="40"
+                       size="40"
+                       type="text"
+                       value="<%= model.name %>">
+                <div class="_setInputTitle">
+                    <span>公式: </span>
+                    <span id="formula"></span>
+                </div>
+            </div>
+            <div class="setting_element half-block right">
+                <dl>
+                    <dt>
+                        <span>最低: </span>
+                    </dt>
+                    <dd>
+                        <input id="minRange"
+                               maxlength="20"
+                               size="20"
+                               type="text"
+                               value="<%= model.minRange || 0 %>">
+                    </dd>
+                    <dt>
+                        <span>最高: </span>
+                    </dt>
+                    <dd>
+                        <input id="maxRange"
+                               maxlength="20"
+                               size="20"
+                               type="text"
+                               value="<%= model.maxRange || 0 %>">
+                    </dd>
+                </dl>
+            </div>
+            <div class="clearfix"></div>
+            <span class="_setInputTitle">备注:</span>
+            <textarea name="comment"
+                      id="payrollComponentTypeComment"
+                      cols="3"
+                      rows="10"><%= model.description%>
+            </textarea>
+        </form>
+    </div>
+</div>

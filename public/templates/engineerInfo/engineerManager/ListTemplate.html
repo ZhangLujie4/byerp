@@ -1,0 +1,14 @@
+<% engineerManager.forEach(function(item, index){ %>
+<tr data-id="<%=item._id%>">
+	<td class="centerCell"><input type="checkbox" value="<%=item._id%>" data-id="<%=item._id%>" class="checkbox"/></td>
+	<td><%=item.name%></td>
+	<td><%=item.jobPosition%></td>
+	<td><%=item.enterTime%></td>
+	<td><%=item.age%></td>
+	<td><%=item.jobType%></td>
+	<td><%=item.jobQua%></td>
+	<td><%=item.certificate%></td>
+	<td><%=item.phone%></td>
+	<td><%=item.remark%></td>
+</tr>
+<% }) %>

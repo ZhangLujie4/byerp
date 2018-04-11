@@ -1,0 +1,29 @@
+<div class="form-holder">
+    <form method="post" action="" id="createCategoryForm" class="form">
+        <fieldset>
+            <div class="inner">
+                <h3 class="_dialogTitle">市场行情</h3>
+                    <dl class="department-info">
+                        <dt><label for="optionClassid">类别编号</label></dt>
+                        <dd><input type="text" class="title-input blueback" name="optionClassid" id="optionClassid"
+                                   maxlength="16" placeholder="类别编号" required/><input type="text" hidden
+                                                                                               required/></dd>
+                        <dt><label for="optionName">类别名称</label></dt>
+                        <dd><input type="text" class="title-input blueback" name="optionName" id="optionName"
+                                   maxlength="16" placeholder="类别名称" required/><input type="text" hidden
+                                                                                               required/></dd>
+
+                        <dt><label for="auto">是否需要自动爬取数据</label></dt>
+                        <dd>
+                            <label class="_customCHeckbox">
+                                <input class="checkbox" name="auto" value = "1" type="checkbox"/>
+                                <span></span>
+                            </label>
+                        </dd>
+                    </dl>
+                <div class="clearfix">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

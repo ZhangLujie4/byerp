@@ -1,0 +1,39 @@
+<div class="form-holder _missionAllowance">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <h3 class="_dialogTableTitle">新增</h3>
+        	<div class="half-block left">		
+		        <div>
+			        <dt><label for="employeesDd">员工: </label></dt>
+			        <dd class = "_newSelectListWrap">
+			        	<a id="employeesDd" data-id="<%= model.name._id %>" class = "current-selected" href = "javascript:;"><%= model.name.name.first + ' ' +  model.name.name.last%></a>
+			        </dd>
+		        </div>
+		        <div>
+			        <dt><label for="department">部门: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<a id="department" data-id="<%= model.Department._id %>" href = "javascript:;"><%= model.Department.name %></a>
+			        </dd>
+		        </div>
+		        <div>
+			        <dt><label for="jobPosition">职务: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<a id="jobPosition" data-id="<%= model.jobPosition._id %>"  href = "javascript:;" ><%= model.jobPosition.name %></a>
+			        </dd>
+		        </div>
+	        </div>
+	        <div class="half-block right">
+	        	<div>
+			        <dt><label for="carLicense">车牌号: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input id="carLicense" type="text" value="<%= model.carLicense %>">
+			        </dd>
+			    </div>
+			    <div>
+			        <dt><label for="allowanceStandard">补贴标准: </label></dt>
+			        <dd  class = "_inputIconWrap">
+			        	<input id="allowanceStandard" type="text" value="<%= model.allowanceStandard %>">
+			        </dd>
+			    </div>
+	        </div>
+    </form>
+</div>

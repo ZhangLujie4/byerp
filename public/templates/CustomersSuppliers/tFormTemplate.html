@@ -1,0 +1,63 @@
+<div class="person-info salesPurchases-container">
+    <div class="separateBlock">业务关系</div>
+    <div class="_animateInputBox">
+        <input type="text"
+               class="_animate editable"
+               id="reference"
+               maxlength="32"
+               data-id="salesPurchases_reference"
+               value="<%=model.salesPurchases.reference%>"
+               required/>
+        <label class="_animate">编号</label>
+    </div>
+    <div class="propertyFormList _forCheckBox">
+        <label class="inputBox _newSelectListWrap">
+            <label for="isCustomer">是否为客户</label>
+            <label class="_animatedCheckbox">
+                <input  id="isCustomer" data-id="salesPurchases_isCustomer" class="checkbox"
+                        type="checkbox" <%=(model && model.salesPurchases && model.salesPurchases.isCustomer) ? 'checked':''%> />
+                <span></span>
+            </label>
+        </label>
+        <label class="inputBox _newSelectListWrap">
+            <label for="isSupplier">是否供应商</label>
+            <label class="_animatedCheckbox">
+                <input id="isSupplier"
+                       data-id="salesPurchases_isSupplier" class="checkbox"
+                       type="checkbox" <%=(model && model.salesPurchases &&model.salesPurchases.isSupplier) ? 'checked':''%> />
+                <span></span>
+            </label>
+        </label>
+    </div>
+    <div class="_animateSelectBox">
+        <span class="_selectTitle">销售部门</span>
+        <div class="inputBox _newSelectListWrap">
+            <a id="departmentDd"
+               class="current-selected"
+               data-id="salesPurchases_salesTeam"
+               href="javascript:;"><%=(model && model.salesPurchases && model.salesPurchases.salesTeam) ? model.salesPurchases.salesTeam.name : '选择部门'%>
+            </a>
+        </div>
+    </div>
+    <div class="_animateSelectBox">
+        <span class="_selectTitle">业务员</span>
+        <div class="inputBox _newSelectListWrap">
+            <a id="employeesDd"
+               class="current-selected"
+               data-id="salesPurchases_salesPerson"
+               href="javascript:;"><%=(model && model.salesPurchases && model.salesPurchases.salesPerson) ?
+                model.salesPurchases.salesPerson.fullName : '选择人员'%>
+            </a>
+        </div>
+    </div>
+    <div class="_animateSelectBox">
+        <span class="_selectTitle">发展人</span>
+        <div class="inputBox _newSelectListWrap">
+            <a id="implementedBy"
+               class="current-selected"
+               data-id="salesPurchases_implementedBy"
+               href="javascript:;"><%=(model && model.salesPurchases && model.salesPurchases.implementedBy) ?model.salesPurchases.implementedBy.fullName : '选择发展人'%>
+            </a>
+        </div>
+    </div>
+</div>

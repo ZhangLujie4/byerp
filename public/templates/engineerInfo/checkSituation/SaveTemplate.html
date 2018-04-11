@@ -1,0 +1,67 @@
+<div class="form-holder _engineerManager">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <h3 class="_dialogTableTitle">新增</h3>
+            <div>
+                <div class="half-block left">       
+                    <dl class="opp-info">
+                        <dt><label for="inspectDate">检查日期: </label></dt>
+                        <dd class = "_newSelectListWrap">
+                            <input id="inspectDate" type="text" value="<%=inspectDate%>">
+                        </dd>
+
+                        <dt><label for="inspector">检查人员: </label></dt>
+                        <dd class = "_inputIconWrap">
+                            <input id="inspector" type="text" value="<%=inspector%>">
+                        </dd>
+
+                        <dt><label for="content">实施内容: </label></dt>
+                        <dd class = "_inputIconWrap">
+                            <textarea id="content" disabled="disabled" type="text"><%=content%></textarea> 
+                        </dd>
+
+                        <dt><label for="noreach">未达标处罚: </label></dt>
+                        <dd class = "_inputIconWrap">
+                            <textarea id="noreach" disabled="disabled" type="text"><%=penalty%></textarea> 
+                        </dd>
+                    </dl>
+                </div>
+                <div class="half-block right">
+                    <dl class="opp-info">
+                        <dt><label for="rectification">整改: </label></dt>
+                        <dd class = "_newSelectListWrap">
+                            <input id="rectification" type="text">
+                        </dd>
+
+                        <dt><label for="penalty">处罚: </label></dt>
+                        <dd class = "_newSelectListWrap">
+                            <input id="penalty" type="text">
+                        </dd>
+
+                        <dt><label for="focus">重点监护: </label></dt>
+                        <dd class = "_newSelectListWrap">
+                            <input id="focus" type="text">
+                        </dd>
+
+                        <dt><label for="remark">备注: </label></dt>
+                        <dd class = "_newSelectListWrap">
+                            <input id="remark" type="text">
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div>
+                <div class="_modalList">
+                    <div class="area_holder">
+                     <textarea id="internalNotes" class="internal_Notes" placeholder="内部注释..." maxlength="500"
+                               class="opp-internal-create"></textarea>
+                        <a href="javascript:;" class="attach_file">
+                            <span class="icon-attach"></span>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="attach-container"></div>
+            </div>
+    </form>
+</div>

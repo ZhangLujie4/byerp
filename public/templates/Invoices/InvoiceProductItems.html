@@ -1,0 +1,58 @@
+<table class="list tableFixed  _invoiceTable">
+    <colgroup>
+        <col width="200px">
+        <col width="200px">
+        <col width="60px">
+        <col width="100px">
+        <col width="80px">
+        <col width="80px">
+
+    </colgroup>
+    <thead>
+    <tr class="productListItemsColumns _deleteHeader ">
+        <th data-sort="Product">
+            产品
+        </th>
+        <% if (forSales) {%>
+        <th data-sort="jobs">
+            Job
+        </th>
+        <% } %>
+        <th data-sort="quantity">
+            数量
+        </th>
+        <th data-sort="unitPrice">
+            单价
+        </th>
+        <th data-sort="taxes">
+            税
+        </th>
+        <th data-sort="amount">
+            金额
+        </th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr></tr>
+    </tfoot>
+    <tbody id="productList">
+    <%if(!notAddItem){%>
+    <tr>
+        <td colspan="6" class="addProductItem">
+            <a href="javascript:;">新增一项</a>
+        </td>
+    </tr>
+    <%}%>
+    <tr>
+        <td colspan="6" class="invisible_border">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="6" class="invisible_border">&nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+<div class="clearfix"></div>
+<div id="totalAmountContainer" class="_totalAmountContainer">
+
+</div>
+

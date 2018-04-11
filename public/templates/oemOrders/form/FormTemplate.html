@@ -1,0 +1,38 @@
+<div class="form-holder">
+    <fieldset>
+        <div class="inner">
+            <%var fulfillStatus = model.status ? model.status.fulfillStatus : 'NOT'; %>
+
+            <ul class="_btnsBlockFixed">
+                <li class="right">
+                    <a id="viewJournalEntries"
+                       class="icon-edit-list2 _viewEntries btn slim"
+                       href="javascript:;" title="凭证">
+                    </a>
+                    <button id="editButton" class="btn slim" title="编辑">
+                        <span class="icon-pencil2"></span>
+                    </button>
+                    <button id="exportToPdf" class="btn slim" title="下载PDF">
+                        <span class="icon-pdf"></span>
+                    </button>
+                    <button class="btn slim attach_file" id="attachment_file" title="附件">
+                        <span class="icon-attach"></span>
+                    </button>
+                    <%var classNamePayment = model.workflow && model.workflow.status !== 'Done' ? 'activeItem' :
+                    'passiveItem';%>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="_templateInvoiceWrp">
+                <div id="templateDiv" class="_templateDiv"></div>
+                <div class="addingInfoWrp">
+                    <div id="historyDiv" class="_pureTemplate"></div>
+                    <div id="attachments" class="invoiceAttachments"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </fieldset>
+
+    <div class="clearfix"></div>
+</div>

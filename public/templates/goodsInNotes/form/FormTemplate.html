@@ -1,0 +1,90 @@
+<div class="form-holder">
+    <form class="form" id="goodsNote">
+        <fieldset>
+            <div class="inner">
+                <div class="_goodOutWrap">
+                    <div class="topPanel">
+                        <h2>入库单 
+                            <span><%var name = model.name.split('*');%> 
+                                <span id="name">#<a class="blue"
+                                    href="<%='/#easyErp/order/tform/'+ model.order._id %>"><%=name[0]%></a>*<%=name[1]%></span></span>
+                        </h2>
+                        <% if( !model.status.approved&& model.reference === ""){ %>
+                            <dl class="opp-info">
+                                <dt class="fontBold"><label>Tracking ref:</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <span href="javascript:;"><%=model.reference || '___'%></span>
+                                </dd>
+                                <dt class="fontBold"><label>运输方式:</label></dt>
+                                <dd class="_newSelectListWrap"><span id="name"
+                                    href="javascript:;"><%=model.shippingMethod ? model.shippingMethod.name : '___'%></span>
+                                </dd>
+                                <dt class="fontBold"><label>日期:</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <%if (model.status.approved) {%>
+                                    <span id="date"><%=model.date || ''%></span>
+                                    <%} else {%>
+                                    <input id="date" class="_inputBordered " readonly/>
+                                    <%}%>
+                                </dd>    
+                            </dl>
+                            <div class="right">
+                                <button class="btn checkStatus">
+                                    <span>验证</span>
+                                </button>
+                            </div>
+                        <% }else if(model.status.approved && model.isValid === false && !model.description){ %>
+                            <dl class="opp-info">
+                                <dt class="fontBold"><label>Tracking ref:</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <span href="javascript:;"><%=model.reference || '___'%></span>
+                                </dd>
+                                <dt class="fontBold"><label>运输方式:</label></dt>
+                                <dd class="_newSelectListWrap"><span id="name"
+                                    href="javascript:;"><%=model.shippingMethod ? model.shippingMethod.name : '___'%></span>
+                                </dd>
+                                <dt class="fontBold"><label>日期:</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <%if (model.status.approved) {%>
+                                    <span id="date"><%=model.date || ''%></span>
+                                    <%} else {%>
+                                    <input id="date" class="_inputBordered " readonly/>
+                                    <%}%>
+                                </dd>
+                            </dl>
+                            <div class="right">
+                                <button class="btn cancel">
+                                    <span>入库单取消审核</span>
+                                </button>
+                            </div>
+                            <div class="right">
+                                <button class="btn goodsInNew">
+                                    <span>正式入库</span>
+                                </button>
+                            </div>
+                        <% } else if(model.status.approved && model.isValid){ %>
+                            <div class="right">
+                                <button class="btn editCancel" hidden>
+                                    <span>取消</span>
+                                </button>
+                            </div>
+                            <div class="right">
+                                <button class="btn goodsNoteEdit" hidden>
+                                    <span>保存</span>
+                                </button>
+                            </div>
+                            <div class="right">
+                                <button class="btn  editNote">
+                                    <span>正式入库单修改</span>
+                                </button>
+                            </div>
+                        <% }%>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div id="templateDiv"></div>
+                <div class="clearfix"></div>
+            </div>
+        </fieldset>
+    </form>
+</div>

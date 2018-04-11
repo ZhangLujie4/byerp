@@ -1,0 +1,68 @@
+<div class="form-holder">
+    <form method="post" action="" id="editJobPositionForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <div class="inner">
+                <ul class="dialog-tabs">
+                    <li><a class="active" href="javascript:;">主要</a></li>
+                    <li><a href="javascript:;">受托人</a></li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items">
+                    <div class="dialog-tabs-item active">
+                        <div class="half-block left">
+                            <dl class="job-create-info">
+                                <dt><label for="name">岗位名称</label></dt>
+                                <dd><input type="text" class="title-input blueback" name="name" id="name"
+                                           value="<%=model.name%>" placeholder="e.g. Manager" required maxlength="32"/>
+                                </dd>
+                                <!--				<dt><label for="currentNumberEmployees">Current Number of Employees</label></dt><dd><label><%= model.numberOfEmployees %></label></dd>-->
+                                <!--				<dt><label for="totalForecastedEmployees">Total Forecasted Employees</label></dt><dd><label>2</label></dd>-->
+                                <dt><label for="departmentDd">部门</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="departmentDd" data-id="<%=(model.department) ? model.department._id : ''%>"
+                                       class="current-selected" href="javascript:;"><%=(model.department && model.department.name)?model.department.name:'Select'%></a>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="half-block left">
+                            <dl class="job-create-info">
+                                <dt><label for="expectedRecruitment">预招聘</label></dt>
+                                <dd><input type="text" name="expectedRecruitment" class="onlyNumber"
+                                           id="expectedRecruitment" value="<%=model.expectedRecruitment%>"
+                                           maxlength="4"/></dd>
+                                <dt><label for="workflowsDd">状态</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="workflowsDd" data-id="<%=(model.workflow) ? model.workflow._id : ''%>"
+                                       class="current-selected" href="javascript:;"><%=(model.workflow)?model.workflow.name:'Undefinded'%></a>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="half-block left">
+                            <dl class="job-create-info">
+                                <dt><label for="price">价格</label></dt>
+                                <dd><input type="text" class="title-input blueback" name="price" id="price"
+                                           value="<%=model.price%>" required maxlength="32"/>
+                                </dd> 
+                                <dt><label for="description">岗位描述</label></dt>
+                                <dd><textarea id="description" maxlength="1000" placeholder="Description"><%=model.description%></textarea>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="half-block left">
+                            <dl class="job-create-info" >
+                                <dt><label for="requirements"> 要求</label></dt>
+                                <dd><textarea id="requirements" maxlength="1000" placeholder="Requirements"><%=model.requirements%></textarea>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="dialog-tabs-item">
+                        <div class="assignees-container"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

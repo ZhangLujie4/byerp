@@ -1,0 +1,51 @@
+<div id="searchContainer"></div>
+<div id="salary-head"></div>
+<div id="salaryReport">
+    <style media="print">
+        @page {
+          size: auto;  /* auto is the initial value */
+          margin: 0mm; /* this affects the margin in the printer settings */
+        }
+    
+    </style>
+    
+    <table class="list stripedList" style="margin-top: 15px">
+        <colgroup>
+            <col width="5%">
+            <col width="5%">
+            <%for(var i=0; i<collection[0]? (collection[0].earnings.length+collection[0].deductions.length): 0 ; i++){%>
+            <col width="5%">
+            <%}%>
+            <col width="5%">
+            <col width="5%">
+            <col width="5%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th rowspan="2" class="centerCell">编号</th>
+            <th rowspan="2" class="centerCell">员工</th>
+            <th colspan ="<%=collection[0]?collection[0].earnings.length:0%>" class="centerCell">应发项目</th>
+            <th rowspan ="2" class="centerCell">应付合计</th>
+            <th colspan ="<%=collection[0]?collection[0].deductions.length:0%>" class="centerCell deductions">扣减项</th>
+            <th rowspan ="2" class="centerCell">扣除小计</th>
+            <th colspan ="2" class="centerCell">代扣缴个人所得税</th>
+            <th rowspan="2" class="centerCell">实发合计</th>
+        </tr>
+        <tr id="caption">
+            <%for(var i=0; i<(collection[0]?collection[0].earnings.length: 0); i++){%>
+            <th><%=collection[0].earnings[i].formula%></th>
+            <%} for(var j=0; j<(collection[0]?collection[0].deductions.length: 0); j++){%>
+            <th><%=collection[0].deductions[j].formula%></th>
+            <%}%>
+            
+            <th>应纳税所得项</th>
+            <th>应纳税额</th>   
+        </tr>
+        </thead>
+
+        <tbody id="listTable" class="enableTableOdd"></tbody>
+        
+    </table>
+</div>
+
+

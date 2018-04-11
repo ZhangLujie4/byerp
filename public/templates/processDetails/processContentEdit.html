@@ -1,0 +1,21 @@
+<% processContent.forEach(function(processContents){ %>
+<tr class="processContent">
+ 
+ 	<td data-name="processTypes" class="jobs trash " style="height: 28px;">
+        <input type="text" style="border: 0; text-align:center;" id="processTypes" value="<%=processContents.processType%>" readonly="readonly"/>
+    </td>
+    <td data-name="processContents" class="jobs trash " style="height: 28px;">
+        <input type="text" style="border: 0; text-align:center;" id="processContents" value="<%=processContents.processContent%>" readonly="readonly"/>
+    </td>
+    <td data-name="processUnits" class="jobs trash " style="height: 28px;">
+        <input type="text" style="border: 0; text-align:center;" id="processUnits" value="<%=processContents.unit%>" readonly="readonly"/>
+    </td>
+    <td data-name="processQuantities" class="jobs trash " style="text-align: center; height: 28px;">
+        <input type="text" style="width: 60px; text-align:center;" id="processQuantities" value="<%=processContents.quantity%>"/>
+    </td>
+    <td data-name="processPrices" class="jobs trash " style="height: 28px; display: none;">
+        <input type="text" style="border: 0; text-align:center;" id="processPrices" value="<%=processContents.price%>"/>
+    </td>
+
+</tr>
+<% }); %>

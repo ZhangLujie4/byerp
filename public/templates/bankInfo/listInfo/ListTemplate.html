@@ -1,0 +1,103 @@
+<% var number=1%>
+<% var balance=0%>
+<% if(bank[0].name=='结算中心'){%>
+<% tasksCollection.forEach(function(task, index){%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="<%= task.type%>">
+    <td><%=number%></td>
+    <% number=number+1%>
+    <td><%=task.date%></td>
+    <% if(task.type=='openingBalance'){%>
+    <td style="color: #a92125;font-weight:bold ">期初余额</td>
+    <% } else if(task.type=='closingBalance'){%>
+    <td style="color: #a98f1d;font-weight:bold ">期末余额</td>
+    <% } else if(task.type=='debitAmount'){%>
+    <td style="color: #2f44a9;font-weight:bold ">借方金额累计</td>
+    <% } else if(task.type=='creditAmount'){%>
+    <td style="color: #2f44a9;font-weight:bold ">贷方金额累计</td>
+    <% } else {%>
+    <td><%=task.journal.name%></td>
+    <% }%>
+    <% if(task.type=='normal'){%>
+    <td><%=task.debit%></td>
+    <%} else if(task.type=='debitAmount'){%>
+    <td style="color: #2f44a9;font-weight:bold "><%=task.amount%></td>
+    <%} else {%>
+    <td></td>
+    <%}%>
+    <% if(task.type=='normal'){%>
+    <% if(task.bill=='notCome'){%>
+    <td>未到单</td>
+    <%} else {%>
+    <td>已到单</td>
+    <%}%>
+    <%} else{ %>
+    <td></td>
+    <%}%>
+    <% if(task.type=='normal'){%>
+    <td><%=-task.credit%></td>
+    <%} else if(task.type=='creditAmount'){%>
+    <td style="color: #2f44a9;font-weight:bold "><%=task.amount%></td>
+    <%} else {%>
+    <td></td>
+    <%}%>
+    <td></td>
+    <% if(task.type=='openingBalance'){%>
+    <td style="color: #a92125;font-weight:bold "><%=task.amount%></td>
+    <% balance=task.amount %>
+    <%} else if(task.type=='normal'){ %>
+    <% balance=balance*1+task.debit*1-task.credit*1 %>
+    <td><%=balance %></td>
+    <%} else if(task.type=='closingBalance'){%>
+    <td style="color: #a98f1d;font-weight:bold "><%=task.amount%></td>
+    <%} else {%>
+    <td></td>
+    <%}%>
+
+</tr>
+<% }) %>
+<%} else{%>
+<% tasksCollection.forEach(function(task, index){%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC">
+    <td><%=number%></td>
+    <% number=number+1%>
+    <td><%=task.date%></td>
+    <% if(task.type=='openingBalance'){%>
+    <td style="color: #a92125;font-weight:bold ">期初余额</td>
+    <% } else if(task.type=='closingBalance'){%>
+    <td style="color: #a98f1d;font-weight:bold ">期末余额</td>
+    <% } else if(task.type=='debitAmount'){%>
+    <td style="color: #2f44a9;font-weight:bold ">借方金额累计</td>
+    <% } else if(task.type=='creditAmount'){%>
+    <td style="color: #2f44a9;font-weight:bold ">贷方金额累计</td>
+    <% } else {%>
+    <td><%=task.journal.name%></td>
+    <% }%>
+    <% if(task.type=='normal'){%>
+    <td><%=task.debit%></td>
+    <%} else if(task.type=='debitAmount'){%>
+    <td style="color: #2f44a9;font-weight:bold "><%=task.amount%></td>
+    <%} else {%>
+    <td></td>
+    <%}%>
+    <% if(task.type=='normal'){%>
+    <td><%=-task.credit%></td>
+    <%} else if(task.type=='creditAmount'){%>
+    <td style="color: #2f44a9;font-weight:bold "><%=task.amount%></td>
+    <%} else {%>
+    <td></td>
+    <%}%>
+    <td></td>
+    <% if(task.type=='openingBalance'){%>
+    <td style="color: #a92125;font-weight:bold "><%=task.amount%></td>
+    <% balance=task.amount %>
+    <%} else if(task.type=='normal'){ %>
+    <% balance=balance*1+task.debit*1-task.credit*1 %>
+    <td><%=balance %></td>
+    <%} else if(task.type=='closingBalance'){%>
+    <td style="color: #a98f1d;font-weight:bold "><%=task.amount%></td>
+    <%} else {%>
+    <td></td>
+    <%}%>
+</tr>
+<% }) %>
+<%}%>

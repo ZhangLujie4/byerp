@@ -1,0 +1,11 @@
+<% orderApprovalCollection.forEach(function(orderApproval, index){ %>
+<tr data-index="<%=index%>" data-id="<%= orderApproval._id%>" >
+    <td class="centerCell"><input type="checkbox" value="<%=orderApproval._id%>" class="checkbox"/></td>
+    <td><%=orderApproval.projectName%></td>
+    <td><%=orderApproval.workNumber%></td>
+    <td><%=orderApproval.factoryCost.toFixed(2)%></td>
+    <td><%=orderApproval.groupCost.toFixed(2)%></td>
+    <td><%=orderApproval.factoryProfit.toFixed(2)%></td>
+    <td><%=(orderApproval.isApproval) ? '已审核' : '未审核'%></td>
+</tr>
+<% }) %>

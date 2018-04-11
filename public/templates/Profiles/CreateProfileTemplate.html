@@ -1,0 +1,21 @@
+<div class="form-holder">
+    <form method="post" action="" id="createProfileForm" class="form">
+        <fielset>
+            <dl class="profile-create">
+                <dt><label for="profileName">配置文件 </label></dt>
+                <dd><input type="text" id="profileName" required maxlength="12" placeholder="Profile Name"/></dd>
+                <dt><label for="profileDescription">描述 </label></dt>
+                <dd><input type="text" id="profileDescription" maxlength="32" placeholder="Description"/></dd>
+                <dt><label for="baseProfile">使用基本配置文件和编辑权限</label></dt>
+                <dd><input type="radio" name="group" value="base" checked id="baseProfile"/></dd>
+                <dt><label>基础配置文件:</label></dt>
+                <dd class="_newSelectListWrap">
+                    <a id="profilesDd" class="current-selected" href="javascript:;"></a>
+                </dd>
+                <dt><label for="newProfile">从头开始创建新的配置文件</label></dt>
+                <dd><input type="radio" name="group" value="new" id="newProfile"/></dd>
+            </dl>
+            <div class="clearfix"></div>
+        </fielset>
+    </form>
+</div>

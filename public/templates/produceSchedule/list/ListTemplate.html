@@ -1,0 +1,11 @@
+<% scheduleCollection.forEach(function(schedule, index){ %>
+<tr data-index="<%=index%>" data-id="<%= schedule._id%>" >
+    <td class="centerCell"><input type="checkbox" value="<%=schedule._id%>" class="checkbox"/></td>
+    <td class="centerCell"><%=schedule.projectId%></td>
+    <td class="centerCell"><%=schedule.orderNumber%></td>
+    <td class="centerCell"><%=schedule.produceType%></td>
+    <td class="centerCell"><%=schedule.sequence%></td>
+    <td class="centerCell"><%=schedule.completionRate%>%</td>
+    <td class="centerCell"><%=schedule.totalProgress%>%</td>
+</tr>
+<% }) %>

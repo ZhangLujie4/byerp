@@ -1,0 +1,26 @@
+<table id="listTable">
+    <% quotations.forEach(function(quotation, index){ %>
+    <tr class="compactView" data-id="<%=quotation._id%>">
+        <td class="checkboxRow">
+            <label>
+                <input type="checkbox" value="<%=quotation._id%>" class="checkbox listCB <%=quotation.proformaCounter ? 'notRemovable' : ''%>"  <%if (quotation.proformaCounter) { %>
+                disabled='disabled'
+                <% } %>/>
+            </label>
+        </td>
+        <td>
+            <div class="compactRowWrap">
+                <div class="compactRow">
+                    <div class="firstName"><%= quotation.project.name%></div>
+                    <div><%='BBB'%></div>
+                    <div><%= quotation.orderDate %></div>
+                </div>
+                <div class="compactRow">
+                    <div class="total"><%=(quotation.currency && quotation.currency._id ? quotation.currency._id.symbol : '') + (quotation.paymentInfo) ? currencySplitter(quotation.paymentInfo.total) : '0'%></div>
+                    <div><%= 'AAA' %></div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <% }) %>
+</table>

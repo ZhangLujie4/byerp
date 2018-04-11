@@ -1,0 +1,16 @@
+<% missionAllowance.forEach(function(missionAllowance, index){ %>
+<tr data-id="<%= missionAllowance._id %>">
+    <td data-type="input" class = "centerCell">
+    	<span><%=missionAllowance.ID%></span>
+    </td>
+    <td data-type="input" class = "centerCell"><%=(missionAllowance && missionAllowance.name) ? missionAllowance.name.name.first + ' ' + missionAllowance.name.name.last : ''%></td>
+    <td data-type="input" class = "centerCell"><%=missionAllowance.Department.name%></td>
+    <td data-type="input" class = "centerCell"><%=missionAllowance.jobPosition.name%></td>
+    <td data-type="input" class = "centerCell"><%=missionAllowance.carLicense%></td>
+    <td data-type="input" class = "centerCell"><%=missionAllowance.allowanceStandard%></td>
+    <td>
+        <a href="javascript:;" class="icon-note goToEdit _actionCircleBtn" aria-hidden="true"></a>
+        <a href="javascript:;" class="icon-trash goToRemove _actionCircleBtn" aria-hidden="true"></a>
+    </td>
+</tr>
+<% }) %>

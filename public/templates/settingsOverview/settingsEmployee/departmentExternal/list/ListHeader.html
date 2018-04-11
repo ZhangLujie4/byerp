@@ -1,0 +1,38 @@
+<div class="_acountingTitleBlock _forOverview">
+    <a href="javascript:;" class="btn blue slim icon-plus btnPositioned" title="Create" id="top-bar-createBtn">新建</a>
+</div>
+
+<div id="searchContainer"></div>
+<div class="_acountingTableBlock">
+    <table class="list task-list">
+        <col width="5%">
+        <col width="10%">
+        <col width="10%">
+        <col width="25%">
+        <col width="25%">
+        <col width="10%">
+        <col width='20%'>
+        <thead>
+        <tr>
+            <th class="centerCell">N</th>
+            <th data-sort="year">
+                年
+            </th>
+            <th data-sort="month">
+                月
+            </th>
+            <th data-sort="department">
+                部门
+            </th>
+            <th data-sort="allowanceName">
+                补贴名称
+            </th>
+            <th data-sort="amount">
+                补贴数额
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="listTable<%= type %>" class="enableTableOdd"></tbody>
+    </table>
+</div>

@@ -1,0 +1,57 @@
+<div class="tableFixedWrap Task-list-wrap">
+    <table class="list Task-list tableFixed">
+        <tr>
+            <td id="Task-Table" colspan="9">
+                <div class="scrollit">
+                    <table class="list enable_hover tableFixed" id="Task-listTable">
+                        <colgroup class="borders" span="8">
+                            <col span="1" width="10%">
+                            <col span="1" width="10%">
+                            <col span="1" width="10%">
+                            <col span="1" width="10%">
+                            <col span="1" width="10%">
+
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th  class="centerCell"><a id="expandAll">#</a></th>
+                            <th class="oe_sortable" data-sort="stamp">印章<span class="arrow down"></span><span
+                                    class="arrow up"></span></th>
+                            <th>审批人</th>
+                            <th class="oe_sortable" data-sort="status">状态<span class="arrow down"></span><span
+                                    class="arrow up"></span></th>
+                            <th class="oe_sortable" data-sort="comment">意见<span class="arrow down"></span><span
+                                    class="arrow up"></span></th>
+                        </tr>
+                        </thead>
+                        <tbody id="Task-TableBody">
+                        <% collection.forEach(function(model, index){ %>
+                            <% model.process.forEach(function(item, index2) {%>
+                            <tr data-id="<%=model._id%>"  class="mainTr">
+                                <td data-content="number" class="centerCell"><%=index2+1%></td>
+                                <td class="assignedTo" data-id="<%=model.stamp._id%>" data-content="stamp"><%=model.stamp ? model.stamp.name : ''%></td>
+                                <!-- <td data-content="approveMan"><%=model.approveMan.name? (model.approveMan.name.first + ' ' + model.approveMan.name.last): ''%></td> -->
+                                <td data-id="<%=item.id%>"><%= item.name%></td>
+                                <%if (model.comment[index2].statusInd == 1){%>
+                                <td data-type="input" data-content="status" data-cash="" class="progressTotal">通过
+                                </td>
+                                <% } %>
+                                <%if (model.comment[index2].statusInd == 0){%>
+                                <td data-type="input" data-content="status">审批中</td>   
+                                <%}%>
+                                <% if(model.comment[index2].statusInd == -1){%>
+                                <td data-type="input" data-content="status">未通过</td>
+                                <%}%>
+                                <td data-type="input" data-content="comment" data-cash="" class="paidProgress">
+                                    <%=model.comment[index2].opinion%>
+                                </td>
+                            </tr>
+                            <%}) %>
+                        <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,60 @@
+<div class="form-holder _newForm">
+    <form method="post" action="" id="invoiceForm">
+        <% if(type == 'earnings'){ %>
+        <% type = '新增';}%>
+        <% if(type == 'deductions'){%>
+        <% type = '扣减';}%>
+        <h4 class="_dialogMainTitle"><%= name ? '更新' : '新建'%> <%= type %> 项</h4>
+        <div class="_formWrap">
+            <div class="_formBlock _equal">
+                <div class="_formBlock">
+                    <div class="_animateInputBox">
+                        <input type="text"
+                               class="_animate "
+                               id="structureComponentName"
+                               required
+                               autofocus
+                               size="40"
+                               value="<%= name || ''%>"
+                               maxlength="40"/>
+                        <label class="_animate">名称: </label>
+                    </div>
+                    <div class="_modalList">
+                        <div class="_modalLabel">
+                            <label>公式: </label>
+                        </div>
+                        <span id="formula"></span>
+                        <span class="btn blue slim _addFormulaBtn" id="addFormulaElement">新增公式</span>
+                    </div>
+                </div>
+            </div>
+            <div class="_formBlock _equal">
+                <div class="_basedOnRange">
+                    <label for="range" class="_rangeLabel">添加取值范围</label>
+                    <label class="_animatedCheckbox">
+                        <input id="range"
+                               type="checkbox"
+                               />
+                        <span></span>
+                    </label>
+                </div>
+                <div class="_animateInputBox minRange" style="display: none">
+                    <input type="number"
+                           class="_animate"
+                           id="minRange"
+                           required
+                           value="0"/>
+                    <label class="_animate">最小值</label>
+                </div>
+                <div class="_animateInputBox maxRange" style="display: none">
+                    <input type="number"
+                           class="_animate"
+                           id="maxRange"
+                           required
+                           value="0"/>
+                    <label class="_animate">最大值</label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+﻿<div id="searchContainer"></div>
+<table class="list stripedList">
+    <colgroup>
+        <col width="180px">
+        <col width="180px">
+        <col width="150px">
+        <col width="180px">
+        <col width="180px">
+        <col width="120px">
+    </colgroup>
+    <thead>
+    <tr>
+        <!--<th class="centerCell"><input type="checkbox" id="checkAll"/></th>-->
+        <th class="oe_sortable" data-sort="journal.name">凭证<span class="arrow down"></span><span
+                class="arrow up"></span></th>
+        <th class="oe_sortable" data-sort="date">记账日期<span class="arrow down"></span><span
+                class="arrow up"></span></th>
+        <th class="oe_sortable" data-sort="sourceDocument.name">原始单据<span class="arrow down"></span><span
+                class="arrow up"></span></th>
+        <th class="oe_sortable" data-sort="debitAccount.name">借方科目<span class="arrow down"></span><span
+                class="arrow up"></span></th>
+        <th class="oe_sortable" data-sort="creditAccount.name">贷方科目<span class="arrow down"></span><span
+                class="arrow up"></span></th>
+        <th class="oe_sortable" data-sort="debit">累计<span class="arrow down"></span><span
+                class="arrow up"></span></th>
+    </tr>
+    </thead>
+    <tbody id="listTable" class="enableTableOdd"></tbody>
+    <tfoot id="listFooter">
+    <tr>
+        <td colspan="5"></td>
+        <td id="totalDebit" class="money"></td>
+    </tr>
+    </tfoot>
+</table>

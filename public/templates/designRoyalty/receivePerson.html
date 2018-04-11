@@ -1,0 +1,15 @@
+<% person.forEach(function(person){ %>
+<tr class="receiveItem">
+    <td data-name="personDd" class="_newSelectListWrap" style="text-align: center">
+        <input id="personDd"  class="current-selected" data-id="<%=person.name._id%>" style="border: 0px" value="<%=person.name.name.first+' '+person.name.name.last%>">
+    </td>
+    <td  class="jobs trash " style="text-align: center">
+        <input type="text"  id="rate" value="<%=person.rate%>" style="width: 80px "/>
+    </td>
+    <td  class="royalty " style="text-align: center" c>
+        <input type="text"  id="royalty" value="" style="width: 80px;border: 0px;display: none "/>
+    </td>
+
+    <div class="clearfix"></div>
+</tr>
+<% }); %>

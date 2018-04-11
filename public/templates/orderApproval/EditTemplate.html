@@ -1,0 +1,148 @@
+﻿﻿<div class="form-holder task-create-holder" style="margin-bottom: 0px;">
+    <form method="post" action="" id="editWorkOrderForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">制造令信息</a></li>
+                <!-- <li><a href="javascript:;">收费项目</a></li>
+                <li><a href="javascript:;">加工内容</a></li> -->
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                   
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt>
+                                    <label>工程名称</label>
+                                </dt>
+                                <dd>
+                                    <p id="opportunitieDd"  data-id="<%=model.projectName%>"  href="javascript:;" ><%=model.projectName%></p>
+                                </dd>
+                               
+                                <dt>
+                                    <label for="factoryCost">加工费(元)</label>
+                                </dt>
+                                <dd>
+                                    <input type="text" 
+                                           name="factoryCost"
+                                           id="factoryCost" style="border: 0;"
+                                           value="<%= model.factoryCost.toFixed(2) %>" readonly="readonly"/>
+                                </dd>
+
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">                                 
+                                <dt>
+                                    <label for="workNumber">制造令号</label>
+                                </dt>
+                                <dd>
+                                    <input type="text" 
+                                           name="workNumber"
+                                           id="workNumber" style="border: 0;" 
+                                           value="<%= model.workNumber %>" readonly="readonly"/>
+                                </dd>
+                                <dt>
+                                    <label for="fillDate">填单日期</label>
+                                </dt>
+                                <dd>
+                                    <input type="text" id="fillDate"  style="border: 0;" value="<%= model.fillDate %>" readonly="readonly" />
+                                </dd>
+                                <!-- <dt>
+                                    <label for="operator">操作者</label>
+                                </dt>
+                                <dd>
+                                    <input type="text" 
+                                           name="operator"
+                                           id="operator" 
+                                           value="<%= model.operator %>" />
+                                </dd> -->
+                                
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dialog-tabs-item">
+                    <div class="inner">
+                        <table class="list task-list">
+                            <colgroup>
+                                <col width="30%">
+                                <col width="30%">
+                                <col width="30%">
+
+                            </colgroup>
+                            <thead>
+
+                            <tr>
+                                <th id="chargeItems" class="centerCell">
+                                    收费项目
+                                </th>
+                                <th id="units"  class="centerCell">
+                                    单位
+                                </th>
+                                <th id="quatities"  class="centerCell">
+                                    数量
+                                </th>
+                                
+                            </tr>
+
+                            </thead>
+                    
+                            <tbody id="chargeItemList">
+                            </tbody>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+                <div class="dialog-tabs-item">
+                    <div class="inner">
+                        <table class="list task-list">
+                            <colgroup>
+                                <col width="25%">
+                                <col width="25%">
+                                <col width="25%">
+                                <col width="25%">
+
+                            </colgroup>
+                            <thead>
+
+                            <tr>
+                                <th id="processTypes" class="centerCell">
+                                    类型
+                                </th>
+                                <th id="processContents" class="centerCell">
+                                    加工内容
+                                </th>
+                                <th id="units"  class="centerCell">
+                                    单位
+                                </th>
+                                <th id="quatities"  class="centerCell">
+                                    数量
+                                </th>
+                                
+                            </tr>
+
+                            </thead>
+
+                            <tbody id="processContentList">
+                            </tbody>
+
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="clearfix"></div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

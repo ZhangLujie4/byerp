@@ -1,0 +1,44 @@
+<div class="form-holder _safetyManagement">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <h3 class="_dialogTableTitle">审批</h3>
+        	<div class="half-block left">		
+        		<dl>
+			        <dt><label for="classify">控制分类: </label></dt>
+			        <dd class = "_newSelectListWrap">
+			        	<a type="text"
+			        	   id="classify" 
+			        	   class="current-selected"
+			        	   data-id="<%=model.classify._id%>"
+                           href="javascript:;"><%=model.classify.name%>
+                        </a>
+			        </dd>
+
+			        <dt><label for="content">内容: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<textarea id="content" readonly="readonly"><%=model.content%></textarea>
+			        </dd>
+			    </dl>
+	        </div>
+	        <div class="half-block right">
+	        	<dl>
+			        <dt><label for="remark">备注: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<textarea id="remark" readonly="readonly"><%=model.remark%></textarea>
+			        </dd>
+
+			        <dt><label for="approve">审批: </label></dt>
+			        <dd class = "_newSelectListWrap">
+			        	<a type="text"
+			        	   id="approve" 
+			        	   class="current-selected"
+                           href="javascript:;">选择
+                        </a>
+			        </dd>
+		        </dl>
+	        </div>
+	        <div class="clearfix"></div>
+	        <div>
+		        <div class="attachments"></div>
+	        </div>
+    </form>
+</div>

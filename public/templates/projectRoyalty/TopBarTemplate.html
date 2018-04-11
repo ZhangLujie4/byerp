@@ -1,0 +1,17 @@
+<% if(viewType=='tform'){%>
+<h3>工程提成</h3>
+<%} else{%>
+<% if(model){%>
+<h3>项目名称：<%=model[0].project.name%></h3>
+<%} else {%>
+<h3>工程提成</h3>
+<div id="createBtnHolder" class="btnsBlock">
+    <a href="#home/action-<%=contentType%>/Create" class="btn blue slim plus" title="Create" id="top-bar-createBtn">新建</a>
+    <a href="#easyErp/goodsOutNotes/list" class=" btn blue slim" title="查看" >发货单列表</a>
+    <!--<a href="javascript:;" class="fa fa-wrench" title="Edit" id="top-bar-editBtn"></a>>
+    <a href="javascript:;" class="btn blue slim" title="Save" id="top-bar-saveBtn">保存</a>
+    <a-- href="javascript:;" class="btn blue slim" title="Remove Project" id="top-bar-deleteBtn">删除</a-->
+
+</div>
+<%}%>
+<%}%>

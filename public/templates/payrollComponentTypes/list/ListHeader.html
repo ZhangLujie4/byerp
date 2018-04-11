@@ -1,0 +1,25 @@
+<div id="createBtnHolder" class="btnsBlock">
+    <a href="javascript:;" class="btn blue slim plus" title="Create" id="top-bar-createBtn">新建</a>
+    <h3><%= header %></h3>
+</div>
+
+<div id="searchContainer"></div>
+<div>
+    <table class="list task-list">
+        <col width="5%">
+        <col width="25%">
+        <col width="70%">
+        <thead>
+        <tr>
+            <th class="centerCell">N</th>
+            <th data-sort="name">
+                名称
+            </th>
+            <th data-sort="comment">
+                备注
+            </th>
+        </tr>
+        </thead>
+        <tbody id="listTable<%= type %>" class="enableTableOdd"></tbody>
+    </table>
+</div>

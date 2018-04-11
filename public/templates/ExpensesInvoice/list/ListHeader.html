@@ -1,0 +1,52 @@
+﻿<div id="searchContainer"></div>
+<div class="_tableExpensesInvoiceWrap">
+    <table class="list stripedList">
+        <colgroup>
+            <col width="42px">
+            <col width="10%">
+            <col width="14%">
+            <col width="14%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="12%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="centerCell"><input type="checkbox" id="checkAll"/></th>
+            <th class="oe_sortable" data-sort="supplier.name.first">供应商<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="name">名称<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="paymentDate">支付日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="dueDate">到期日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="paymentInfo.balance">金额<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="paymentInfo.unTaxed"><%= currentDb ? '除税' : 'Untaxed'%><span
+                    class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="paymentInfo.total">总计<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="workflow.name">状态<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="invoiceDate">发票日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <!--<th class="oe_sortable" data-sort="validated">Validated<span class="arrow down"></span><span-->
+            <!--class="arrow up"></span></th>-->
+        </tr>
+        </thead>
+        <tbody id="listTable" class="enableTableOdd"></tbody>
+        <tfoot id="listTotal">
+        <tr>
+            <td colspan="5"></td>
+            <td class="money"><span id="balance"></span></td>
+            <td class="money"><span id="paid"></span></td>
+            <td class="money"><span id="total"></span></td>
+        </tr>
+        </tfoot>
+    </table>
+</div>

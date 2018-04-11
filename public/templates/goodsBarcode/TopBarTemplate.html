@@ -1,0 +1,21 @@
+<h3>退货条码申请</h3>
+<% var url = window.location.hash.split('/');
+  if(url[2] == 'list' && url.length == 4) { %>
+
+  <div id="createBtnHolder" class="btnsBlock">
+    <a href="#home/action-<%=contentType%>/Create" class="btn blue slim plus" title="Create" id="top-bar-createBtn">新建</a>
+    <a href="#home/action-<%=contentType%>/Remove" class="btn blue slim" id="top-bar-deleteBtn" title="Remove">删除</a>
+    <a href="javascript:;" class="btn blue slim plus" title="upload" id="top-bar-uploadBtn">批量处理</a>
+  </div>
+
+<% } %>
+
+<% var url = window.location.hash.split('/'); 
+  if(url[2] == 'list' && url.length == 3) { %>
+
+  <div id="createBtnHolder" class="btnsBlock">
+
+  </div>
+
+<% } %>
+

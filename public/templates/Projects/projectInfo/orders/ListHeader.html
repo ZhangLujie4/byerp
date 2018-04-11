@@ -1,0 +1,37 @@
+<div id="top-bar-orders">
+    <div id="createBtnHolder" class="projectInfoTopBar">
+        <a href="javascript:;" class="btn blue slim" title="Remove" id="removeOrder">删除</a>
+    </div>
+</div>
+<div id="ordersTable" class="_ordersTableWrap">
+    <table class="list stripedList">
+        <colgroup>
+            <col width="43px">
+            <col width="20%">
+            <col width="20%">
+            <col width="20%">
+            <col width="15%">
+            <col width="15%">
+            <col width="10%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="notForm centerCell"><input type="checkbox" id="checkAll_orders" class="checkAll"/></th>
+            <th class="oe_sortable" data-sort="name">序号<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="supplier.name.first">顾客<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="projectmanager.name.first">销售员<span
+                    class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable sortDn" data-sort="paymentInfo.total">总计<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="workflow">状态<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="orderDate">日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+        </tr>
+        </thead>
+        <tbody id="orderTable"></tbody>
+    </table>
+</div>

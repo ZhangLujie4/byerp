@@ -1,0 +1,73 @@
+﻿
+<div class="form-holder task-create-holder" style="margin-bottom: 0px;">
+    <form method="post" action="" id="editBuilding" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <div class="clearfix"></div>
+            <div class="topInputHolder">
+                <h2>模拟扫码上传</h2>
+            </div>
+
+            <div class="half-block left">
+                <div class="inner">
+                    <dl class="task-info">
+
+                        <dt><label for="barId">条码编号</label></dt>
+                        <div class="_modalList">
+                            <div class="_modalSelect _newSelectListWrap">
+                                <a class="current-selected" href="javascript:;" id="barId"
+                                   data-id=<%=model.barCode._id%>><%=model.barCode ? model.barCode.barId : '选择'%></a>
+                            </div>
+                        </div>
+
+                        <dt><label for="workGroup">班组</label></dt>
+                        <div class="_modalList">
+                            <div class="_modalSelect _newSelectListWrap" style="margin-top: 10px;">
+                                <a class="current-selected" href="javascript:;" id="workGroup"
+                                   data-id=<%=model.workGroup._id%>><%=model.workGroup ? model.workGroup.groupId : '选择'%></a>
+                            </div>
+                        </div>
+
+                        <dt><label>上传日期</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="uploadtime" value="<%=model.uploadtime%>"/>
+                        </dd>
+
+                        <div class="clearfix"></div>
+                    </dl>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="half-block right">
+                <div class="inner">
+                    <dl class="task-info">
+
+                        <dt><label for="workCentre">工序</label></dt>
+                        <div class="_modalList">
+                            <div class="_modalSelect _newSelectListWrap">
+                                <a class="current-selected" href="javascript:;" id="workCentre"
+                                   data-id=<%=model.workCentre._id%>><%=model.workCentre ? model.workCentre.name : '选择'%></a>
+                            </div>
+                        </div>
+
+                        <dt><label>扫码日期</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="scantime" value="<%=model.scantime%>"/>
+                        </dd>
+
+                        <dt><label>备注</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="note" value="<%=model.note%>"/>
+                        </dd>
+
+                        <div class="clearfix"></div>
+                    </dl>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

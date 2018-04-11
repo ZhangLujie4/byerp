@@ -1,0 +1,258 @@
+<div class="form-holder Certificate-create-holder"> 
+    <form method="post" action="" id="createCertificateForm" class="form">
+        <fieldset>
+            <div class="inner">
+
+
+                <ul class="dialog-tabs">
+                    <li>
+                        <a class="active"
+                           href="javascript:;">
+                            主要信息
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;"
+                           class="">
+                            文件
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;"
+                           class="">
+                            历史记录
+                        </a>
+                    </li>
+
+                </ul>
+
+                <div class="clearfix"></div>
+
+                <div class="dialog-tabs-items">
+                    <div class="dialog-tabs-item active" >
+                            <div class="half-block left">
+                                <dl class="opp-info">
+                                  
+                                    <dt><label for="certificateNumber">证书编号</label></dt>
+
+                                    <dd class="_newSelectListWrap">
+                                         <input type="text"
+                                             id="certificateNumber"
+                                             required
+                                             maxlength="32"
+                                             value="<%=model.certNo%>" />
+                                              <label></label> 
+                                    </dd>
+
+                                    <dt><label for="certificateName">证书名字</label></dt>
+                                    <dd class="_inputIconWrap">
+                                            <input type="text"
+                                             id="certificateName"
+                                             required
+                                             maxlength="32"
+                                             value="<%=model.name%>" />
+                                              <label></label>  
+                                    </dd>
+
+                                    <dt><label for="genre">证书类别</label></dt>
+                                    <dd class="_inputIconWrap">
+                                            <input type="text"
+                                             id="genre"
+                                             required
+                                             maxlength="32"
+                                             value="<%=model.genre%>" />
+                                              <label></label>  
+                                    </dd>
+
+                                    <dt><label for="name">持证人姓名</label></dt>
+                                    <dd class="_inputIconWrap">
+                                            <input type="text"
+                                             id="name"
+                                             required
+                                             maxlength="32"
+                                             value="<%=model.holder.name%>" />
+                                              <label></label>  
+                                    </dd>
+
+                                    <dt><label for="ID">持证人身份证号</label></dt>
+                                    <dd class="_inputIconWrap">
+                                            <input type="text"
+                                             id="ID"
+                                             required
+                                             maxlength="32"
+                                             value="<%=model.holder.ID%>" />
+                                              <label></label>  
+                                    </dd>
+
+                                    <dt><label for="phone">持证人联系方式</label></dt>
+                                    <dd class="_inputIconWrap">
+                                            <input type="text"
+                                             id="phone"
+                                             required
+                                             maxlength="32"
+                                             value="<%=model.holder.phone%>"/>
+                                              <label></label>  
+                                    </dd>
+
+                                    
+
+                                </dl>
+                            </div>
+                            <div class="half-block left">
+                                <dl class="opp-info">
+
+                                    <dt>
+                                        <label for="receiptDate">领证日期</label>
+                                    </dt>
+                                    <dd class="_inputIconWrap">
+                                            <input class="receiptDate"
+                                                   type="text"
+                                                   name="receiptDate"
+                                                   id="receiptDate"  
+                                                   value="<%=model.receiptDate%>" />
+                                            <label></label>
+                                    </dd>
+
+                                    <dt>
+                                        <label for="startDate">发证日期</label>
+                                    </dt>
+                                     <dd class="_inputIconWrap">
+                                            <input class="extrainfo"
+                                                   type="text"
+                                                   name="startDate"
+                                                   id="startDate"
+                                                   value="<%=model.startDate%>" />
+                                            <label></label>
+                                    </dd>
+                                    <dt><label for="issuer">发证机关</label></dt>
+                                    <dd class="_inputIconWrap">
+                                            <input type="text"
+                                             id="issuer"
+                                             required
+                                             maxlength="32"
+                                             value="<%=model.issuer%>" />
+                                              <label></label> 
+                                    </dd>
+                                    <dt><label for="filedDate">存档日期</label></dt>
+                                    <dd class="_inputIconWrap">
+                                            <input type="text"
+                                             id="filedDate"
+                                             required
+                                             maxlength="32"
+                                             value="<%=model.filedDate%>" />
+                                              <label></label>
+                                    </dd>
+
+                                    <dt><label for="validDate">到期日期</label></dt>
+                                    <dd class="_inputIconWrap">
+                                            <input type="text"
+                                             id="validDate"
+                                             required
+                                             maxlength="32"
+                                             value="<%=model.validDate%>"/>
+                                              <label></label>
+                                    </dd>
+
+                                    <dt><label for="level">证书级别</label></dt>
+                                    <dd class="_inputIconWrap">
+                                            <input type="text"
+                                             id="level"
+                                             required
+                                             maxlength="32"
+                                             value="<%=model.level%>"/>
+                                              <label></label>
+                                    </dd>
+
+                                    <dt><label for="remark">备注</label></dt>
+                                    <dd class="_inputIconWrap">
+                                            <input type="text"
+                                             id="remark"
+                                             required
+                                             maxlength="32"
+                                             value="<%=model.remark%>"/>
+                                              <label></label>
+                                    </dd>
+                                </dl>   
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="cropImages form" style="display:none;">
+                                <div class="formTitle">
+                                    <h3 class="left">图片裁剪</h3>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                <br/>
+
+                                <div class="image_input" style="float: left;margin-right: 20px;"></div>
+                                <img class="image_output" />
+
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="big-pic form" style="display:none;">
+                                <img class="image_output" style="max-width: 100%;" />
+                            </div>
+
+                    </div>
+                    <div class="dialog-tabs-item">
+                        <div class="clearfix"></div>
+                        <div class="attachments"></div>
+                    </div>
+                    <div class="dialog-tabs-item">
+                        <div class="clearfix"></div>
+                        <div class="<!--tableResponsive-->">
+                            <table class="list historyTable" id="historyTable">
+                                <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>借出日期</th>
+                                    <th>归还日期</th>
+                                    <th>租借人姓名</th>
+                                    <th>租借人身份证号</th>
+                                    <th>租借人联系方式</th>
+                                    <th>租借部门</th>
+                                    <th>预计归还日期</th>
+                                </tr>
+                                </thead>
+                                <tbody id="Table">
+                                <% history.forEach(function(item, index){ %>
+                                <tr class="history" id="<%=item._id%>" data-id="">
+                                    <td data-content="index"><%= index+1 %></td>
+                                    <td class="borrowDate" data-content="borrowDate"><%= moment(item.borrowDate).format('YYYY-MM-DD') %></td>
+                                    <td class="" data-content="returnDate">
+                                        <span><%=item.returnDate ? moment(item.returnDate).format('YYYY-MM-DD') : ''%></span>
+                                    </td>
+                                    <td class="" data-content="name">
+                                        <span><%=item.borrower.name%></span>
+                                    </td>
+                                    <td class="" data-content="ID">
+                                        <span><%=item.borrower.ID%></span>
+                                    </td>
+                                    <td class="" data-content="phone">
+                                        <span><%=item.borrower.phone%></span>
+                                    </td>
+                                    <td data-content="department"
+                                        data-id="<%= item.borrowDepartment ? item.borrowDepartment._id :'null'%>">
+                                        <span><%=item.borrowDepartment ? item.borrowDepartment.name : ""%></span>
+                                    </td>
+                                    <td data-content="expectedDate">
+                                        <span><%=moment(item.expectedDate).format('YYYY-MM-DD')%></span>
+                                    </td>
+                                </tr>
+
+                                <% }); %>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,89 @@
+
+<% var number=1%>
+<% tasksCollection.forEach(function(task, index){%>
+<% if(task.dataType=='manually' && task.dataType ){%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC" >
+    <td style="text-align: center"><%=number%></td>
+    <% number=number+1%>
+    <td><%=task.day%></td>
+    <td><%=task.name%></td>
+    <td><%=task.type%></td>
+    <td><%=task.amount%></td>
+    <td></td>
+    <td> </td>
+    <td></td>
+    <td><%=task.receive%></td>
+    <td><%=task.sell%></td>
+    <td><%=task.addValueTax%></td>
+    <td ><%=task.sellTax%></td>
+    <td><%=(task.rate*100).toFixed(2)%></td>
+    <td><%=task.cost%></td>
+    <td><%=task.profit%></td>
+
+    <td></td>
+</tr>
+<% } else if(task.dataType && task.dataType=='sell'){%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC" >
+    <td style="text-align: center"><%=number%></td>
+    <% number=number+1%>
+    <td><%=task.day%></td>
+    <td><%=task.name%></td>
+    <td><%=task.type%></td>
+    <td></td>
+    <td></td>
+    <td> </td>
+    <td></td>
+    <td><%=task.receive%></td>
+    <td><%=task.sell%></td>
+    <td><%=task.addValueTax%></td>
+    <td class="sellTax"><a class="current-selected"><%=task.sellTax%></a></td>
+    <td><%=(task.rate*100).toFixed(2)%></td>
+    <td><%=task.cost%></td>
+    <td><%=task.profit%></td>
+    <td><%=task.profit/task.amount*100%></td>
+</tr>
+<% } else {%>
+<% if(task.makeSell && task.makeSell=='yes'){%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC" >
+    <td style="text-align: center;color: #CC0000"><%=number%></td>
+    <% number=number+1%>
+    <td style="color: #CC0000"><%=task.invoice.invoiceDate%></td>
+    <td style="color: #CC0000"><%=task.invoice.name%></td>
+    <td style="color: #CC0000"><%=task.invoice.type%></td>
+    <td style="color: #CC0000"><%=task.invoice.amount%></td>
+    <td style="color: #CC0000"><%=task.invoice.realAmount%></td>
+    <td class="invoiceTax" id="invoiceTax"><a class="current-selected"><%=task.invoiceTax%></a></td>
+    <td style="color: #CC0000"><%=(task.rate*100).toFixed(2)%></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<%} else {%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC" >
+    <td style="text-align: center"><%=number%></td>
+    <% number=number+1%>
+    <td><%=task.invoice.invoiceDate%></td>
+    <td><%=task.invoice.name%></td>
+    <td><%=task.invoice.type%></td>
+    <td><%=task.invoice.amount%></td>
+    <td><%=task.invoice.realAmount%></td>
+    <td class="invoiceTax" id="invoiceTax"><a class="current-selected"><%=task.invoiceTax%></a></td>
+    <td><%=(task.rate*100).toFixed(2)%></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<%}%>
+<% }%>
+<% }) %>
+

@@ -1,0 +1,139 @@
+﻿﻿<div class="form-holder task-create-holder">
+    <form method="post" action="" id="editTaskForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">主要内容</a></li>
+                <li><a href="javascript:;">质量要求及违约责任</a></li>
+                <li><a href="javascript:;">工程量清单</a></li>
+                <li><a href="javascript:;">其他</a></li>
+                <li><a href="javascript:;">文件上传</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                    <div class="half-block left withPaddingLeft">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt>
+                                    <label>工程名称:</label>
+                                </dt>
+                                <dd  >
+                                    <p id="projectDd" data-shortdesc="<%=model.project.projectShortDesc%>" data-id="<%=model.project._id%>"  href="javascript:;" ><%=model.project.name%></p>
+                                </dd>
+                                <dt><label>劳务分包人 :</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="assignedToDd" data-id="<%=(model.assignedTo) ? model.assignedTo._id : ''%>" class="current-selected" href="javascript:;">
+                                        <%=(model.assignedTo)?(model.assignedTo.name.first+' '+model.assignedTo.name.last):'Select'%></a></dd>
+                                <input id="assNmae" type="hidden">
+                                <dt><label for="workflowsDd">阶段 </label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="workflowsDd" data-id="<%=(model.workflow) ? model.workflow._id : ''%>" class="current-selected" href="javascript:;"><%=(model.workflow)?model.workflow.name:'选择'%></a>
+                                </dd>
+                                <dt><label>合同类型 </label></dt>
+                                <dd >
+                                    <input type="text" id="type"  value="劳务分包合同" style="border: none" readonly="true">
+                                </dd>
+                                <dt><label for="descriptions">工程简述</label></dt>
+                                <dd><input type="text" name="logged" id="descriptions"   style="width: 280px;border: none" readonly="true" /></dd>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt><label for="signedDate">合同签订日期</label></dt>
+                                <dd><input class="extrainfo blueback" type="text" name="signedDate" id="signedDate" value="<%= model.signedDate %>" readonly/></dd>
+                                <dt><label for="taskAmount">合同金额</label></dt>
+                                <dd><input class="onlyNumber"  type="text" name="logged" id="taskAmount" style="width:80%" value="<%=model.taskAmount%>"/><i>万元</i></dd>
+                                <!--dt><label for="summaryEdit">总量</label></dt><dd>
+                                <input type="text" name="summary"  id="summaryEdit" value="<%=model.summary%>" required /></dd-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-tabs-item">
+                    <div class="half-block left withPaddingLeftProject">
+                        <div class="inner">
+                            <dt>
+                                <label for="quality">质量要求:</label>
+                            </dt>
+                            <textarea type="text" name="description" class="taskDescriptionEdit"  id="quality" required maxlength="500"><%=model.quality%> </textarea>
+                        </div>
+                    </div>
+                    <div class="half-block left withPaddingLeftProject">
+                        <div class="inner">
+                            <dt>
+                                <label for="violation">违约责任:</label>
+                            </dt>
+                            <textarea type="text" name="description" class="taskDescriptionEdit"  id="violation" required maxlength="500"><%=model.violation%> </textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-tabs-item">
+                    <div class="inner">
+                        <table class="list _projectTableLeftAlign  ">
+                            <colgroup>
+                                <col width="10%">
+                                <col width="15%">
+                                <col width="15%">
+                                <col width="10%">
+                                <col width="8%">
+                                <col width="7%">
+                                <col width="10%">
+                                <col width="15%">
+                                <col width="10%">
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th  id="finishData">
+                                    日期
+                                </th>
+                                <th  id="items">
+                                    项目
+                                </th>
+                                <th  id="subitems">
+                                    分项
+                                </th>
+                                <th  id="unit">
+                                    单位
+                                </th>
+                                <th  id="amount">
+                                    数量
+                                </th>
+                                <th  id="price">
+                                    单价
+                                </th>
+                                <th id="money">
+                                    金额
+                                </th>
+                                <th  id="notes">
+                                    备注
+                                </th>
+                                <th class="deleteCell"></th>
+                            </tr>
+
+                            </thead>
+                            <tbody id="inventoryList">
+                            </tbody>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="dialog-tabs-item">
+                    <div class="inner">
+                        <dt>
+                            <label for="noted">备注:</label>
+                        </dt>
+                        <textarea type="text" name="description" class="taskDescriptionEdit"  id="noted" required maxlength="500"><%=model.note%> </textarea>
+                    </div>
+                </div>
+                <div class="dialog-tabs-item">
+                    <div class="attachments"></div>
+                </div>
+                </dl>
+            </div>
+            <div class="clearfix"></div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

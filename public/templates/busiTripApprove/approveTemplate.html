@@ -1,0 +1,215 @@
+<div class="form-holder busiTrip-create-holder"> 
+    <form method="post" action="" id="createbusiTripForm" class="form">
+        <fieldset>
+            <div class="inner">
+                <div class="topInputHolder">
+                    <h2>出差详细信息审批</h2>
+                </div>
+                <div class="half-block left">
+                    <dl class="opp-info">
+                        <dt><label for="ID">序号</label></dt>
+                        <dd class="_inputIconWrap">
+                                <a id="ID" data-id="<%=model.ID%>" href="javascript:;"><%=model.ID%></a>
+                        </dd>
+                        <dt><label for="employeesDd">员工姓名</label></dt>
+
+                        <dd class="_newSelectListWrap">
+                            <a id="employeesDd"
+                               class="current-selected"
+                               data-id="<%=model.name._id%>"
+                               href="javascript:;"><%=model.name.first + ' '+ model.name.last %>
+                            </a>
+                        </dd>
+
+                        <dt><label for="registrationDate">申请日期</label></dt>
+                        <dd class="_inputIconWrap">
+                                <a id="registrationDate" data-id="<%=model.registrationDate%>" href="javascript:;"><%=model.registrationDate%></a>
+                        </dd>
+
+                        <dt><label for="isafter">是否后补</label></dt>
+                        <dd class="_inputIconWrap">
+                                <a id="isafter" data-id="<%=model.isafter%>" href="javascript:;"><%=model.isafter ? '是':'否'%></a>
+                        </dd>
+
+                        <dt>
+                            <label for="datefrom">出差开始日期</label>
+                        </dt>
+                        <dd class="_inputIconWrap">
+                                <a id="datefrom" data-id="<%=model.date.from%>" href="javascript:;"><%=model.date.from%></a>
+                        </dd>
+                        <dt>
+                            <label for="dateto">出差结束日期</label>
+                        </dt>
+                         <dd class="_inputIconWrap">
+                                <a id="dateto" data-id="<%=model.date.to%>" href="javascript:;">
+                                <%=model.date.to%></a>
+                        </dd>
+                        
+                        <dt><label for="traffic">出行方式：</label></dt>
+
+                        <dt><label for="air">飞机</label></dt>
+                        <dd class="_inputIconWrap">
+                                <dl>
+                                      <dt>公司代购：</dt>
+                                      <dd>
+                                        <a id="aircompany" data-id="<%=model.air.company%>" href="javascript:;">
+                                        <%=model.air.company%></a>
+                                    
+                                          <label>元</label>
+                                      </dd>
+                                  </dl>
+                                  <dl>
+                                      <dt>自购：</dt>
+                                      <dd>
+                                          <a id="airself" data-id="<%=model.air.self%>" href="javascript:;">
+                                        <%=model.air.self%></a>
+                                          
+                                          <label>元</label>
+                                      </dd>
+                                  </dl>
+                        </dd>
+                     
+
+                        <dt><label for="train">火车</label></dt>
+                        <dd class="_inputIconWrap">
+                                <a id="train" data-id="<%=model.train%>" href="javascript:;">
+                                <%=model.train%></a>
+                                
+                                  <label>元</label>
+                        </dd>
+
+                        <dt><label for="bus">公交(长途/地铁)</label></dt>
+                        <dd class="_inputIconWrap">
+                                <a id="bus" data-id="<%=model.bus%>" href="javascript:;">
+                                <%=model.bus%></a>
+                                
+                                  <label>元</label>
+                        </dd>
+
+                        <dt><label for="taxi">打的</label></dt>
+                        <dd class="_inputIconWrap">
+                                <a id="taxi" data-id="<%=model.taxi%>" href="javascript:;">
+                                <%=model.taxi%></a>
+                                
+                                  <label>元</label>
+                        </dd>
+
+                        <dt><label for="selfdrive">自驾</label></dt>
+                        <dd class="_inputIconWrap">
+                            <dl>
+                                <dt>公里数:</dt>
+                                <dd>
+                                    <a id="kilometer" data-id="<%=model.selfdrive.kilometer%>" href="javascript:;">
+                                    <%=model.selfdrive.kilometer%></a>
+                                    
+                                      <label>公里</label>
+                                  </dd>
+                            </dl>
+                            <dl>
+                                <dt>过路费</dt>
+                                <dd>
+                                    <a id="roadtoll" data-id="<%=model.selfdrive.roadtoll%>" href="javascript:;">
+                                    <%=model.selfdrive.roadtoll%></a>
+                                    
+                                      <label>元</label>
+                                </dd>
+                            </dt>
+                            <dl>
+                                <dt>停车费</dt>
+                                <dd>
+                                    <a id="parkingfee" data-id="<%=model.selfdrive.parkingfee%>" href="javascript:;">
+                                    <%=model.selfdrive.parkingfee%></a>
+                                    
+                                    <label>元</label>
+                                </dd>
+                            </dl>
+                        </dd>
+
+                        
+                        
+                    </dl>
+                </div>
+                <div class="half-block left">
+                    <dl class="opp-info">
+
+                       <dt><label for="accommodationDay">住宿天数</label></dt>
+                       
+                         <dd class="_inputIconWrap">
+                              <dl>
+                                  <a id="accommodationDay" data-id="<%=model.accommodationDay%>" href="javascript:;">
+                                <%=model.accommodationDay%></a>
+                              </dl>
+                        
+                          </dd>
+                        
+                        
+                        <dt><label for="diningNumber">就餐数</label></dt>
+                        <dd class="_inputIconWrap">
+                              <dl> 
+                                 <a id="diningNumber" data-id="<%=model.diningNumber%>" href="javascript:;">
+                                <%=model.diningNumber%></a>
+                              </dl>
+                    
+                        </dd>
+                        <dt for="description">出差事由</dt>
+                        <dd class="taskDescriptionCreate">
+                            <a id="description" data-id="<%=model.description%>" href="javascript:;">
+                                <%=model.description%></a>
+                        </dd>
+
+                        <dt><label for="status">状态</label></dt>
+                        <dd class="_inputIconWrap">
+                                
+                                  <%if(model.status == 0 || model.status == 1 || model.status == 2) {%>
+                                  
+                                   <a id="status" data-id="<%=model.status%>" href="javascript:;"><%=(model.manager) ? ('待'+ model.manager.name.first  + model.manager.name.last + '审批') : ''%>
+                                   </a>
+                                  <% } %>
+                                  <%if(model.status == -1) {%>
+                                  
+                                   <a id="status" data-id="<%=model.status%>" href="javascript:;">未通过
+                                   </a>
+                                  <% } %>
+
+                                  <%if(model.status == 3) {%>
+                                  
+                                   <a id="status" data-id="<%=model.status%>" href="javascript:;">通过
+                                   </a>
+                                  <% } %>
+                        </dd>
+
+
+                        <dt for="approve">审批</dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="approve" 
+                                data-id="approve"
+                               class="current-selected" 
+                               href="javascript:;">选择</a>
+                        </dd>
+
+
+                        <dl class="opp-info" id="reason-dl" style="display: none">
+                            <dt for="reason">建议</dt>
+                            <dd class="_inputIconWrap">
+                                 <textarea
+                                      name="reason"                                 
+                                      id="reason"
+                                      maxlength="400">
+                                </textarea>
+                            </dd>
+                        </dl> 
+
+                        <dt for="isApproved"></dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="isApproved" 
+                              data-id="<%=model.isApproved%>"
+                               ></a>
+                        </dd>
+
+                        </dl>   
+                </div>
+            </div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

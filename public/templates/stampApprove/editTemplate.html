@@ -1,0 +1,140 @@
+<div class="form-holder settingsCertificate-create-holder"> 
+    <form method="post" action="" id="createCertificateForm" class="form">
+        <fieldset>
+            <div class="inner">
+                <ul class="dialog-tabs">
+                    <li>
+                        <a href="javascript:;" class="active">主要内容</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="">文件内容</a>
+                    </li>
+                </ul>
+
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items">
+                  <div class="dialog-tabs-item active">
+ 
+                    <div class="half-block left">
+                        <dl class="opp-info">
+                          
+                            <dt><label for="projectName">工程名称</label></dt>
+
+                            <dd class="_newSelectListWrap">
+                                <a type="text"
+                                     id="projectName"
+                                     data-id="<%=model.projectName._id%>"
+                                     class="current-selected"
+                                     href="javascript:;"><%=model.projectName.name%>
+                                </a> 
+                            </dd>
+
+                            <dt><label for="stamp">印章名称</label></dt>
+
+                            <dd class="_newSelectListWrap">
+                                <a type="text"
+                                     id="stamp"
+                                     data-id="<%=model.stamp._id%>"
+                                     class="current-selected"
+                                     href="javascript:;"><%=model.stamp.name%>
+                                </a> 
+                            </dd>
+
+                            <dt><label for="fileType">文件类型</label></dt>
+
+                            <dd class="_newSelectListWrap">
+                                 <a type="text"
+                                     id="fileType"
+                                     class="current-selected"
+                                     href="javascript:;"
+                                     data-id="<%=model.fileType%>"><%=model.fileType%>
+                                    </a> 
+                            </dd>
+
+                            <dt><label for="fileNumber">文件份数</label></dt>
+
+                            <dd class="_newSelectListWrap">
+                                <a id="fileNumber"><%=model.fileNumber%></a>
+                            </dd>
+
+                            <dt><label for="pageNumber">每份需盖章页数</label></dt>
+
+                            <dd class="_newSelectListWrap">
+                                <a id="pageNumber"><%=model.pageNumber%></a>
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <div class="half-block left">
+                        <dl class="opp-info">
+                            <dt><label for="applyDate">申请日期</label></dt>
+                            <dd class="_inputIconWrap">
+                                <a id="applyDate"><%=model.applyDate%></a>
+                            </dd>
+
+                            <dt><label for="applyMan">申请人</label></dt>
+                            <dd class="_newSelectListWrap">
+                                    <a type="text"
+                                     id="applyMan"
+                                     data-id="<%=model.applyMan._id%>"
+                                     class="current-selected"
+                                     href="javascript:;"><%=model.applyMan.name.first + " " + model.applyMan.name.last%>
+                                    </a> 
+                            </dd>
+
+                            <dt><label for="department">部门</label></dt>
+                            <dd class="_newSelectListWrap">
+                                    <a type="text"
+                                     id="department"
+                                     data-id="<%=model.department._id%>"
+                                     class="current-selected"
+                                     href="javascript:;"><%=model.department.name%>
+                                    </a> 
+                            </dd>
+
+
+
+                            <dt for="approve">审批</dt>
+                            <dd class="_newSelectListWrap">
+                                <a id="approve" 
+                                   data-id= ""
+                                   class="current-selected" 
+                                   href="javascript:;">选择</a>
+                            </dd>
+
+
+                            <dt for="opinion">建议</dt>
+                            <dd class="_inputIconWrap">
+                                 <textarea
+                                      name="opinion"                                 
+                                      id="opinion"
+                                      maxlength="400">
+                                </textarea>
+                            </dd>
+
+                            <div data-id="<%=model.status%>" id="status"></div>
+                        </dl>   
+                    </div>
+                </div>
+                
+                <div class="dialog-tabs-item">
+                    <!-- <div class="_modalList">
+                        <div class="area_holder">
+                         <textarea id="internalNotes" class="internal_Notes" placeholder="内部注释..." maxlength="500"
+                                   class="opp-internal-create"></textarea>
+                            <a href="javascript:;" class="attach_file">
+                                <span class="icon-attach"></span>
+                            </a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="attach-container"></div> -->
+                    <div class="attachments"></div>
+                </div>
+                </div>
+            </div>
+
+            
+        </fieldset>
+    </form>
+</div>

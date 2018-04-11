@@ -1,0 +1,492 @@
+a {
+  text-decoration: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+span.error {
+  color: $unpaid-wtrack !important;
+}
+
+.centerCell {
+  text-align: center !important;
+}
+
+.noPaddingMargin{
+  padding: 0;
+  margin: 0;
+}
+
+.noPadding {
+  padding: 0 !important;
+}
+
+.half-block{
+  width: 42%;
+  margin-right: 5%;
+}
+
+.defaultBorRad{
+  border-radius: 3px;
+}
+
+._whiteSpaceNormal {
+  white-space: normal !important;
+}
+
+.clearfix {
+  clear: both;
+
+  &:before {
+    content:'';
+    display: table;
+    clear: both;
+  }
+
+  &:after {
+    content:'';
+    display: table;
+    clear: both;
+  }
+}
+
+.spinner {
+  background-color: yellow;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+
+  .calculateTotal {
+    width: 50%;
+    text-align: right;
+
+    .totalAmount {
+      border-top: 1px solid grey;
+    }
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.fullsize {
+  width: 100%;
+  height: 100%;
+}
+
+.notification {
+  z-index: 20000;
+  position: fixed;
+  top: 5px;
+  width: 100%;
+  margin: 0 auto;
+
+  .notify,
+  .error {
+    left: 84%;
+    width: 15%;
+    position: relative;
+    line-height: 17px;
+    padding: 10px;
+    font-size: 14px;
+    color: #fff;
+  }
+
+  .error {
+    background-color: $notifikation-error-color;
+  }
+
+  .notify {
+    background-color: $notifikation-notify-color;
+  }
+
+  .animate {
+    position: absolute;
+    width: 15%;
+    margin-top: 0;
+    margin-left: 0;
+    left: 100%;
+    opacity: 0;
+
+  }
+}
+
+.dollar,
+.money {
+  &:before {
+    content: "$";
+  }
+}
+
+.euro {
+  &:before {
+    content: "€";
+  }
+}
+
+.uah {
+  &:before {
+    content: '₴';
+  }
+}
+
+span.error {
+  color: $unpaid-wtrack !important;
+}
+
+.red {
+  color: #ff0000;
+}
+
+.negativeMoney {
+  color: #ff0000;
+
+  &:before {
+    content: "-$";
+  }
+}
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  color: #fff;
+  border-radius: .25em;
+  text-align: center;
+  font-weight: 700;
+  vertical-align: baseline;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+.fullsize {
+  width: 100%;
+  height: 100%;
+}
+
+.half-block {
+  width: 42%;
+  margin-right: 5%;
+
+  &.withPaddingRightProject {
+    .inner {
+      padding-top: 5px;
+      padding-left: 8px;
+      padding-right: 0;
+    }
+  }
+
+  &.withPaddingLeftProject {
+    .inner {
+      padding-left: 0;
+    }
+  }
+
+  &.projectNote {
+    width: 45%;
+    padding-right: 4%;
+
+    .noteWrapper {
+      width: 100%;
+    }
+    #noteArea {
+      width: 100%;
+    }
+  }
+
+  &.taskNote {
+    width: 45%;
+    padding-right: 4%;
+
+    .noteWrapper {
+      width: 95%;
+    }
+    #noteArea {
+      width: 100%;
+    }
+  }
+
+  + .half-block {
+    margin-right: 0;
+  }
+}
+
+.btnsBlock {
+
+  > * {
+    float: left;
+  }
+
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.line {
+  fill: none;
+  stroke: #1ebbea;
+  stroke-width: 3px;
+}
+
+.blockLeft {
+  display: block;
+  float: left;
+}
+
+.active {
+  display: inline-block;
+}
+
+.text {
+  &UnderlineHover {
+    &:hover {
+      text-decoration: underline !important;
+    }
+  }
+}
+
+.textEllipsis {
+  @extend %text-overflow;
+}
+
+._clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.borderBottom {
+  border-bottom: 1px solid #7f7f80;
+}
+
+.clearLeft {
+  float: left !important;
+  clear: both !important;
+}
+
+.floatColumn {
+  display: inline-block;
+  float: left;
+  padding: 0 10px;
+
+  > * {
+    float: left;
+    width: 100%;
+    clear: both;
+
+    &:nth-child(n+2) {
+      margin-top: 20px;
+    }
+  }
+
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  .dialog-tabs-items {
+    margin-bottom: 0;
+  }
+}
+
+.halfColumn {
+  width: 50%;
+}
+
+.col1-3 {
+  width: 40%;
+}
+
+.col2-3 {
+  width: 60%;
+}
+
+._borderRight {
+  border-right: 1px solid #c8c8d3;
+}
+
+.superCenter {
+  margin: auto;
+}
+
+.blockLeft {
+  display: block;
+  float: left;
+}
+
+.floatAvatar {
+  margin-left: 160px;
+  width: 80%;
+  display: block;
+}
+
+.active {
+  display: inline-block;
+}
+
+._zInitial {
+  z-index: initial !important;
+}
+
+._pl-10 {
+  padding-left: 10px;
+}
+
+.m10  {
+  margin: 10px;
+}
+
+.text {
+  &UnderlineHover {
+    &:hover {
+      text-decoration: underline !important;
+    }
+  }
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+._titleBlueBorder,
+._titleBlue {
+  float: none;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: #5a86a2;
+  font: {
+    family: $semibold-font-family;
+    size: 14px;
+  }
+}
+
+._titleBlueBorder {
+  margin: 0 0 15px 0;
+  border-bottom: 2px solid #7eadcc;
+}
+
+._titleBlue {
+  margin: 0;
+}
+
+.form {
+  ._titleBlueBorder {
+    color: #5a86a2;
+  }
+}
+
+._accountingSettingWrap {
+  margin-top: 20px;
+}
+
+.chart.sourcesChart {
+  overflow: visible;
+}
+
+.shippingSerWrap {
+  margin-bottom: 30px;
+}
+
+
+
+
+.chartContainer {
+  position: relative;
+
+  .tooltip {
+    $width: 150px;                                       // must be even number
+    $borderWidth: 1px;                                   // must be even number || 1
+    $firstElWidth: 4px;                                  // must be even number
+
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 4px 8px;
+    width: $width;
+    background-color: #F8F9FB;
+    border: $borderWidth solid #e2e2e2;
+    border-radius: 2px;
+    text-align: center;
+    @include rem('font-size', 12px);
+
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: calc( 100% + #{$borderWidth} );
+      left: calc( (#{$width} / 2) - #{$firstElWidth} );
+      width: 0;
+      height: 0;
+      border: {
+        width: $firstElWidth $firstElWidth 0 $firstElWidth;
+        style: solid;
+        color: #e2e2e2 transparent transparent transparent;
+      };
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      top: 100%;
+      left: calc( (#{$width} / 2) - #{$firstElWidth});
+      width: 0;
+      height: 0;
+      border: {
+        width: $firstElWidth $firstElWidth 0 $firstElWidth;
+        style: solid;
+        color: #F8F9FB transparent transparent transparent;
+      };
+    }
+
+    > div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.axisTitle {
+  font-family: $semibold-font-family;
+}
+
+._ratesForm {
+
+  ._ratesInputBlock {
+    padding-top: 9px; //this is crutch, but we still need it
+  }
+
+  ._ratesInfo {
+    p + p {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #c8c8d3;
+    }
+  }
+}

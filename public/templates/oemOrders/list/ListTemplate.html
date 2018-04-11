@@ -1,0 +1,30 @@
+<% orderCollection.forEach(function(order, index){ %>
+
+<tr data-id="<%=order._id%>"
+<%if (order.workflow && order.workflow.status === 'Done') { %>
+class="notEditable"
+<% } %>>
+    <td class="notForm centerCell">
+        <label class="_customCHeckbox">
+            <input type="checkbox" value="<%=order._id%>"
+            <% if (!order.removable) { %>
+            class="checkbox notRemovable" disabled='disabled'
+            <% } else {%>
+            class="checkbox"
+            <% } %>
+            />
+            <span></span>
+        </label>
+    </td>
+    <td style="text-align:center"><%=order.name%></td>
+    <%var allocateStatus = order.status ? order.status.allocateStatus : 'NOT' %>
+    <%var fulfillStatus = order.status ? order.status.fulfillStatus : 'NOT' %>
+    <%var shippingStatus = order.status ? order.status.shippingStatus : 'NOT' %>
+    <td style="text-align:center"><%=(order.project && order.project.name) ? order.project.name : ''%></td>
+    <td style="text-align:center"><%=order.workflow ? order.workflow.name: 'Undefinded'%></td>
+    <td style="text-align:center"><%=(order.paymentInfo) ? currencySplitter(order.paymentInfo.total) : '0.00'%>
+    </td>
+
+    <td style="text-align:center"><%=order.orderDate%></td>
+</tr>
+<% }) %>

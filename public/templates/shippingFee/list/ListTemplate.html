@@ -1,0 +1,24 @@
+<% shippingNoteCollection.forEach(function(item, index){%>
+<tr data-index="<%= index %>" data-id="<%= item._id%>">
+    <td><%= ++index %></td>
+    <td><%=item.ID%></td>
+    <td><%=moment(item.shipDate).format('YYYY-MM-DD')%></td>
+    <td><%=item.projectName%></td>
+    <td><%=item.deliverMan%></td>
+    <td><%=item.area?item.area.toFixed(3):0%></td>
+    <td><%=item.price?item.price.toFixed(2):0%></td>
+    <td><%=item.fee%></td>
+    <td><%=item.fee1%></td>
+    <td>
+        <p>车牌号:<%=item.license%></p>
+        <p><%=item.load%>-<%=item.unLoad%></p>
+    </td>
+    <td>
+        <% if(item._type=="oemOutNote"){ %>
+        <p>来料加工发货单</p>
+        <% }else{ %>
+        <p>发货单</p>
+        <% } %>
+    </td>
+</tr>
+<% }) %>

@@ -1,0 +1,75 @@
+﻿<div id="searchContainer"></div>
+<div class="_tableWrap _tableOrderList">
+    <table class="list  stripedList order-list">
+        <colgroup>
+            <col width="42px">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="centerCell">
+                <label class="_customCHeckbox">
+                    <input type="checkbox" id="checkAll"/>
+                    <span></span>
+                </label>
+            </th>
+            <th class="oe_sortable" data-sort="name">产品
+                <span class="arrow down"></span>
+                <span class="arrow up"></span>
+            </th>
+            <th class="oe_sortable" data-sort="supplier.name">客户
+                <span class="arrow down"></span>
+                <span class="arrow up"></span>
+            </th>
+            <th class="oe_sortable smallPadding" data-sort="status.allocateStatus">分配
+                <span class="arrow down"></span>
+                <span class="arrow up"></span>
+            </th>
+            <th class="oe_sortable smallPadding" data-sort="status.fulfillStatus">出库
+                <span class="arrow down"></span>
+                <span class="arrow up"></span>
+            </th>
+            <th class="oe_sortable smallPadding" data-sort="status.shippingStatus">运输
+                <span class="arrow down"></span>
+                <span class="arrow up"></span>
+            </th>
+            <th class="oe_sortable smallPadding" data-sort="workflow.name">状态
+                <span class="arrow down"></span>
+                <span class="arrow up"></span>
+            </th>
+<!--             <th class="oe_sortable" data-sort="paymentInfo.unTaxed">Untaxed
+                <span class="arrow down"></span>
+                <span class="arrow up"></span>
+            </th> -->
+            <th class="oe_sortable" data-sort="paymentInfo.total">余额
+                <span class="arrow down"></span>
+                <span class="arrow up"></span>
+            </th>
+            <th class="oe_sortable" data-sort="paymentsPaid">预付款
+                <span class="arrow down"></span>
+                <span class="arrow up"></span>
+            </th>
+            <th class="oe_sortable" data-sort="paymentInfo.total">支付总额
+                <span class="arrow down"></span>
+                <span class="arrow up"></span>
+            </th>
+            <th class="oe_sortable" data-sort="orderDate">订单日期
+                <span class="arrow down"></span>
+                <span class="arrow up"></span>
+            </th>
+            <!-- <th>Channel</th> -->
+        </tr>
+        </thead>
+        <tbody id="listTable" class="enableTableOdd"></tbody>
+        <tfoot id="listTotal"></tfoot>
+    </table>
+</div>

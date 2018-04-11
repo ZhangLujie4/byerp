@@ -1,0 +1,9 @@
+<% managementRuleCollection.forEach(function(item, index){ %>
+<tr data-index="<%= index %>" data-id="<%= item._id%>">
+    <td class="centerCell"><input type="checkbox" value="<%=item._id%>" class="checkbox"/></td>
+    <td><%=item.categoryTex%></td>
+    <td><%=item.number%></td>
+    <td><%=item.content%></td>
+    <td><%=item.penalty%></td>
+</tr>
+<% }) %>

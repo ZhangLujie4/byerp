@@ -1,0 +1,428 @@
+<div class="form-holder">
+    <form class="form notDialog" id="leadForm" data-id="<%=_id%>">
+        <div id="workflowProgress" class="workflowProgress"></div>
+        <div class="inner">
+            <div class="floatColumn col4-10" style="width: 70%;">
+                <div class="moduleList aboutHolder">
+                    <div class="formTitle">
+                        <!-- <h3>关于 </h3> -->
+                        <h3>投标信息填写 </h3>
+                    </div>
+                    <div class="person-info">
+                        <div class="half-block left">
+                            <div class="propertyFormList">
+                                <label>工程名称</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!name ? 'hideLine' : ''%>" data-id="name" value="<%=name%>" readonly="readonly"/>
+                                </div>
+                            </div>
+
+                            <div class="propertyFormList">
+                                <label>工程地址</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!address.street ? 'hideLine' : ''%>" data-id="address.street" value="<%=address.street%>" readonly="readonly"/>
+                                </div>
+                            </div>
+
+                            <div class="propertyFormList">
+                                <label>开标日期</label>
+                                <div class="inputBox">
+                                    <input class="extrainfo" type="text" name="open Date" id="openDate"
+                                           value="<%=openDate || ''%>"
+                                           readonly="readonly">
+                                </div>
+                            </div>
+
+                            <div class="propertyFormList">
+                                <label>联系人</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!contactName.first ? 'hideLine' : ''%>" data-id="contactName.first" value="<%=contactName.first%>" readonly="readonly"/>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="half-block right">
+                            <div class="propertyFormList">
+                                <label>建设单位</label>
+                                <div class="inputBox _newSelectListWrap">
+                                    <a class="current-selected assignName" href="javascript:;" id="customerDd"
+                                       data-id="customer"><%=(customer) ? customer.fullName : '请选择'%></a>
+                                </div>
+                            </div>
+
+                            <div class="propertyFormList">
+                                <label>投标日期</label>
+                                <div class="inputBox">
+                                    <input class="extrainfo" type="text" name="bider Date" id="biderDate"
+                                           value="<%=biderDate || ''%>"
+                                           readonly="">
+                                </div>
+                            </div>
+
+                            <div class="propertyFormList">
+                                <!-- <label>合同退保证金日期</label> -->
+                                <label>退保证金日期</label>
+                                <div class="inputBox">
+                                    <input class="extrainfo" type="text" name="ret Date" id="retDate"
+                                           value="<%=leadDate.retDate || ''%>"
+                                           readonly="">
+                                </div>
+                            </div>
+
+                            <div class="propertyFormList">
+                                <label>联系电话</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!phones.phone ? 'hideLine' : ''%>" data-id="phones.phone" value="<%=phones.phone%>" readonly="readonly"/>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>答疑日期及拟提问题</label>
+                            <div class="inputBox">
+                                <textarea class="editable" data-id="questions" style="min-height: 70px;" value="<%=questions%>" readonly="readonly"><%=questions%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>工程现场情况</label>
+                            <div class="inputBox">
+                                <textarea class="editable" data-id="fieldDesc" style="min-height: 70px;" value="<%=fieldDesc%>" readonly="readonly"><%=fieldDesc%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>总包单位情况</label>
+                            <div class="inputBox">
+                                <input class="editable <%=!genUnit ? 'hideLine' : ''%>" data-id="genUnit" value="<%=genUnit%>" readonly="readonly"/>
+                                <!-- <textarea class="editable" data-id="genUnit" value="<%=genUnit%>"><%=genUnit%></textarea> -->
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>总包配合费、水电费、措施费</label>
+                            <div class="inputBox">
+                                <textarea class="editable" data-id="genDesc" style="min-height: 70px;" value="<%=genDesc%>" readonly="readonly"><%=genDesc%></textarea>
+                            </div>
+                            </div>
+
+                        <div class="half-block left">
+                            <div class="propertyFormList">
+                                <label>开标形式</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!openState ? 'hideLine' : ''%>" data-id="openState" value="<%=openState%>" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="half-block right">
+                            <div class="propertyFormList">
+                                <label>封标形式及要求</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!sealState ? 'hideLine' : ''%>" data-id="sealState" value="<%=sealState%>" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>投标文件组成</label>
+                            <div class="inputBox">
+                                <textarea class="editable" data-id="bidFils" style="min-height: 70px;" value="<%=bidFils%>" readonly="readonly"><%=bidFils%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>拟派项目经理及业绩要求</label>
+                            <div class="inputBox">
+                                <textarea class="editable" data-id="pmReq" style="min-height: 70px;" value="<%=pmReq%>" readonly="readonly"><%=pmReq%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="half-block left">
+                            <div class="propertyFormList">
+                                <label>企业业绩要求</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!entReq ? 'hideLine' : ''%>" data-id="entReq" value="<%=entReq%>" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="half-block right">
+                            <div class="propertyFormList">
+                                <label>资质原件要求</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!levelReq ? 'hideLine' : ''%>" data-id="levelReq" value="<%=levelReq%>" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>工程概况</label>
+                            <div class="inputBox">
+                                <textarea class="editable" data-id="projectDesc.pD1" style="min-height: 70px;" value="<%=projectDesc.pD1%>" readonly="readonly"><%=projectDesc.pD1%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>工程质量、进度、人力、施工组织设计要求</label>
+                            <div class="inputBox">
+                                <textarea class="editable" data-id="inforDesc.pD1" style="min-height: 70px;" value="<%=inforDesc.pD1%>" readonly="readonly"><%=inforDesc.pD1%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>工程付款方式</label>
+                            <div class="inputBox">
+                                <textarea class="editable" data-id="projectDesc.pD2" style="min-height: 70px;" value="<%=projectDesc.pD2%>" readonly="readonly"><%=projectDesc.pD2%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>标书报价要求</label>
+                            <div class="inputBox">
+                                <textarea class="editable" data-id="inforDesc.pD2" style="min-height: 70px;" value="<%=inforDesc.pD2%>" readonly="readonly"><%=inforDesc.pD2%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>需注意的废标条款</label>
+                            <div class="inputBox">
+                                <textarea class="editable" data-id="inforDesc.pD3" style="min-height: 70px;" value="<%=inforDesc.pD3%>" readonly="readonly"><%=inforDesc.pD3%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>评标方式</label>
+                            <div class="inputBox">
+                                <textarea class="editable" data-id="inforDesc.pD4" style="min-height: 70px;" value="<%=inforDesc.pD4%>" readonly="readonly"><%=inforDesc.pD4%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>业务部投标建议</label>
+                            <div class="inputBox">
+                                <textarea class="editable" data-id="inforDesc.pD5" style="min-height: 70px;" value="<%=inforDesc.pD5%>" readonly="readonly"><%=inforDesc.pD5%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>拟采用报价策略</label>
+                            <div class="inputBox">
+                                <textarea class="editable" data-id="inforDesc.pD6" style="min-height: 70px;" value="<%=inforDesc.pD6%>" readonly="readonly"><%=inforDesc.pD6%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>工程量(m2/m)</label>
+                            <div class="inputBox">
+                                <input class="editable <%=!prjAmount ? 'hideLine' : ''%>" data-id="prjAmount" value="<%=prjAmount%>" readonly="readonly"/>
+                            </div>
+                        </div>
+
+                        <div class="half-block left">
+                            <div class="propertyFormList">
+                                <label>成本(万元)</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!prjCost ? 'hideLine' : ''%>" data-id="prjCost" value="<%=prjCost%>" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="half-block right">
+                            <div class="propertyFormList">
+                                <label>报价(万元)</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!prjQuota ? 'hideLine' : ''%>" data-id="prjQuota" value="<%=prjQuota%>" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="half-block left">
+                            <div class="propertyFormList">
+                                <label>投标费用</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!bidCost ? 'hideLine' : ''%>" data-id="bidCost" value="<%=bidCost%>" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="half-block right">
+                            <div class="propertyFormList">
+                                <!-- <label>报名及资格预审费用</label> -->
+                                <label>报名预审费用</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!enrollCost ? 'hideLine' : ''%>" data-id="enrollCost" value="<%=enrollCost%>" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="half-block left">
+                            <div class="propertyFormList">
+                                <label>报价人员</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!quoPerson ? 'hideLine' : ''%>" data-id="quoPerson" value="<%=quoPerson%>" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="half-block right">
+                            <div class="propertyFormList">
+                                <label>业务联系人</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!busPerson ? 'hideLine' : ''%>" data-id="busPerson" value="<%=busPerson%>" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="half-block left">
+                            <div class="propertyFormList">
+                                <label>费用承担部门</label>
+                                <div class="inputBox _newSelectListWrap">
+                                    <a class="current-selected assignName" href="javascript:;" id="expDepart"
+                                       data-id="expDepart"><%=(expDepart) ? expDepart : '请选择'%></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="half-block right">
+                            <div class="propertyFormList">
+                                <label>计税方式</label>
+                                <div class="inputBox _newSelectListWrap">
+                                    <a class="current-selected assignName" href="javascript:;" id="taxDesc"
+                                       data-id="taxDesc"><%=(taxDesc) ? taxDesc : '请选择'%></a>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <!-- <div class="propertyFormList">
+                            <label>其他明细</label>
+                            <div class="inputBox">
+                                <input class="editable <%=!otherDetail ? 'hideLine' : ''%>" data-id="otherDetail" value="<%=otherDetail%>"/>
+                            </div>
+                        </div> -->
+
+                        <div id = "noOtherDetail" class="propertyFormList">
+                            
+                        </div>
+
+                        <!-- <div class="half-block right">
+                            <div class="propertyFormList">
+                                <label>计税方式</label>
+                                <div class="inputBox _newSelectListWrap">
+                                    <a class="current-selected assignName" href="javascript:;" id="taxDesc"
+                                       data-id="taxDesc"><%=(taxDesc) ? taxDesc : '请选择'%></a>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="half-block left">
+                            <div class="propertyFormList">
+                                <label>保证金类型</label>
+                                <div class="inputBox _newSelectListWrap">
+                                    <a class="current-selected assignName" href="javascript:;" id="bailType"
+                                       data-id="bailType"><%=(bailType) ? bailType : '请选择'%></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="half-block right">
+                            <div class="propertyFormList">
+                                <label>保证金(元)</label>
+                                <div class="inputBox">
+                                    <input class="editable <%=!bail ? 'hideLine' : ''%>" data-id="bail" value="<%=bail%>" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>备注</label>
+                            <div class="inputBox">
+                                <textarea class="editable" data-id="comments" style="min-height: 70px;" value="<%=comments%>" readonly="readonly"><%=comments%></textarea>
+                            </div>
+                        </div>
+
+                        <!-- <div class="propertyFormList">
+                            <label>预期收入</label>
+                            <div class="inputBox amountBox">
+                                <input class="editable dealTitlePrice <%=expectedRevenue && !expectedRevenue.value && expectedRevenue.value !== 0  ? 'hideLine' : ''%>"
+                                       data-id="expectedRevenue_value" value="<%=expectedRevenue.value%>"/><span
+                                    class="amountDollar"> <%=expectedRevenue.currency%></span>
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="propertyFormList">
+                            <label>截止日期</label>
+                            <div class="inputBox">
+                                <input class="extrainfo" type="text" name="Close Date" id="expectedClosing"
+                                       value="<%=expectedClosing || ''%>"
+                                       readonly="">
+                            </div>
+                        </div> -->
+
+                       <!--  <div class="propertyFormList">
+                            <label>业务员</label>
+                            <div class="inputBox _newSelectListWrap">
+                                <a class="current-selected assignName" href="javascript:;" id="salesPersonDd"
+                                   data-id="salesPerson"><%=(salesPerson) ? salesPerson.name.first + ' ' +
+                                    salesPerson.name.last : '请选择'%></a>
+                            </div>
+                        </div>
+                        <div class="propertyFormList">
+                            <label>归档员</label>
+                            <div class="inputBox _newSelectListWrap">
+                                <a class="current-selected assignName" href="javascript:;" id="archPersonDd"
+                                   data-id="archPerson"><%=(archPerson) ? archPerson.name.first + ' ' +
+                                    archPerson.name.last : '请选择'%></a>
+                            </div>
+                        </div>
+                        <div class="propertyFormList">
+                            <label>归档数量</label>
+                            <div class="inputBox">
+                                <input class="editable <%=!archNumber ? 'hideLine' : ''%>" data-id="archNumber" value="<%=archNumber%>"/>
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="propertyFormList">
+                            <label>中标日期</label>
+                            <div class="inputBox">
+                                <input class="extrainfo" type="text" name="win Date" id="winDate"
+                                       value="<%=archerDate.winDate || ''%>"
+                                       readonly="">
+                            </div>
+                        </div>
+                        <div class="propertyFormList">
+                            <label>归档日期</label>
+                            <div class="inputBox">
+                                <input class="extrainfo" type="text" name="arch Date" id="archDate"
+                                       value="<%=archerDate.archDate || ''%>"
+                                       readonly="">
+                            </div>
+                        </div> -->
+                        <div class="tags-container"></div>
+                        
+                    </div>
+                    <div class="propertyEditBtn" id="formBtnBlock">
+
+                        <a href="javascript:;" id="saveBtn" class="btn blue btnSave">保存</a>
+
+                        <a href="javascript:;" id="cancelBtn" class="btn">取消</a>
+                    </div>
+                </div>
+                <!-- <div id="contactHolder"></div>
+                <div id="companyHolder"></div> -->
+                <div class="attachments"></div>
+            </div>
+            <div class="floatColumn col6-10" style="width: 30%;">
+                <div class="notes">
+                    <!-- <div class="followers right"> -->
+                    <!-- <div class="followers right" style="float: left; margin-bottom: 4px;">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+

@@ -1,0 +1,36 @@
+<% var number=1%>
+<% tasksCollection.forEach(function(task, index){%>
+<% var day %>
+<% day=new Date(task.endDate)-new Date(toDay) %>
+<% day=Math.ceil(day / (1000 * 3600 * 24))%>
+<% if(day<0) {%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC" style="color: #CC0000">
+    <td class="centerCell"><input type="checkbox" value="<%=task._id%>" class="checkbox"/></td>
+    <td><%=number%></td>
+    <% number=number+1%>
+    <td><%=task.makeDate%></td>
+    <td><%=task.endDate%></td>
+    <td><%=task.project.name%></td>
+    <td><%=task.pmr.name.first+task.pmr.name.last%></td>
+    <td><%=task.amount%></td>
+    <td><%=task.number%></td>
+    <td><%=task.logoutDate%></td>
+    <td><%=task.logoutDate? '已注销':'已到期' %></td>
+</tr>
+<%} else {%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC" >
+    <td class="centerCell"><input type="checkbox" value="<%=task._id%>" class="checkbox"/></td>
+    <td><%=number%></td>
+    <% number=number+1%>
+    <td><%=task.makeDate%></td>
+    <td><%=task.endDate%></td>
+    <td><%=task.project.name%></td>
+    <td><%=task.pmr.name.first+task.pmr.name.last%></td>
+    <td><%=task.amount%></td>
+    <td><%=task.number%></td>
+    <td><%=task.logoutDate%></td>
+    <td>未到期</td>
+</tr>
+<%}%>
+<% }) %>
+

@@ -1,0 +1,21 @@
+<% notes.forEach(function(note){ %>
+<% if(note.totalAmount/100-note.pay/100>0){%>
+<tr class="noteItem">
+    <td class="centerCell"><input type="checkbox" value="<%=note._id%>" class="checkbox"  /></td>
+    <td  class="jobs trash " style="text-align: center">
+        <input type="text"  id="name" value="<%=note.name%>" style="width: 80px;border: 0px;text-align: center" readonly/>
+    </td>
+    <td  class="jobs trash " style="text-align: center">
+        <input type="text"  id="amount" value="<%=note.totalAmount%>" style="width: 80px;border: 0px;text-align: center" readonly/>
+    </td>
+    <td  class="royalty " style="text-align: center" >
+        <input type="number"  id="unReceive" value="<%=note.totalAmount-note.pay/100%>" style="width: 80px;border: 0px;text-align: center" readonly/>
+    </td>
+    <td  class="thisReceive " style="text-align: center" data-name="thisReceive">
+        <input type="number"  id="thisReceive" value="" style="width: 80px " />
+    </td>
+
+    <div class="clearfix"></div>
+</tr>
+<%}%>
+<% }); %>

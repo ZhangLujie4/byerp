@@ -1,0 +1,251 @@
+<div class="form-holder task-create-holder" style="margin-bottom: 0px;">
+    <form method="post" action="" id="createChargeItemForm" class="form notDialog">
+                <fieldset>
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">产量统计表</a></li>
+                <li><a href="javascript:;">员工</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                    <div class="inner">
+                        <table class="list task-list">
+                            <colgroup>
+                                <col width="30%">
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="10%">
+                                <col width="20%">
+
+                            </colgroup>
+                            <thead>
+
+                            <tr>
+                                <th  id="projectNameTh" style="text-align: center;">
+                                    工程名称
+                                </th>
+                                <th  id="workNumberTh" style="text-align: center;">
+                                    制造令号
+                                </th>
+                                <th  id="processContentTh" style="text-align: center;">
+                                    加工内容
+                                </th>
+                                <th  id="priceTh" style="text-align: center;">
+                                    单价(元)
+                                </th>
+                                <th id="processQuantityTh" style="text-align: center;">
+                                    加工数量
+                                </th>
+                                <th class="deleteCell"></th>
+                            </tr>
+
+                            </thead>
+                            <tbody>
+                            <!-- <tr>
+                                <td colspan="8" class="addItem">
+                                    <a href="javascript:;">添加</a>
+                                </td>
+                            </tr> -->
+                            <tr>
+                                <td data-name="opportunitieDd" class=""  style="height: 35px;">
+                                    <!-- <input type="text" data-name="finishData" id="finishData" /> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="opportunitieDd" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <!-- <td data-name="workNumber" class="jobs trash ">
+                                    <input type="text" id="workNumber" style="text-align: center;"/>
+                                </td> -->
+                                <td data-name="workNumber" class="" style="height: 35px;">
+                                    <!-- <input type="text" data-name="finishData" id="finishData" /> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="workNumber" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <td data-name="processContent" class="jobs trash " style="height: 35px;">
+                                    <!-- <input type="text"  id="processContent" style="text-align: center;"/> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="processContent" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <td data-name="price" class="jobs trash " style="height: 35px;">
+                                    <input type="text"  id="price"  style="text-align: center;"/>
+                                </td>
+                                <td data-name="processQuantity" class="jobs trash " style="height: 35px;">
+                                    <input type="text"  id="processQuantity"  style="text-align: center;"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td data-name="opportunitieDd2" class="" style="height: 35px;">
+                                    <!-- <input type="text" data-name="finishData" id="finishData" /> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="opportunitieDd2" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <!-- <td data-name="workNumber" class="jobs trash ">
+                                    <input type="text" id="workNumber" style="text-align: center;"/>
+                                </td> -->
+                                <td data-name="workNumber2" class="" style="height: 35px;">
+                                    <!-- <input type="text" data-name="finishData" id="finishData" /> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="workNumber2" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <td data-name="processContent2" class="jobs trash " style="height: 35px;">
+                                    <!-- <input type="text"  id="processContent" style="text-align: center;"/> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="processContent2" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <td data-name="price2" class="jobs trash " style="height: 35px;">
+                                    <input type="text"  id="price2"  style="text-align: center;"/>
+                                </td>
+                                <td data-name="processQuantity2" class="jobs trash " style="height: 35px;">
+                                    <input type="text"  id="processQuantity2"  style="text-align: center;"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td data-name="opportunitieDd3" class="" style="height: 35px;">
+                                    <!-- <input type="text" data-name="finishData" id="finishData" /> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="opportunitieDd3" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <!-- <td data-name="workNumber" class="jobs trash ">
+                                    <input type="text" id="workNumber" style="text-align: center;"/>
+                                </td> -->
+                                <td data-name="workNumber3" class="" style="height: 35px;">
+                                    <!-- <input type="text" data-name="finishData" id="finishData" /> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="workNumber3" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <td data-name="processContent3" class="jobs trash " style="height: 35px;">
+                                    <!-- <input type="text"  id="processContent" style="text-align: center;"/> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="processContent3" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <td data-name="price3" class="jobs trash " style="height: 35px;">
+                                    <input type="text"  id="price3"  style="text-align: center;"/>
+                                </td>
+                                <td data-name="processQuantity3" class="jobs trash " style="height: 35px;">
+                                    <input type="text"  id="processQuantity3"  style="text-align: center;"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td data-name="opportunitieDd4" class="" style="height: 35px;">
+                                    <!-- <input type="text" data-name="finishData" id="finishData" /> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="opportunitieDd4" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <!-- <td data-name="workNumber" class="jobs trash ">
+                                    <input type="text" id="workNumber" style="text-align: center;"/>
+                                </td> -->
+                                <td data-name="workNumber4" class="" style="height: 35px;">
+                                    <!-- <input type="text" data-name="finishData" id="finishData" /> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="workNumber4" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <td data-name="processContent4" class="jobs trash " style="height: 35px;">
+                                    <!-- <input type="text"  id="processContent" style="text-align: center;"/> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="processContent4" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <td data-name="price4" class="jobs trash " style="height: 35px;">
+                                    <input type="text"  id="price4"  style="text-align: center;"/>
+                                </td>
+                                <td data-name="processQuantity4" class="jobs trash " style="height: 35px;">
+                                    <input type="text"  id="processQuantity4"  style="text-align: center;"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td data-name="opportunitieDd5" class="" style="height: 35px;">
+                                    <!-- <input type="text" data-name="finishData" id="finishData" /> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="opportunitieDd5" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <!-- <td data-name="workNumber" class="jobs trash ">
+                                    <input type="text" id="workNumber" style="text-align: center;"/>
+                                </td> -->
+                                <td data-name="workNumber5" class="" style="height: 35px;">
+                                    <!-- <input type="text" data-name="finishData" id="finishData" /> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="workNumber5" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <td data-name="processContent5" class="jobs trash " style="height: 35px;">
+                                    <!-- <input type="text"  id="processContent" style="text-align: center;"/> -->
+                                    <div class="_modalSelect _newSelectListWrap" style="text-align: center;">
+                                        <a id="processContent5" class="current-selected" href="javascript:;" >请选择</a>
+                                    </div>
+                                </td>
+                                <td data-name="price5" class="jobs trash " style="height: 35px;">
+                                    <input type="text"  id="price5"  style="text-align: center;"/>
+                                </td>
+                                <td data-name="processQuantity5" class="jobs trash " style="height: 35px;">
+                                    <input type="text"  id="processQuantity5"  style="text-align: center;"/>
+                                </td>
+                            </tr>
+
+                            </tbody>
+
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+
+                <div class="dialog-tabs-item">
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt>
+                                    <label>员工姓名</label>
+                                </dt>
+                                <div class="_modalList">
+                                    <div class="_modalSelect _newSelectListWrap">
+                                        <a id="employeesDd"
+
+                                           class="current-selected"
+                                           href="javascript:;">选择
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+
+                                <dt>
+                                    <label for="reckonDate">计件日期</label>
+                                </dt>
+                                <dd>
+                                    <input type="text" id="reckonDate" style="border: 0;" value="<%= (new Date()).toLocaleDateString()%>" readonly="readonly" />
+                                </dd>
+                                
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="clearfix"></div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

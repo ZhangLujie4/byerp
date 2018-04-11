@@ -1,0 +1,124 @@
+<table class="list _projectTableLeftAlign tableFixed _invoiceTable">
+    <colgroup>
+        <col width="9%">
+        <col width="9%">
+        <col width="5%">
+        <col width="5%">
+        <col width="5%">
+        <col width="7%">
+        <col width="7%">
+        <col width="7%">
+        <col width="10%">
+        <col width="36%">
+    </colgroup>
+    <thead>
+        <tr class="productListItemsColumns _deleteHeader">
+            <th class="width20">品名</th>
+            <th class="width20">产品名称</th>
+            <th class="width20">数量</th>
+            <th class="width20">已入库</th>
+            <th class="width20">已出库</th>
+            <th class="width20">成品已入库</th>
+            <th class="width20">成品已出库</th>
+            <th class="width20">总价</th>
+            <%if (type == 'RI' || type == 'FI'){%>
+            <th class="width20">入库量/库位</th>
+            <%} else if (type == 'RO' || type == 'FO'){%>
+            <th class="width20">出库量</th>
+            <%}%>
+            <th class="width20">参数</th>
+        </tr>
+    </thead>
+    <tbody id="tbodyProducts">
+        <%orderModels.forEach(function(orderModel){%>
+            <table class = "orderModel">
+                <colgroup>
+                    <col width="9%">
+                    <col width="9%">
+                    <col width="5%">
+                    <col width="5%">
+                    <col width="5%">
+                    <col width="7%">
+                    <col width="7%">
+                    <col width="7%">
+                    <col width="10%">
+                    <col width="36%">
+                </colgroup>
+                <% orderModel.products.forEach(function(elem){ %>
+                <% var parameter = ""; %>
+                <% var onHand = 0; %>
+                <% if (type == 'RI') {%>
+                <% onHand = elem.quantity - elem.Infulfilled ;%>
+                <%} else if (type == 'RO'){%>
+                <% onHand = elem.Infulfilled - elem.Outfulfilled ;%>
+                <%} else if (type == 'FI'){%>
+                <% onHand = elem.Outfulfilled - elem.FInfulfilled ;%>
+                <%} else if (type == 'FO'){%>
+                <% onHand = elem.FInfulfilled - elem.FOutfulfilled ;%>
+                <%}%>
+                    <%if (onHand) {%>
+                        <tr class="productItem deleteRow" id="<%=elem._id%>" data-id="<%=elem.warehouse ? elem.warehouse._id : ''%>" data-priceQty="<%=elem.priceQty%>" data-unitPrice="<%=elem.unitPrice%>">
+                            <td id="description"><%=elem.description%></td>
+                            <td id="product" data-id="<%=elem.product._id%>"><%=elem.product.name%></td>
+                            <td data-name="ordered">
+                                <input id="ordered" class="quantity statusInfo" maxlength="9" value="<%=elem.quantity%>" size=7 type="text" readonly/>
+                            </td>
+                            <td data-name="received">
+                                <input id="received" class="quantity statusInfo" maxlength="9" value="<%=elem.Infulfilled || 0%>" size=7 type="text" readonly/>
+                            </td>
+                            <td data-name="send">
+                                <input id="send" class="quantity statusInfo" maxlength="9" value="<%=elem.Outfulfilled || 0%>" size=7 type="text" readonly/>
+                            </td>
+                            <td data-name="Freceived">
+                                <input id="Freceived" class="quantity statusInfo" maxlength="9" value="<%=elem.FInfulfilled || 0%>" size=7 type="text" readonly/>
+                            </td>
+                            <td data-name="Fsend">
+                                <input id="Fsend" class="quantity statusInfo" maxlength="9" value="<%=elem.FOutfulfilled || 0%>" size=7 type="text" readonly/>
+                            </td>
+                            <td data-name="subTotal">
+                                <input id="subTotal" class="subTotal statusInfo" maxlength="9" value="<%=(elem.subTotal/100).toFixed(2) || 0%>" size=7 type="text"  readonly/>
+                            </td>
+                            <!-- <td><div><input id="newShip" value="<%=elem.quantity - elem.fulfilled%>" type="text" style="width:80px;text-align: center;" /></div></td> -->
+                            <%if (type == 'RI' || type == 'FI'){%>
+                            <td data-name="newShip">
+                                <div class="receiveLocation">
+                                    <div>
+                                        <input id="newShip" class="quantity" maxlength="9" value="<%=onHand%>" size=7 type="text"/>
+                                        into
+                                    </div>
+                                    <div>
+                                        <a class="current-selected locationDd" id="locationDd" href="javascript:;" data-id="<%= elem.location ? elem.location._id : ''%>">
+                                            <%=elem.location ? elem.location.name: '选择' %>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                            <%} else if (type == 'RO' || type == 'FO'){%>
+                            <td data-name="newShip">
+                                <div class="receiveLocation">
+                                        <input id="newShip" class="quantity" maxlength="9" value="<%=onHand%>" size=7 type="text"/>
+                                </div>
+                            </td>
+                            <%}%>
+                            <% elem.parameters.forEach(function(para,index){ %>
+                                <% if(index === 0){ %>
+                                    <% parameter = para.paraname + " : " + para.value; %>
+                                <% }else if(para.value !== ""){ %>
+                                    <% parameter = parameter + " / " + para.paraname + " : " + para.value; %>
+                                <% } %>
+                            <% }); %>
+                            <td><%=parameter%></td>
+                        </tr>
+                    <%}%>
+                <%})%>
+            </table>
+        <%})%>
+        <tr>
+            <td class="invisible_border">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+<div class="clearfix"></div>
+<div id="totalAmountContainer" class="_totalAmountContainer _createPopup">
+
+</div>

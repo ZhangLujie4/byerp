@@ -1,0 +1,676 @@
+<div class="form-holder">
+    <form method="post" action="" id="editEmployeeForm" class="form editEmployeeForm">
+        <fieldset>
+            <div class="inner">
+
+                <ul class="dialog-tabs">
+                    <li>
+                        <a class="active"
+                           href="javascript:;">
+                            主要
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;"
+                           class="">
+                            个人信息
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" id="jobTab"
+                           class="">
+                            岗位
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;">受托人</a>
+                    </li>
+
+                    <li class="right withEndContract _newSelectListWrap">
+                        <span class="arrow"></span>
+                        <span class="endContractReasonList">结束合同</span>
+                        <ul class="newSelectList">
+                            <li class="endContract">结束合同</li>
+                            <li class="endContract">解雇</li>
+                            <li class="endContract">个人原因</li>
+                            <li class="endContract">其他</li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+                <div class="clearfix"></div>
+
+                <div class="dialog-tabs-items">
+
+                    <div class="dialog-tabs-item active">
+                        <div class="left">
+                            <div class="avatar">
+                                <div class="upload">编辑
+                                    <input type="file" value="Edit" id="inputImg">
+                                </div>
+                                <canvas id="avatar"
+                                        width="140"
+                                        height="140">
+                                </canvas>
+                            </div>
+                            <div class="social">
+                                <% if (model.social.FB){%><a class="facebook" href="<%=model.social.FB%>"></a><%}%>
+                                <% if (model.social.LI){%><a class="linkedin" href="<%=model.social.LI%>"></a><%}%>
+                                <% if (model.skype){%><a class="skype" href="skype:<%=model.skype%>?call"></a><%}%>
+                            </div>
+                        </div>
+
+                        <div class="avatarInfoContainer employee">
+                            <div class="half-block left">
+                                <dl class="edit-employee-info">
+                                    <dt>
+                                        <label for="first">姓*</label>
+                                    </dt>
+                                    <dd><input type="text"
+                                               class="blueback"
+                                               id="first"
+                                               value="<%=model.name.first%>"
+                                               required maxlength="32"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="last">名*</label>
+                                    </dt>
+                                    <dd><input type="text"
+                                               class="blueback"
+                                               id="last"
+                                               value="<%=model.name.last%>"
+                                               required maxlength="32"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="last">首字母*</label>
+                                    </dt>
+                                    <dd><input type="text"
+                                               class="blueback"
+                                               id="alpha"
+                                               placeholder="首字母"
+                                               value="<%=model.name.alpha%>"
+                                               required maxlength="32"/>
+                                    </dd>
+                                    <!--                <dt><label for="tags">Tags</label></dt><dd><input type="text" id="tags" value="<%=model.tags%>" maxlength="32"/></dd>-->
+                                    <dt>
+                                        <label for="mobile">手机号码</label>
+                                    </dt>
+                                    <dd>
+                                        <input type="text"
+                                               name="mobile"
+                                               id="mobile"
+                                               value="<%=model.workPhones.mobile%>"
+                                               maxlength="20"/>
+                                    </dd>
+                                    <dt>
+                                       <label for="phone">家庭电话</label>
+                                   </dt>
+                                   <dd>
+                                       <input type="text"
+                                              name="phone"
+                                              id="phone"
+                                              value="<%=model.workPhones.phone%>"
+                                              maxlength="32"/>
+                                   </dd> 
+                                    <dt>
+                                        <label for="personalEmail">个人邮箱</label>
+                                    </dt>
+                                    <dd><input type="text"
+                                               id="personalEmail"
+                                               value="<%=model.personalEmail%>"
+                                               maxlength="48"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="skype">QQ</label>
+                                    </dt>
+                                    <dd><input type="text"
+                                               id="skype"
+                                               value="<%=model.skype%>"
+                                               maxlength="32"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="LI">微信</label>
+                                    </dt>
+                                    <dd><input type="text"
+                                               id="LI"
+                                               value="<%=model.social.LI%>"
+                                               placeholder="微信"
+                                               maxlength="256"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="FB">虚拟号</label>
+                                    </dt>
+                                    <dd><input type="text"
+                                               id="FB"
+                                               value="<%=model.social.FB%>"
+                                               placeholder="虚拟号"
+                                               maxlength="256"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="relatedUsersDd">相关用户</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                      <a id="relatedUsersDd"
+                                         data-id="<%=model.relatedUser?model.relatedUser._id:''%>"
+                                         class="current-selected"
+                                         href="javascript:;"><%=model.relatedUser?(model.relatedUser.login):'选择'%>
+                                      </a>
+                                    </dd>
+                                    <dt>
+                                      <label>合同开始时间</label>
+                                    </dt>
+                                    <dd class="_inputIconWrap">
+                                      <input type="text"
+                                             id="contractStart"
+                                             required
+                                             maxlength="32"
+                                             value="<%=(model.labourContractDate&&model.labourContractDate.startDate) ? model.labourContractDate.startDate : '' %>"
+                                      />
+                                    </dd>
+                                    <dt>
+                                      <label>合同结束时间</label>
+                                    </dt>
+                                    <dd class="_inputIconWrap">
+                                      <input type="text"
+                                             id="contractEnd"
+                                             required
+                                             maxlength="32"
+                                             value="<%=(model.labourContractDate&&model.labourContractDate.endDate) ? model.labourContractDate.endDate : '' %>"
+                                      />
+                                    </dd>
+                                </dl>
+                            </div>
+
+                            <div class="half-block left">
+                                <dl class="edit-employee-info">
+                                    <dt>
+                                        <label>岗位</label>
+                                    </dt>
+                                    <dd>
+                                       <span id="jobPosition"
+                                             data-id="<%=model.jobPosition ? model.jobPosition._id: ''%>"><%=model.jobPosition.name%></span>
+                                   </dd> 
+                                    <dt>
+                                        <label>部门</label>
+                                    </dt>
+                                    <dd>
+                                        <span id="department"
+                                              data-id="<%=model.department ? model.department._id: ''%>"><%=model.department ? model.department.name:""%></span>
+                                    </dd>
+                                    <dt>
+                                        <label>经理</label>
+                                    </dt>
+                                    <dd>
+                                        <span id="manager" data-id="<%=model.manager ? model.manager._id: null%>"><%=model.manager ? model.manager.fullName : ""%></span>
+                                    </dd>
+                                    <dt>
+                                        <label>职务</label>
+                                    </dt>
+                                    <dd>
+                                        <span id="jobType" data-id="<%=model.jobType ? model.jobType: ''%>"><%=model.jobType ? model.jobType: ""%>
+                                        </span>
+                                    </dd>
+
+                                    <dt>
+                                        <label for="sourceDd">来源</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="sourceDd"
+                                           data-id="<%=model.source?model.source:''%>"
+                                           class="current-selected"
+                                           href="javascript:;"><%=model.source?(model.source):'选择'%>
+                                        </a>
+                                    </dd>
+
+                                    <dt>
+                                        <label for="workEmail">工作邮箱</label>
+                                    </dt>
+                                    <dd>
+                                        <input type="text" id="workEmail" value="<%=model.workEmail%>"
+                                               maxlength="48"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="workid">工号</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="workId"
+                                                   value="<%=model.workId%>"
+                                                   maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                     <label for="status">是否在职</label>
+                                   </dt>
+                                   <dd>
+                                     <input type="text"
+                                     name="status"
+                                     id="status"
+                                     value="<%=model.status%>"
+                                     maxlength="32"/>
+                                   </dd>
+                                   <dt>
+                                      <label>部门内序号</label>
+                                    </dt>
+                                    <dd class="_inputIconWrap">
+                                      <input type="text"
+                                             id="deptRank"
+                                             placeholder="部门内序号" 
+                                             value="<%=model.deptRank? model.deptRank: 0%>" 
+                                             required
+                                             maxlength="32"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="workCentre">工序</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="workCentre"
+                                           class="current-selected"
+                                           data-id="<%=model.workCentre? model.workCentre._id: ''%>"
+                                           href="javascript:;"><%=model.workCentre? model.workCentre.name: '选择'%>
+                                        </a>
+                                    </dd>
+                                    </dl>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="cropImages form" style="display:none;">
+                                <div class="formTitle">
+                                    <h3 class="left">图像裁剪</h3>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                <br/>
+
+                                <div class="image_input" style="float: left;margin-right: 20px;"></div>
+                                <img class="image_output"/>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dialog-tabs-item">
+
+                        <div>
+                            <div class="formTitle left">
+                                <h3 class="left">员工身份&amp;其他信息</h3>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="half-block left">
+                                <dl class="edit-employee-info">
+                                   <!--  <dt><label for="nationality">国籍</label></dt>
+                                   <dd class="_newSelectListWrap">
+                                       <a id="nationality" data-id="<%=model.nationality?model.nationality:''%>"
+                                          class="current-selected" href="javascript:;"><%=model.nationality?(model.nationality):'Select'%></a>
+                                   </dd> -->
+                                   <dt>
+                                        <label for="nation">民族</label>
+                                    </dt>
+                                    <dd><input type="text"
+                                               name="nation"
+                                               id="nation"
+                                               value="<%=model.nation%>"
+                                               maxlength="32"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="accountLocation">户口所在地
+                                        </label>
+                                    </dt>
+                                    <dd><input type="text"
+                                               name="accountLocation"
+                                               id="accountLocation"
+                                               value="<%=model.accountLocation%>"
+                                               maxlength="32"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="identNo">身份证 №*</label>
+                                    </dt>
+                                    <dd><input type="text"
+                                               name="identNo"
+                                               id="identNo"
+                                               value="<%=model.identNo%>"
+                                               maxlength="32"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="dateBirth">出生日期</label>
+                                    </dt>
+                                    <dd><input type="text"
+                                               name="dateBirth"
+                                               id="dateBirth"
+                                               value="<%=model.dateBirth%>"
+                                               readonly
+                                               />
+                                    </dd>
+                                     <dt>
+                                        <label for="genderDd">性别</label> </dt>
+                                    <dd >
+                                        <a id="genderDd">
+                                        <%if(model.gender && model.gender=='female') {%>
+                                            女
+                                            <%}%>
+                                             <%if(model.gender && model.gender=='male') {%>
+                                            男
+                                            <%}%></a>
+                                    </dd>
+                                   
+                                </dl>
+
+                            </div>
+                            <div class="half-block left">
+                                <dl class="edit-employee-info">
+                                    <dt><label for="education">学历*</label></dt>
+                                    <dd>
+                                        <input type="text"
+                                               id="education"
+                                               name="education"
+                                               value="<%=model.education?model.education:''%>">
+                                    </dd>
+                                    <dt><label for="bankAccountNo">银行卡号 №</label></dt>
+                                    <dd>
+                                        <input type="text"
+                                               id="bankAccountNo"
+                                               name="bankAccountNo"
+                                               value="<%=model.bankAccountNo?model.bankAccountNo:''%>">
+                                    </dd>
+                                    <dt><label for="bankName">开户行</label></dt>
+                                    <dd>
+                                        <input type="text"
+                                               id="bankName"
+                                               name="bankName"
+                                               value="<%=model.bankName?model.bankName:''%>">
+                                    </dd>
+                                    <dt>
+                                        <label for="passportNo">护照 №</label>
+                                    </dt>
+                                    <dd><input type="text"
+                                               name="passportNo"
+                                               id="passportNo"
+                                               value="<%=model.passportNo%>"
+                                               maxlength="32"/>
+                                    </dd>
+                                    <dt><label for="otherId">其他证件</label></dt>
+                                    <dd><input type="text"
+                                               name="otherId"
+                                               id="otherId"
+                                               value="<%=model.otherId%>"
+                                               maxlength="32"/>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                            <div class="formTitle left">
+                                <h3 class="left">联系方式</h3>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="half-block left">
+                                <dl class="edit-employee-info">
+                                     <!-- <dt>
+                                       <label for="employeeEditStreet">街道</label>
+                                                                        </dt>
+                                                                        <dd>
+                                       <input type="text"
+                                              class="homeAddress"
+                                              name="street"
+                                              id="employeeEditStreet"
+                                              value="<%=model.homeAddress.street%>"
+                                              maxlength="32"/></dd>
+                                                                        <dt>
+                                       <label for="employeeEditCity">城市</label>
+                                                                        </dt>
+                                                                        <dd>
+                                       <input type="text"
+                                              class="homeAddress"
+                                              name="city"
+                                              id="employeeEditCity"
+                                              value="<%=model.homeAddress.city%>"
+                                              maxlength="32"/>
+                                                                        </dd>
+                                                                        <dt>
+                                       <label for="employeeEditState">州</label>
+                                                                        </dt>
+                                                                        <dd><input type="text"
+                                              class="homeAddress"
+                                              name="state"
+                                              id="employeeEditState"
+                                              value="<%=model.homeAddress.state%>"
+                                              maxlength="32"/>
+                                                                        </dd>  -->
+                                    <dt>
+                                       <label for="birthPlace">出生地</label>
+                                   </dt>
+                                   <dd>
+                                       <input type="text"
+                                              class="homeAddress"
+                                              name="birthPlace"
+                                              id="birthPlace"
+                                              value="<%=model.birthPlace%>"
+                                              maxlength="32"/>
+                                   </dd>
+                                    <dt>
+                                      <label for="address">家庭地址</label>
+                                  </dt>
+                                  <dd>
+                                      <div id="address">
+                                         <select style="width:30%" id="province"></select>
+                                         <select style="width:34%" id="city"></select>
+                                         <select style="width:32%" id="district"></select>
+                                         <input id="detailed" value="<%=model.address.detailed%>"/>
+                                     </div>
+                                  </dd> 
+                                </dl>
+
+                            </div>
+                            <div class="half-block left">
+                                <dl class="edit-employee-info">
+                                    <dt>
+                                        <label for="zip">邮编</label>
+                                    </dt>
+                                    <dd>
+                                        <input type="text"
+                                               class="address"
+                                               name="zip"
+                                               id="zip"
+                                               value="<%=model.address.zip%>"
+                                               maxlength="32"/>
+                                    </dd>
+                                    <!-- <dt>
+                                        <label for="employeeEditCountry">国家</label>
+                                    </dt>
+                                    <dd><a class="homeAddress current-selected" name="country"
+                                           data-id="<%=model.homeAddress.country%>"
+                                           id="employeeEditCountry"><%=model.homeAddress.country || '选择'%></a></dd> -->
+                                </dl>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                            <div class="formTitle">
+                                <h3 class="left">状态</h3>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="half-block left withPaddingLeft" >
+                                <dl class="edit-employee-info">
+                                </dl>
+
+                            </div>
+                            <div class="half-block left withPaddingLeft" style="margin-right:45px;" >
+                                
+                                <dl class="edit-employee-info">
+                                    <dt>
+                                        <label for="employmentTypeDd">员工类型*</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="employmentTypeDd"
+                                           data-id="<%=model.employmentType ? model.employmentType:''%>"
+                                           class="current-selected"
+                                           href="javascript:;"> <%=model.employmentType ? (model.employmentType):'Select'%>
+                                        </a>
+                                    </dd>
+                                    <dt>
+                                        <label for="maritalDd">婚姻状况</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="maritalDd"
+                                           data-id="<%=model.marital?model.marital:''%>"
+                                           class="current-selected"
+                                           href="javascript:;">
+                                             <%if(model.marital && model.marital=='married') {%>
+                                            已婚
+                                            <%}%>
+                                             <%if(model.marital && model.marital=='unmarried') {%>
+                                            未婚
+                                            <%}%>
+                                        </a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="half-block left withPaddingLeft">
+
+                                <dl class="edit-employee-info">
+                                    <dt>
+                                    <label for="accommodation">住宿补贴</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           name="住宿补贴"
+                                           value="<%=model.accommodation%>" 
+                                           id="accommodation"
+                                           maxlength="32"/>
+                                </dd>
+                                <dt>
+                                    <label for="dinning">餐费补贴</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           name="餐费补贴"
+                                           value="<%=model.dinning%>" 
+                                           id="dinning"
+                                           maxlength="32"/>
+                                </dd>
+                                </dl>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="formTitle">
+                                <h3 class="left">备注</h3>
+
+                                <div class="clearfix"></div>
+                            </div>
+                             <div class="attach-container">
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="dialog-tabs-item" id="job">
+                        <div class="clearfix"></div>
+                        <div class="<!--tableResponsive-->">
+                            <table class="list hireFireTable" id="hireFireTable">
+                                <thead>
+                                <tr>
+                                    <th>X</th>
+                                    <th>状态</th>
+                                    <th>日期</th>
+                                    <th>岗位</th>
+                                    <th>部门*</th>
+                                    <th>经理</th>
+                                    <th>职务</th>
+                                    <th>工作安排</th>
+                                    <th>合同</th>
+                                    <th>日常工资</th>
+                                    
+                                    <th>工资</th>
+                                   
+                                    <th>状态信息</th>
+                                </tr>
+                                </thead>
+                                <tbody id="transfersTable">
+
+                                <%var i;%>
+                                <%for(i=0;i<=model.transfer.length-2;i++){
+                                var transfer = model.transfer[i];
+
+                                if (transfer.status === 'transfer') {
+                                continue;
+                                }
+
+                                %>
+                                <tr class="transfer" id="<%=transfer._id%>" data-id="" data-content=<%=
+                                    transfer.status %>>
+                                    <td class="remove">
+                                    </td>
+                                    <td data-content="status"><%= transfer.status %></td>
+                                    <td class="date" data-content="date"><%= transfer.date %></td>
+                                    <td class="" data-content="jobPosition"
+                                        data-id="<%= transfer.jobPosition ?  transfer.jobPosition._id : null%>">
+                                        <span><%=transfer.jobPosition ? transfer.jobPosition.name : ''%></span>
+                                    </td>
+                                    <td class="" data-content="department"
+                                        data-id="<%=transfer.department ? transfer.department._id : null%>">
+                                        <span><%=transfer.department ? transfer.department.name : "" %></span>
+                                    </td>
+                                    <td class="" data-content="manager"
+                                        data-id="<%= transfer.manager ?  transfer.manager._id : null%>">
+                                        <span><%=transfer.manager ? transfer.manager.name.first + ' ' +
+                                        transfer.manager.name.last : "Select"%></span>
+                                    </td>
+                                    <td class="" data-content="jobType"
+                                        data-id="<%= transfer.jobType ? transfer.jobType:''%>">
+                                        <span><%=transfer.jobType ? transfer.jobType.name: ""%></span>
+                                    </td>
+                                    <td data-content="weeklyScheduler"
+                                        data-id="<%= transfer.weeklyScheduler ? transfer.weeklyScheduler._id :'null'%>">
+                                        <span><%=transfer.weeklyScheduler ? transfer.weeklyScheduler.name : ""%></span>
+                                    </td>
+                                    <td data-content="payrollStructureType"
+                                        data-id="<%= transfer.payrollStructureType ? transfer.payrollStructureType._id :'null'%>">
+                                        <span><%=transfer.payrollStructureType ? transfer.payrollStructureType.name : ""%></span>
+                                    </td>
+                                    <td data-content="scheduledPay"
+                                        data-id="<%= transfer.scheduledPay ? transfer.scheduledPay._id :'null'%>">
+                                        <span><%=transfer.scheduledPay ? transfer.scheduledPay.name : ""%></span>
+                                    </td>
+                                     <%if (transfer.salary || transfer.salary === 0) {%> 
+                                    <td class="dollar" data-content="salary" data-id="salary">
+                                        <%=currencySplitter(transfer.salary.toString())%>
+                                    </td>
+                                   <% } %> 
+                                    <td class="statusInfo" data-content="info"
+                                        data-id="<%=transfer.info ? transfer.info : ''%> "><%=transfer.info &&
+                                        transfer.info.length > 1 ? transfer.info : ""%>
+                                    </td>
+                                </tr>
+
+                                <% }; %>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="ui-dialog-buttonset">
+                            <% if (model.transfer.length && model.transfer[0].hasOwnProperty('salary')) {%>
+                            <a href="javascript:;" id="update" class="btn"><span>添加</span></a>
+                            <%}%>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="dialog-tabs-item">
+                        <div class="assignees-container"></div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

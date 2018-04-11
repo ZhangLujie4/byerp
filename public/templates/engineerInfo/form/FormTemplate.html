@@ -1,0 +1,231 @@
+<div class="form-holder employee">
+    <form class="form employee" id="employeeForm" data-id="<%=model._id%>">
+        <ul class="chart-tabs">
+            <li><a class="active" id="overviewTab" href="javascript:;">概述</a></li>
+            <li><a href="javascript:;" id="engineerManagerTab" class="">管理人员</a></li>
+            <li><a href="javascript:;" class="countable" id="quotationsTab">班组长信息<span></span></a></li>
+            <li><a href="javascript:;" class="countable" id="ordersTab">检查情况<span></span></a></li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="dialog-tabs-items">
+            <div class="dialog-tabs-item active">
+                <div class="half-block left">
+                    <dl class="project-edit-info">
+                        <dt>
+                            <label for="name">工程名称 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="name" id="name" required
+                                   value="<%=model.name%>" maxlength="32"/>
+                        </dd>
+                        <dt>
+                            <label for="quality">质量目标 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="quality"
+                                   id="quality" required value="<%=model.quality%>" maxlength="32"/>
+                        </dd>
+                        <dt>
+                            <label for="issArea">面积</label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="issArea"
+                                   id="issArea" required value="<%=model.issArea%>" maxlength="32"/>
+                        </dd>
+                        <dt>
+                            <label for="amount">造价</label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="amount"
+                                   id="amount" required value="<%=model.amount%>" maxlength="32"/>
+                        </dd>
+
+                        <dt><label for="StartDate">开工日期 </label></dt>
+                        <dd class="_newSelectListWrap">
+                            <input type="text" class="title-input blueback" name="StartDate"
+                                   id="StartDate" required value="<%=model.StartDate%>" maxlength="32"/>
+                        </dd>
+                        <dt>
+                            <label for="EndDate">竣工日期 </label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <input type="text" class="title-input blueback" name="EndDate"
+                                   id="EndDate" required value="<%=model.EndDate%>" maxlength="32"/>
+                        </dd>
+
+                        <dt>
+                            <label for="pmr">项目经理</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <input type="text" class="title-input blueback" name="pmr"
+                                   id="pmr" required value="<%=model.pmr%>" maxlength="32"/>
+                        </dd>
+                        <dt><label for="pmv">备案项目经理</label></dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="pmv"
+                                   id="pmv" required value="<%=model.pmv%>" maxlength="32"/>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="half-block right">
+                    <dl class="project-edit-info">
+                        <dt>
+                            <label for="materialMember">备案材料员 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="materialMember" id="materialMember" required
+                                   value="<%=model.materialMember%>" maxlength="32"/>
+                        </dd>
+
+                        <dt>
+                            <label for="securityOfficer">备案安全员 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="securityOfficer" id="securityOfficer" required value="<%=model.securityOfficer%>" maxlength="32"/>
+                        </dd>
+
+                        <dt>
+                            <label for="qualityInspector">备案质检员 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="qualityInspector" id="qualityInspector" required
+                                   value="<%=model.qualityInspector%>" maxlength="32"/>
+                        </dd>
+
+                         <dt>
+                            <label for="constructionWorker">备案施工员 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="constructionWorker" id="constructionWorker" required
+                                   value="<%=model.constructionWorker%>" maxlength="32"/>
+                        </dd>
+
+                        <dt>
+                            <label for="informationOfficer">备案资料员 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="informationOfficer" id="informationOfficer" required
+                                   value="<%=model.informationOfficer%>" maxlength="32"/>
+                        </dd>
+
+                        <dt>
+                            <label for="cancelDate">取消日期 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="cancelDate" id="cancelDate" required
+                                   value="<%=model.cancelDate%>" maxlength="32"/>
+                        </dd>
+
+                        <dt>
+                            <label for="address">地址 </label>
+                        </dt>
+                        <dd>
+                            <div id="address">
+                              <select id="province"></select><!-- province -->
+                              <select id="city"></select><!-- city -->
+                              <select id="district"></select><!-- district -->
+                              <input id="zip" type="text" value="<%=model.address.zip%>" />
+                            </div>
+                            <!-- <dl>
+                              <dt>省：</dt>
+                              <dd class="taskDescriptionCreate">
+                                 <input type="text"
+                                       id="province"
+                                       required
+                                       maxlength="32"
+                                       value="<%=model.address.province%>" />
+                                        <label></label>
+                              </dd>
+                              <dt>市：</dt>
+                              <dd class="taskDescriptionCreate">
+                                 <input type="text"
+                                       id="city"
+                                       required
+                                       maxlength="32"
+                                       value="<%=model.address.city%>" />
+                                        <label></label>
+                              </dd>
+                              <dt>县(区域)：</dt>
+                              <dd class="taskDescriptionCreate">
+                                 <input type="text"
+                                       id="district"
+                                       required
+                                       maxlength="32"
+                                       value="<%=model.address.district%>" />
+                                        <label></label>
+                              </dd>
+                              <dt>详细地址：</dt>
+                              <dd class="taskDescriptionCreate">
+                                 <input type="text"
+                                       id="zip"
+                                       required
+                                       maxlength="32"
+                                       value="<%=model.address.zip%>" />
+                                        <label></label>
+                              </dd>
+                            </dl> -->
+                        </dd>
+
+                        <dt>
+                            <label for="constructionUnit">建设单位 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="constructionUnit" id="constructionUnit" required
+                                   value="<%=model.constructionUnit%>" maxlength="32"/>
+                        </dd>
+
+                        <dt>
+                            <label for="supervisionUnit">监理单位 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="supervisionUnit" id="supervisionUnit" required
+                                   value="<%=model.supervisionUnit%>" maxlength="32"/>
+                        </dd>
+
+                        <dt>
+                            <label for="contractUnit">总包单位 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="contractUnit" id="contractUnit" required
+                                   value="<%=model.contractUnit%>" maxlength="32"/>
+                        </dd>
+
+                        <dt>
+                            <label for="fileStatus">资料状态 </label>
+                        </dt>
+                        <dd>
+                            <% if(model.fileStatus == 'complete'){ %>
+                              <a class="address current-selected" name="fileStatus" data-id="<%=model.fileStatus%>"
+                                           id="fileStatus">完备</a>
+                            <% }else if(model.fileStatus == 'lack'){ %>
+                              <a class="address current-selected" name="fileStatus" data-id="<%=model.fileStatus%>"
+                                           id="fileStatus">暂缺</a>
+                            <%} else{%>
+                              <a class="address current-selected" name="fileStatus" data-id="<%=model.fileStatus%>"
+                                           id="fileStatus">选择</a>
+                            <%}%>
+                        </dd>
+                    </dl>
+
+                </div>
+
+
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-item">
+                <div id="engineerManager"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-item">
+                <div id="jobForeman"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-item">
+                <div id="checkSituation"></div>
+            </div>
+            <div class="clearfix"></div>
+
+        </div>
+    </form>
+</div>

@@ -1,0 +1,111 @@
+<% products.forEach(function(product){ %>
+                    <% var p=product.pa[0]%>
+                    <% var parameter1 = ""; %>
+                    <% var parameter2 = ""; %>
+                    <% if(p){ %>
+                    <tr class="productItem" data-id="<%=product._id%>" data-quantity="<%=product.quantity%>" data-fulfilled="<%=product.fulfilled%>"   data-pa="<%=p._id%>"   data-product="<%=product.product._id%>">
+                        <td data-name="productName" class="productsDd" style="text-align: center;">
+                            <div class="_newSelectListWrap">
+                                <%= product.product.name %>
+                            </div>
+                        </td>
+                        <% product.pa[0].goodsInNotes[0].parameters.forEach(function(para){ %>
+                            <% if(para.value !== ""){ %>
+                                <% var flag = false; %>
+                                <% product.parameters.forEach(function(p){ %>
+                                    <% if(para.paraname === p.paraname){ %>
+                                        <% flag = true; %>
+                                    <% } %>
+                                <% }); %>
+                                <% if(flag){ %>
+                                    <% parameter2 = parameter2 + " " + para.paraname + " : " + para.value; %>
+                                <% }else{ %>
+                                    <% parameter1 = parameter1 + " " + para.paraname + " : " + para.value; %>
+                                <% } %>
+                            <% } %>
+                        <% }); %>
+
+                        <td data-name="parameter" style="text-align: left;">
+                            <div class="_newSelectListWrap">
+                                <span style="color: green"><strong><%=parameter2%></strong></span><%=" " + parameter1%>
+                            </div>
+                        </td>
+                        <td style="text-align: center;" data-name="ordered">
+                            <div class="_newSelectListWrap">
+                                <%= product.quantity%>
+                            </div>
+                        </td>
+                        <% var UnAppFufilled = 0; %>
+                        <% var appFufilled = 0; %>
+                        <% var allocate = 0; %>
+                         <% product.pa.forEach(function(item){%>
+                            <%item.orderRows.forEach(function(a){%>
+                              <% allocate += a.quantity; %>
+                        <% })%>
+                      <% }); %>
+                     
+                          
+                       
+                        <td data-allocate="<%=allocate%>" class="allocate" style="text-align: left;">
+                            <div class="_newSelectListWrap">
+                               <%=allocate%>
+                            </div>
+                        </td>
+                         <% var goodsOutNum=0;%>
+                         <% product.goodsNotes.forEach(function(item){%>
+                            <% goodsOutNum+=item.quantity;%>                    
+                         <%})%>
+                        <td data-name="goodsOutNum" style="text-align: left;">
+                            <div class="_newSelectListWrap">
+                               <%=goodsOutNum%>
+                            </div>
+                        </td>
+                        <%var onHand=0;%>
+                        <% product.pa.forEach(function(item){%>
+                           <% onHand+=item.onHand;%>
+                        <% })%>
+                        <td data-hand="<%=onHand%>" class="onHand" style="text-align: left;">
+                            <div class="_newSelectListWrap">
+                               <%=onHand%>
+                            </div>
+                        </td>
+                        <td data-name="toAllocated" style="text-align: left;">
+                            <div class="_newSelectListWrap">
+                                <input type="number" id="toAllocated" class="_toAllocated" title="此次分配量"/>
+                            </div>
+                        </td>
+
+                       
+                      
+                    </tr>
+                    <%} else{%>
+                    <% var parameter = ""; %>
+                    <tr data-id="<%=product._id%>" class="productItem">
+                        <td data-name="productName" style="text-align: center;">
+                            <div class="_newSelectListWrap">
+                                <%=product.product.name%>
+                            </div>
+                        </td>
+                        <% product.parameters.forEach(function(para){ %>
+                            <% if(para.value !== ""){ %>
+                                <% parameter = parameter + " " + para.paraname + " : " + para.value;%>
+                            <% } %>
+                        <% }); %>
+                        <td data-name="parameter" style="text-align: left;">
+                            <div class="_newSelectListWrap">
+                            <span><%=parameter%></span>
+                            </div>
+                        </td>
+                        <td style="text-align: center;" data-name="ordered">
+                            <div class="_newSelectListWrap">
+                                <%= product.quantity%>
+                            </div>
+                        </td>
+                        <td data-name="explain" colspan="4" style="text-align: center;">
+                            【仓库还缺该产品，请先采购！】
+                        </td>
+                    </tr>
+                    <% }%>
+ 
+<% }); %>
+

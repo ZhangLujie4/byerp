@@ -1,0 +1,38 @@
+<div class="tableFixedWrap payRoll-list-wrap">
+
+<div class="scrollit">
+    <table class="list enable_hover tableFixed" id="payRoll-listTable">
+        <colgroup>
+            <col  width="42px">
+            <col  width="25%">
+            <col  width="25%">
+            <col  width="25%">
+            <col  width="25%">
+
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="centerCell"><input type="checkbox" id="checkAll"/></th>
+            <th class="centerCell">序号</th>
+            <th class="centerCell">名称</th>
+            <th class="centerCell">列</th>
+            <th class="centerCell">值</th>
+            
+        </tr>
+        </thead>
+        <tbody id="parameter-TableBody">
+        <% collection[0].parameter.forEach(function(item, index){%>
+            <tr data-index="<%= index %>">
+              <td class="notForm centerCell"><input class="checkbox" type="checkbox" value="" data-content="<%=item.minRange? item.minRange: 0%>" data-id="<%=item.maxRange?item.maxRange: 0%>" class="checkbox"/></td>
+              <td class="seq centerCell"><%=item.seq%></td>
+              <td class="name centerCell"><%=item.name%></td>
+                <td class="column centerCell"><%=item.column? item.column : ''%></td>
+                <td class="value centerCell"><%=item.value%></td>
+            </tr>
+        <%})%>
+        </tbody>
+    </table>
+</div>
+
+
+</div>

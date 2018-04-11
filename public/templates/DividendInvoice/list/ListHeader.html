@@ -1,0 +1,51 @@
+﻿<div id="searchContainer"></div>
+<div class="_tableDividendInvoiceWrap">
+    <table class="list stripedList">
+        <colgroup>
+            <col width="42px">
+            <col width="17%">
+            <col width="12%">
+            <col width="17%">
+            <col width="12%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="12%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="centerCell"><input type="checkbox" id="checkAll"/></th>
+            <th class="oe_sortable" data-sort="paymentDate">支付日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="dueDate">截止日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="name">报单编号<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="paymentInfo.balance">结余<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="paymentInfo.unTaxed"><%= currentDb ? '已支付' : 'Untaxed'%><span
+                    class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="paymentInfo.total">总金额<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="workflow.name">状态<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="invoiceDate">发票日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <!--<th class="oe_sortable" data-sort="validated">Validated<span class="arrow down"></span><span-->
+            <!--class="arrow up"></span></th>-->
+        </tr>
+        </thead>
+        <tbody id="listTable" class="enableTableOdd"></tbody>
+        <tfoot id="listTotal">
+        <tr>
+            <td colspan="4"></td>
+            <td class="money"><span id="balance"></span></td>
+            <td class="money"><span id="paid"></span></td>
+            <td class="money"><span id="total"></span></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tfoot>
+    </table>
+</div>

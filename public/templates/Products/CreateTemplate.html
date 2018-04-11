@@ -1,0 +1,327 @@
+<div class="form-holder _newForm productForm">
+    <form method="post" action="" id="createEmployeeForm" class="form">
+        <h4 class="_dialogTitlePositioned">增加新产品</h4>
+        <ul class="dialog-tabs" data-class="mainTabs">
+            <li><a class="active" href="javascript:;">产品信息</a></li>
+            <li><a href="javascript:;">库存情况</a></li>
+            <li><a href="javascript:;">组合件(Bundle)</a></li>
+            <li><a href="javascript:;">价格</a></li>
+        </ul>
+        <div class="dialog-tabs-items mainTabs">
+            <div class="dialog-tabs-item mainTabs active">
+                <div class="_formWrap _enlargedItemMargin">
+                    <div class="_avatarBlock">
+                        <div class="avatar">
+                            <div class="upload">编辑
+                                <input type="file"
+                                       value="Edit"
+                                       id="inputImg">
+                            </div>
+                            <canvas id="avatar"
+                                    width="140"
+                                    height="140">
+                                <input type="file"
+                                       value="Edit"
+                                       id="File1">
+                            </canvas>
+                        </div>
+                    </div>
+                    <div class="_formBlock _equal">
+                        <div class="_animateInputBox">
+                            <input type="text"
+                                   class="_animate"
+                                   id="product"
+                                   autofocus
+                                   required
+                                   maxlength="32"/>
+                            <label class="_animate">产品名称</label>
+                        </div>
+                        <div class="_formRow">
+                            <label class="_animatedCheckbox">
+                                <input id="sold"
+                                       type="checkbox" <% if (contentType === 'salesProduct') {%>
+                                checked
+                                <%}%> >
+                                <span></span>
+                            </label>
+                            <label for="sold">可销售</label>
+                        </div>
+                        <div class="_formRow">
+                            <label class="_animatedCheckbox">
+                                <input id="expensed"
+                                       type="checkbox">
+                                <span></span>
+                            </label>
+                            <label for="expensed">可领用</label>
+                        </div>
+                        <div class="_formRow">
+                            <label class="_animatedCheckbox">
+                                <input id="purchased"
+                                       type="checkbox"<% if (contentType === 'Product') {%>
+                                checked
+                                <%}%> >
+                                <span></span>
+                            </label>
+                            <label for="purchased">可采购</label>
+                        </div>
+                        <div class="_animateSelectBox _withInfo">
+                            <span class="_selectTitle">产品类型</span>
+                            <div class="_newSelectListWrap">
+                                <a id="productType"
+                                   class="current-selected">选择产品类型</a>
+                            </div>
+                        </div>
+                        <span class="_variantsLabel">产品分类:</span>
+                        <div id="variantsCategoriesBlock" class="_variantsBlock _withInfo">
+                            <div class="_checkCategoriesWrap">
+                                <ul id="checkedProductCategories" class="_checkCategories"></ul>
+                                <span id="showBtn" class="_arrow"></span>
+                            </div>
+                            <ul id="productCategories" class="_categoriesList"></ul>
+                        </div>
+                    </div>
+                    <div class="_formBlock _equal">
+                        <div class="_animateInputBox">
+                            <input type="text"
+                                   class="_animate"
+                                   id="SKU"
+                                   required
+                                   maxlength="32"/>
+                            <label class="_animate">型号 / SKU</label>
+                        </div>
+                        <div class="_animateInputBox">
+                            <input type="text"
+                                   class="_animate"
+                                   id="UPC"
+                                   required
+                                   maxlength="32"/>
+                            <label class="_animate">UPC</label>
+                        </div>
+                        <div class="_animateInputBox">
+                            <input type="text"
+                                   class="_animate"
+                                   id="ISBN"
+                                   required
+                                   maxlength="32"/>
+                            <label class="_animate">ISBN</label>
+                        </div>
+                        <div class="_animateInputBox">
+                            <input type="text"
+                                   class="_animate"
+                                   id="EAN"
+                                   required
+                                   maxlength="32"/>
+                            <label class="_animate">EAN</label>
+                        </div>
+                        <div class="_animateInputBox">
+                            <input type="text"
+                                   class="_animate"
+                                   id="UOM"
+                                   required
+                                   maxlength="32"/>
+                            <label class="_animate">UOM</label>
+                        </div>
+                        <div class="_animateInputBox">
+                            <input type="text"
+                                   class="_animate"
+                                   id="UOP"
+                                   required
+                                   maxlength="32"/>
+                            <label class="_animate">UOP</label>
+                        </div>
+                        <div class="_animateInputBox">
+                            <input type="text"
+                                   class="_animate"
+                                   id="weight"
+                                   required
+                                   maxlength="32"/>
+                            <label class="_animate">重量(公斤)</label>
+                        </div>
+                        <div class="_animateTextareaBox">
+                            <textarea class="_animate"
+                                      id="description"
+                                      maxlength="500"
+                                      required></textarea>
+                            <label class="_animate" for="description">描述</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-tabs-item mainTabs">
+                <div class="_formWrap _enlargedItemMargin">
+                    <div class="_formBlock _equal">
+                        <div class="_animateInputBox">
+                            <input type="text"
+                                   class="_animate"
+                                   id="mainMinStockLevel"
+                                   required
+                                   maxlength="32"/>
+                            <label class="_animate">最低库存</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-tabs-item mainTabs">
+                <div class="_formWrap searchContainer">
+                    <div class="_formBlock _equal">
+                        <div class="_searchContWrap">
+                            <label for="searchProducts" class="_searchTitle">Name | SKU</label>
+                            <input type="text" id="searchProducts" class="_searchInput"/>
+                            <button id="searchBtn" class="_searchBtn">
+                                <span class="icon-search2-"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="_formBlock _equal">
+                        <div class="_bundleTitle">通过添加产品配置组合件</div>
+                    </div>
+                    <div class="_formBlock _equal">
+                        <div class="_bundleListTitle">产品列表:</div>
+                        <ul id='productsForBundle' class="_productsForBundle"></ul>
+                    </div>
+                    <div class="_formBlock _equal">
+                        <div class="_bundleListTitle">Bundle consists of:</div>
+                        <ul id='productsBundle' class="_productsBundle"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-tabs-item mainTabs">
+                <div class="_formWrap">
+                    <div class="_formBlock">
+                        <div id="priceBlock">
+                            <ul class="dialog-tabs" data-class="subTabs">
+                                <% _.each(priceLists, function(priceList) { %>
+                                <li><a href="javascript:;"><%= priceList.priceListCode %> <%=priceList.cost ? '(costs)'
+                                    :
+                                    ''%></a></li>
+                                <% }) %>
+                            </ul>
+                            <div class="dialog-tabs-items subTabs">
+                                <p>分段计价:</p>
+                                <% _.each(priceLists, function(priceList) { %>
+                                <div data-id="<%= priceList._id %>" class="dialog-tabs-item subTabs priceListCreate">
+                                    <div class="_priceBlockWrap">
+                                        <dl class="priceBlock">
+                                            <div>
+                                                <dt>数量 1</dt>
+                                                <dd>
+                                                    <input type="text"
+                                                           value="1"
+                                                           placeholder="count1"
+                                                           class="forNum productCount"/>
+                                                </dd>
+                                            </div>
+                                            <div>
+                                                <dt>价格 1</dt>
+                                                <dd>
+                                                    <input type="text"
+                                                           value="0"
+                                                           placeholder="price1"
+                                                           class="forNum productPrice"/>
+                                                </dd>
+                                            </div>
+                                        </dl>
+                                        <dl class="priceBlock">
+                                            <div>
+                                                <dt>数量 2</dt>
+                                                <dd>
+                                                    <input type="text"
+                                                           value="0"
+                                                           placeholder="count1"
+                                                           class="forNum productCount"/>
+                                                </dd>
+                                            </div>
+                                            <div>
+                                                <dt>价格 2</dt>
+                                                <dd>
+                                                    <input type="text"
+                                                           value="0"
+                                                           placeholder="price1"
+                                                           class="forNum productPrice">
+                                                </dd>
+                                            </div>
+                                        </dl>
+                                        <dl class="priceBlock">
+                                            <div>
+                                                <dt>Count 3</dt>
+                                                <dd>
+                                                    <input type="text"
+                                                           value="0"
+                                                           placeholder="count1"
+                                                           class="forNum productCount">
+                                                </dd>
+                                            </div>
+                                            <div>
+                                                <dt>Price 3</dt>
+                                                <dd>
+                                                    <input type="text"
+                                                           value="0"
+                                                           placeholder="price1"
+                                                           class="forNum productPrice">
+                                                </dd>
+                                            </div>
+                                        </dl>
+                                        <dl class="priceBlock">
+                                            <div>
+                                                <dt>Count 4</dt>
+                                                <dd>
+                                                    <input type="text"
+                                                           value="0"
+                                                           placeholder="count1"
+                                                           class="forNum productCount">
+                                                </dd>
+                                            </div>
+                                            <div>
+                                                <dt>Price 4</dt>
+                                                <dd>
+                                                    <input type="text"
+                                                           value="0"
+                                                           placeholder="price1"
+                                                           class="forNum productPrice">
+                                                </dd>
+                                            </div>
+                                        </dl>
+                                        <dl class="priceBlock">
+                                            <div>
+                                                <dt>Count 5</dt>
+                                                <dd>
+                                                    <input type="text"
+                                                           value="0"
+                                                           placeholder="count1"
+                                                           class="forNum productCount">
+                                                </dd>
+                                            </div>
+                                            <div>
+                                                <dt>Price 5</dt>
+                                                <dd>
+                                                    <input type="text"
+                                                           value="0"
+                                                           placeholder="price1"
+                                                           class="forNum productPrice">
+                                                </dd>
+                                            </div>
+                                        </dl>
+                                    </div>
+                                </div>
+                                <% }); %>
+                                <div class="half-block right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cropImages form" style="display:none;">
+            <div class="formTitle">
+                <h3 class="left">Crop Images</h3>
+                <div class="clearfix"></div>
+            </div>
+            <br/>
+
+            <div class="image_input" style="float: left;margin-right: 20px;"></div>
+            <img class="image_output"/>
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,11 @@
+<% aluveneerOrdersCollection.forEach(function(aluveneerOrder, index){ %>
+<tr data-index="<%=index%>" data-id="<%= aluveneerOrder.projectName._id + '-' + aluveneerOrder.cgdh%>" id="master">
+    <!-- <td class="centerCell">
+        <input type="checkbox" value="<%=aluveneerOrder._id%>" class="checkbox"/>
+    </td> -->
+    <td class="centerCell"><%=(aluveneerOrder.projectName) ? aluveneerOrder.projectName.name : ''%></td>
+    <td class="centerCell"><%=aluveneerOrder.cgdh%></td>
+    <td class="centerCell"><%=aluveneerOrder.totalAcreage.toFixed(3)%></td>
+    <td class="centerCell"><%=aluveneerOrder.totalQuantity%></td>
+</tr>
+<% }) %>

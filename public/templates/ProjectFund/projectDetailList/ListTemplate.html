@@ -1,0 +1,16 @@
+<% collection.forEach(function(model, index){ %>
+<tr data-id="" id="">
+    <% var receive=0%>
+    <% var spend=0%>
+    <% receive=receive+(model.invoice._type=='addValueTaxInvoice'?model.invoice.amount:0)%>
+    <% spend=spend+(model.invoice._type=='expensesInvoice'?model.invoice.amount:0)%>
+    <td><%=index+1%></td>
+    <td><%=moment(model.invoice.invoiceDate).format('YYYY-MM-DD')%></td>
+    <td><%=model.invoice?(model.invoice._type=='addValueTaxInvoice'?model.invoice.amount:0):0%></td>
+    <td>收款</td>
+    <td><%=model.invoice?(model.invoice._type=='expensesInvoice'?model.invoice.amount:0):0%></td>
+    <td><%=model.invoice?(model.invoice._type=='expensesInvoice'?model.invoice.invoiceMold:0):0%></td>
+    <td><%=receive-spend%></td>
+</tr>
+<%})%>
+

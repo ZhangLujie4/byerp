@@ -1,0 +1,43 @@
+<h3>来料发货单</h3>
+<div id="createBtnHolder" class="btnsBlock">
+    <a href="#home/action-Users/Create" class="btn blue slim plus" title="保存" id="top-bar-saveBtn">保存</a>
+    <a href="#home/action-Users/affirm" class="btn blue slim" title="确认" id="top-bar-generateBtn">确认</a>
+    <a href="#home/action-Users/copy" class="btn blue slim" title="打印" id="top-bar-copy">打印</a>
+    <a href="#home/action-Users/edit" class="btn blue slim" title="编辑" id="top-bar-editBtn">编辑</a>
+    <a href="#home/action-Users/delete" class="btn blue slim" title="删除" id="top-bar-deleteBtn">删除</a>
+</div>
+
+<div class="vocationFilter _filterDropDownWrap">
+    <ul class="dateFilter" style = "left:100px">
+        <li class="dateRange">
+            <span class="icon-calendar"></span>
+            <span id="startTime"><%=startDate%></span>-
+            <span id="endTime"><%=endDate%></span>
+            <span class="icon-arrow-down2"></span>
+        </li>
+        <li>
+            <ul class="frameDetail _filterDropDownBody hidden">
+                <li class="customTime">
+                    <div class="customTimeItem">
+                        <label for="startDate">选择年月: </label>
+                        <input readonly type="text" id="startDate">
+                    </div>
+                    <div class="customTimeItem">
+                        <label for="endDate">选择年月: </label>
+                        <input readonly type="text" id="endDate">
+                    </div>
+
+                </li>
+                <li class="buttons">
+                    <button id="updateDate" class="btn">
+                        <span>更新</span>
+                    </button>
+                    <button id="cancelBtn" class="btn">
+                        <span>取消</span>
+                    </button>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>

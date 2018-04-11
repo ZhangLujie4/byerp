@@ -1,0 +1,78 @@
+<div class="_editAllocateAll">
+    <span class="btn slim <%=model && model.shippingExpenses && model.shippingExpenses.amount ? 'disabled' : ''%>" id="selectShippingMethod" hidden>添加运费</span>
+    <span class="btn slim" id="catchPrices">获取单价</span>
+    <%if (!notEditable && forSales) {%>
+    <span class="btn slim" id="allocateAll">全部分配</span>
+    <span class="btn slim" id="unallocateAll">重置分配</span>
+    <%}%>
+    <% if(model.orderDate && model.workflow && model.workflow.status !== 'Done'){ %>
+    <span class="btn slim" id="resetPrices">重置单价</span>
+    <%}%>
+</div>
+
+<table class="list tableFixed _invoiceTable forSCU">
+    <colgroup>
+        <%if (expense){%>
+        <col width="180px">
+        <col width="120px">
+        <col width="120px">
+        <col width="70px">
+        <col width="80px">
+        <col width="80px">
+        <col width="80px">
+        <col width="30px">
+        <%} else {%>
+        <col width="100px">
+        <col width="100px">
+        <col width="100px">
+        <col width="120px">
+        <col width="120px">
+        <col width="100px" >
+        <col width="80px" hidden>
+        <col width="300px">
+        <col width="30px">
+        <%}%>
+
+    </colgroup>
+    <thead>
+    <tr class="productListItemsColumns _deleteHeader ">
+        <%if (!expense){%>
+        <th data-sort="Product" style="text-align:left">
+            库存单位
+        </th>
+        <%}%>
+
+        <th data-sort="description" style="text-align:left">
+            备注
+        </th>
+        <!-- <th data-sort="account">
+            科目
+        </th>
+        <th data-sort="taxCode">
+            税码
+        </th> -->
+        <th data-sort="quantity" style="text-align:left">
+            数量
+        </th>
+        <th data-sort="unitPrice" style="text-align:left">
+            单价
+        </th>
+        <!-- <th data-sort="taxes">
+            税额
+        </th> -->
+        <th data-sort="priceQty" style="text-align:left">
+            计价数量
+        </th>
+        <th data-sort="subtotal" style="text-align:left">
+            总价
+        </th>
+        <th data-sort="parameters" style="text-align:left">
+            参数
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody id="productList"></tbody>
+</table>
+
+<div id="totalAmountContainer" class="_totalAmountContainer"></div>

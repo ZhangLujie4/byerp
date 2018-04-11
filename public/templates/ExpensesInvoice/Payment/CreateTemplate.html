@@ -1,0 +1,79 @@
+<div class="form-holder">
+    <form method="post" action="" id="createPaymentForm" class="form">
+        <fieldset>
+            <div class="inner">
+                <div class="topInputHolder">
+                    <h2>发票支付</h2>
+                </div>
+                <div class="half-block left">
+                    <dt>
+                        <label>发票金额:(元）</label>
+                    </dt>
+                    <dd >
+                        <input type="text"  style="width: 100px"
+                               value="<%=invoice.paymentInfo ? invoice.paymentInfo.balance : 0%>">
+                    </dd>
+                    <dt>付款方式：</dt>
+                    <dt><label style="margin-left: 50px">承兑(元):</label></dt>
+                    <dd class="_newSelectListWrap">
+                        <a id="accept" class="current-selected" href="javascript:;" style="width:170px;margin-top: 6px">选择</a>
+                    </dd>
+                    <div id="acceptAmountContainer" >
+                        <dt><label style="margin-left: 50px">承兑金额:</label></dt>
+                        <dd style="margin-top: 5px"><span id="acceptAmount"></span></dd>
+                    </div>
+                    <dt><label style="margin-left: 50px">现金(元):</label></dt>
+                    <dd>
+                        <input type="text" id="cash" style="width: 100px" value="0">
+                    </dd>
+                    <dl class="opp-info">
+                        <dt>
+                            <label for="paymentMethod">银行帐号
+                            </label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="paymentMethod" class="current-selected" href="javascript:;">Select</a>
+                        </dd>
+                        <div id='journalDiv'>
+                            <dt>
+                                <label for="paymentMethod">凭证
+                                </label>
+                            </dt>
+                            <dd class="_newSelectListWrap">
+                                <a id="journal" class="current-selected" href="javascript:;">Select</a>
+                            </dd>
+                        </div>
+
+
+                    </dl>
+                </div>
+                <div class="half-block left">
+                    <dl class="opp-info">
+                        <dt><label for="paymentDate">支付日期</label></dt>
+                        <dd><input id="paymentDate" class="extrainfo" type="text" name="paymentDate"></dd>
+                        <!--<dt><label for="period">Period</label></dt>
+                        <dd>
+                            <a id="period" class="current-selected" href="javascript:;">Select</a>
+                        </dd>-->
+                        <dt><label for="paymentRef">开票日期</label></dt>
+                        <dd>
+                            <a id="paymentRef" data-id="<%=invoice._id%>" href="javascript:;"><%=invoice.name%></a>
+                            <!--<input type="text" name="paymentRef" id="paymentRef" maxlength="20"-->
+                            <!--value="<%=invoice.name%>" readonly />-->
+                        </dd>
+                        <!--                        <dt><label for="memo">Memo</label></dt>
+                                                <dd><input type="text" name="memo" id="memo" maxlength="20"></dd>-->
+                        <dt><label for="currencyDd">Currency</label></dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="currencyDd" class="current-selected"
+                               data-id="<%= currency && currency._id ? currency._id : null%>"
+                               href="javascript:;"><%= currency ?
+                                currency.name : ''%></a>
+                        </dd>
+                    </dl>
+                </div>
+
+            </div>
+        </fieldset>
+    </form>
+</div>

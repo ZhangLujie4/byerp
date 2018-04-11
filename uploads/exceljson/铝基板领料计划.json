@@ -1,0 +1,12 @@
+{
+  "table_no": "BYYCLLL",
+  "startLine": "5",
+  "name":"1",
+  "quantity":"2",
+  "description":"3",
+  "fields_name": {
+    "4": "基板厚度(mm)",
+    "5": "宽(mm)",
+    "6": "高(mm)"
+  }
+}

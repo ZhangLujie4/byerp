@@ -1,0 +1,100 @@
+
+<table class="list _projectTableLeftAlign tableFixed _invoiceTable">
+    <colgroup>
+        <col width="50px">
+        <col width="50px">
+        <col width="50px">
+        <col width="70px">
+        <col width="50px">
+        <col width="50px">
+        <col width="50px">
+        <col width="50px">
+        <col width="100px">
+    </colgroup>
+    <thead>
+    <tr class="productListItemsColumns _deleteHeader">
+        <th class="width20">产品名称</th>
+        <th class="width20">数量</th>
+        <th class="width20">已入库</th>
+        <th class="width20">备注</th>
+        <th class="width20">税率</th>
+        <th class="width20">税额</th>
+        <th class="width20">总价</th>
+        <th class="width20">入库量/库位</th>
+        <th class="width20">参数</th>
+    </tr>
+    </thead>
+    <tbody id="tbodyProducts">
+    <table class = "orderModel">
+                <colgroup>
+                    <col width="50px">
+                    <col width="50px">
+                    <col width="50px">
+                    <col width="70px">
+                    <col width="50px">
+                    <col width="50px">
+                    <col width="50px">
+                    <col width="50px">
+                    <col width="100px">
+                </colgroup>
+
+    <%products.forEach(function(elem){%>
+
+    <%if (elem.product) {%>
+    <tr class="productItem deleteRow" id="<%=elem._id%>" data-id="<%=elem.warehouse ? elem.warehouse._id : ''%>">
+
+        <td id="productsDd" data-id="<%=elem.product._id%>"><%=elem.product.name%></td>
+        <td data-name="ordered">
+            <input id="ordered" class="quantity statusInfo" maxlength="9" value="<%=elem.quantity%>" size=7 type="text" readonly/>
+        </td>
+        <td data-name="received">
+            <input id="received" class="quantity statusInfo" maxlength="9" value="<%=elem.fulfilled || 0%>" size=7 type="text" readonly/>
+        </td>
+        <td data-name="description"><%=elem.description%></td>
+        <td data-name="taxCodeLine" class="taxCodeLine">
+            <div class="_newSelectListWrap">
+                <a class="current-selected taxCode" id="taxCodeLine" data-content="taxCode" href="javascript:;" data-id="">选择</a>
+            </div>
+        </td>
+        <td data-name="taxesAccount">
+            <input id="taxesAccount" class="taxesAccount statusInfo" maxlength="9" value="<%=(elem.subTotal/(1+17/100)*(17/100)).toFixed(2)%>" size=7 type="text"/>
+        </td>
+        <td data-name="subTotal">
+            <input id="subTotal" class="subTotal statusInfo" maxlength="9" value="<%=(elem.subTotal/1).toFixed(2) || 0%>" size=7 type="text" />
+        </td>
+        <td data-name="newShip">
+            <div class="receiveLocation">
+                <div>
+                    <input id="newShip" class="quantity" maxlength="9" value="<%=elem.quantity - elem.fulfilled%>" size=7 type="text"/>
+                    into
+                </div>
+                <div>
+                    <a class="current-selected" id="locationDd" href="javascript:;" data-id="<%= elem.location ? elem.location._id : ''%>">
+                        <%=elem.location ? elem.location.name: '选择' %>
+                    </a>
+                </div>
+            </div>
+
+        </td>
+        <% elem.parameters.forEach(function(para,index){ %>
+            <% if(index === 0){ %>
+                <% parameter = para.paraname + " : " + para.value; %>
+            <% }else if(para.value !== ""){ %>
+                <% parameter = parameter + " / " + para.paraname + " : " + para.value; %>
+            <% } %>
+        <% }); %>
+        <td data-name="paras"><%=parameter%></td>
+    </tr>
+    <%}%>
+    <%})%>
+    </table>
+
+    <tr>
+        <td class="invisible_border">&nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+<div class="clearfix"></div>
+<div id="totalAmountContainer" class="_totalAmountContainer _createPopup">
+
+</div>

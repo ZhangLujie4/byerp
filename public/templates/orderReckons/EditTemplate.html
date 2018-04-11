@@ -1,0 +1,50 @@
+﻿﻿
+<div class="form-holder task-create-holder" style="margin-bottom: 0px;">
+    <form method="post" action="" id="editChargeItemForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+
+            <div class="half-block left withPaddingRightProject">
+                <div class="inner">
+                    <dl class="task-info">
+
+                        <dt><label for="chargeItem">收费项目</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" name="chargeItem" id="chargeItem" value="<%=model.chargeItem%>"/>
+                        </dd>
+
+                        <dt><label for="unit">单位</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" name="unit" id="unit" value="<%=model.unit%>"/>
+                        </dd>
+
+                        <div class="clearfix"></div>
+                    </dl>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="half-block right withPaddingRightProject">
+                <div class="inner">
+                    <dl class="task-info">
+
+                        <dt><label for="publisher">发布人</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" name="publisher" id="publisher" value="<%=model.publisher%>"/>
+                        </dd>
+
+                        <dt><label for="price">价格(元)</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" name="price" id="price" value="<%=model.price%>"/>
+                        </dd>
+
+                        <div class="clearfix"></div>
+                    </dl>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

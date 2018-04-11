@@ -1,0 +1,8 @@
+<% colorNumberCollection.forEach(function(colorNumber, index){ %>
+<tr data-index="<%=index%>" data-id="<%= colorNumber._id%>" >
+    <td class="centerCell"><input type="checkbox" value="<%=colorNumber._id%>" class="checkbox"/></td>
+    <td class="centerCell"><%=colorNumber.projectId%></td>
+    <td class="centerCell"><%=colorNumber.colorNumber%></td>
+    <td class="centerCell"><%=colorNumber.colorCode%></td>
+</tr>
+<% }) %>

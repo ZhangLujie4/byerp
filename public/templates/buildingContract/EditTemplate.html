@@ -1,0 +1,717 @@
+﻿﻿<div class="form-holder task-create-holder" style="margin-bottom: 12px;">
+    <form method="post" action="" id="editBuildingContractForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+
+          <ul class="dialog-tabs">
+              <li><a class="active" href="javascript:;">建材合同</a></li>
+              <li><a href="javascript:;">文件上传</a></li>
+          </ul>
+          <div class="clearfix"></div>
+          <div class="dialog-tabs-items">
+              <div class="dialog-tabs-item active">
+
+                <div class="inner">
+                    
+                    <div class="clearfix"></div>
+                    
+                    <div class="topInputHolder">
+                        <div class="half-block left">
+                            <dl class="person-info">
+
+                                <dt>
+                                    <label for="projectDd">工程名称</label>
+                                </dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="projectDd"  data-id="<%=model.projectName%>"  href="javascript:;" ><%=(model.projectName) ? model.projectName.name : ''%></a>
+                                </dd>
+
+                                <dt>
+                                    <label for="customerDd">客户</label>
+                                </dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="customerDd"  data-id="<%=model.customer%>"  href="javascript:;" ><%=(model.customer) ? model.customer.name.first + ' ' + model.customer.name.last : ''%></a>
+                                </dd>
+
+                                <dt><label for="contactName">联系人</label></dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="contactName"
+                                       id="contactName"
+                                       value="<%= model.contactName %>"/>
+                                </dd>
+
+                                <dt><label for="customerPhone">客户联系电话</label></dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="customerPhone"
+                                       id="customerPhone"
+                                       value="<%= model.customerPhone %>"/>
+                                </dd>
+                                <!-- <dt>
+                                    <label for="projectDd">工程</label>
+                                </dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="projectDd"
+                                       class="current-selected"
+                                       href="javascript:;">选择
+                                    </a>
+                                </dd> -->
+                                <dt>
+                                    <label for="orderDate">合同签订日</label>
+                                </dt>
+                                <dd>
+                                    <div class="_inputIconWrap">
+                                        <input id="orderDate" placeholder="合同签订日期" type="text" value="<%= model.orderDate %>" readonly="readonly" />
+                                        <label></label>
+                                    </div>
+                                </dd>
+
+                                <dt>
+                                    <label for="projectManager">项目经理</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="projectManager"
+                                       id="projectManager"
+                                       value="<%= model.projectManager %>" />
+                                </dd>
+
+                                <dt><label for="managerPhone">项目经理联系电话</label></dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="managerPhone"
+                                       id="managerPhone"
+                                       value="<%= model.managerPhone %>"/>
+                                </dd>
+
+                                <dt>
+                                    <label for="shipAddress">收货地址</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="shipAddress"
+                                       id="shipAddress"
+                                       value="<%= model.shipAddress %>"/>
+                                </dd>
+
+                                <dt>
+                                    <label for="deliveryDate">估计交货时间</label>
+                                </dt>
+                                <dd>
+                                    <div>
+                                        <input id="deliveryDate1" type="text" style="width: 85px;" value="<%= model.deliveryDate1 %>"/>
+                                        至
+                                        <input id="deliveryDate2" type="text" style="width: 85px;" value="<%= model.deliveryDate2 %>"/>
+                                        <label></label>
+                                    </div>
+                                </dd>
+                                <dt><label for="clerk1">业务员1</label></dt>
+                                <!-- <dd> <a id="clerk1"
+                                       class="current-selected"
+                                       href="javascript:;">选择
+                                     </a>
+                                </dd> -->
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="clerk1"
+                                       id="clerk1"
+                                       value="<%= model.clerk1 %>"/>
+                                </dd>
+                                <dt><label for="merchandiser1">跟单员1</label></dt>
+                                <!-- <dd><a id="merchandiser1"
+                                       class="current-selected"
+                                       href="javascript:;">选择
+                                     </a></dd> -->
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="merchandiser1"
+                                       id="merchandiser1"
+                                       value="<%= model.merchandiser1 %>"/>
+                                </dd>
+                                <dt><label for="clerk2">业务员2</label></dt>
+                                <!-- <dd><a id="clerk2"
+                                       class="current-selected"
+                                       href="javascript:;">选择
+                                     </a></dd> -->
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="clerk2"
+                                       id="clerk2"
+                                       value="<%= model.clerk2 %>"/>
+                                </dd>
+                                <dt><label for="merchandiser2">跟单员2</label></dt>
+                                <!-- <dd><a id="merchandiser2"
+                                       class="current-selected"
+                                       href="javascript:;">选择
+                                     </a></dd> -->
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="merchandiser2"
+                                       id="merchandiser2"
+                                       value="<%= model.merchandiser2 %>"/>
+                                </dd>
+                                <dt><label for="clerk3">业务员3</label></dt>
+                                <!-- <dd><a id="clerk3"
+                                       class="current-selected"
+                                       href="javascript:;">选择
+                                     </a></dd> -->
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="clerk3"
+                                       id="clerk3"
+                                       value="<%= model.clerk3 %>"/>
+                                </dd>
+                                <dt><label for="merchandiser3">跟单员3</label></dt>
+                                <!-- <dd><a id="merchandiser3"
+                                       class="current-selected"
+                                       href="javascript:;">选择
+                                     </a></dd> -->
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="merchandiser3"
+                                       id="merchandiser3"
+                                       value="<%= model.merchandiser3 %>"/>
+                                </dd>
+                                
+                                <dt style="width: 124px; font-size:13px;">是否内部承接</dt>
+                                <dd style="width: 170px">
+                                    <input type="radio" name="inUndertaking" style="width: 30px;height: 18px;border: 2px;border-radius: 50% " data-value="true" <%=(model.inUndertaking) ? 'checked' : ''%>>是
+                                    <input type="radio" name="inUndertaking" style="width: 30px;height: 18px;border: 2px;border-radius: 50% " data-value="false" <%=(model.inUndertaking) ? '' : 'checked'%>>否
+                                    
+                                </dd>
+                                           
+                            </dl>
+                        </div>
+                        <div class="half-block left">
+                            <dl class="person-info">
+
+                                <dt>
+                                    <label for="contractNum">合同编号</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="contractNum"
+                                       id="contractNum"
+                                       value="<%= model.contractNum %>"/>
+                                </dd>
+
+                                <dt><label for="clerkRate">业务员提成比例</label></dt>
+                                <dd><input type="number" name="clerkRate" id="clerkRate" required maxlength="24" style="width: 90%" value="<%= model.clerkRate %>"/><i>%</i></dd>
+
+                                <dt><label for="merchandiserRate">跟单员提成比例</label></dt>
+                                <dd><input type="number" name="merchandiserRate" id="merchandiserRate" required maxlength="24" style="width: 90%" value="<%= model.merchandiserRate %>"/><i>%</i></dd>
+
+                                <dt><label for="consignee">收货人</label></dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="consignee"
+                                       id="consignee"
+                                       value="<%= model.consignee %>"/>
+                                </dd>
+
+                                <dt><label for="consigneePhone">收货人联系电话</label></dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="consigneePhone"
+                                       id="consigneePhone"
+                                       value="<%= model.consigneePhone %>"/>
+                                </dd>
+                                
+                                <dt>
+                                    <label for="expectDate">预计完成日期</label>
+                                </dt>
+                                <dd>
+                                    <div class="_inputIconWrap">
+                                        <input id="expectDate" value="<%= model.expectDate %>" type="text"/>
+                                        <label></label>
+                                    </div>
+                                </dd>
+                                <!-- <dt><label for="projectmanager">项目经理</label></dt>
+                                <dd><a id="projectmanager"
+                                       class="current-selected"
+                                       href="javascript:;">选择
+                                     </a></dd> -->
+
+                                <dt><label for="projectCost">工程造价</label></dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="projectCost"
+                                       id="projectCost" style="width: 90%"
+                                       value="<%= model.projectCost %>"/><i>元</i>
+                                </dd>
+
+                                <dt><label for="projectQuantity">工程量</label></dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="projectQuantity"
+                                       id="projectQuantity" style="width: 90%"
+                                       value="<%= model.projectQuantity %>"/><i>㎡</i>
+                                </dd>
+
+                                <dt><label for="minArea">最小面积</label></dt>
+                                <dd>
+                                <i> < </i>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="minArea"
+                                       id="minArea" style="width: 84%"
+                                       value="<%= model.minArea %>"/><i>㎡</i>
+                                </dd>
+
+                                <dt><label for="clerkRate1">业务员1提成比例</label></dt>
+                                <dd><input type="number" name="clerkRate1" id="clerkRate1" required maxlength="24" style="width: 90%" value="<%= model.clerkRate1 %>"/><i>%</i></dd>
+
+                                <dt><label for="merchandiserRate1">跟单员1提成比例</label></dt>
+                                <dd><input type="number" name="merchandiserRate1" id="merchandiserRate1" required maxlength="24" style="width: 90%" value="<%= model.merchandiserRate1 %>"/><i>%</i></dd>
+
+                                <dt><label for="clerkRate2">业务员2提成比例</label></dt>
+                                <dd><input type="number" name="clerkRate2" id="clerkRate2" required maxlength="24" style="width: 90%" value="<%= model.clerkRate2 %>"/><i>%</i></dd>
+
+                                <dt><label for="merchandiserRate2">跟单员2提成比例</label></dt>
+                                <dd><input type="number" name="merchandiserRate2" id="merchandiserRate2"  required maxlength="24" style="width: 90%" value="<%= model.merchandiserRate2 %>"/><i>%</i></dd> 
+
+                                <dt><label for="clerkRate3">业务员3提成比例</label></dt>
+                                <dd><input type="number" name="clerkRate3" id="clerkRate3" required maxlength="24" style="width: 90%" value="<%= model.clerkRate3 %>"/><i>%</i></dd> 
+
+                                <dt><label for="merchandiserRate3">跟单员3提成比例</label></dt>
+                                <dd><input type="number" name="merchandiserRate3" id="merchandiserRate3" required maxlength="24" style="width: 90%" value="<%= model.merchandiserRate3 %>"/><i>%</i></dd>
+                            </dl>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    
+                    <!-- <div class="dialog-tabs-items childTabs">
+                        <div class="dialog-tabs-item childTabs active">
+                            <div id="productItemsHolder">
+
+                            </div>
+                        </div>
+                        
+                        <div class="clearfix"></div>
+                        
+                    </div> -->
+
+                    <table class="list task-list" width="98%" >
+                        <colgroup>
+                            <col width="20%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="20%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <!-- <col width="5%"> -->
+                        </colgroup>
+                        <thead>
+                            <tr class="productListItemsColumns _deleteHeader">
+                                <th id="product" style="text-align: center;">
+                                    产品名称
+                                </th>
+
+                                <th id="quantity" style="text-align: center;">
+                                    数量
+                                </th>
+
+                                <th id="price" style="text-align: center;">
+                                    约定单价(元)
+                                </th>
+
+                                <th id="unit" style="text-align: center;">
+                                    单位
+                                </th>
+
+                                <th id="totalPrice" style="text-align: center;">
+                                    合价(元)
+                                </th>
+
+                                <th id="alumSource" style="text-align: center;">
+                                    铝锭来源
+                                </th>
+
+                                <th id="alumRange" style="text-align: center;">
+                                    铝锭价范围
+                                </th>
+
+                                <th id="alumPrice" style="text-align: center;">
+                                    铝锭价浮动
+                                </th>
+
+                                <th id="executePrice" style="text-align: center;">
+                                    执行单价浮动
+                                </th>
+                            
+                                <th class="deleteCell"></th>
+                            </tr>
+
+                            <tbody id="inventoryList">
+                                
+                            </tbody>
+                            <tr>
+                                <td colspan="12" class="addItem">
+                                    <a href="javascript:;">添加</a>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+
+        
+                    <div >
+                        <div class="inner">
+                            <table class="list task-list" width="98%" >
+                                <colgroup>
+                                    <col width="25%">
+                                    <col width="15%">
+                                    <col width="15%">
+                                    <col width="45%">
+
+                                </colgroup>
+                                <thead>
+
+                                  <tr>
+                                      <th id="items" style="text-align: center;">
+                                          项目
+                                      </th>
+                                      <th id="price" style="text-align: center;">
+                                          单价
+                                      </th>
+                                      <th id="unit" style="text-align: center;">
+                                          单位
+                                      </th>
+                                      <th id="notes" style="text-align: center;">
+                                          备注
+                                      </th>
+                                      <th class="deleteCell"></th>
+                                  </tr>
+
+                                </thead>
+                                
+                                <tbody id="aluminumList">                            
+                                </tbody>
+                                <tr>
+                                    <td colspan="8" class="addItem2">
+                                        <a href="javascript:;">添加</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="clearfix"></div>
+                        </div>   
+
+                    <div>
+                        <div class="inner">
+                            <dt>
+                                <label for="addProvision" style="margin-left: 70px;">补充条款</label>
+                            </dt>
+                            <dd>
+                              <textarea type="text" maxlength="330" name="addProvision" id="addProvision"><%= model.addProvision %></textarea>
+                            </dd>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div>
+                        <div class="inner">
+                            <p style="font-size: 15px; color: blue">付款方式</p>
+                            <div class="left">
+                                <dt>
+                                    <label>预付款:</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       style="border: 0px;" />
+                                </dd>
+                            </div>
+                            <div class="left">
+                                <dt>
+                                    <label for="payRate1">付款比例</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="payRate1"
+                                       id="payRate1" style="width: 50%"
+                                       value="<%= model.payRate1 %>"/><i>%</i>
+                                </dd>
+                            </div>
+                            <div class="left">
+                                <dt>
+                                    <label for="earnest">定金</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="earnest"
+                                       id="earnest" style="width: 50%"
+                                       value="<%= model.earnest %>"/><i>元</i>
+                                </dd>
+                            </div>
+                        </div>  
+
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div>
+                        <div class="inner">
+                            <p style="font-size: 15px; color: blue">应付款节点</p>
+                            <div class="left">
+                                <dt>
+                                    <label>月结:</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       style="border: 0px;" />
+                                </dd>
+                            </div>
+                            <div class="left" style="margin-left: 12px;">
+                                <dt>
+                                    <label for="payRate2">付款比例</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="payRate2"
+                                       id="payRate2" style="width: 50%"
+                                       value="<%= model.payRate2 %>"/><i>%</i>
+                                </dd>
+                            </div>
+                            
+                        </div>  
+
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div>
+                        <div class="inner">
+                            <div class="left">
+                                <dt style="width: 250px;">
+                                    <label>节点结算(按面积)</label>
+                                </dt>
+                                <dd>
+                                <!-- <input type="text"
+                                       maxlength="30"
+                                       style="border: 0px;" />
+                                </dd> -->
+                            </div>
+                            <div class="left" style="margin-left: 18px;">
+                                <dt>
+                                    <label for="payRate3">付款比例</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="payRate3"
+                                       id="payRate3" style="width: 50%"
+                                       value="<%= model.payRate3 %>"/><i>%</i>
+                                </dd>
+                            </div>
+                            <div class="left">
+                                <dt>
+                                    <label></label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="areaSettle"
+                                       id="areaSettle" style="width: 50%" value="<%= model.areaSettle %>"/><i>㎡/次</i>
+                                </dd>
+                            </div>
+                        </div>  
+
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div>
+                        <div class="inner">
+                            <div class="left">
+                                <dt style="width: 250px;">
+                                    <label>节点结算(按金额)</label>
+                                </dt>
+                                <dd>
+                                <!-- <input type="text"
+                                       maxlength="30"
+                                       style="border: 0px;" />
+                                </dd> -->
+                            </div>
+                            <div class="left" style="margin-left: 18px;">
+                                <dt>
+                                    <label for="payRate4">付款比例</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="payRate4"
+                                       id="payRate4" style="width: 50%"
+                                       value="<%= model.payRate4 %>"/><i>%</i>
+                                </dd>
+                            </div>
+                            <div class="left">
+                                <dt>
+                                    <label></label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="amountSettle"
+                                       id="amountSettle" style="width: 50%" value="<%= model.amountSettle %>"/><i>元/次</i>
+                                </dd>
+                            </div>
+                        </div>  
+
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div>
+                        <div class="inner">
+                            <div class="left">
+                                <dt style="width: 250px;">
+                                    <label>按年度结算</label>
+                                </dt>
+                                <!-- <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       style="border: 0px;" />
+                                </dd> -->
+                            </div>
+                            <div class="left" style="margin-left: 16px;">
+                                <dt>
+                                    <label for="payRate5">付款比例</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="payRate5"
+                                       id="payRate5" style="width: 50%"
+                                       value="<%= model.payRate5 %>"/><i>%</i>
+                                </dd>
+                            </div>
+                            
+                        </div>  
+
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+                    <div>
+                        <div class="inner">
+                            <div class="left">
+                                <!-- <dt style="width: 250px;"> -->
+                                <dd style="width: 70px;">
+                                  <label>完工</label>
+                                  <a class="current-selected assignName" href="javascript:;" data-id="aroundType" id="aroundType" style="margin-left: -11px;">
+                                  <%= model.aroundType %>
+                                  </a>
+                                  
+                                </dd>
+                                <dd style="width: 100px;margin-top: 10px;">
+                                  <label>时间</label>
+                                  <input type="text"
+                                       maxlength="30"
+                                       style="width: 35px;" name="time"
+                                       id="time" value="<%= model.time %>"/>
+                                  <a class="current-selected assignName" href="javascript:;" data-id="unitType" id="unitType" style="margin-left: -11px;">
+                                  <%= model.unitType %>
+                                  </a>
+                                </dd>
+                                
+                            </div>
+                            <div class="left" style="margin-left: 7px; margin-top: 10px;">
+                                <dt>
+                                    <label for="payRate6">付款比例</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="payRate6"
+                                       id="payRate6" style="width: 50%"
+                                       value="<%= model.payRate6 %>"/><i>%</i>
+                                </dd>
+                            </div>
+                            
+                        </div>  
+
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+                    <div>
+                        <div class="inner">
+
+                            <div class="left">
+                                <dt>
+                                    <label>质保金</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       style="border: 0px;" />
+                                </dd>
+                            </div>
+                            <div class="left">
+                                <dt>
+                                    <label for="payRate7">付款比例</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="payRate7"
+                                       id="payRate7" style="width: 50%"
+                                       value="<%= model.payRate7 %>"/><i>%</i>
+                                </dd>
+                            </div>
+                            <div class="left">
+                                <dt>
+                                    <label for="warrantyDate">时间</label>
+                                </dt>
+                                <dd>
+                                <input type="text"
+                                       maxlength="30"
+                                       name="warrantyDate"
+                                       id="warrantyDate" style="width: 50%"
+                                       value="<%= model.warrantyDate %>"/><i>天</i>
+                                </dd>
+                            </div>
+                        </div>  
+
+                    </div>
+              </div>
+
+              <div class="dialog-tabs-item">
+                  <div class="inner">
+
+                      <div class="formTitle">
+                          <div class="clearfix"></div>
+                      </div>
+                      <div class="attach-container">
+                      </div>
+
+                      <div class="clearfix"></div>
+                  </div>
+              </div>
+          </div>
+
+        </fieldset>
+    </form>
+</div>

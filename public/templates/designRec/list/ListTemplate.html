@@ -1,0 +1,16 @@
+<% designRecCollection.forEach(function(designRec, index){ %>
+<tr data-index="<%=index%>" data-id="<%= designRec._id%>" >
+    <td class="centerCell"><input type="checkbox" value="<%=designRec._id%>" class="checkbox"/></td>
+    <td><%=(designRec.projectName) ? designRec.projectName.name : ''%></td>
+    <td><%=designRec.orderNumber%></td>
+    <td><%=designRec.acreage%></td>
+    <td><%=(designRec.colorNumber) ? designRec.colorNumber.colorNumber : ''%></td>
+    <td><%=(designRec.colorNumber) ? designRec.colorNumber.colorCode : ''%></td>
+    <td><%=designRec.protectType%></td>
+    <td><%=designRec.gendanPerson%></td>
+    <td><%=designRec.uploadDate%></td>
+    <td><%=(designRec.designer) ? designRec.designer.first + ' ' + designRec.designer.last : ''%></td>
+    <td><%=designRec.arrivalDate%></td>
+    <td><%=designRec.fileStatus%></td>
+</tr>
+<% }) %>

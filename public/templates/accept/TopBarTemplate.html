@@ -1,0 +1,24 @@
+<% if(model.length>0 && model[0].acceptType=='company'){ %>
+<h3>公司自开</h3>
+<%} else if(model.length>0 && model[0].acceptType=='buy'){%>
+<h3>买入</h3>
+<%} else if(model.length>0 && model[0].acceptType=='project'){%>
+<h3>项目部交入</h3>
+<%} else{%>
+<h3>承兑汇票</h3>
+<%}%>
+<div id="createBtnHolder" class="btnsBlock">
+    <a href="#home/action-<%=contentType%>/Create" class="btn blue slim plus" title="Create" id="top-bar-createBtn">新建</a>
+    <a href="javascript:;" class="btn blue slim" title="Remove Project" id="top-bar-deleteBtn">删除</a>
+    <div class="grid-conatiner _attendateWrap">
+        <div class="attendanceTop">
+            <div class="pull-left">
+            <span >
+                承兑类型:
+            </span>
+                <div class="editable" data-content="acceptType" id="" data-id="" style="width: auto"><span data-id="" id="acceptType">选择</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

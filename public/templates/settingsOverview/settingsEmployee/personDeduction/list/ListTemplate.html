@@ -1,0 +1,17 @@
+<% personDeduction.forEach(function(personDeduction, index){ %>
+<tr data-id="<%=personDeduction._id%>">
+    <td data-content="number" class="centerCell"><%=startNumber + index + 1%></td>
+    <td data-type="input"><%=personDeduction.year%></td>
+    <td data-type="input"><%=personDeduction.month%></td>
+    <td data-content="departmentDd" data-id="<%=personDeduction ? personDeduction._id : null%>">
+        <span><%=personDeduction.employee.name.first +' '+ personDeduction.employee.name.last%></span>
+    </td>
+    <td data-type="input"><%=personDeduction.deductionName%></td>
+    <td data-type="input"><%=personDeduction.amount/100%></td>
+    <td data-type="input"><%=personDeduction.comment%></td>
+    <td>
+        <a href="javascript:;" class="icon-note goToEdit _actionCircleBtn" aria-hidden="true"></a>
+        <a href="javascript:;" class="icon-trash goToRemove _actionCircleBtn" aria-hidden="true"></a>
+    </td>
+</tr>
+<% }) %>

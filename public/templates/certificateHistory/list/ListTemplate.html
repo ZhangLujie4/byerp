@@ -1,0 +1,13 @@
+<% Collection.forEach(function(item, index){ %>
+<tr data-id="<%=item._id%>">
+    <td class="certificateNumber"><%=item.certificate.certNo ? item.certificate.certNo: ''%></td>
+    <td data-type="input" class="certificateName"><%=item.certificate.name? item.certificate.name: ''%></td>
+    <td data-type="input" class="borrowDate"><%=item.borrowDate%></td>
+    <td data-type="input" class="returnDate"><%=item.returnDate ? item.returnDate : ''%></td>
+    <td data-type="input" class="name"><%=item.borrower.name%></td>
+    <td data-type="input" class="ID"><%=item.borrower.ID%></td>
+    <td data-type="input" class="phone"><%=item.borrower.phone%></td>
+    <td data-type="input" class="borrowDepartment"><%=item.borrowDepartment.name? item.borrowDepartment.name: ''%></td>
+    <td data-type="input" class="expectedDate"><%=item.expectedDate%></td>
+</tr>
+<% }) %>

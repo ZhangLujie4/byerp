@@ -1,0 +1,205 @@
+<div class="form-holder">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <fieldset>
+            <div class="inner">
+                <ul class="dialog-tabs" data-class="mainTabs">
+                </ul>
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items mainTabs">
+                    <div class="dialog-tabs-item mainTabs active">
+                        <div class="half-block left">
+                            <dl class="opp-info">
+                                <dt><label for="assigned">分配</label></dt>
+                                <dd>
+                                    <span id="assigned" data-id="<%= assigned._id%>"><%= assigned.name%></span>
+                                </dd>
+                                <dt><label for="supplier">客户</label></dt>
+                                <dd>
+                                    <span id="supplier" data-id="<%= customer._id%>"><%= customer.name%></span>
+                                </dd>
+                                <dt><label for="project">项目</label></dt>
+                                <dd>
+                                    <span id="project" data-id="<%= project._id%>"><%= project.name%></span>
+                                </dd>
+                                <dt><label for="paymentTerms">付款条件</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="paymentTerms" class="current-selected" href="javascript:;">选择</a>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="half-block left">
+                            <dl class="opp-info">
+                                <dt><label for="invoiceName">发票名称</label></dt>
+                                <dd>
+                                    <input type="text" id="invoiceName" name="invoiceName" placeholder="发票名称"
+                                           maxlength="32" value="<%= name%>"/>
+                                </dd>
+                                <dt><label for="invoiceDate">发票日期</label></dt>
+                                <dd>
+                                    <input class="extrainfo" type="text" name="invoiceDate" id="invoiceDate" value=""
+                                           readonly="" placeholder="发票日期">
+                                </dd>
+                                <dt><label for="dueDate">截止日期</label></dt>
+                                <dd>
+                                    <input class="extrainfo" type="text" name="dueDate" id="dueDate" value=""
+                                           readonly="" placeholder="截止日期">
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="clearfix"></div>
+                        <ul class="dialog-tabs" data-class="childTabs">
+                            <li><a class="active" href="javascript:;">发票</a></li>
+                            <li><a href="javascript:;">付款</a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                        <div class="dialog-tabs-items childTabs">
+                            <div class="dialog-tabs-item childTabs active">
+                                <div>
+                                    <table class="list task-list">
+                                        <thead>
+                                        <tr>
+                                            <th>N</th>
+                                            <th>
+                                                项目
+                                            </th>
+                                            <th>
+                                                员工
+                                            </th>
+                                            <th>
+                                                部门
+                                            </th>
+                                            <th>
+                                                年
+                                            </th>
+                                            <th>
+                                                月
+                                            </th>
+                                            <th>
+                                                周
+                                            </th>
+                                            <th>
+                                                比率
+                                            </th>
+                                            <th>
+                                                小时
+                                            </th>
+                                            <th>
+                                                Mo
+                                            </th>
+                                            <th>
+                                                Tu
+                                            </th>
+                                            <th>
+                                                We
+                                            </th>
+                                            <th>
+                                                Th
+                                            </th>
+                                            <th>
+                                                Fr
+                                            </th>
+                                            <th>
+                                                Sa
+                                            </th>
+                                            <th>
+                                                Su
+                                            </th>
+                                            <th>
+                                                状态
+                                            </th>
+                                            <th>
+                                                收入
+                                            </th>
+                                            <th>
+                                                数量
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="linwoiceGenerateTable"></tbody>
+                                    </table>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div id="totalAmountContainer" class="_totalAmountContainer">
+                                    <table border="0" cellpadding="0" cellspacing="0" class="right calculateTotal">
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <label>
+                                                    不含税金额
+                                                </label>
+                                            </td>
+                                            <td>
+                                                    <span>
+                                                        <span id="totalUntaxes" class="currency">
+                                                            <%if (total) {%>
+                                                            <%= total%>
+                                                            <%} else {%>
+                                                            0.00
+                                                            <%}%>
+                                                        </span>
+                                                    </span>
+                                            </td>
+                                        </tr>
+                                        <tr class="taxes">
+                                            <td>
+                                                <label>税</label>
+                                            </td>
+                                            <td>
+                                                    <span>
+                                                        <span id="taxes" class="currency">
+                                                            0.00
+                                                        </span>
+                                                    </span>
+                                            </td>
+                                        </tr>
+                                        <tr class="totalAmount">
+                                            <td>
+                                                <label class="" data-original-title="" title="">总额</label>
+                                            </td>
+                                            <td>
+                                                    <span class="">
+                                                        <span id="totalAmount" class="currency">
+                                                            <%if (total) {%>
+                                                            <%=total%>
+                                                            <%} else {%>
+                                                            0.00
+                                                            <%}%>
+                                                        </span>
+                                                    </span>
+                                            </td>
+                                        </tr>
+                                        <%if (balanceVisible) {%>
+                                        <tr class="balance">
+                                            <td>
+                                                <label>差额</label>
+                                            </td>
+                                            <td>
+                                                    <span class="">
+                                                        <span id="balance">
+                                                            <%if (model && model.paymentInfo && model.paymentInfo.balance) {%>
+                                                            <%=model.paymentInfo.balance%>
+                                                            <%} else {%>
+                                                            0.00
+                                                            <%}%>
+                                                        </span>
+                                                    </span>
+                                            </td>
+                                        </tr>
+                                        <%}%>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="dialog-tabs-item childTabs">
+                                <div id="payments-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dialog-tabs-item mainTabs">
+                        <div class="assignees-container"></div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,31 @@
+﻿<!-- <div id="searchContainer"></div> -->
+<% if (!oemBarcodeCollection.length) { %>
+<h2 style="font-size: 20px; margin-left: 500px; margin-top: 150px;">暂时没有产品录入,请核对!</h2>
+<% } else { %>
+<div class="_tableAluveneerOrdersWrap" style="min-width: 1150px;">
+    <table class="list stripedList">
+        <colgroup>
+            <col width="22px">
+            <col width="10%">
+            <col width="20%">
+            <col width="10%">
+            <col width="10%"> 
+        </colgroup>
+        <thead>
+        <span>&nbsp;&nbsp;&nbsp;工程名称:  <%=oemBarcodeCollection[0].projectId.name%> &nbsp;&nbsp;&nbsp;退货单号:  <%=oemBarcodeCollection[0].orderNumber%></span>
+        <tr>
+            <th rowspan="2" class="centerCell">
+                <input type="checkbox" id="checkAll"/>
+            </th>
+            <th rowspan="2" class="centerCell">产品名称</th>
+            <th rowspan="2" class="centerCell">产品参数</th>
+            <th rowspan="2" class="centerCell">退货数量</th>
+            <th rowspan="2" class="centerCell">仓库意见</th>            
+            
+        </tr>
+
+        </thead>
+        <tbody id="listTable"></tbody>
+    </table>
+</div>
+<% } %>

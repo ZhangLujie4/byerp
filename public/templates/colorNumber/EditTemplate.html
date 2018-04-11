@@ -1,0 +1,53 @@
+﻿<div class="form-holder task-create-holder" style="margin-bottom: 12px;">
+    <form method="post" action="" id="editColorNumberForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <div class="clearfix"></div>
+            <div class="topInputHolder">
+                <h2>色号管理</h2>
+            </div>
+                   
+            <div class="half-block left withPaddingRightProject">
+                <div class="inner">
+                    <div class="task-info">
+                        <dt>
+                            <label>工程名称</label>
+                        </dt>
+                        <dd>
+                            <a id="projectId"  data-id="<%=model.projectId%>"  href="javascript:;" ><%=model.projectId%></a>
+                        </dd>
+
+                        <dt>
+                            <label for="colorCode">色号代码</label>
+                        </dt>
+                        <dd>
+                            <input type="text" 
+                                   name="colorCode"
+                                   id="colorCode" 
+                                   value="<%= model.colorCode %>" style="border: none;" readonly="readonly"/>
+                        </dd>
+
+                    </div>
+                </div>
+            </div>
+           
+            <div class="half-block left withPaddingRightProject">
+                <div class="inner">
+                    <div class="task-info">
+                        
+                        <dt>
+                            <label for="colorNumber">色号</label>
+                        </dt>
+                        <dd>
+                            <input type="text" 
+                                   name="colorNumber"
+                                   id="colorNumber" 
+                                   value="<%= model.colorNumber %>" />
+                        </dd>
+
+                    </div>
+                </div>
+            </div>
+            
+        </fieldset>
+    </form>
+</div>

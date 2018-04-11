@@ -1,0 +1,20 @@
+<% if(model){%>
+<h3>工程名称：<%=model[0].project.name%></h3>
+<h3>工程项目编号:</h3>
+<%} else {%>
+<h3>工程开票</h3>
+<%}%>
+<div id="createBtnHolder" class="btnsBlock">
+    <a href="#home/action-<%=contentType%>/Create" class="btn blue slim plus" title="Create" id="top-bar-createBtn">新建</a>
+    <div class="grid-conatiner _attendateWrap">
+        <div class="attendanceTop">
+            <div class="pull-left" style="width: 175px">
+            <span >
+                开票类型选择:
+            </span>
+                <div class="editable" data-content="invoiceType" id="invoiceType" data-id="" style="width: auto"><span>--选择--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

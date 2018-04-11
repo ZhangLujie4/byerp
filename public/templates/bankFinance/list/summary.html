@@ -1,0 +1,30 @@
+<tr>
+    <td colspan="8" style="font-size: 20px;text-align: center">小结</td>
+</tr>
+
+<% var number=1 %>
+<% var debit=0 %>
+<% var credit=0 %>
+<% model.forEach(function(model){%>
+<tr>
+    <td><%=number%></td>
+    <%  number=number+1 %>
+    <td><%=model.date%></td>
+    <td><%=model.note%></td>
+    <td><%=model.debit%></td>
+    <% debit=debit+model.debit %>
+    <td><%=model.credit%></td>
+    <% credit=credit+model.credit %>
+    <td><%=model.debit-model.credit%></td>
+    <td colspan="2"></td>
+
+</tr>
+<% })%>
+<tr>
+    <td>合计</td>
+    <td colspan="2"></td>
+    <td><%=debit%></td>
+    <td><%=credit%></td>
+    <td><%=debit-credit%></td>
+    <td colspan="2"></td>
+</tr>

@@ -1,0 +1,680 @@
+<div class="form-holder">
+    <form method="post"
+          action=""
+          id="createEmployeeForm"
+          class="form">
+        <fieldset>
+            <div class="inner">
+                <ul class="dialog-tabs">
+                    <li>
+                        <a href="javascript:;" class="active">主要</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="">个人信息</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="">岗位</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">受托人</a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items">
+                    <div class="dialog-tabs-item active">
+                        <div class="avatar left">
+                            <div class="upload">编辑
+                                <input type="file"
+                                       value="Edit"
+                                       id="inputImg">
+                            </div>
+                            <canvas id="avatar"
+                                    width="140"
+                                    height="140">
+                                <input type="file"
+                                       value="Edit"
+                                       id="File1">
+                            </canvas>
+                        </div>
+                        <div class="avatarInfoContainer employee">
+                            <div class="half-block left">
+                                <dl class="create-employee-info">
+                                    <dt>
+                                        <label for="first">姓*</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="first"
+                                                   required
+                                                   maxlength="32"
+                                                   placeholder="姓"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="last">名*</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="last"
+                                                   required
+                                                   maxlength="32"
+                                                   placeholder="名"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="last">首字母*</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="alpha"
+                                                   required
+                                                   maxlength="32"
+                                                   placeholder="首字母"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <!-- <dt>
+                                        <label for="dateBirth">出生日期</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   name="dateBirth"
+                                                   id="dateBirth"
+                                                   readonly
+                                                   placeholder="Date of Birthday"/>
+                                            <label></label>
+                                        </div>
+                                    </dd> -->
+                                    <dt>
+                                        <label for="mobile">手机号码*</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="mobile"
+                                                   maxlength="20"
+                                                   placeholder="手机号码"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="phone">家庭电话</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="phone"
+                                                   class="blueback"
+                                                   maxlength="20"
+                                                   placeholder="家庭电话"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="personalEmail">个人邮箱*</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="personalEmail"
+                                                   maxlength="48"
+                                                   placeholder="邮箱 例:e.g.email@site.com"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="skype">QQ</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="skype"
+                                                   maxlength="64"
+                                                   placeholder="QQ"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="LI">微信</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="LI"
+                                                   placeholder="微信"
+                                                   maxlength="256"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="FB">虚拟号</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="FB"
+                                                   placeholder="虚拟号"
+                                                   maxlength="256"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="relatedUsersDd">相关用户</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="relatedUsersDd"
+                                           class="current-selected"
+                                           href="javascript:;">
+                                        </a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="half-block left">
+                                <dl class="create-employee-info">
+                                    <dt>
+                                        <label for="sourceDd">来源 </label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="sourceDd"
+                                           data-id="www.rabota.ua"
+                                           class="current-selected"
+                                           href="javascript:;">www.rabota.ua
+                                        </a>
+                                    <dt>
+                                        <label for="workEmail">工作邮箱</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="workEmail"
+                                                   class="blueback"
+                                                   maxlength="48"
+                                                   placeholder="工作邮箱"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="workid">工号</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="workId"
+                                                   maxlength="20"
+                                                   placeholder="工号"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="status">是否在职*</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="status"
+                                                   maxlength="20"
+                                                   placeholder="是否在职"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label>用户名</label>
+                                    </dt>
+                                    <dd>
+                                        <span id="userName" style="color: #757575; vertical-align: sub;"></span>
+                                    </dd>
+                                    <dt>
+                                      <label>合同开始时间</label>
+                                    </dt>
+                                    <dd class="_inputIconWrap">
+                                      <input type="text"
+                                             id="contractStart"
+                                             required
+                                             maxlength="32"/>
+                                    </dd>
+                                    <dt>
+                                      <label>合同结束时间</label>
+                                    </dt>
+                                    <dd class="_inputIconWrap">
+                                      <input type="text"
+                                             id="contractEnd"
+                                             required
+                                             maxlength="32"/>
+                                    </dd>
+                                    <dt>
+                                      <label>部门内序号</label>
+                                    </dt>
+                                    <dd class="_inputIconWrap">
+                                      <input type="text"
+                                             id="deptRank"
+                                             placeholder="部门内序号" 
+                                             required
+                                             maxlength="32"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="workCentre">工序</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="workCentre"
+                                           class="current-selected"
+                                           placeholder="工序"
+                                           href="javascript:;">选择
+                                        </a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="dialog-tabs-item">
+                        <div class="formTitle">
+                            <h3 class="left">
+                                <legend>员工身份 &amp; 其他信息</legend>
+                            </h3>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="half-block left withPaddingLeft">
+                            <dl class="edit-employee-info">
+                                <!-- <dt>
+                                    <label for="nationality">国籍</label>
+                                </dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="nationality"
+                                       data-id=""
+                                       class="current-selected"
+                                       href="javascript:;">Select
+                                    </a>
+                                </dd> -->
+                                <dt>
+                                    <label for="nation">民族</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           name="nation"
+                                           placeholder="名族"
+                                           id="nation"
+                                           class="nation"
+                                           maxlength="60"/>
+                                </dd>
+                                <dt>
+                                    <label for="accountLocation">户口所在地</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           name="accountLocation"
+                                           placeholder="户口所在地"
+                                           id="accountLocation"
+                                           class="accountLocation"
+                                           maxlength="60"/>
+                                </dd>
+                                <dt>
+                                    <label for="identNo">身份证 №*</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           name="identNo"
+                                           id="identNo"
+                                           class="blueback"
+                                           maxlength="32"
+                                           placeholder="身份证 №"/>
+                                </dd>                         
+                                <dt>
+                                    <label for="dateBirth">出生日期</label>
+                                </dt>
+                                <dd>
+                                    <div class="_inputIconWrap">
+                                    <input type="text"
+                                            name="dateBirth"
+                                            id="dateBirth"
+                                            readonly
+                                            />
+                                            <label></label>
+                                    </div>
+                                </dd> 
+                                <dt>
+                                    <label for="genderDd">性别</label>
+                                </dt>
+                                <dd >
+                                    <a id="genderDd"></a>
+                                </dd> 
+                                
+                            </dl>
+                        </div>
+                        <div class="half-block left withPaddingLeft">
+                            <dl class="edit-employee-info">
+                                <dt>
+                                    <label for="education">学历*</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           name="education"
+                                           id="education"
+                                           class="blueback"
+                                           maxlength="32"
+                                           placeholder="学历"/>
+                                </dd>
+                                <dt>
+                                    <label for="bankAccountNo">银行卡号 №</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           name="bankAccountNo"
+                                           id="bankAccountNo"
+                                           class="blueback"
+                                           maxlength="32"
+                                           placeholder="银行卡号 №"/>
+                                </dd>
+                                <dt>
+                                    <label for="bankName">开户行</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           name="bankName"
+                                           id="bankName"
+                                           class="blueback"
+                                           maxlength="32"
+                                           placeholder="开户行"/>
+                                </dd>
+                                <dt>
+                                    <label for="passportNo">护照 №</label></dt>
+                                <dd>
+                                    <input type="text"
+                                           name="passportNo"
+                                           id="passportNo"
+                                           class="blueback"
+                                           maxlength="32"
+                                           placeholder="护照 №"/>
+                                </dd>
+                                <dt>
+                                    <label for="otherId">其他证件 </label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           name="otherId"
+                                           id="otherId"
+                                           class="blueback"
+                                           maxlength="32"
+                                           placeholder="其他证件 Id"/>
+                                </dd>
+                            </dl>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="formTitle">
+                            <h3 class="left">
+                                <legend>联系方式</legend>
+                            </h3>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="half-block left withPaddingLeft">
+                            <dl class="edit-employee-info">
+                               <!--  <dt>
+                                   <label for="employeeCreateStreet">街道</label>
+                               </dt>
+                               <dd>
+                                   <input type="text"
+                                          name="street"
+                                          placeholder="Street"
+                                          id="employeeCreateStreet"
+                                          class="blueback homeAddress"
+                                          maxlength="60"/>
+                               </dd>
+                               <dt>
+                                   <label for="employeeCreateCity">城市</label>
+                               </dt>
+                               <dd>
+                                   <input type="text"
+                                          class="blueback homeAddress"
+                                          name="city"
+                                          placeholder="City"
+                                          id="employeeCreateCity"
+                                          maxlength="60"/>
+                               </dd>
+                               <dt>
+                                   <label for="employeeCreateState">州</label>
+                               </dt>
+                               <dd>
+                                   <input type="text"
+                                          class="blueback homeAddress"
+                                          name="state"
+                                          placeholder="State"
+                                          id="employeeCreateState"
+                                          maxlength="32"/>
+                               </dd> -->
+                               <dt>
+                                   <label for="birthPlace">出生地</label>
+                               </dt>
+                               <dd>
+                                   <input type="text"
+                                          class="blueback birthPlace"
+                                          name="birthPlace"
+                                          placeholder="出生地"
+                                          id="birthPlace"
+                                          maxlength="60"/>
+                               </dd>
+                               <dt>
+                                    <label for="address">家庭地址</label>
+                               </dt>
+                               <dd>
+                                    <div id="address"> 
+                                      <select style="width:30%" id="province">
+                                      </select>
+                                      <select style="width:34%" id="city"></select>
+                                      <select style="width:32%" id="district"></select>
+                                      <input id="detailed"/>
+                                    </div> 
+                              </dd>
+                            </dl>
+                        </div>
+                        <div class="half-block left withPaddingLeft">
+                            <dl class="edit-employee-info">
+                                <dt>
+                                    <label for="zip">邮编</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           name="zip"
+                                           placeholder="邮编"
+                                           class="blueback"
+                                           id="zip"
+                                           maxlength="32"/>
+                                </dd>
+                                <!-- <dt>
+                                    <label for="employeeCreateCountry">国家</label>
+                                </dt>
+                                <dd>
+                                    <a name="country"
+                                       class="blueback homeAddress current-selected"
+                                       id="employeeCreateCountry">选择</a>
+                                </dd> -->
+                            </dl>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="formTitle">
+                            <h3 class="left">
+                                <legend>状态</legend>
+                            </h3>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="half-block left withPaddingLeft">
+                            <dl class="edit-employee-info">
+                            </dl>
+                        </div>
+                        <div class="half-block left withPaddingLeft" style="margin-right:42px;">
+                            <dl class="edit-employee-info">
+                                  <dt>
+                                    <label for="employmentTypeDd">员工类型*</label>
+                                </dt
+*                                <dd class="_newSelectListWrap">
+                                    <a id="employmentTypeDd"
+                                       data-id=""
+                                       class="current-selected"
+                                       href="javascript:;">选择
+                                    </a>
+                                </dd>
+                                <dt>
+                                    <label for="maritalDd">婚姻状况</label>
+                                </dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="maritalDd"
+                                       data-id="married"
+                                       class="current-selected"
+                                       href="javascript:;">已婚
+                                    </a>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="half-block left withPaddingLeft">
+                            <dl class="edit-employee-info"> 
+                                <dt>
+                                    <label for="accommodation">住宿补贴</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           name="住宿补贴"
+                                           placeholder="住宿补贴"
+                                           id="accommodation"
+                                           maxlength="32"/>
+                                </dd>
+                                <dt>
+                                    <label for="dinning">餐费补贴</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           name="餐费补贴"
+                                           placeholder="餐费补贴"
+                                           id="dinning"
+                                           maxlength="32"/>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="formTitle">
+                            <h3 class="left">备注</h3>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="formTitle">
+                            <h3 class="left">
+                                <legend>注释</legend>
+                            </h3>
+                            <div class="area_holder">
+                                 <textarea id="internalNotes"
+                                           placeholder="Internal notes..."
+                                           maxlength="500"
+                                           class="internal_Notes opp-internal-create">
+                                 </textarea>
+                                <a href="javascript:;" class="attach_file">
+                                    <span class="icon-attach"></span>
+                                </a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="attach-container"></div>
+                        <div class="cropImages form" style="display:none;">
+                            <div class="formTitle">
+                                <h3 class="left">图像裁剪</h3>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="image_input" style="float: left;margin-right: 20px;"></div>
+                            <img class="image_output"/>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="dialog-tabs-item" id="job">
+                        <div class="clearfix"></div>
+                        <table class="list" id="hireFireTable">
+                            <thead>
+                            <tr>
+                                <th>X</th>
+                                <th>状态</th>
+                                <th>日期</th>
+                                <th>岗位*</th>
+                                <th>部门*</th>
+                                <th>经理</th>
+                                <th>职务</th>
+                                <th>工作安排</th>
+                                <th>合同</th>
+                                <th>日常工资</th>
+                                <th>工资</th>
+                                <th>状态信息</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr class="transfer" data-id="0" data-content="hired">
+                                <td class="remove"></td>
+                                <td>hired</td>
+                                <td class="editable date"><%= moment(new Date()).format('YYYY-MM-DD') %>
+                                </td>
+                                <td class="errorContent _newSelectListWrap">
+                                    <a id="jobPositionDd" class="current-selected"
+                                       data-id=""
+                                       href="javascript:;">选择
+                                    </a>
+                                </td>
+                                <td class="errorContent _newSelectListWrap">
+                                    <a id="departmentsDd" class="current-selected"
+                                       data-id=""
+                                       href="javascript:;">选择
+                                    </a>
+                                </td>
+                                <td class="_newSelectListWrap">
+                                    <a id="projectManagerDD" class="current-selected"
+                                       data-id=""
+                                       href="javascript:;">选择
+                                    </a>
+                                </td>
+                                <td class="errorContent _newSelectListWrap">
+                                    <a id="jobTypeDd" class="current-selected"
+                                       data-id=""
+                                       href="javascript:;">选择
+                                    </a>
+                                </td>
+                                <td class="_newSelectListWrap">
+                                    <a id="weeklySchedulerDd" class="current-selected"
+                                       data-id=""
+                                       href="javascript:;">选择
+                                    </a>
+                                </td>
+                                <td class="_newSelectListWrap">
+                                    <a id="payrollStructureTypeDd" class="current-selected"
+                                       data-id=""
+                                       href="javascript:;">选择
+                                    </a>
+                                </td>
+                                <td class="_newSelectListWrap">
+                                    <a id="scheduledPayDd" class="current-selected"
+                                       data-id=""
+                                       href="javascript:;">选择
+                                    </a>
+                                </td>
+                                 <td class="editable" data-id="salary"></td> 
+                                <td>
+                                    <input id="statusInfoDd"
+                                           class="statusInfo"
+                                           data-id=""/>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="dialog-tabs-item">
+                        <div class="assignees-container"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </fieldset>
+    </form>
+</div>

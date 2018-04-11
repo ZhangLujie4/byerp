@@ -1,0 +1,12 @@
+<% jobForeman.forEach(function(item, index){ %>
+<tr data-id="<%=item._id%>">
+	<td class="centerCell"><input type="checkbox" value="<%=item._id%>" data-id="<%=item._id%>" class="checkbox"/></td>
+	<td><%=item.name%></td>
+	<td><%=item.ID%></td>
+	<td><%=item.address? (item.address.province+item.address.city+item.address.district+item.address.zip) : ''%></td>
+	<td><%=item.phone%></td>
+	<td><%=item.enterTime%></td>
+	<td><%=item.estimate%></td>
+	<td><%=item.remark%></td>
+</tr>
+<% }) %>

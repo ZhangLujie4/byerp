@@ -1,0 +1,18 @@
+<% chargeItem.forEach(function(chargeItems){ %>
+<tr class="chargeItem">
+ 
+    <td data-name="chargeItems" class="jobs trash " style="height: 28px;">
+        <input type="text" style="border: 0; text-align:center;" id="chargeItems" value="<%=chargeItems.chargeItem%>" readonly="readonly"/>
+    </td>
+    <td data-name="chargeUnits" class="jobs trash " style="height: 28px;">
+        <input type="text" style="border: 0; text-align:center;" id="chargeUnits" value="<%=chargeItems.unit%>" readonly="readonly"/>
+    </td>
+    <td data-name="chargeQuantities" class="jobs trash " style="text-align: center; height: 28px;">
+        <input type="text" style="width: 60px; text-align:center;" id="chargeQuantities" value="<%=chargeItems.quantity%>"/>
+    </td>
+    <td data-name="chargePrices" class="jobs trash " style="height: 28px; display: none;">
+        <input type="text" style="border: 0; text-align:center;" id="chargePrices" value="<%=chargeItems.price%>"/>
+    </td>
+
+</tr>
+<% }); %>

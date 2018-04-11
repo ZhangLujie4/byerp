@@ -1,0 +1,97 @@
+﻿﻿<div class="form-holder task-create-holder">
+    <form method="post" action="" id="editTaskForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">主要内容</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                    <div >
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt>
+                                    <label for="name">开户银行：</label>
+                                </dt>
+                                <dd>
+                                    <div>
+                                        <input
+                                                type="text"
+                                                name="name"
+                                                id="name"
+                                                style="width: 150px"
+                                                value="<%=model.name%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="account">开户行账号：</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="account"
+                                                id="account"
+                                                style="width: 150px"
+                                                value="<%=model.account%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="address">开户行地址：</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="address"
+                                                id="address"
+                                                style="width: 150px"
+                                                value="<%=model.address%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="telephone">开户行电话：</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="telephone"
+                                                id="telephone"
+                                                style="width: 150px"
+                                                value="<%=model.telephone%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="linkman">开户行联系人：</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="linkman"
+                                                id="linkman"
+                                                style="width: 150px"
+                                                value="<%=model.linkman%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label>会计科目编号</label>
+                                </dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="bankAccount" class="current-selected" href="javascript:;"><%=model.bankAccount ? model.bankAccount.name:'选择'%></a>
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </fieldset>
+    </form>
+</div>

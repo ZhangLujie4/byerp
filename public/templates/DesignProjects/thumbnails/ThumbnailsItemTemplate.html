@@ -1,0 +1,54 @@
+
+<% if (!collection.length) { %>
+<h2>当前没有工程</h2>
+<% } %>
+<% collection.forEach(function(project){ %>
+<div class="thumbnail thumbnailElement" id="<%=project._id%>">
+    <div class="inner">
+        <div >
+            <%if(project.designContractType._id=="WBSJHT"|| project.designContractType._id=="XMBSJHT"){ %>
+            <span class="bold blockLeft" data-content="project"><label>项目名称 :</label><%=project.BookProjectName.name%></span>
+            <%}else{%>
+            <span class="bold blockLeft" data-content="project"><label>项目名称 :</label><%=project.projectName.name%></span>
+            <%}%>
+            <div class="clearfix">
+            </div>
+        </div>
+        <div>
+
+            <span class="bold blockLeft" data-content="project"><label> 合同类别：</label><%=(project.designContractType)?(project.designContractType.name):''%></span>
+
+        </div>
+        <div class="clearfix">
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="_thumbnailDescripiton">
+
+            <div class="inner">
+                <%if(project.designContractType._id=="WBSJHT"|| project.designContractType._id=="XMBSJHT"){ %>
+                <div>
+                    <span class="bold blockLeft" data-content="project"><label> 委托方：</label><%=(project.BookCustomer)? project.BookCustomer.name.first + ' ' + project.BookCustomer.name.last: ' '%></span>
+                </div>
+                <div>
+                    <span class="bold blockLeft" data-content="project"><label> 设计负责人：</label><%=(project.BookDesignLeader)? project.BookDesignLeader.name.first + ' ' + project.BookDesignLeader.name.last: ' '%></span>
+                </div>
+                <div>
+                    <span class="bold blockLeft" data-content="project"><label> 设计部门：</label><%=(project.BookDesignDepartment)? project.BookDesignDepartment.name: ' '%></span>
+                </div>
+                <%} else {%>
+                <div>
+                    <span class="bold blockLeft" data-content="project"><label> 设计委托单位：</label><%=(project.customer)?(project.customer.name.first+' '+project.customer.name.last):'Select'%></span>
+                </div>
+                <div>
+                    <span class="bold blockLeft" data-content="project"><label> 设计部门：</label><%=(project.designDepartment)? project.designDepartment.name: ' '%></span>
+                </div>
+                <%}%>
+
+            </div>
+            <div class="inner"><span><label> 合同签订日期：</label><%=project.signedDate%></span></div>
+
+        </div>
+    </div>
+</div>
+<% }) %>

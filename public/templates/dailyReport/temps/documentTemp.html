@@ -1,0 +1,54 @@
+<div class="_invoiceTemplate">
+
+    <div class="ribbon">
+        <div class="ribbon-inner <%=(model.status == 'new') ? 'ribbon-green' : 'ribbon-grey'%>">
+            <%=(model.status == 'new') ? '未批阅' : '已批阅'%>
+        </div>
+    </div>
+    <div class="extractPdf">
+        <div class="_templateHeader">
+            <div class="_headerLeftPart">
+                <div class="_entityBlock">
+                    <div class="_entityTitle">日报</div>
+                </div>
+            </div>
+        </div>
+        <div class="_templateDateBlock">
+            <div class="_rightPart">
+                <table class="_templateDateTable tableFixed">
+                    <tbody>
+                    <tr>
+                        <td class="_dateLeftPart">
+                            <div class="_billingBlock">
+                                <div class="_billingTitle"><%=model.dateStr%></div>
+                                <div class="_billingCustomerName">
+                                    <%=model.employee.name.first%> <%=model.employee.name.last%>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="reportcontent">
+            <%=model.content?model.content:''%>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <hr class="hrstyle">
+    <div class="_templatePaymentInfo">
+        <table class="templateBottomTable tableFixed">
+            <tbody>
+            <tr>
+                <td><p>评语</p></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="reportreview">
+        <%=model.review?model.review:''%>
+    </div>
+
+</div>

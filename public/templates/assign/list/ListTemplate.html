@@ -1,0 +1,11 @@
+<% assignCollection.forEach(function(assign, index){ %>
+<tr data-index="<%=index%>" data-id="<%= assign._id%>" >
+    <td class="centerCell"><input type="checkbox" value="<%=assign._id%>" class="checkbox"/></td>
+    <td><%=assign.projectName%></td>
+    <td><%=assign.orderNumber%></td>
+    <td><%=(assign.designer) ? assign.designer.first + ' ' + assign.designer.last : ''%></td>
+    <td><%=assign.designDays%></td>
+    <td><%=assign.uploadDate%></td>
+    <td><font color="red"><%=assign.orderStatus%></td>
+</tr>
+<% }) %>

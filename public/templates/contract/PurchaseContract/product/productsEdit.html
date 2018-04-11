@@ -1,0 +1,15 @@
+<% products.forEach(function(products){ %>
+<tr class="productItem">
+    <td data-name="productname" class="jobs trash ">
+        <input type="text" id="productname" style="width: 150px" value="<%=products.productName%>"/>
+    </td>
+    <td data-name="quantity" class="jobs trash ">
+        <input type="text"  id="quantity" value="<%=products.quantity%>"/>
+    </td>
+</tr>
+<% }); %>
+<tr>
+    <td colspan="3" class="addProductItem">
+        <a href="javascript:;">添加</a>
+    </td>
+</tr>

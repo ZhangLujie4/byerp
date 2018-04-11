@@ -1,0 +1,10 @@
+<% StampCollection.forEach(function(stamp, index){ %>
+<tr data-index="<%= index %>" data-id="<%= stamp._id%>">
+    <td class="centerCell"><input type="checkbox" value="<%=stamp._id%>" class="checkbox"/></td>
+    <td><%=stamp.name%></td>
+    <td><%=stamp.stampsCode%></td>
+    <td><%=stamp.type%></td>
+    <td><%=stamp.approvalProcess%></td>
+    <td><%=stamp.comment%></td>
+</tr>
+<% }) %>

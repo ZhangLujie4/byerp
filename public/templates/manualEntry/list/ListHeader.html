@@ -1,0 +1,50 @@
+﻿<div id="searchContainer"></div>
+<div class="_tableManualentryWrap">
+    <table class="list stripedList _rowColorGrouping">
+        <colgroup>
+            <col width="42px">
+            <col width="10%">
+            <col width="18%">
+            <col width="18%">
+            <col width="12%">
+            <col width="18%">
+            <col width="12%">
+            <col width="12%">
+        </colgroup>
+        <thead>
+        <tr>
+
+            <th class="centerCell">
+                <label class="_customCHeckbox">
+                    <input type="checkbox" id="checkAll"/>
+                    <span></span>
+                </label>
+            </th>
+            <th class="oe_sortable" data-sort="timestamp">编号<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="journal.name">凭证摘要<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="date">日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="sourceDocument.name">源文件<span
+                    class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="account.name">科目<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="debit">借方金额<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="credit">贷方金额<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+        </tr>
+        </thead>
+        <tbody id="listTable" class="enableTableOdd"></tbody>
+        <tfoot id="listFooter">
+        <tr>
+            <td colspan="6">总计</td>
+            <td id="totalDebit" class="money"></td>
+            <td id="totalCredit" class="money"></td>
+        </tr>
+        </tfoot>
+
+    </table>
+</div>

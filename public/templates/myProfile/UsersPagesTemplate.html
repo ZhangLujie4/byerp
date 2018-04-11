@@ -1,0 +1,95 @@
+<div class="form-holder">
+    <div class="formLeftColumn">
+        <form method="post" action="" id="createUserForm" class="form">
+            <div class="formTitle withMargin">
+                <h3 class="left">详细</h3>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="avatar right" style="margin-right:20px">
+                <div class="upload">
+                    编辑
+                    <input type="file" value="Edit" id="inputImg" accept="image/*">
+                </div>
+                <canvas id="avatar" width="140" height="140"></canvas>
+            </div>
+            <div class="half-block left">
+                <dl class="person-info">
+                    <dt><label for="login">用户名</label></dt>
+                    <dd><input type="text" name="login" id="login" value="<%=(model) ? model.login : ''%>" required
+                               maxlength="24"/></dd>
+                    <dt><label for="changePassword">口令</label></dt>
+                    <dd>
+                        <button class="changePassword"><span>修改口令</span></button>
+                    <dt><label for="timezone">时区</label></dt>
+                    <dd><span><%=timezone%></span></dd>
+                    <dt><label for="language">语言</label></dt>
+                    <dd class="_newSelectListWrap _newSelectListWrap">
+                        <a id="language" data-id="English" class="current-selected" href="javascript:;">English</a>
+                        <ul class="newSelectList hidden">
+                            <li id="English">English</li>
+                        </ul>
+                    </dd>
+                    <dt><label for="email">邮箱 </label></dt>
+                    <dd><input type="text" name="email" id="email" value="<%=(model) ? model.email : ''%>" required
+                               maxlength="48"/></dd>
+                    <dt><label for="profilesName">配置</label></dt>
+                    <dd><span><%=(model) ? model.profile.profileName : ''%></span></dd>
+                    <dt><label for="status">状态</label></dt>
+                    <dd><span><%=(model && model.profile.profileName == "baned") ? "baned" : 'active'%></span></dd>
+                    <dt><label for="link"> <%if (model && model.login && model.login === 'saasAdmin'){%>
+                        <a href="http://saasAdmin.live.easyerp.com/#easyErp/Clients/list">客户列表</a>
+                        <%}%></label></dt>
+                </dl>
+            </div>
+            <div class="clearfix"></div>
+            <div class="buttons" style="width: 100%;">
+                <button id="saveBtn" class="btn"><span>保存</span></button>
+                <button id="saveBtn" class="btn"><span>重置</span></button>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="formRightColumn">
+        <div class="form">
+            <div class="formTitle">
+                <h3 class="left">关联员工</h3>
+
+                <div class="clearfix"></div>
+            </div>
+
+            <div id="relatedEmployee">
+                <ul class="compactList">
+                    <% _.each(relatedEmployee, function(reletedEmployees){ %>
+                    <li class='inner'><span title="Related Employee checked defaults"><input type="radio"
+                                                                                             class="inptReletedEmployees"
+                                                                                             name="reletedEmployees"
+                                                                                             data-id="<%=reletedEmployees._id%>"
+                                                                                             id="<%=reletedEmployees._id%>"
+                                                                                             value="<%=reletedEmployees._id%>"/></span><a
+                            class='reletedEmployees' id="<%=reletedEmployees._id %>" data-id="<%=reletedEmployees._id%>"
+                            href='javascript:;'> <%=reletedEmployees.name.first%>
+                        &nbsp;<%=reletedEmployees.name.last%></a></li>
+                    <% }); %>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cropImages form" style="display:none;">
+        <div class="formTitle">
+            <h3 class="left">裁剪图像</h3>
+
+            <div class="clearfix"></div>
+        </div>
+        <br/>
+
+        <div class="image_input" style="float: left;margin-right: 20px;"></div>
+        <img class="image_output"/>
+
+        <div class="clearfix"></div>
+    </div>
+
+</div>

@@ -1,0 +1,121 @@
+<%var shipping = model.sourceDocument ?  model.sourceDocument.shippingExpenses : model.shippingExpenses;%>
+<div class="_invoiceTemplate" style="max-width: 1320px;">
+    <div class="ribbon">
+        <div class="ribbon-inner <%=(model.workflow) ? model.workflow.status === 'Done' ? 'ribbon-green' : model.workflow.status === 'New' ? 'ribbon-blue' : 'ribbon-grey' : 'ribbon-grey'%>">
+            <%=(model.workflow) ? model.workflow.name : ''%>
+        </div>
+    </div>
+    <div class="extractPdf">
+        <div class="_templateHeader">
+            <div style="clear: left;height: 30px;width: 200px; font-size: 150%;"><b> <%='采购订单: '+model.name || ''%></b></div>
+            <div style="float: left;height: 30px;width: 300px;"><%='工程：'+ model.project.name || ''%></div>
+            <div style="float: left;height: 30px;width: 200px;"><%='供应商：'+ ((model.supplier && model.supplier.name)?model.supplier.name.first + ' ' + model.supplier.name.last:"")%></div>
+            <div style="float: left;height: 30px;width: 200px;"><%='预计日期：'+ model.expectedDate || ''%></div>
+            <div style="float: left;height: 30px;width: 200px;"><%='订单日期：'+ model.orderDate || ''%></div>
+        </div>
+        <div class="_templateDateBlock" hidden>
+            <div class="_rightPart">
+                <table class="_templateDateTable tableFixed">
+                    <colgroup>
+                        <col width="60%">
+                        <col width="40%">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td class="_dateLeftPart">
+                            <div class="_billingBlock">
+                                <div class="_billingTitle">供应商：</div>
+                                <div class="_billingCustomerName"><%=(model.supplier &&
+                                    model.supplier.name)?model.supplier.name.first + ' ' + model.supplier.name.last:""%>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="_dateRightPart">
+                            <table class="tableFixed">
+                                <colgroup>
+                                    <col width="100%">
+                                    <col width="100px">
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <td>预计日期 :</td>
+                                    <td><%=model.expectedDate%></td>
+                                </tr>
+                                <% if (model.orderDate) {%>
+                                <tr>
+                                    <td>订单日期 :</td>
+                                    <td><%=model.orderDate%></td>
+                                </tr>
+                                <% } %>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <table class="_templateTable tableFixed">
+            <colgroup>
+                <col width="50px">
+                <col width="17%">
+                <col width="17%">
+                <col width="16%">
+                <col width="16%">
+                <col width="17%">
+                <col width="17%">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th style="text-align: center">产品</th>
+                <th style="text-align: center">说明</th>
+                <th style="text-align: center">数量</th>
+                <th style="text-align: center">单价</th>
+                <th style="text-align: center">计价数量</th>
+                <th style="text-align: center">小计</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% model.products.forEach(function(product, index){ %>
+                <tr>
+                    <td><%=index + 1%></td>
+                    <td style="text-align: center"><%=product.product ? product.product.name : '' %></td>
+                    <td style="text-align: center"><%=product && product.description ? product.description : '' %>
+                    </td>
+                    <td style="text-align: center"><%=product.quantity || ''%></td>
+                    <td style="text-align: center"><%=product.unitPrice ? currencySplitter(product.unitPrice.toString()): ''%></td>
+                    <td style="text-align: center"><%=product.priceQty ? product.priceQty : ''%></td>
+                    <td style="text-align: center"><%=product.subTotal ? currencySplitter(product.subTotal.toString()): ''%></td>
+                </tr>
+            <% }); %>
+                <tr class="_totalRow">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: center"><b>总价格</b></td>
+                    <td style="text-align: center"><b><%=(model.paymentInfo) ? currencySplitter(model.paymentInfo.total) : ''%></b>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="_templateTableFooter tableFixed">
+            <colgroup>
+                <col width="50%">
+                <col width="100px">
+            </colgroup>
+            <tbody>
+            <% if (model.prepayment && model.prepayment.sum) {%>
+            <tr>
+                <td>预付款</td>
+                <td><%=currencySplitter((model.prepayment.sum/100).toFixed(2))%>
+                </td>
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
+
+</div>

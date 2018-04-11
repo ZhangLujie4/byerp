@@ -1,0 +1,193 @@
+<div class="form-holder task-create-holder">
+    <form method="post" action="" id="createWorkOrderForm" class="form notDialog">
+        <fieldset>
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">主要内容</a></li>
+                <li><a href="javascript:;">收费项目</a></li>
+                <li><a href="javascript:;">加工内容</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                   
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt>
+                                    <label>工程名称</label>
+                                </dt>
+                                <div class="_modalList">
+                                    <div class="_modalSelect _newSelectListWrap">
+                                        <a id="opportunitieDd"
+
+                                           class="current-selected"
+                                           href="javascript:;">选择
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <dt>
+                                    <label for="workNumber">制造令号</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           maxlength="30"
+                                           name="workNumber"
+                                           id="workNumber"
+                                           placeholder="制造令号"/>
+                                </dd>
+                                <dt>
+                                    <label for="processGroup">加工组别</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           maxlength="30"
+                                           name="processGroup"
+                                           id="processGroup"
+                                           placeholder="加工组别"/>
+                                </dd>
+
+
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt>
+                                    <label for="operatorNumber">操作人数</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           maxlength="30"
+                                           name="operatorNumber"
+                                           id="operatorNumber"
+                                           placeholder="操作人数"/>
+                                </dd>
+                                <dt>
+                                    <label for="fillDate">填单日期</label>
+                                </dt>
+                                <dd>
+                                    <input type="text" id="fillDate" value="<%= (new Date()).toLocaleDateString()%>" readonly="readonly" />
+                                </dd>
+                                <dt>
+                                    <label for="operator">操作者</label>
+                                </dt>
+                                <dd>
+                                    <input type="text"
+                                           maxlength="30"
+                                           name="operator"
+                                           id="operator"
+                                           placeholder="操作者"/>
+                                </dd>
+                                
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dialog-tabs-item">
+                    <div class="inner">
+                        <table class="list task-list">
+                            <colgroup>
+                                <col width="30%">
+                                <col width="30%">
+                                <col width="30%">
+
+                            </colgroup>
+                            <thead>
+
+                            <tr>
+                                <th id="chargeItems" class="centerCell">
+                                    收费项目
+                                </th>
+                                <th id="units"  class="centerCell">
+                                    单位
+                                </th>
+                                <th id="quatities"  class="centerCell">
+                                    数量
+                                </th>
+                                
+                            </tr>
+
+
+                            <td>
+                                <div id = "chargeItemDd1"></div>
+                            </td>
+                            <td>
+                                <div id = "chargeItemDd2"></div>
+                            </td>
+                            <td>
+                                <div id = "chargeItemDd3"></div>
+                            </td>
+                            <td  style="display:none">
+                                <div id = "chargeItemDd4"></div>
+                            </td>
+
+
+                            </thead>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+                <div class="dialog-tabs-item">
+                    <div class="inner">
+                        <table class="list task-list">
+                            <colgroup>
+                                <col width="25%">
+                                <col width="25%">
+                                <col width="25%">
+                                <col width="25%">
+
+                            </colgroup>
+                            <thead>
+
+                            <tr>
+                                <th id="processTypes" class="centerCell">
+                                    类型
+                                </th>
+                                <th id="processContents" class="centerCell">
+                                    加工内容
+                                </th>
+                                <th id="units"  class="centerCell">
+                                    单位
+                                </th>
+                                <th id="quatities"  class="centerCell">
+                                    数量
+                                </th>
+                                
+                            </tr>
+
+                            <td>
+                                <div id = "processContentDd1"></div>
+                            </td>
+                            <td>
+                                <div id = "processContentDd2"></div>
+                            </td>
+                            <td>
+                                <div id = "processContentDd3"></div>
+                            </td>
+                            <td>
+                                <div id = "processContentDd4"></div>
+                            </td>
+                            <td  style="display:none">
+                                <div id = "processContentDd5"></div>
+                            </td>
+
+                            </thead>
+
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="clearfix"></div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,10 @@
+<% collection.forEach(function(model, index){ %>
+<tr data-type = 'departList' data-id="<%=model._id%>">
+    <td class="centerCell"><input id="<%=model._id%>" type="checkbox" value="<%=model._id%>" class="checkbox"/></td>
+    <td class="datekey"><%=model.scantime%></td>
+    <td class="editable" data-id="<%=model._id%>" data-content="department"><%=model.departmentName%></td>
+    <td class="editable" data-content="paymentType"><%=model.totalPrice%></td>
+
+
+</tr>
+<% }) %>

@@ -1,0 +1,24 @@
+<table id="listTable">
+    <% collection.forEach(function(item, index){ %>
+
+    <tr class="compactView" data-id="<%=item._id%>">
+        <td class="checkboxRow">
+            <label class="_customCHeckbox">
+                <input type="checkbox" value="<%=item._id%>" class="checkbox" />
+                <span></span>
+            </label>
+        </td>
+        <td>
+            <div class="compactRowWrap">
+                <div class="compactRow">
+                    <div><%=item.name%></div>
+                </div>
+                <div class="compactRow">
+                    <div class="date"><%= common.utcDateToLocaleDate(item.date) || '' %></div>
+                </div>
+        <td></td>
+            </div>
+        </td>
+    </tr>
+    <% }) %>
+</table>

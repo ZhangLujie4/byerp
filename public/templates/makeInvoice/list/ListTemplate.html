@@ -1,0 +1,10 @@
+<% var number=1%>
+<% tasksCollection.forEach(function(task, index){%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC" >
+    <td style="text-align: center"><%=number%></td>
+    <% number=number+1%>
+    <td><%=task.root[0].projects.name%></td>
+    <td></td>
+</tr>
+<% }) %>
+

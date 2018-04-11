@@ -1,0 +1,55 @@
+<div class="_invoiceTemplate">
+    <div class="extractPdf">
+        <div class="_entityTitle" style="text-align: end">发货单集合记录</div>
+        <table class="_templateTable tableFixed">
+            <colgroup>
+                <col width="55px">
+                <col width="17%">
+                <col width="17%">
+                <col width="17%">
+                <col width="17%">
+                <col width="17%">
+                <col width="17%">
+            </colgroup>
+            <thead>
+            <tr>
+                <th >序号</th>
+                <th style="text-align: left">发货单编号</th>
+                <th style="text-align: left">金额</th>
+                <th style="text-align: left">面积</th>
+                <th style="text-align: left">累积金额</th>
+                <th style="text-align: left">累积面积</th>
+                <th style="text-align: left">截止日期</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <% model.forEach(function(mergeNote, index){ %>
+            <%index=index + 1%>
+            <% mergeNote.note.forEach(function(note, a){ %>
+            <tr data-id="<%=mergeNote._id%>" >
+                <% if(a==0){%>
+                <td class="mergeNote"><%=index%></td>
+                <%} else{%>
+                <td class="mergeNote"></td>
+                <%}%>
+                <td style="text-align: left" class="mergeNote" ><%=note.name%></td>
+                <td style="text-align: left" class="mergeNote" ><%=note.Amount%></td>
+                <td style="text-align: left" class="mergeNote"><%=note.Area%></td>
+                <% if(a==0){%>
+                <td style="text-align: left" class="mergeNote" ><%=mergeNote.mergeTotalAmount%></td>
+                <td style="text-align: left" class="mergeNote"><%=mergeNote.mergeTotalArea ? mergeNote.mergeTotalArea:0%></td>
+                <td style="text-align: left" class="mergeNote"><%=mergeNote.dueDate?moment(mergeNote.dueDate).format('YYYY-MM-DD'):'未到达标准'%></td>
+                <%} else{%>
+                <td class="mergeNote"></td>
+                <td class="mergeNote"></td>
+                <td class="mergeNote"></td>
+                <%}%>
+            </tr>
+            <% }); %>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+</div>

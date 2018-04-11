@@ -1,0 +1,136 @@
+<div class="form-holder _createNewProjectDialog">
+    <form method="post" action="" id="createProjectForm" class="form">
+        <div class="inner">
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">主要内容</a></li>
+                <li><a href="javascript:;">备注</a></li>
+                <li><a href="javascript:;">其他信息</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                    <div class="half-block right">
+                                    <div class="inner">
+                                        <div class="project-edit-info">
+                                <dt>
+                                    <label for="signedDate">合同签订日期:</label>
+                                </dt>
+                                <dd >
+                                    <div class="_inputIconWrap">
+                                        <input class="extrainfo blueback"
+                                               type="text"
+                                               id="signedDate"
+                                               value=""
+                                               readonly
+                                               placeholder="合同签订日期 "/>
+                                        <label></label>
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="archDate">合同存档日期:</label>
+                                </dt>
+                                <dd >
+                                    <div class="_inputIconWrap">
+                                        <input class="extrainfo blueback"
+                                               type="text"
+                                               id="archDate"
+                                               value=""
+                                               readonly
+                                               placeholder="合同存档日期"/>
+                                        <label></label>
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="archiveMan">存档人:</label>
+                                </dt>
+                                <dd class="_modalSelect _newSelectListWrap">
+                                    <a  id="archiveMan"
+                                        class="current-selected"
+                                        href="javascript:;">选择
+                                    </a>
+                                </dd>
+                                <dt><label for="amount">合同金额:</label></dt>
+                                <dd><input type="text"
+                                           class="title-input blueback"
+                                           id="amount"
+                                           required
+                                           maxlength="32" style="width: 90%"
+                                           placeholder="合同金额"/><i>元</i></dd>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="half-block left">
+                        <dl class="project-edit-info">
+                            <dt>
+                                <label for="projectName">项目名称:</label>
+                            </dt>
+                            <dd class="_newSelectListWrap">
+                                <a id="projectName"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                </a>
+                            </dd>
+                            <dt>
+                                <label for="projectNumber">合同编号:</label>
+                            </dt>
+                            <dd>
+                                <input type="text"
+                                       class="title-input blueback"
+                                       id="projectNumber"
+                                       required
+                                       maxlength="32"
+                                       placeholder="合同编号"/>
+                            </dd>
+                            <dt>
+                                <label for="designContractType">合同类型:</label>
+                            </dt>
+                            <dd class="_newSelectListWrap">
+                                <a id="designContractType"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                </a>
+                            </dd>
+
+                            <dt>
+                                <label for="customerDd">设计委托单位:</label>
+                            </dt>
+                            <dd class="_newSelectListWrap">
+                                <a id="customerDd"
+                                   class="current-selected"
+                                   href="javascript:;">选择
+                                </a>
+                            </dd>
+                            <dt><label for="designDepartment">设计部门:</label></dt>
+                            <dd class="_newSelectListWrap">
+                                <a  id="designDepartment"
+                                    class="current-selected"
+                                    href="javascript:;">选择
+                                </a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="dialog-tabs-item">
+                    <dl>
+                        <dt>
+                            <label for="note">备注:</label>
+                        </dt>
+                        <div class="textarea-wrapper">
+                                <textarea class="projectDescriptionCreate"
+                                          placeholder="Add a Description..."
+                                          id="note"
+                                          maxlength="500">
+                                    </textarea>
+                        </div>
+                    </dl>
+                </div>
+                <div class="dialog-tabs-item">
+                    <div class="assignees-container"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div></form>
+</div>
+
+

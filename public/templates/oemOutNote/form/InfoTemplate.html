@@ -1,0 +1,49 @@
+<div class="_tableWrap">
+	 <table class="list stripedList">
+	 	<thead>
+	 		<tr>
+	 			<th class="centerCell" colspan="18"><span>白色联：公司自留</span><span class="red">红色联：客户留底</span><span style="color: #00EC00">   绿色联：客户签收回单</span><span style="color: #0080FF">   蓝色联：开
+出门证</span><span style="color: #FFD306">   黄色：司机留存</span></th>
+
+	 		</tr>
+	 		<tr>
+	 			<th colspan="2">车牌号码</th>
+	 			<th colspan="3"><%=model.license? model.license: ''%></th>
+	 			<th colspan="2">车次号</th>
+	 			<th colspan="3"><%=model.trips? model.trips: ''%>
+	 			</th>
+	 			<th colspan="2">运输方</th>
+	 			<th colspan="2"><%=model.deliverMan? model.deliverMan: ''%></th>
+	 			<th colspan="2">收货人</th>
+	 			<th colspan="2"><%=model.consignee%></th>
+	 		</tr>
+	 		<tr>
+	 			<th colspan="4">财务部核实累积欠款</th>
+	 			<th colspan="6"></th>
+	 			<th colspan="2">核实人签字</th>
+	 			<th colspan="6"></th>
+	 		</tr>
+	 		<tr>
+	 			<th colspan="4">部门</th>
+	 			<th colspan="6"></th>
+	 			<th colspan="2" rowspan="3">主管领导意见</th>
+	 			<th colspan="6" rowspan="3"></th>
+	 		</tr>
+	 		<tr>
+	 			<th colspan="4">经办营销员</th>
+	 			<th colspan="6"><%=model.salesman? model.salesman: ''%>
+	 			</th>
+	 		</tr>
+	 		<tr>
+	 			<th colspan="4">部门经理意见</th>
+	 			<th colspan="6">
+	 			</th>
+	 		</tr>
+	 	</thead>
+	 </table>
+	 <div>
+	 	<span style="font-size: 15px">
+	 	1、请验收以上货品是否正确，如发现货品不符，请立即提出，若三天未接到任何意见，一切货品和质量视为正确。 2、此批货出厂质量检验合格；请搬运、堆放注意保护，不能变形，谢谢合作！
+	 	</span>
+	 </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="form-holder _departmentExteral">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <h3 class="_dialogTableTitle">编辑</h3>
+        	<div class="half-block left">		
+		        <div>
+			        <dt><label for="level">N: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input id="level" type="text" value="<%=model.level%>">
+			        </dd>
+			        <dt><label for="low">上界: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input id="low" type="text" value="<%=model.low%>">
+			        </dd>
+			        <dt><label for="high">下界: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input id="high" type="text" value="<%=model.high%>">
+			        </dd>
+		        </div>
+	        </div>
+	        <div class="half-block right">
+	        	<div>
+			        <dt><label for="rate">税率: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input id="rate" type="text" value="<%=model.rate%>">
+			        </dd>
+			    </div>
+			    <div>
+			        <dt><label for="countDeduction">速算扣除数: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input id="countDeduction" type="text" value="<%=model.countDeduction%>">
+			        </dd>
+			    </div>
+	        </div>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+<% collection.forEach(function(emp, index){ %>
+<% var earningsAmount = 0%>  
+<% var deductionsAmount = 0%>  
+<% var earningsLength =emp.earnings?emp.earnings.length:0 %>
+<% var deductionLength = emp.deductions?emp.deductions.length:0 %>
+<% if(emp.earnings&&emp.deductions){%>
+<tr data-id="<%=emp._id%>" class="my-salary-list">
+    <td data-content="number" class="centerCell"><%=startNumber + index + 1%></td>
+    <td>
+        <%=emp.employee ? emp.employee.name.first + ' ' + emp.employee.name.last: ''%>
+    </td>
+
+    <% for(var i = 0 ; i < earningsLength ; i++) {%>
+          <td class= "" data-id="money"><%=emp.earnings[i].amount.toFixed(2)%></td>
+    <% } %>
+
+    <% for(var i = 0 ; i < earningsLength ; i++) {%>   
+          <% earningsAmount = earningsAmount + emp.earnings[i].amount%>
+    <% } %>
+    <td class= "" data-id="money"><%=earningsAmount.toFixed(2)%></td>
+
+     <% for(var i = 0 ; i < deductionLength ; i++) {%>
+          <td class= "" data-id="money"><%=emp.deductions[i].amount.toFixed(2)%></td>
+    <% } %>
+
+    <% for(var i = 0 ; i < deductionLength ; i++) {%>   
+          <% deductionsAmount = deductionsAmount + emp.deductions[i].amount%>
+    <% } %>
+    <td class= "" data-id="money"><%=deductionsAmount.toFixed(2)%></td>
+    <td class= "" data-id="money"><%=emp.taxableIncome?emp.taxableIncome.toFixed(2):0%></td>
+    <td class= "" data-id="money"><%=emp.tax?emp.tax.toFixed(2):0%></td>
+    <td class= "" data-id="money"><%=emp.calc?emp.calc.toFixed(2):0%></td>
+</tr>
+  <% } %>
+<% }) %>

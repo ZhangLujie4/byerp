@@ -1,0 +1,20 @@
+<div class="form-holder">
+    <form class="form" data-id="<%=_id%>">
+        <div class="half-block left">
+            <div class="half-block left">
+                <p><label for="departmentName">部门名称</label></p>
+
+                <p><label for="parentDepartment">上级部门</label></p>
+
+                <p><label for="departmentManager">经理</label></p>
+            </div>
+            <div class="half-block left">
+                <p><%=departmentName%></p>
+
+                <p><%= (parentDepartment) ? parentDepartment.name : '' %></p>
+
+                <p><%= (departmentManager) ? departmentManager.name.first + ' ' + departmentManager.name.last : ''%></p>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,22 @@
+<% engineerInfoCollection.forEach(function(item, index){ %>
+<tr data-index="<%= index %>" data-id="<%=item._id%>">
+    <td class="centerCell"><input type="checkbox" value="<%=item._id%>" data-id="<%=item._id%>" class="checkbox"/></td>
+    <td><%=item.name%></td>
+    <td><%=item.quality%></td>
+    <td><%=item.issArea%></td>
+    <td><%=item.amount%></td>
+    <td><%=item.StartDate%></td>
+    <td><%=item.EndDate%></td>
+    <td><%=item.pmr%></td>
+    <td><%=item.pmv%></td>
+    <td><%=item.technicalPerson%></td>
+    <td><%=item.cancelDate%></td>
+    <%if(item.fileStatus == 'complete'){%>
+    <td>完备</td>
+    <%}else if(item.fileStatus == 'lack'){%>
+    <td>暂缺</td>
+    <%}else{%>
+    <td></td>
+    <%}%>
+</tr>
+<% }) %>

@@ -1,0 +1,11 @@
+<% workOrdersCollection.forEach(function(workOrder, index){ %>
+<tr data-index="<%=index%>" data-id="<%= workOrder._id%>" >
+    <td class="centerCell"><input type="checkbox" value="<%=workOrder._id%>" class="checkbox"/></td>
+    <td><%=workOrder.projectName%></td>
+    <td><%=workOrder.workNumber%></td>
+    <td><%=workOrder.processGroup%></td>
+    <td><%=workOrder.operatorNumber%></td>
+    <td><%=workOrder.fillDate%></td>
+    <td><%=workOrder.operator%></td>
+</tr>
+<% }) %>

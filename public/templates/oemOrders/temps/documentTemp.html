@@ -1,0 +1,90 @@
+<%var shipping = model.sourceDocument ?  model.sourceDocument.shippingExpenses : model.shippingExpenses;%>
+<div class="_invoiceTemplate" style="max-width: 1320px;">
+    <div class="ribbon">
+        <div class="ribbon-inner <%=(model.workflow) ? model.workflow.status === 'Done' ? 'ribbon-green' : model.workflow.status === 'New' ? 'ribbon-blue' : 'ribbon-grey' : 'ribbon-grey'%>">
+            <%=(model.workflow) ? model.workflow.name : ''%>
+        </div>
+    </div>
+    <div class="extractPdf">
+        <div class="_templateHeader">
+            <div style="clear: left;height: 30px;width: 200px; font-size: 150%;"><b> <%='来料订单: '+model.name || ''%></b></div>
+            <div style="float: left;height: 30px;width: 200px;"><%='预计日期：'+ model.expectedDate || ''%></div>
+            <div style="float: left;height: 30px;width: 200px;"><%='订单日期：'+ model.orderDate || ''%></div>
+        </div>
+        <table class="_templateTable tableFixed">
+            <colgroup>
+                <col width="50px">
+                <col width="12%">
+                <col width="12%">
+                <col width="12%">
+                <col width="12%">
+                <col width="12%">
+                <col width="40%">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th style="text-align: center">品名</th>
+                    <th style="text-align: center">数量</th>
+                    <th style="text-align: center">单价</th>
+                    <th style="text-align: center">计价数量</th>
+                    <th style="text-align: center">小计</th>
+                    <th style="text-align: center">参数</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% model.products.forEach(function(product, index){ %>
+                    <tr>
+                        <td>
+                            <%=index + 1%>
+                        </td>
+                        <td style="text-align: center">
+                            <%=product && product.description ? product.description : '' %>
+                        </td>
+                        <td style="text-align: center">
+                            <%=product.quantity || ''%>
+                        </td>
+                        <td style="text-align: center">
+                            <%=product.unitPrice ? currencySplitter(product.unitPrice.toString()): ''%>
+                        </td>
+                        <td style="text-align: center">
+                            <%=product.priceQty ? product.priceQty : ''%>
+                        </td>
+                        <td style="text-align: center">
+                            <%=product.subTotal ? currencySplitter(product.subTotal.toString()): ''%>
+                        </td>
+                        <% var parameter = ""; %>
+                        <% product.parameters.forEach(function(para,index){ %>
+                            <% if(index === 0){ %>
+                                <% parameter = para.paraname + " : " + para.value; %>
+                            <% }else if(para.value !== ""){ %>
+                                <% parameter = parameter + " / " + para.paraname + " : " + para.value; %>
+                            <% } %>
+                        <% }); %>
+                        <td style="text-align:left">
+                            <div>
+                                <span style="white-space:normal"><%=parameter%></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }); %>
+                        <tr class="_totalRow">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="text-align: center"><b>总价格</b></td>
+                            <td style="text-align: center"><b><%=(model.paymentInfo) ? currencySplitter(model.paymentInfo.total) : ''%></b>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="_templateTableFooter tableFixed">
+            <colgroup>
+                <col width="50%">
+                <col width="100px">
+            </colgroup>
+        </table>
+    </div>
+
+</div>

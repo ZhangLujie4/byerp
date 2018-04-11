@@ -1,0 +1,33 @@
+<% aluorderApprovalCollection.forEach(function(aluorderApproval, index){ %>
+<tr data-index="<%=index%>" data-id="<%= aluorderApproval._id%>" id="detail">
+    <td class="centerCell">
+        <input type="checkbox" value="<%=aluorderApproval._id%>" class="checkbox"/>
+    </td>
+    <!-- <td class="centerCell"><%=aluorderApproval.projectName%></td> -->
+    <td class="centerCell"><%=aluorderApproval.lbmc%></td>
+    <td class="centerCell"><%=aluorderApproval.lbbh%></td>
+    <td class="centerCell"><%=aluorderApproval.sfyx%></td>
+    <td class="centerCell"><%=aluorderApproval.sqm%></td>
+    <td class="centerCell"><%=aluorderApproval.szjys%></td>
+    <td class="centerCell"><%=aluorderApproval.cjlhf%></td>
+    <td class="centerCell"><%=aluorderApproval.kc%></td>
+    <td class="centerCell"><%=aluorderApproval.dj%></td>
+    <td class="centerCell"><%=aluorderApproval.ck%></td>
+    <td class="centerCell"><%=aluorderApproval.W%></td>
+    <td class="centerCell"><%=aluorderApproval.L1%></td>
+	<td class="centerCell"><%=aluorderApproval.L2%></td>
+    <td class="centerCell"><%=aluorderApproval.L3%></td>
+    <td class="centerCell"><%=aluorderApproval.L4%></td>
+    <td class="centerCell"><%=aluorderApproval.L5%></td>
+    <td class="centerCell"><%=aluorderApproval.L6%></td>
+    <td class="centerCell"><%=aluorderApproval.sl%></td>
+    <td class="centerCell"><%=aluorderApproval.dw%></td>
+    <td class="centerCell"><%=aluorderApproval.dkjjmj.toFixed(3)%></td>
+    <td class="centerCell"><%=aluorderApproval.zmj.toFixed(3)%></td>
+    <td class="centerCell"><%=aluorderApproval.jgsh%></td>
+    <td class="centerCell"><%=aluorderApproval.jgth%></td>
+    <td class="centerCell"><%=aluorderApproval.routing%></td>
+    <td class="centerCell"><%=aluorderApproval.comment%></td>
+    
+</tr>
+<% }) %>

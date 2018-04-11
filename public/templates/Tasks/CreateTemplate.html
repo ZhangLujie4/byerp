@@ -1,0 +1,129 @@
+<div class="form-holder task-create-holder">
+    <form method="post"
+          action=""
+          id="createTaskForm"
+          class="form notDialog">
+        <fieldset>
+            <div class="clearfix"></div>
+            <input type="text"
+                   name="summary"
+                   class=""
+                   id="summaryTask"
+                   required
+                   maxlength="32"
+                   placeholder="Summary"/>
+            <div class="half-block left withPaddingLeftProject">
+                <div class="inner">
+                    <div class="textarea-wrapper">
+                        <textarea class="taskDescriptionCreate"
+                                  name="description"
+                                  placeholder="Add a Description..."
+                                  id="description"
+                                  maxlength="500"
+                                  required >
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="half-block left withPaddingRightProject">
+                <div class="inner">
+                    <dl class="task-info">
+                        <dt>
+                            <label>工程</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="projectDd"
+                               class="current-selected"
+                               href="javascript:;">Select
+                            </a>
+                        </dd>
+                        <!--<dt><label for="workflowNamesDd">Workflow</label></dt>
+                            <dd>
+                              <a id="workflowNamesDd" class="current-selected" href="javascript:;"></a>
+                            </dd>-->
+                        <dt>
+                            <label for="workflowsDd">阶段</label>
+                        </dt>
+                        <dd id="selectWorkflow"
+                            class="_newSelectListWrap">
+                            <a id="workflowsDd"
+                               class="current-selected"
+                               href="javascript:;">
+                            </a>
+                        </dd>
+                        <dt>
+                            <label for="type">类型</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="type"
+                               data-id="Task"
+                               class="current-selected"
+                               href="javascript:;">Task
+                            </a>
+                        </dd>
+                        <dt>
+                            <label>分配</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="assignedToDd"
+                               class="current-selected"
+                               href="javascript:;">
+                            </a>
+                        </dd>
+                        <!--<dt><label for="deadline">Deadline </label></dt>
+                            <dd><input class="blueback" type="text" name="deadline" id="deadline" readonly /></dd>-->
+                        <dt>
+                            <label for="priorityDd">优先级</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="priorityDd"
+                               class="current-selected"
+                               href="javascript:;">
+                            </a>
+                        </dd>
+                        <dt>
+                            <label for="StartDate">开始日期</label>
+                        </dt>
+                        <dd>
+                            <div class="_inputIconWrap">
+                                <input class="extrainfo"
+                                       type="text"
+                                       name="StartDate"
+                                       id="StartDate"
+                                       value=""
+                                       readonly
+                                       placeholder="Start Date"/>
+                                <label></label>
+                            </div>
+                        </dd>
+                        <dt>
+                            <label for="logged">日志</label>
+                        </dt>
+                        <dd>
+                            <input type="text"
+                                   maxlength="4"
+                                   name="loged"
+                                   id="logged"
+                                   class="onlyNumber"
+                                   placeholder="Logged"/>
+                        </dd>
+                        <dt>
+                            <label for="estimated">估计</label>
+                        </dt>
+                        <dd>
+                            <input type="text"
+                                   maxlength="4"
+                                   name="estimated"
+                                   id="estimated"
+                                   class="onlyNumber"
+                                   placeholder="Estimated"/>
+                        </dd>
+                        <div class="clearfix"></div>
+                    </dl>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

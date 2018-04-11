@@ -1,0 +1,78 @@
+<div class="_tableWrap">
+	 <table class="list stripedList">
+	 	<thead>
+	 		<tr>
+	 			<th class="centerCell" colspan="20" style="font-size: 20px">浙江宝业建材科技有限公司-<%=(model[0] && model[0]._id.projectName?model[0]._id.projectName:'') + ' ' + (model[0] && model[0].orderRows[0].trips?model[0].orderRows[0].trips: '')%>厚度板型统计</th>
+	 		</tr>
+	 		<tr>
+	 			<th colspan="2" rowspan="2">批次</th>
+	 			<th rowspan="2">板厚</th>
+	 			<th rowspan="2">板型</th>
+	 			<th rowspan="2">数量(件)</th>
+	 			<th rowspan="2">面积(m²)</th>
+	 			<th rowspan="2">单价</th>
+	 			<th class="centerCell" colspan="2" rowspan="2">小计金额(元)</th>
+	 			<th class="centerCell" colspan="2">超宽</th>
+	 			<th class="centerCell" colspan="2">开槽</th>
+	 			<th class="centerCell" colspan="2">焊缝</th>
+	 			<th class="centerCell" colspan="3">其他</th>
+	 			<th class="centerCell" colspan="2" rowspan="2">合计</th>
+	 		</tr>
+	 		<tr>
+	 			<th>面积(m²)</th>
+	 			<th>加价</th>
+	 			<th>长度(m)</th>
+	 			<th>加价</th>
+	 			<th>长度(m)</th>
+	 			<th>加价</th>
+	 			<th>面积</th>
+	 			<th>金额</th>
+	 			<th>备注</th>
+	 		</tr>
+	 	</thead>
+	 	<tbody>
+	 		<%model.forEach(function(item, index){%>
+	 			<%item.totalArray.forEach(function(subItem, index2){%>
+			 		<tr>
+			 			<td colspan="2"><%=item._id.cgdh%></td>
+			 			<td><%=subItem.thickness? subItem.thickness: ''%></td>
+			 			<td><%=subItem.boardType%></td>
+			 			<td><%=subItem.num%></td>
+			 			<td><%=subItem.area.toFixed(3)%></td>
+			 			<td><%=subItem.dj%></td>
+			 			<td class="centerCell" colspan="2"><%=subItem.amount.toFixed(3)%></td>
+			 			<td></td>
+			 			<td></td>
+			 			<td><%=subItem.kcLength? subItem.kcLength: ''%></td>
+			 			<td><%=subItem.kcdj%></td>
+			 			<td><%=subItem.cjhfLength? subItem.cjhfLength.toFixed(3): ''%></td>
+			 			<td><%=subItem.hfdj%></td>
+			 			<td></td>
+			 			<td></td>
+			 			<td></td>
+			 			<td class="centerCell" colspan="2"><%=subItem.totalAmount.toFixed(3)%></td>
+			 		</tr>
+		 		<%})%>
+	 		<%})%>
+	 	</tbody>
+	 	<tfoot>
+	 		<tr>
+	 			<td colspan="2"></td>
+	 			<td>合计</td>
+	 			<td></td>
+	 			<td><%=numTotal%></td>
+	 			<td><%=areaTotal.toFixed(3)%></td>
+	 			<td></td>
+	 			<td colspan="2" class="centerCell"><%=subTotal.toFixed(3)%></td>
+	 			<td></td>
+	 			<td></td>
+	 			<td><%=kcTotal? kcTotal: ''%></td>
+	 			<td></td>
+	 			<td><%=cjhfTotal? cjhfTotal.toFixed(3): ''%></td>
+	 			<td></td>
+	 			<td colspan="3"></td>
+	 			<td colspan="2" class="centerCell"><%=sum.toFixed(3)%></td>
+	 		</tr>
+	 	</tfoot>
+	 </table>
+</div>

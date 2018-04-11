@@ -1,0 +1,87 @@
+﻿﻿<div class="form-holder task-create-holder" style="margin-bottom: 12px;">
+    <form method="post" action="" id="editWorkOrderForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <div class="clearfix"></div>
+            <div class="topInputHolder">
+                <h2>来料退货详情</h2>
+            </div>
+                   
+            <div class="half-block left withPaddingRightProject">
+                <div class="inner">
+                    <div class="task-info">
+                        
+                        <dt><label for="projectId">工程名称</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="projectId"
+                                   id="projectId" 
+                                   value="<%= model.projectId.name %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="orderNumber">退货单号</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="orderNumber"
+                                   id="orderNumber" 
+                                   value="<%= model.orderNumber %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="parameter">产品参数</label></dt>
+                        <% model.orderRowId.parameters.forEach(function(para,index){ %>
+                            <% if(index === 0){ %>
+                                <% parameter = para.paraname + " : " + para.value; %>
+                            <% }else if(para.value !== ""){ %>
+                                <% parameter = parameter + " <br> " + para.paraname + " : " + para.value; %>
+                            <% } %>
+                        <% }); %>
+
+                        <dd><%=parameter%></dd>
+
+                    </div>
+                </div>
+            </div>
+           
+            <div class="half-block left withPaddingRightProject">
+                <div class="inner">
+                    <div class="task-info">
+
+                        <dt><label for="product">产品名称</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="product"
+                                   id="product" 
+                                   value="<%= model.orderRowId.description %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="quantity">退货数量</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="quantity"
+                                   id="quantity" 
+                                   value="<%= model.quantity %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                        <dt><label for="wareOpinion">仓库意见</label></dt>
+                        <dd>
+                            <input type="text" 
+                                   name="wareOpinion"
+                                   id="wareOpinion" 
+                                   value="<%= model.wareOpinion %>" style="border:none;" readonly=""/>
+                        </dd>
+
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <dt>
+                  <label style="margin-left: 7px;">仓库处理意见:</label>
+                </dt>
+                <div class="inputBox">
+                    <textarea class="editable" id="handlOpinion" style="min-height: 70px;" value="<%=model.handlOpinion%>"><%=model.handlOpinion%></textarea>
+                </div>
+            </div>
+            
+        </fieldset>
+    </form>
+</div>

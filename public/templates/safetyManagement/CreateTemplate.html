@@ -1,0 +1,44 @@
+<div class="form-holder _safetyManagement">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <h3 class="_dialogTableTitle">新增</h3>
+        	<div class="half-block left">		
+        		<dl>
+			        <dt><label for="classify">控制分类: </label></dt>
+			        <dd class = "_newSelectListWrap">
+			        	<a type="text"
+			        	   id="classify" 
+			        	   class="current-selected"
+                           href="javascript:;">选择
+                        </a>
+			        </dd>
+
+			        <dt><label for="content">内容: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<textarea id="content"></textarea>
+			        </dd>
+			    </dl>
+	        </div>
+	        <div class="half-block right">
+	        	<dl>
+			        <dt><label for="remark">备注: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<textarea id="remark"></textarea>
+			        </dd>
+		        </dl>
+	        </div>
+	        <div class="clearfix"></div>
+	        <div>
+		        <div class="_modalList">
+                    <div class="area_holder">
+                     <textarea id="internalNotes" class="internal_Notes" placeholder="内部注释..." maxlength="500"
+                               class="opp-internal-create"></textarea>
+                        <a href="javascript:;" class="attach_file">
+                            <span class="icon-attach"></span>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+		        <div class="attach-container"></div>
+	        </div>
+    </form>
+</div>

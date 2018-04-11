@@ -1,0 +1,182 @@
+<div class="form-holder">
+    <div id="convert-dialog-form">
+        <form>
+            <fieldset>
+                <select id="createCustomerOrNot">
+                    <option value="true">创建一个新客户</option>
+                    <option value="" selected="selected">不创建一个新客户</option>
+                </select>
+            </fieldset>
+        </form>
+    </div>
+    <form method="post" action="" class="form edit-lead-form" id="leadForm" data-id="<%=model._id%>">
+        <fieldset>
+            <div class="inner">
+                <ul class="dialog-tabs">
+                    <li><a class="active" href="javascript:;">主要</a></li>
+                    <li><a href="javascript:;">代理人</a></li>
+                    <li><a href="javascript:;">历史</a></li>
+                    <li class="right">
+                        <button class="btn" id="convertToOpportunity"><span>转化为机会</span></button>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items">
+                    <div class="dialog-tabs-item active">
+                        <div class="clearfix"></div>
+                        <div class="half-block left">
+                            <dl class="opp-info">
+                                <dt><label for="name">名称 </label></dt>
+                                <dd>
+                                    <input type="text" class="title-input" id="name" value="<%=model.name%>" placeholder="Subject" required maxlength="48"/>
+                                </dd>
+                                <dt><label for="company">公司名称</label></dt>
+                                <dd><input type="text" id="company" value="<%= model.tempCompanyField %>" placeholder="Company name" maxlength="32"/></dd>
+                                <dt><label for="customerDd">客户</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="customerDd" data-id="<%=model.customer ? model.customer._id : ''%>" class="current-selected" href="javascript:;"><%=model.customer ? (model.customer.name.first+' '+model.customer.name.last) : '选择'%></a>
+                                </dd>
+                                <dt><label for="first">名字</label></dt>
+                                <dd><input type="text" class="name" id="first" placeholder="First Name" value="<%=(model.contactName) ? model.contactName.first : ''%>" maxlength="32"/></dd>
+                                <dt><label for="last">姓氏</label></dt>
+                                <dd><input type="text" class="name" id="last" placeholder="Last Name" value="<%=(model.contactName) ? model.contactName.last : ''%>" maxlength="32"/></dd>
+                                <dt><label for="email_person">电子邮件</label></dt>
+                                <dd><input type="text" id="email_person" value="<%=model.email%>" placeholder="e.g. email@site.com" maxlength="48"/></dd>
+                                <dt><label for="phone">电话</label></dt>
+                                <dd><input type="text" id="phone" value="<%=model.phones.phone%>" placeholder="Phone number" maxlength="32"/></dd>
+                                <dt><label for="mobile">手机</label></dt>
+                                <dd><input type="text" id="mobile" value="<%=model.phones.mobile%>" placeholder="Mobile number" maxlength="32"/></dd>
+                                <dt><label for="skype">Skype</label></dt>
+                                <dd><input type="text" id="skype" placeholder="Skype" value="<%=model.skype%>"
+                                           maxlength="256"/></dd>
+                                <dt><label for="LI">LinkedIn</label></dt>
+                                <dd><input type="text" id="LI" placeholder="LinkedIn" value="<%=model.social.LI%>"
+                                           maxlength="256"/></dd>
+                                <dt><label for="FB">Facebook</label></dt>
+                                <dd><input type="text" id="FB" placeholder="Facebook" value="<%=model.social.FB%>"
+                                           maxlength="256"/></dd>
+                            </dl>
+
+                        </div>
+                        <div class="half-block left">
+                            <dl class="opp-info">
+                                <dt><label for="street">街道</label></dt>
+                                <dd><input type="text" id="street" class="address" placeholder="Street..." name="street" value="<%=model.address.street%>" maxlength="60"/></dd>
+                                <dt><label for="city">城市</label></dt>
+                                <dd><input type="text" id="city" class="address" placeholder="City" name="city" value="<%=model.address.city%>" maxlength="60"/></dd>
+                                <dt><label for="state">状态</label></dt>
+                                <dd><input type="text" id="state" class="address" placeholder="State" name="state" value="<%=model.address.state%>" maxlength="32"/></dd>
+                                <dt><label for="zip">邮政编码</label></dt>
+                                <dd><input type="text" id="zip" class="address" name="zip" placeholder="Zip" value="<%=model.address.zip%>" maxlength="32"/></dd>
+                                <dt><label for="country">国家</label></dt>
+                                <dd><input type="text" id="country" class="address" name="country" placeholder="Country" value="<%=model.address.country%>" maxlength="32"/></dd>
+                                <dt><label for="selectWorkflow">状态 </label></dt>
+                                <dd id="selectWorkflow" class="_newSelectListWrap">
+                                    <a id="workflowsDd" data-id="<%=model.workflow?model.workflow._id:''%>" class="current-selected" href="javascript:;"><%=model.workflow?model.workflow.name:'未定义'%></a>
+                                </dd>
+
+                                <dt><label for="priorityDd">优先权 </label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="priorityDd" data-id="<%=model.priority%>" class="current-selected" href="javascript:;"><%=model.priority%></a>
+                                </dd>
+                                <dt><label for="campaignDd">运动</label></dt>
+                                <dd class="_newSelectListWrap _newSelectListWrap">
+                                    <a id="campaignDd" data-id="<%=model.campaign?model.campaign:''%>" class="current-selected" href="javascript:;"><%=model.campaign?model.campaign:"选择"%></a>
+                                    <ul class="newSelectList hidden">
+                                        <li class="telesales" id="telesales">电话销售</li>
+                                        <li class="web" id="web">网络</li>
+                                        <li class="email" id="email">电子邮件</li>
+                                        <li class="newsletter" id="newsletter">通讯</li>
+                                        <li class="call" id="call">呼叫</li>
+                                    </ul>
+                                </dd>
+                                <dt><label for="sourceDd">来源</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="sourceDd" data-id="<%=model.source?model.source:''%>" class="current-selected" href="javascript:;"><%=model.source?model.source:"选择"%></a>
+                                </dd>
+
+                                <dt><label for="salesPerson">分配给</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="salesPerson" data-id="<%=model.salesPerson?model.salesPerson._id:''%>" class="current-selected" href="javascript:;"><%=model.salesPerson?(model.salesPerson.name.first+' '+model.salesPerson.name.last):'选择'%></a>
+                                </dd>
+                            </dl>
+                            </dl>
+                        </div>
+                        <div class="attach-container">
+                        </div>
+
+                    </div>
+                    <div class="dialog-tabs-item">
+                        <div class="assignees-container"></div>
+                    </div>
+                    <div class="dialog-tabs-item">
+                        <div class="history-container"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div id="tabs">
+                    <!--<div>
+                        <ul id="tabList" class="inner">
+                          <li>
+                            <a href="javascript;" class="selected">Internal Notes</a>
+                          </li>
+                          <li>
+                            <a href="javascript;">Extra Info</a>
+                          </li>
+                        </ul>
+                        <br />
+                    </div>
+                    <div class="tab">
+                      <textarea id="internalNotes"><%=model.internalNotes%></textarea>
+                    </div>
+                    <div class="tab">
+                      <div class="half-block left">
+                        <h3>Categorization</h3>
+                        <div class="half-block left">
+                          <p>
+                            <label>Status</label>
+                          </p>
+                        </div>
+                        <div class="half-block left">
+                          <p>
+                            <span><%=(model.workflow) ? model.workflow.status : ''%></span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="half-block left">
+                        <h3>Mailings</h3>
+                        <div class="half-block left">
+                          <p>
+                            <label>Opt-Out</label>
+                          </p>
+                        </div>
+                        <div class="half-block left">
+                          <p>
+                            <input type="checkbox" <%= (model.optout)? 'checked="checked"':''%> id="optout" />
+                          </p>
+                        </div>
+                      </div>
+                      <div class="half-block left">
+                        <h3>Misc</h3>
+                        <div class="half-block left">
+                          <p>
+                            <label>Active</label>
+                          </p>
+                          <p>
+                            <label>Referred By</label>
+
+                          </p>
+                        </div>
+                        <div class="half-block left">
+                          <p><input type="checkbox" <%= (model.active)? 'checked="checked"':''%> id="active" /></p>
+                          <p><input type="text" id="reffered" value="<%=model.reffered%>" /></p>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>-->
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

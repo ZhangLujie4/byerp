@@ -1,0 +1,12 @@
+<% orderReckonsCollection.forEach(function(orderReckon, index){ %>
+<tr data-index="<%=index%>" data-id="<%= orderReckon._id%>" >
+    <td class="centerCell"><input type="checkbox" value="<%=orderReckon._id%>" class="checkbox"/></td>
+    <td><%=orderReckon.projectName%></td>
+    <td><%=orderReckon.workNumber%></td>
+    <td><%=orderReckon.processContent%></td>
+    <td><%=orderReckon.price%></td>
+    <td><%=orderReckon.employeeQuantity%></td>
+    <td><%=(orderReckon.employeeName) ? orderReckon.employeeName.first + ' ' + orderReckon.employeeName.last : ''%></td>
+    <td><%=orderReckon.reckonDate%></td>
+</tr>
+<% }) %>

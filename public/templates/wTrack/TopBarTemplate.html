@@ -1,0 +1,52 @@
+<h3>工时卡</h3>
+<div id="createBtnHolder" class="btnsBlock">
+    <a href="javascript:;" class="btn blue slim plus" title="Create" id="top-bar-createBtn">新建</a>
+    <a href="javascript:;" class="btn blue slim" title="Edit" id="top-bar-editBtn">编辑</a>
+    <a href="javascript:;" class="btn blue slim" title="Save" id="top-bar-saveBtn">保存</a>
+    <a href="javascript:;" class="btn blue slim" title="Remove" id="top-bar-deleteBtn">删除</a>
+    <span title="Export to csv" id="top-bar-exportToCsvBtn" class="btn slim">输出至Csv</span>
+    <span title="Export to xlsx" id="top-bar-exportToXlsxBtn" class="btn slim">输出至 Xlsx</span>
+    <ul class="export">
+        <li class="vacation-legend hidden">
+            <table id="rawTable" class="list">
+                <thead>
+                <tr id="caption">
+                    <th colspan="2">
+                        假期
+                    </th>
+                    <th class="V">
+                        V
+                    </th>
+                    <th colspan="2">
+                        个人
+                    </th>
+                    <th class="P">
+                        P
+                    </th>
+                    <th colspan="2">
+                        生病
+                    </th>
+                    <th class="S">
+                        S
+                    </th>
+                    <th colspan="2">
+                        教育
+                    </th>
+                    <th class="E">
+                        E
+                    </th>
+                    <th colspan="2">
+                        宗教节日
+                    </th>
+                    <th class="H">
+                        H1
+                    </th>
+
+                </tr>
+                </thead>
+            </table>
+        </li>
+    </ul>
+    <button id="top-bar-generateBtn" class="red disabled">开发票</button>
+    <button id="top-bar-copyBtn" class="red disabled">复制</button>
+</div>

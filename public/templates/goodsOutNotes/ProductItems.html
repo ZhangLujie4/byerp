@@ -1,0 +1,66 @@
+<table class="list _projectTableLeftAlign tableFixed _invoiceTable">
+    <colgroup>
+        <col width="45px">
+        <col width="24%">
+        <col width="24%">
+        <col width="24%">
+        <col width="24%">
+        <col width="4%">
+    </colgroup>
+    <thead>
+    <tr class="productListItemsColumns _deleteHeader">
+        <th class="centerCell">
+            <label class="_customCHeckbox">
+                <input type="checkbox" id="checkAllOrderRows"/>
+                <span></span>
+            </label>
+        </th>
+        <th class="width20">产品</th>
+        <th class="width20">数量</th>
+        <th class="width20">已出库</th>
+        <th class="width20">此次发货</th>
+        <th class="width20"></th>
+    </tr>
+    </thead>
+    <tbody id="tbodyProducts">
+    <tr></tr>
+
+    <%products.forEach(function(elem){%>
+        <tr class="productItem deleteRow" id="<%=elem._id%>" data-id="<%=elem._id%>">
+            <td class="notForm centerCell">
+                <label class="_customCHeckbox">
+                    <input type="checkbox" value="<%=elem._id%>" class="checkbox"/>
+                    <span></span>
+                </label>
+            </td>
+            <td data-name="productName">
+                <a class="current-selected" id="productsDd" href="javascript:;"
+                   data-id="<%= elem.product ? elem.product._id : ''%>">
+                    <%= elem.product && elem.product.info ? elem.product.name : ''%>
+                </a>
+            </td>
+            <td data-name="ordered">
+                <input id="ordered" class="quantity statusInfo" maxlength="5" value="<%=elem.quantity%>" size=4 type="text" readonly/>
+            </td>
+            <td data-name="fulfilled">
+                <input id="fulfilled" class="quantity statusInfo" maxlength="5" value="<%=elem.fulfilled%>" size=4 type="text" readonly/>
+            </td>
+            <td data-name="newShip">
+                <input id="newShip" class="quantity statusInfo" maxlength="5" value="0" size=4 type="text" readonly/>
+            </td>
+            <td><a class="icon-note goToEdit _actionCircleBtn"></a></td>
+        </tr>
+    <%})%>
+
+    <tr>
+        <td class="invisible_border">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="invisible_border">&nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+<div class="clearfix"></div>
+<div id="totalAmountContainer" class="_totalAmountContainer _createPopup">
+
+</div>

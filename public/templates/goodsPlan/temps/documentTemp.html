@@ -1,0 +1,74 @@
+<div class="_invoiceTemplate">
+    <div class="ribbon">
+        <div class="ribbon-inner <%=(model.workflow) ? model.workflow.status === 'New' ? 'ribbon-blue' : 'ribbon-grey' : 'ribbon-grey'%>">
+            <%=model.workflow.name%>
+        </div>
+    </div>
+    <div class="extractPdf">
+        <div class="_templateHeader">
+            <div class="_headerRightPart">
+                <div class="_entityBlock">
+                    <div class="_entityTitle">领料计划</div>
+                    <div class="_entityNumber"><b><%=model.name || ''%></b></div>
+                </div>
+            </div>
+        </div>
+        <div class="_templateDateBlock">
+            <div class="_rightPart">
+                <table class="_templateDateTable tableFixed">
+                    <colgroup>
+                        <col width="60%">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td class="_dateLeftPart">
+                            <div class="_billingBlock">
+                                <div class="_billingTitle">订单日期 ：<%=common.utcDateToLocaleDate(model.orderDate)%></div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <table class="_templateTable tableFixed">
+            <colgroup>
+                <col width="10px">
+                <col width="20%">
+                <col width="20%">
+                <col width="20%">
+                <col width="20%">
+                <col width="20%">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th style="text-align:center">材料</th>
+                <th style="text-align:center">备注</th>
+                <th style="text-align:center">数量</th>
+                <th style="text-align:center">已出库</th>
+                <th style="text-align:center">参数</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% model.products.forEach(function(product, index){ %>
+            <% var parameter = ""; %>
+            <% product.parameters.forEach(function(para, i){ %>
+                <% if(para.value !== ""){ %>
+                    <% parameter = parameter + "<br>" + para.paraname + " : " + para.value;%>
+                <% } %>
+            <% }); %>
+            <tr>
+                <td><%=index + 1%></td>
+                <td style="text-align:center"><%=product.product.name%></td>
+                <td style="text-align:center"><%=product.description%></td>
+                <td style="text-align:center"><%=product.quantity%></td>
+                <td style="text-align:center"><%=product.fulfilled%></td>
+                <td style="text-align:center"><%=parameter%></td>
+            </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <div class="clearfix"></div>
+</div>

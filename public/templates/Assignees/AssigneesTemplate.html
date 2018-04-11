@@ -1,0 +1,54 @@
+<div class="addUserAndGroup">
+    <a href="javascript:;" class="addUser">管理用户</a>
+    <span>|</span>
+    <a href="javascript:;" class="addGroup">管理部门</a>
+</div>
+<div class="clearfix"></div>
+
+<div class="half-block left">
+    <div class="canReadAndWrite">
+        <div class="_circleRadioRadianceWrap">
+            <label for="everyOneCr">任何人</label>
+            <input id="everyOneCr"
+                   class="_circleRadioRadiance"
+                   type="radio"
+                   name="whoCanRW"
+                   value="everyOne" <%= (whoCanRW === 'everyOne') ? ' checked': '' %> />
+            <label for="everyOneCr" class="_circleRadioRadianceLabel"></label>
+        </div>
+        <div class="_circleRadioRadianceWrap">
+            <label for="ownerCr">拥有者</label>
+            <input id="ownerCr"
+                   class="_circleRadioRadiance"
+                   type="radio"
+                   name="whoCanRW"
+                   value="owner" <%= (whoCanRW === 'owner') ? ' checked' : '' %> />
+            <label for="ownerCr" class="_circleRadioRadianceLabel"></label>
+        </div>
+        <div class="_circleRadioRadianceWrap">
+            <label for="groupCr">拥有者，用户和部门中的用户</label>
+            <input id="groupCr"
+                   class="_circleRadioRadiance"
+                   type="radio"
+                   name="whoCanRW"
+                   value="group" <%= (whoCanRW === 'group') ? ' checked' : '' %> />
+            <label for="groupCr" class="_circleRadioRadianceLabel"></label>
+        </div>
+    </div>
+</div>
+<div class="half-block left">
+    <dl class="assignees-info">
+        <dt><label for="allUsersSelect">拥有者</label></dt>
+        <dd class="_newSelectListWrap">
+            <a href="javascript:;" class="current-selected" id="allUsersSelect" data-id="<%=owner._id%>"><%=owner && owner.login ?owner.login : "选择"%></a>
+        </dd>
+    </dl>
+</div>
+
+<table class="groupsAndUser">
+    <tr>
+        <th>部门和用户</th>
+        <th></th>
+    </tr>
+</table>
+<div class="clearfix"></div>

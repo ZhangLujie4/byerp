@@ -1,0 +1,9 @@
+<% chargeItemsCollection.forEach(function(chargeItem, index){ %>
+<tr data-index="<%=index%>" data-id="<%= chargeItem._id%>" >
+    <td class="centerCell"><input type="checkbox" value="<%=chargeItem._id%>" class="checkbox"/></td>
+    <td><%=chargeItem.chargeItem%></td>
+    <td><%=chargeItem.unit%></td>
+    <td><%=chargeItem.price%></td>
+    <td><%=chargeItem.createdBy.user%></td>
+</tr>
+<% }) %>

@@ -1,0 +1,209 @@
+<div class="form-holder employee">
+    <form class="form employee" id="employeeForm" data-id="<%=model._id%>">
+        <ul class="chart-tabs">
+            <li><a class="active" id="overviewTab" href="javascript:;">概述</a></li>
+            <li><a href="javascript:;" id="dateAboutTab" class="">日期&费用</a></li>
+            <li><a href="javascript:;" id="amountAboutTab" class="">设计类型</a></li>
+            <li><a href="javascript:;" id="qualitytb" class="">效果图设计</a></li>
+            <li><a href="javascript:;" class="" id="assigneesTab">其他信息</a></li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="dialog-tabs-items">
+            <div class="dialog-tabs-item active">
+                <div class="half-block left">
+                    <dl class="project-edit-info">
+                        <dt>
+                            <label for="projectName">工程名称 </label>
+                        </dt>
+                        <dd>
+                            <a id="projectName" class="current-selected" href="javascript:;" data-id="<%=(model.projectName&&model.projectName._id)?model.projectName._id:''%>"><%=(model.projectName&&model.projectName.name)?model.projectName.name:'选择'%></a>
+                        </dd>
+                        <dt>
+                            <label for="projectNumber">合同编号 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback"  id="projectNumber" required
+                                   value="<%=model.projectNumber%>" maxlength="32"/>
+                        </dd>
+                        <dt>
+                            <label for="designLeader">设计负责人</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="designLeader" class="current-selected" href="javascript:;" data-id="<%=(model.designLeader&&model.designLeader._id)?model.designLeader._id:''%>"><%=(model.designLeader&&model.designLeader.fullName)?model.designLeader.fullName:'选择'%></a>
+                        </dd>
+                        <dt>
+                            <label for="designDepartment">设计部门</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="designDepartment" class="current-selected" href="javascript:;" data-id="<%=(model.designDepartment&&model.designDepartment._id)?model.designDepartment._id:''%>"><%=(model.designDepartment&&model.designDepartment.name)?model.designDepartment.name:'选择'%></a>
+                        </dd>
+                        <dt><label for="designContractType">合同类别 </label></dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="designContractType" class="current-selected" href="javascript:;" data-id="<%=(model.designContractType&&model.designContractType._id)?model.designContractType._id:''%>"><%=(model.designContractType&&model.designContractType.name)?model.designContractType.name:'选择'%></a>
+                        </dd>
+                        <dt>
+                            <label for="customerDd">委托方 </label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="customerDd" data-id="<%=model.customer?model.customer._id:''%>"
+                               class="current-selected " href="javascript:;"><%=model.customer?(model.customer.fullName):'选择'%></a>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-item">
+                <div id="dateAbout" >
+                    <dt><label for="amount">设计费用:</label></dt>
+                    <dd><input type="text" class="title-input blueback"  id="amount" required
+                               value="<%=(model.amount)?model.amount:'0'%>" maxlength="32" style="width:250px "/><i>元</i>
+                    </dd>
+                    <dt><label for="accountReceivable">应收款:</label></dt>
+                    <dd><input type="text" class="title-input blueback"  id="accountReceivable" required
+                               value="<%=(model.accountReceivable)?model.accountReceivable:'0'%>" maxlength="32" style="width:250px " /><i>元</i>
+                    </dd>
+                    <dt><label for="accountReceived">已收款:</label></dt>
+                    <dd><input type="text" class="title-input blueback" id="accountReceived" required
+                               value="<%=(model.accountReceived)?model.accountReceived:'0'%>" maxlength="32" style="width:250px " /><i>元</i>
+                    </dd>
+                    <dt><label for="invoiceAccountReceivable">设计发票应收款:</label></dt>
+                    <dd><input type="text" class="title-input blueback"  id="invoiceAccountReceivable" required
+                               value="<%=(model.invoiceAccountReceivable)?model.invoiceAccountReceivable:'0'%>" maxlength="32" style="width:250px "/><i>元</i>
+                    </dd>
+                    <dt>
+                        <label for="expenseDepartment">费用承担部门</label>
+                    </dt>
+                    <dd class="_newSelectListWrap">
+                        <a id="expenseDepartment"
+                           class="current-selected " href="javascript:;" data-id="<%=(model.expenseDepartment) ? model.expenseDepartment._id:'' %>"><%=(model.expenseDepartment) ? model.expenseDepartment.name:'选择' %></a>
+                        <div id="expenseDepartments">
+                            <% if(model.expenseDepartment&&model.expenseDepartment._id=='QT'){%>
+                            <input  id='expenseDepartmentss' style='width: 200px' type='text' value="<%=model.otherDepartment%>" >
+                            <%}%>
+                        </div>
+                    </dd>
+                    <dt>
+                        <label for="designDate">设计日期： </label>
+                    </dt>
+                    <dd>
+                        <input type="text" class="title-input blueback" id="designDate" required
+                               value="<%=model.designDate%>" maxlength="32" style="width:250px "/>
+                    </dd>
+                </div>
+            </div>
+            <div class="dialog-tabs-item">
+                <div id="amountAbout">
+                    <% var dos=0%>
+                    <% var wa=0%>
+                    <% var ot=0%>
+                    <% var p=0%>
+                    <% for(p;p<=model.designType.requireType.length-1;p++){%>
+                    <%if(model.designType.requireType[p]=="door"){%>
+                    <%dos=1;}%>
+                    <%if(model.designType.requireType[p]=="wall"){%>
+                    <%wa=1;}%>
+                    <%if(model.designType.requireType[p]=='other'){%>
+                    <%ot=1;}%>
+                    <%}%>
+                    <dt><label >类型:</label></dt>
+                    <dd><label for="door">门窗</label><input id="door"  type="checkbox" value="门窗" <%=(dos) ? 'checked' : ''%>>
+                        <label for="wall">幕墙</label><input id="wall" type="checkbox"   value="幕墙" <%=(wa) ? 'checked' : ''%>>
+                        <label for="other">其他</label><input  id="other" class="checkbox" type="checkbox"  value="其他" <%=(ot) ? 'checked' : ''%>>
+                        <div id="others">
+                            <%if(ot){%>
+                            <input  id="otherss" type='text' style='width: 100px'  value="<%=model.designType.otherType%>">
+                            <%}%>
+                        </div>
+                    </dd>
+                    <dt><label for="texture">材质:</label></dt>
+                    <dd class="_newSelectListWrap">
+                        <a id="texture"
+                           class="current-selected" data-id="<%=(model.designType.texture) ? model.designType.texture._id:''%>"
+                           href="javascript:;"><%=(model.designType.texture) ? model.designType.texture.name:'选择'%></a>
+                    </dd>
+                    <dt><label for="structure">结构:</label></dt>
+                    <dd class="_newSelectListWrap">
+                        <a id="structure"
+                           class="current-selected" data-id="<%=(model.designType.structure) ? model.designType.structure._id:''%>"
+                           href="javascript:;"><%=(model.designType.structure)?model.designType.structure.name:'选择'%></a>
+                        <div id="structureOther">
+                            <% if(model.designType.structure&&model.designType.structure._id=='QTJG'){%>
+                            <input id="structureOthers" style='width: 100px' type='text' value="<%=model.designType.otherStructure%>">
+                            <%}%>
+                        </div>
+                    </dd>
+                </div>
+            </div>
+            <div class="dialog-tabs-item">
+                <div class="half-block left">
+                    <dl class="project-edit-info">
+                        <dt>
+                            <label for="pushDate">交图时间:</label>
+                        </dt>
+                        <input type="text" class="title-input blueback"  id="pushDate"
+                               value="<%=model.designRequire.pushDate%>" maxlength="32"/>
+                        <dt>
+                            <label>效果图设计:</label>
+                        </dt>
+                        <dd>
+                            <% var pe=0%>
+                            <% var bi=0%>
+                            <% var no=0%>
+                            <% var i=0%>
+                            <% for(i;i<=model.designRequire.effectPicture.length-1;i++){%>
+                            <%if(model.designRequire.effectPicture[i]=="perspective"){%>
+                            <%pe=1;}%>
+                            <%if(model.designRequire.effectPicture[i]=="bird"){%>
+                            <%bi=1;}%>
+                            <%if(model.designRequire.effectPicture[i]=="node"){%>
+                            <%no=1;}%>
+                            <%}%>
+                            <label for="perspective">透视</label><input id="perspective"  type="checkbox" value="透视" <%=(pe) ? 'checked' : ''%>>
+                            <label for="bird">鸟瞰</label><input id="bird" type="checkbox"   value="鸟瞰"  <%=(bi) ? 'checked' : ''%>>
+                            <label for="node">节点</label><input  id="node" type="checkbox"  value="节点"  <%=(no) ? 'checked' : ''%>>
+                        </dd>
+                        <dt>
+                            <label for="conceptualPicture">方案图设计:</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="conceptualPicture"
+                               class="current-selected" data-id="<%=(model.designRequire.conceptualPicture) ? model.designRequire.conceptualPicture._id:''%>"
+                               href="javascript:;"><%=(model.designRequire.conceptualPicture) ? model.designRequire.conceptualPicture.name:'选择'%></a>
+                        </dd>
+                        <dt>
+                            <label for="constructPicture">施工图设计:</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="constructPicture"
+                               class="current-selected" data-id="<%=(model.designRequire.constructPicture) ? model.designRequire.constructPicture._id:''%>"
+                               href="javascript:;"><%=(model.designRequire.constructPicture) ? model.designRequire.constructPicture.name:'选择'%></a>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="half-block right">
+                    <dl class="project-edit-info">
+                        <dt>
+                            <label for="pushRequire">交图要求:</label>
+                        </dt>
+                        <di class="textarea-wrapper">
+                                <textarea class="projectDescriptionCreate"
+                                          name="description"
+                                          placeholder="Add a Description..."
+                                          id="pushRequire"
+                                          maxlength="500"
+                                ><%=model.designRequire.pushRequire%>
+                                    </textarea>
+                        </di>
+                    </dl>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-item">
+                <div id="assignees">
+                    <div id="assignees-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

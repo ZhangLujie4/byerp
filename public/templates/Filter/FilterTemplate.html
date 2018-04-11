@@ -1,0 +1,54 @@
+<div class="search-view">
+    <div class="search-field">
+        <span class="search icon-search"></span>
+
+        <div id="searchGlobalContainer">
+            <div id="searchFilterContainer">
+            </div>
+            <div id="searchInput" data-text="搜索" contenteditable></div>
+        </div>
+        <span class="search-content icon-caret-down"></span>
+    </div>
+    <div class="search-options hidden">
+        <ul class="filter-dialog-tabs">
+            <li data-value="#filtersContent" class="filterTabs">
+                <span class="icon-filter"></span>
+                过滤 
+                <span class="caret"></span>
+            </li>
+            <!--<div class="btn-group">
+                <button class="group btn btn-default">
+                    <span class="fa fa-bars"></span>
+                    Group by
+                    <span class="caret"></span>
+                </button>
+            </div>-->
+            <li data-value="#favoritesContent" class="filterTabs">
+                <span class="icon-star2"></span>
+                收藏
+                <span class="caret"></span>
+            </li>
+        </ul>
+
+        <div class="drop-down-filter">
+            <ul class="condition hidden">
+                <span class="CondParagraph">条件</span>
+                <li class="conditionAND">
+                    <input type="checkbox" checked id="logicCondition" value="and">
+                    <label for="logicCondition">并且</label>
+                </li>
+            </ul>
+            <!--<li class="hidden">
+                <input type="checkbox" id="defaultFilter" value="empty">
+                <label for="defaultFilter">Clear</label>
+            </li>-->
+
+            <li class="hidden group btn btn-default customFilter">
+                增加自定义搜索条件
+            </li>
+
+            <div id="filtersContent" class="tabContent"></div>
+            <div id="favoritesContent" class="tabContent hidden"></div>
+        </div>
+    </div>
+</div>

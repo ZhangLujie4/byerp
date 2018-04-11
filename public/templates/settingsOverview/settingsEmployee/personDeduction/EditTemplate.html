@@ -1,0 +1,47 @@
+<div class="form-holder _departmentExteral">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <h3 class="_dialogTableTitle">新增</h3>
+        	<div class="half-block left">
+        		<div>
+			        <dt><label for="year">年: </label></dt>
+			        <dd  class = "_inputIconWrap">
+			        	<input id="year"  maxlength="40" size="40" type="text" value = "<%= model.year %>">
+			        </dd>
+		        </div>
+		        <div>
+			        <dt><label for="month">月: </label></dt>
+			        <dd  class = "_inputIconWrap">
+			        	<input id="month"  maxlength="40" size="40" type="text" value = "<%= model.month %>">
+			        </dd>
+		        </div>
+		        <div>
+			        <dt><label for="employeesDd">姓名: </label></dt>
+			        <dd class = "_newSelectListWrap">
+			        	<a id="employeesDd" data-id="<%=(model.employee) ? model.employee._id : ''%>" class = "current-selected" href = "javascript:;">
+			        		<%= model.employee ? (model.employee.name.first + ' ' + model.employee.name.last) : '选择'%>
+			        	</a>
+			        </dd>
+		        </div>
+	        </div>
+	        <div class="half-block right">
+	        	<div>
+			        <dt><label for="deductionName">扣减项名称: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input id="deductionName" type="text" value = "<%= model.deductionName %>">
+			        </dd>
+			    </div>
+			    <div>
+			        <dt><label for="amount">扣减数额: </label></dt>
+			        <dd  class = "_inputIconWrap">
+			        	<input id="amount" type="text" value = "<%= model.amount/100 %>">
+			        </dd>
+			    </div>
+			    <div>
+			        <dt><label for="comment">备注: </label></dt>
+			        <dd  class = "_inputIconWrap">
+			        	<input id="comment" type="text" value = "<%= model.comment %>">
+			        </dd>
+			    </div>
+	        </div>
+    </form>
+</div>

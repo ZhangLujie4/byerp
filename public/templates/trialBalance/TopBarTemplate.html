@@ -1,0 +1,40 @@
+<h3>试算平衡</h3>
+<div class="vocationFilter _filterDropDownWrap">
+    <ul class="dateFilter">
+        <li class="dateRange">
+            <span class="icon-calendar"></span>
+            <span id="startTime"><%= startDate%></span> - <span id="endTime"><%= endDate%></span>
+            <span class="icon-arrow-down2"></span>
+        </li>
+        <li>
+            <ul class="frameDetail _filterDropDownBody hidden">
+                <li id="thisMonth" class="filterValues checked">本月</li>
+                <li id="thisYear" class="filterValues checked">本年</li>
+                <li class="listLine"></li>
+                <li id="lastMonth" class="filterValues checked">上月</li>
+                <li id="lastQuarter" class="filterValues checked">上季</li>
+                <li id="lastYear" class="filterValues checked">去年</li>
+                <li class="listLine"></li>
+                <li id="custom" class="_filterArrow filterValues checked">指定日期</li>
+                <li class="customTime hidden">
+                    <div class="customTimeItem">
+                        <label for="startDate">开始日期: </label>
+                        <input readonly type="text" id="startDate">
+                    </div>
+                    <div class="customTimeItem">
+                        <label for="endDate">结束日期: </label>
+                        <input readonly type="text" id="endDate">
+                    </div>
+                </li>
+                <li class="buttons hidden">
+                    <button id="updateDate" class="btn">
+                        <span>更新</span>
+                    </button>
+                    <button id="cancelBtn" class="btn">
+                        <span>取消</span>
+                    </button>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

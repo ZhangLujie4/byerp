@@ -1,0 +1,34 @@
+<tr>
+    <td colspan="8" style="font-size: 20px;text-align: center">小结</td>
+</tr>
+
+<% if(name=='结算中心'){%>
+<% var number=1 %>
+<% model.forEach(function(model){%>
+<tr>
+    <td><%=number%></td>
+    <%  number=number+1 %>
+    <td><%=model.date%></td>
+    <td><%=model.note%></td>
+    <td><%=model.debit%></td>
+    <td></td>
+    <td><%=model.credit%></td>
+    <td><%=model.debit-model.credit%></td>
+    <td></td>
+</tr>
+<% })%>
+<%} else {%>
+<% var number=1 %>
+<% model.forEach(function(model){%>
+<tr>
+    <td><%=number%></td>
+    <%  number=number+1 %>
+    <td><%=model.date%></td>
+    <td><%=model.note%></td>
+    <td><%=model.debit%></td>
+    <td><%=model.credit%></td>
+    <td><%=model.debit-model.credit%></td>
+    <td></td>
+</tr>
+<% })%>
+<% }%>

@@ -1,0 +1,26 @@
+<% collection.forEach(function(model, index){ %>
+<tr data-id="<%=model.building?model.building._id:''%>">
+    <td ><%=model.building?model.building.name:''%></td>
+    <td class="metalPlateOutput" data-id="metalPlateOutput"><%=model.totalMetalPlateArea?model.totalMetalPlateArea.toFixed(3):'0'%> </td>
+    <td class="sprayOutput" data-id="sprayOutput"><%=model.totalsparyArea?model.totalsparyArea.toFixed(3):'0'%>  </td>
+    <td class="rawMaterialCosting" data-id="rawMaterialCosting"><%=model.rawMaterialCosting?model.rawMaterialCosting.toFixed(2):'0'%>  </td>
+    <td class="processingCost" data-id="processingCost"><%=model.processingCost?model.processingCost.toFixed(2):'0'%></td>
+    <td class="shippingCost" data-id="shippingCost"><%=model.shippingCosting.totalFee?model.shippingCosting.totalFee.toFixed(2):'0'%></td>
+    <td class="shippingCost" data-id="shippingCost"><%=model.shippingCosting?(model.shippingCosting.totalFee/(model.shippingCosting.totalArea?model.shippingCosting.totalArea:1)).toFixed(2):'0'%></td>
+    <% var metalPlate=model.totalOutput.totalMetalPlateArea!=0 ? model.metalPlateCosting/model.totalOutput.totalMetalPlateArea:0 %>
+    <% var spray=model.totalOutput.totalsparyArea!=0 ? model.sprayCosting/model.totalOutput.totalsparyArea:0 %>
+    <% var publicTotal=(metalPlate*model.totalMetalPlateArea+spray*model.totalsparyArea)/100 %>
+    <% var totalFee=model.shippingCosting.totalFee?model.shippingCosting.totalFee:0%>
+    <% var totalArea=model.shippingCosting.totalArea?model.shippingCosting.totalArea:1 %>
+    <% var totalSale=model.shippingCosting.totalSale?model.shippingCosting.totalSale:0%>
+    <% var building=(model.totalMetalPlateArea !=0||model.totalsparyArea!=0)?((model.rawMaterialCosting+model.processingCost+publicTotal)/(model.totalMetalPlateArea+model.totalsparyArea)+(totalFee/totalArea)):0%>
+    <td class="publicTotal" data-id="publicTotal"><%=publicTotal.toFixed(2)%></td>
+    <td class="sales" data-id="sales"><%=model.shippingCosting.totalSale?model.shippingCosting.totalSale.toFixed(2):'0'%></td>
+    <% var totalCost=model.rawMaterialCosting+model.processingCost+model.shippingCosting.totalFee+publicTotal%>
+    <td><%=totalCost.toFixed(2)%></td>
+    <td><%=(totalSale-totalCost).toFixed(2)%></td>
+    <td><%=((totalSale/totalArea)-building).toFixed(2)%></td>
+    <td><%=building.toFixed(2)%></td>
+</tr>
+<%})%>
+

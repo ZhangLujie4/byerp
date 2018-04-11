@@ -1,0 +1,50 @@
+<div id="searchContainer"></div>
+<div class="_tablePurchasePaymentsWrap">
+    <table class="list stripedList">
+        <colgroup>
+            <col width="42px">
+            <col width="18%">
+            <col width="18%">
+            <col width="16%">
+            <col width="12%">
+            <col width="12%">
+            <col width="12%">
+            <col width="12%">
+            <col width="12%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="centerCell">
+                <label class="_customCHeckbox">
+                    <input type="checkbox" id="checkAll"/>
+                    <span></span>
+                </label>
+            </th>
+            <th class="oe_sortable" data-sort="assigned.name.first">经办人<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="supplier.name.first">供应商<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="invoice.name">发票<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="paymentMethod.name">银行账户<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="paidAmount">已付款<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable" data-sort="bankExpenses.amount">银行费用<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable sortDn" data-sort="date">付款日期<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+            <th class="oe_sortable sortDn" data-sort="refund">类型<span class="arrow down"></span><span
+                    class="arrow up"></span></th>
+        </tr>
+        </thead>
+        <tbody id="listTable" class="enableTableOdd"></tbody>
+        <tfoot id="listTotal">
+        <tr>
+            <td colspan="5"></td>
+            <td><span id="totalPaidAmount" class="money">0.00</span></td>
+            <td></td>
+        </tr>
+        </tfoot>
+    </table>
+</div>

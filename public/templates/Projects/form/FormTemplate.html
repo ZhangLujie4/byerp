@@ -1,0 +1,295 @@
+<div class="form-holder employee">
+    <form class="form employee" id="employeeForm" data-id="<%=model._id%>">
+        <ul class="chart-tabs">
+            <li><a class="active" id="overviewTab" href="javascript:;">概述</a></li>
+            <li><a href="javascript:;" id="dateAboutTab" class="">日期相关</a></li>
+            <li><a href="javascript:;" id="amountAboutTab" class="">款项相关</a></li>
+            <li><a href="javascript:;" id="qualitytb" class="">质量要求</a></li>
+            <li><a href="javascript:;" id="responsibilityTab" class="">责任相关</a></li>
+            <li><a href="javascript:;" id="uploadingTab" class="">文件上传</a></li>
+
+
+            <!--li><a href="javascript:;" class="countable" id="quotationsTab">估价单<span></span></a></li>
+            <li><a href="javascript:;" class="countable" id="ordersTab">订单<span></span></a></li>
+            <li><a href="javascript:;" class="countable" id="proformaTab">形式发票<span></span></a></li>
+            <li><a href="javascript:;" class="countable" id="invoicesTab">发票<span></span></a></li>
+            <li><a href="javascript:;" class="countable" id="paymentsTab">付款<span></span></a></li>
+            <li><a href="javascript:;" class="" id="commentsTab">其他信息</a></li-->
+            <li><a href="javascript:;" class="" id="assigneesTab">设定</a></li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="dialog-tabs-items">
+            <div class="dialog-tabs-item active">
+                <div class="half-block left">
+                    <dl class="project-edit-info">
+                        <dt>
+                            <label for="projectName">工程名称 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="projectName" id="projectName" required
+                                   value="<%=model.name%>" maxlength="32"/>
+                        </dd>
+                        <dt>
+                            <label for="projectShortDesc">工程简述 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="projectName" id="projectShortDesc" required
+                                   value="<%=model.projectShortDesc%>" maxlength="32"/>
+                        </dd>
+                        <!--dt>
+                            <label for="projectShortDesc">工程简述 </label>
+                        </dt>
+                        <dd>
+                            <input type="text" class="title-input blueback" name="projectShortDesc"
+                                   id="projectShortDesc" required value="<%=model.projectShortDesc%>" maxlength="32"/>
+                        </dd-->
+                        <dt>
+                            <label for="pmr">项目经理</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="pmr" class="current-selected" href="javascript:;"><%=model.pmr.fullName%></a>
+                        </dd>
+                        <input id="pmrName" type="hidden" value="<%=model.pmr.fullName%>">
+                        <input id="customerName" type="hidden" value="<%=model.customer.fullName%>">
+                        <dt>
+                            <label for="pmv">备案项目经理</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="pmv" class="current-selected" href="javascript:;"><%=(model.pmv&&model.pmv.fullName)?model.pmv.fullName:'选择'%></a>
+                        </dd>
+                        <dt>
+                            <label for="projectType">项目类型</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="projectType" class="current-selected" href="javascript:;"><%=model.projectType?model.projectType.name:'选择'%></a>
+                        </dd>
+
+                        <dt>
+                            <label for="customerDd">建设单位 </label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="customerDd" data-id="<%=model.customer?model.customer._id:''%>"
+                               class="current-selected " href="javascript:;"><%=(model.customer&&model.customer.fullName)?model.customer.fullName:'选择'%></a>
+                        </dd>
+                        <dt>
+                            <label for="lssArea">承包范围 </label>
+                        </dt>
+                        <dd>
+                        <input type="text" class="title-input blueback" name="projectName" id="lssArea" required
+                               value="<%=model.lssArea%>" maxlength="32"/>
+                        </dd>
+                        <dt>
+                            <label for="sealType">申请印章类别</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="sealType"
+                               class="current-selected " href="javascript:;" data-id="<%=model.sealType?model.sealType._id:''%>"><%=model.sealType.name?model.sealType.name:'选择'%> </a>
+                        </dd>
+                        <dt>
+                            <label for="workflowsDd">状态</label>
+                        </dt>
+                        <dd class="_newSelectListWrap">
+                            <a id="workflowsDd" data-id="<%=(model.workflow) ? model.workflow._id : ''%>"
+                               class="current-selected " href="javascript:;"><%=(model.workflow)?model.workflow.name:'未定义'%></a>
+                        </dd>
+                        <!--dt><label for="health">健康度</label></dt>
+                        <dd-- id="health">
+                            <a href="javascript:;" data-value="<%=model.health%>" class="health<%=model.health%> "></a>
+                            <ul>
+                                <li>
+                                    <div class="health1"></div>
+                                </li>
+                                <li>
+                                    <div class="health2"></div>
+                                </li>
+                                <li>
+                                    <div class="health3"></div>
+                                </li>
+                            </ul>
+                        </dd-->
+                    </dl>
+                </div>
+                <!--div class="half-block right" id="projectChart"></div>
+                <div class="clearfix"></div>
+
+                <!--div id="forInfo" class="_projectsTablesWrap">
+                    <div class="forInfo-half-block left" id="detailsLeft"></div>
+                    <div class="forInfo-half-block right" id="detailsRight"></div>
+                </div-->
+
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-item">
+                <div id="dateAbout" >
+                    <dt>
+                        <label for="StartDate">开工日期： </label>
+                    </dt>
+                    <dd>
+                        <input type="text" class="title-input blueback" name="projectName" id="StartDate" required
+                               style="width: 200px" value="<%=model.StartDate%>" maxlength="32"/>
+                    </dd>
+                    <dt>
+                        <label for="EndDateTarget">要求竣工日期： </label>
+                    </dt>
+                    <dd>
+                        <input type="text" class="title-input blueback" name="projectName" id="EndDateTarget" required
+                               style="width: 200px" value="<%=model.TargetEndDate%>" maxlength="32"/>
+                    </dd>
+                    <dt>
+                        <label for="signedDate">合同签订日期： </label>
+                    </dt>
+                    <dd>
+                        <input type="text" class="title-input blueback" name="projectName" id="signedDate" required
+                               style="width: 200px" value="<%=model.signedDate%>" maxlength="32"/>
+                    </dd>
+                    <dt>
+                        <label for="archDate">合同存档日期： </label>
+                    </dt>
+                    <dd>
+                        <input type="text" class="title-input blueback" name="projectName" id="archDate" required
+                               style="width: 200px" value="<%=model.archDate%>" maxlength="32"/>
+                    </dd>
+                    <dt>
+                        <label for="archiveMan">存档人 </label>
+                    </dt>
+                    <dd class="_newSelectListWrap">
+                        <a id="archiveMan" data-id="<%=model.archiveMan?model.archiveMan._id:''%>"
+                           class="current-selected " href="javascript:;"><%=(model.archiveMan&&model.archiveMan.fullName)?model.archiveMan.fullName:'选择'%></a>
+                    </dd>
+                </div>
+            </div>
+            <div class="dialog-tabs-item">
+                <div id="amountAbout">
+                    <!--dt><label for="payment_method">银行帐号</label></dt>
+                    <dd class="_newSelectListWrap">
+                        <a id="payment_method" class="current-selected" href="javascript:;" data-id="<%= (model.paymentMethod) ? model.paymentMethod._id : ''%>"><%= (model.paymentMethod) ? model.paymentMethod.name : 'Select'%></a>
+                    </dd>
+                    <dt><label for="payment_terms">付款方式</label></dt>
+                    <dd class="_newSelectListWrap">
+                        <a id="payment_terms" class="current-selected" href="javascript:;" data-id="<%= (model.paymentTerms) ? model.paymentTerms._id : ''%>"><%=(model.paymentTerms) ? model.paymentTerms.name :  'Select'%></a>
+                    </dd-->
+                    <dt><label for="payProp">付款比例:</label></dt>
+                    <dd><input type="text" class="title-input blueback"  id="payProp" style="width: 300px" required
+                                value="<%=model.payProp%>" maxlength="32"/><i>%</i>
+                    </dd>
+                    <dt><label for="amount">合同金额:</label></dt>
+                    <dd><input type="text" class="title-input blueback"  id="amount" style="width: 300px" required
+                               value="<%=model.amount%>" maxlength="32"/><i>元</i>
+                    <dt><label for="preAmount">预付款:</label></dt>
+                    <dd><input type="text"
+                               class="title-input blueback"
+                               id="preAmount"
+                               style="width: 300px"
+                               required
+                               value="<%=model.preAmount%>"
+                               maxlength="32"
+                               /><i>元</i></dd>
+                    <dt><label for="payTerms">付款方式:</label></dt>
+                    <dd><input type="text"
+                               class="title-input blueback"
+                               id="payTerms"
+                               style="width: 300px"
+                               required
+                               maxlength="32"
+                               value="<%=model.payTerms%>"/></dd>
+                    <dt><label for="settlementTerms">付款及结算方式:</label></dt>
+                    <dd><input type="text"
+                               class="title-input blueback"
+                               id="settlementTerms"
+                               style="width: 300px"
+                               required
+                               maxlength="32"
+                               value="<%=model.settlementTerms?model.settlementTerms:''%>"/></dd>
+                </div>
+            </div>
+            <div class="dialog-tabs-item">
+                <div>
+                    <dt>
+                        <label for="quality">质量标注:</label>
+                    </dt>
+                    <di class="textarea-wrapper">
+                                <textarea class="projectDescriptionCreate"
+                                          name="description"
+                                          placeholder="Add a Description..."
+                                          id="quality"
+                                          maxlength="500"><%=model.quality%>
+                                    </textarea>
+                    </di>
+                </div>
+            </div>
+            <div class="dialog-tabs-item">
+                <div id="responsibility">
+                    <dt>
+                        <label for="response">双方责任:</label>
+                    </dt>
+                    <di class="textarea-wrapper">
+                                <textarea class="projectDescriptionCreate"
+                                          name="description"
+                                          placeholder="Add a Description..."
+                                          id="response"
+                                          maxlength="500"><%=model.response?model.response:''%>
+                                    </textarea>
+                    </di>
+                    <dt>
+                        <label for="violation">违约责任:</label>
+                    </dt>
+                    <di class="textarea-wrapper">
+                                <textarea class="projectDescriptionCreate"
+                                          name="description"
+                                          placeholder="Add a Description..."
+                                          id="violation"
+                                          maxlength="500"><%=model.violation%>
+                                    </textarea>
+                    </di>
+                </div>
+            </div>
+            <div class="dialog-tabs-item">
+                <div class="attachments"></div>
+            </div>
+            <!--div class="dialog-tabs-item">
+                <div id="proforma"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-item" id="invoice">
+                <div id="invoices"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-item">
+                <div id="payments"></div>
+            </div>
+
+            <div class="clearfix"></div-->
+            <!--div class="dialog-tabs-item">
+                <div id="comments">
+                    <br>
+                    <dt><label for="payment_method">银行帐号</label></dt>
+                    <dd class="_newSelectListWrap">
+                        <a id="payment_method" class="current-selected" href="javascript:;" data-id="<%= (model.paymentMethod) ? model.paymentMethod._id : ''%>"><%= (model.paymentMethod) ? model.paymentMethod.name : 'Select'%></a>
+                    </dd>
+                    <dt><label for="payment_terms">付款方式</label></dt>
+                    <dd class="_newSelectListWrap">
+                        <a id="payment_terms" class="current-selected" href="javascript:;" data-id="<%= (model.paymentTerms) ? model.paymentTerms._id : ''%>"><%=(model.paymentTerms) ? model.paymentTerms.name :  'Select'%></a>
+                    </dd>
+                    <div class="textarea-wrapper">
+                        <textarea type="text" class="projectDescriptionEdit _bigTextArea" name="description"
+                                  placeholder="Add a Description..." id="description"
+                                  maxlength="500"><%=model.description%></textarea>
+                    </div>
+
+                    <div id="divForNote" class="_projectAttachField"></div>
+                </div>
+            </div-->
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-item">
+                <div id="assignees">
+                    <div id="assignees-container"></div>
+                </div>
+                <!--h3> 项目成员</h3>
+                <div id="projectMembers" class="projectMembers _projectTableVisible _tableAlignLeft">
+                    <div id="projectMembers-container"></div>
+                </div-->
+            </div>
+        </div>
+    </form>
+</div>

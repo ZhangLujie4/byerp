@@ -1,0 +1,132 @@
+<div class="form-holder">
+    <form method="post"
+          action=""
+          id="createPersonsForm"
+          class="form">
+        <fieldset>
+            <div class="inner">
+                <ul class="_statusOrderBlock" data-class="">
+                        <%var allocateStatus = model.status ? model.status.allocateStatus : 'NOT' %>
+                        <%var fulfillStatus = model.status ? model.status.fulfillStatus : 'NOT' %>
+                        <%var shippingStatus = model.status ? model.status.shippingStatus : 'NOT' %>
+
+                    <li class="_statusIndicators">
+                        <span title="Allocated"
+                              class="_allocationed <%=allocateStatus === 'NOA' ? 'icon-checked yellow' : allocateStatus === 'ALL' ? 'icon-checked green' : '_notDid'%>"></span>
+                        <span title="Fulfilled"
+                              class="icon-box <%=fulfillStatus === 'NOA' ? 'yellow' : fulfillStatus === 'ALL' ? 'green' : 'red'%> _fullfilled"></span>
+                        <span title="Shipped"
+                              class="icon-cargo <%=shippingStatus === 'NOA' ? 'yellow' : shippingStatus === 'ALL' ? 'green' : 'red'%> _shipped"></span>
+                    </li>
+                    <li class="_statusActions">
+
+                        <a id="workflowsDd" class="btn slim _workflowsDd "
+                           data-id="<%= model.workflow ? model.workflow._id : ''%>"
+                           href="javascript:;"><%= model.workflow ?
+                            model.workflow.name : ''%></a>
+                    </li>
+                    <%var classNameFulfill = fulfillStatus !== 'ALL' ? 'activeItem' : 'passiveItem';%>
+                    <%var classNameCancel = shippingStatus !== 'NOT' ? 'activeItem' : 'passiveItem';%>
+
+                    <li class="right fullfillOrderWrap">
+                        <a class="btn slim fullfillOrder" href="javascript:;">
+                            <span>订单操作</span>
+                        </a>
+                        <ul>
+                            <li class="<%=classNameFulfill%>">
+                                <a id="fulfillAll"><span class="fontBold">全部出库但不运输</span>
+                                    <span class="help">给所有产品创建出库单</span>
+                                </a>
+                            </li>
+                            <li class="<%=classNameFulfill%>">
+                                <a id="fulfilAndShip"><span class="fontBold">全部出库完成运输</span>
+                                    <span class="help">给所有产品创建出库单</span>
+                                    <span class="help">创建运费</span>
+                                </a>
+                            </li>
+                            <li class="<%=classNameFulfill%>">
+                                <a id="splitFulfil"><span class="fontBold">部分出库</span>
+                                    <span class="help">给部分产品创建出库单</span>
+                                </a>
+                            </li>
+                            <li class="<%=classNameCancel%>">
+                                <a id="salesReturn"><span class="fontBold">销售退货</span>
+                                    <span class="help">部分产品或者全部产品退回仓库</span>
+                                </a>
+                            </li>
+                            <li class="<%=classNameCancel%>">
+                                <a id="cancelOrder" class="cancelOrder"><span class="fontBold">取消</span>
+                                    <span class="help">取消订单同时将所有产品退回仓库</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="right">
+                        <%if ((fulfillStatus !== 'NOT' && fulfillStatus !== 'NOA') || model.prepayment.sum) {%>
+                        <a title="Journal Entries" id="viewJournalEntries"
+                           class="icon-edit-list2  _viewEntries btn slim" href="javascript:;"></a>
+                        <%}%>
+                    </li>
+                </ul>
+                <span class="_orderNumber">#<%=model.name%></span>
+                <%if (model.invoice && model.invoice._id) {%>
+                <%var reference = '#easyErp/invoice/tform/' + model.invoice._id;%>
+                <ul class="_statusOrderList">
+                    <li class="left _statusOrders">
+                        <h3 class="_invoiced"><a href="<%=reference%>">#<%=model.invoice.name%></a></h3>
+                    </li>
+                </ul>
+                <%}%>
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items mainTabs">
+                    <div class="dialog-tabs-item mainTabs active">
+                        <div class="topInputHolder">
+                            <div class="half-block left">
+                                <dl class="opp-info">
+                                    <dt><label>客户</label></dt>
+                                    <dd>
+                                        <%if(model.supplier){%>
+                                        <span id="supplierDd" data-id="<%=model.supplier._id%>"><%=model.supplier.name.first+ ' ' + model.supplier.name.last%></span>
+                                        <%}%>
+                                    </dd>
+
+                                    <dt><label for="expectedDate">付款日期</label></dt>
+                                    <dd>
+                                        <input id="expectedDate" class="_inputBordered" value="<%=model.expectedDate%>"
+                                               readonly/>
+                                    </dd>
+                                    <dt><label>订单日期</label></dt>
+                                    <dd>
+                                        <input id="orderDate" class="_inputBordered" value="<%=model.orderDate%>"
+                                               readonly/>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="half-block right">
+                                <dl class="opp-info">
+                                    <dt><label for="warehouseDd">仓库</label></dt>
+                                    <dd class="_modalSelect">
+                                <span id="warehouseDd"
+                                      data-id="<%=model.warehouse ? model.warehouse._id : ''%>"><%=model.warehouse ?
+                                    model.warehouse.name : ''%></span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="clearfix"></div>
+                        <div id="productItemsHolder">
+
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+        </fieldset>
+    </form>
+    <div class="clearfix"></div>
+</div>

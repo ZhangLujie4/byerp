@@ -1,0 +1,111 @@
+<%var classNameFulfill = fulfillStatus !== 'ALL' ? 'activeItem' : 'passiveItem';%>
+<%var classNameCancel = fulfillStatus !== 'NOT' ? 'activeItem' : 'passiveItem';%>
+<div class="form-holder">
+    <form method="post" action="" id="createPersonsForm" class="form">
+        <fieldset>
+            <div class="inner">
+
+                <ul class="_statusOrderBlock" data-class="">
+                    <li class="_saveEdit">
+                        <span class="btn slim blue saveBtn">保存</span>
+                    </li>
+                    <li class="_statusIndicators">
+                        <%var fulfillStatus = model.status ? model.status.fulfillStatus : 'NOT' %>
+                        <span title="入库"
+                              class="icon-box <%=fulfillStatus === 'NOA' ? 'yellow' : fulfillStatus === 'ALL' ? 'green' : 'red'%> _fullfilled"></span>
+                    </li>
+                    <li class="_statusActions">
+                        <a id="viewJournalEntries"
+                           class="icon-edit-list2 _viewEntries btn slim"
+                           href="javascript:;" title="Journal Entries">
+                        </a>
+                    </li>
+                    <li>
+                        <a id="workflowsDd" class="btn slim _workflowsDd current-selected"
+                           data-id="<%= model.workflow ? model.workflow._id : ''%>"
+                           href="javascript:;"><%= model.workflow ?
+                            model.workflow.name : ''%></a>
+                    </li>
+                </ul>
+                <span class="_orderNumber">#<%=model.name%></span>
+                <span class="_designRecNumber">客户订单号:  <%=(model.designRec) ? model.designRec.orderNumber : ''%></span>
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items mainTabs">
+                    <div class="dialog-tabs-item mainTabs active">
+                        <div class="topInputHolder">
+                            <div class="half-block left">
+                                <dl class="opp-info">
+                                    <dt><label>日期</label></dt>
+                                    <dd>
+                                        <input id="orderDate" class="_inputBordered" readonly
+                                               value="<%=model.orderDate%>">
+                                    </dd>
+                                    <dt style="color:red"><label for="assignedTo">经办人*</label></dt>
+                                    <dd>
+                                        <a id="assignedTo" class="current-selected" href="javascript:;"
+                                           data-id="<%=model.salesPerson ? model.salesPerson._id : ''%>"><%=model.salesPerson
+                                            && model.salesPerson.name ? model.salesPerson.name.first +' ' +
+                                            model.salesPerson.name.last : '选择'%></a>
+                                    </dd>
+                                    <dt><label for="paymentMethod">账户</label></dt>
+                                    <dd class="">
+                                        <a id="paymentMethod" class="current-selected"
+                                           href="javascript:;"
+                                           data-id="<%=model.paymentMethod && model.paymentMethod._id ? model.paymentMethod._id : null%>"><%=model.paymentMethod
+                                            && model.paymentMethod._id ? model.paymentMethod.name : '选择'%></a>
+                                    </dd>
+                                    <dt hidden><label for="purchaseContract">采购合同</label></dt>
+                                    <dd class="_modalSelect" hidden>
+                                        <a id="purchaseContract" class="current-selected" href="javascript:;"
+                                           data-id="<%=model.contract ? model.contract._id : ''%>"><%=model.contract
+                                            ?
+                                            model.contract.number : '选择'%></a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="half-block right">
+                                <dl class="opp-info">
+                                    <dt><label for="expectedDate">预期</label></dt>
+                                    <dd>
+                                        <input id="expectedDate" class="_inputBordered" readonly
+                                               value="<%=model.expectedDate%>">
+                                    </dd>
+                                    <dt><label for="account">应付应计账户</label></dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="account" class="current-selected"
+                                           data-id="<%=model.account ? model.account._id : null%>"
+                                           href="javascript:;"><%=model.account ? model.account.name : '选择'%></a>
+                                    </dd>
+
+                                    <dt><label for="priceList">消费列表</label></dt>
+                                    <dd class="_modalSelect">
+                                        <a id="priceList" class="current-selected" href="javascript:;"
+                                           data-id="<%=model.priceList ? model.priceList._id : ''%>"><%=model.priceList
+                                            ?
+                                            model.priceList.name : '选择'%></a>
+                                    </dd>
+
+                                    <dt style="color:red"><label for="warehouseDd">仓库*</label></dt>
+                                    <dd class="_modalSelect">
+                                        <a id="warehouseDd" class="current-selected" href="javascript:;"
+                                           data-id="<%=model.warehouse ? model.warehouse._id : ''%>"><%=model.warehouse
+                                            ?
+                                            model.warehouse.name : '选择'%></a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="clearfix"></div>
+                        <div id="productItemsHolder"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+        </fieldset>
+    </form>
+    <div class="clearfix"></div>
+</div>

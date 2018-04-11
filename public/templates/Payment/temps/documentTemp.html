@@ -1,0 +1,185 @@
+<%var currencySymb = model.currency ? model.currency.symbol : '$'%>
+<div class="noMargin noPadding">
+    <div class="_invoiceTemplate _payments noMargin">
+        <div class="ribbon">
+            <div class="ribbon-inner ribbon-green">
+                <%=(model.workflow && !model.refund) ? model.workflow : 'Refunded'%>
+            </div>
+        </div>
+
+        <%if (!model.refund) {%>
+        <span class="btn blue refund">退款</span>
+        <%}%>
+
+        <div class="extractPdf">
+            <div class="_templateHeader">
+                <% if (App && App.organizationSettings) {%>
+                <div class="_headerLeftPart">
+                    <div class="_orgName"><b><%=App.organizationSettings.name%></b></div>
+                    <div class="_orgLabel"><%=addressMaker(App.organizationSettings.address)%></div>
+                </div>
+                <% } %>
+                <div class="_headerRightPart">
+                    <div class="_entityBlock">
+                        <div class="_entityTitle">
+                            <%if (!model.refund) {%>
+                            <%=model.order ? 'Prepayment' : 'Payment'%> <%=model.name || ''%>
+                            <%} else {%>
+                            退款 <%=model.name || ''%>
+                            <%}%>
+                        </div>
+                    </div>
+                    <div class="_entityBlock">
+                        <div class="_entityNumber">源文件 <b><%=model.order && model.order._id? model.order.name :model.invoice.name%></b></div>
+                    </div>
+                </div>
+            </div>
+            <div class="_templateDateBlock">
+                <div class="_rightPart">
+                    <table class="_templateDateTable tableFixed">
+                        <colgroup>
+                            <col width="60%">
+                            <col width="40%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <td class="_dateLeftPart">
+                                <div class="_billingBlock">
+                                    <div class="_billingTitle">开票单位</div>
+                                    <div class="_billingCustomerName"><%=(model.supplier &&
+                                        model.supplier.name)?model.supplier.name.first + ' ' + model.supplier.name.last:""%>
+                                    </div>
+                                    <%if (model.supplier && model.supplier.address) {%>
+                                    <div class="_orgLabel"><%=addressMaker(model.supplier.address)%></div>
+                                    <%}%>
+                                </div>
+                            </td>
+                            <td class="_dateRightPart">
+                                <table class="tableFixed">
+                                    <colgroup>
+                                        <col width="100%">
+                                        <col width="100px">
+                                    </colgroup>
+                                    <tbody>
+                                    <tr>
+                                        <td>付款时间 :</td>
+                                        <td><%=model.date%></td>
+                                    </tr>
+                                    <tr>
+                                        <td>银行账户:</td>
+                                        <td><%=model.paymentMethod ? model.paymentMethod.name: ''%></td>
+                                    </tr>
+                                    <tr>
+                                        <td>账户:</td>
+                                        <td><%=model.bankAccount ? model.bankAccount.name : ''%></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <table class="_templateTable tableFixed">
+                <colgroup>
+                    <col width="30px">
+                    <col width="33.333%">
+                    <col width="33.333%">
+                    <col width="33.333%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>类型</th>
+                    <th>账户</th>
+                    <th>金额</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><b>付款金额</b></td>
+                    <td></td>
+                    <td><b><%=currencySymb%><%=(model.paidAmount) ? model.paidAmount : ''%></b></td>
+                </tr>
+                <%if (model.bankExpenses && model.bankExpenses.amount) {%>
+                <tr>
+                    <td>2</td>
+                    <td><b>银行费用</b></td>
+                    <td><b><%=currencySymb%><%=(model.bankExpenses && model.bankExpenses.account) ? model.bankExpenses.account.name : ''%></b></td>
+                    <td><b><%=currencySymb%><%=(model.bankExpenses) ? model.bankExpenses.amount : ''%></b></td>
+                </tr>
+                <%}%>
+                <%if (parseFloat(model.differenceAmount)) {%>
+                <tr>
+                    <td>3</td>
+                    <td><b>差额</b></td>
+                    <td></td>
+                    <td><b><%=currencySymb%><%=(model.differenceAmount) ? model.differenceAmount : ''%></b></td>
+                </tr>
+                <%}%>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="_templatePaymentInfo">
+            <table class="templateBottomTable tableFixed">
+                <colgroup>
+                    <col width="80px">
+                    <col width="120px">
+                    <col width="135px">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th><b>付款明细</b></th>
+                    <th></th>
+                    <th><b>其余信息</b></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><p>收款人姓名</p></td>
+                    <td><p><%=model.paymentMethod ? model.paymentMethod.owner : ''%></p></td>
+                    <td rowspan="5">
+                        <p><%=App.organizationSettings ? App.organizationSettings.contactName :
+                            ''%></p>
+                        <p><%=App.organizationSettings ? App.organizationSettings.address.phone :
+                            ''%></p>
+                        <p><%=App.organizationSettings ? App.organizationSettings.website :
+                            ''%></p>
+                        <p><%=App.organizationSettings && App.organizationSettings.contact &&
+                            App.organizationSettings.contact.email && App.organizationSettings.contact ?
+                            App.organizationSettings.contact.email : 'info@thinkmobiles.com'%></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>银行</p></td>
+                    <td><p><%=model.paymentMethod ? model.paymentMethod.bank : ''%></p></td>
+                </tr>
+                <tr>
+                    <td><p>银行地址</p></td>
+                    <td><p><%=model.paymentMethod ? model.paymentMethod.address : ''%></p></td>
+                </tr>
+                <tr>
+                    <td><p>IBAN</p></td>
+                    <td><p><%=model.paymentMethod ? model.paymentMethod.account : ''%></p></td>
+                </tr>
+                <tr>
+                    <td><p>SWIFT Code</p></td>
+                    <td><p><%=model.paymentMethod ? model.paymentMethod.swiftCode : ''%></p></td>
+                </tr>
+                </tbody>
+            </table>
+            <p>
+                <span class="red">尊敬的客户，请注意，服务总金额不包括银行费用。请您在付款时注意</span>
+            </p>
+            <p class="_noticeText">
+                <b>付款应通过银行转账或支票进行支付 <%=App.organizationSettings ?
+                    App.organizationSettings.contactName.toUpperCase() :
+                    ''%></b>.
+            </p>
+        </div>
+    </div>
+</div>

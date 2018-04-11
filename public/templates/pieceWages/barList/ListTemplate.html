@@ -1,0 +1,11 @@
+<% collection.forEach(function(model, index){ %>
+<tr>
+    <td><%=model.barCode.orderRowId.projectName.name%></td>
+    <th><%=model.barCode.orderRowId.cgdh%></th>
+    <th><%=model.barCode.barId%></th>
+    <th><%=model.workGroup.workCentre.name%></th>
+    <th><%=model.rate.toFixed(2)%></th>
+    <th><%=model.price%></th>
+    <th><%=model.money.toFixed(2)%></th>
+</tr>
+<% }) %>

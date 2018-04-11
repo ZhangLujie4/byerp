@@ -1,0 +1,62 @@
+<tr class="productItem deleteRow" data-id="<%= products[0] ? products[0]._id : 'false'%>" data-error="true">
+
+    <td data-name="productName" class="">
+        <div class="jobsWescWrap _newSelectListWrap ">
+        <a class="current-selected productsDd" href="javascript:;" data-id="<%= products[0] ? products[0]._id : null%>">
+
+            <%=products[0] && forSales ? products[0].name : '选择'%>
+        </a>
+            <textarea class="productDescr"><%=products[0].info ? products[0].info.description :  ''%></textarea>
+        </div>
+    </td>
+    <td></td>
+    <td data-name="quantity">
+        <input id="quantity"  maxlength="9" size=7 type="text"/>
+    </td>
+    <td data-name="price" class="">
+        <input id="editInput"  maxlength="9" size=7 type="text" />
+    </td>
+    <td data-name="processingCharges" >
+        <div >
+            <table class="list stripedList">
+                <colgroup>
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th><input class="qty1" style="border: 0px" readonly></th>
+                    <th><input class="qty2" style="border: 0px" readonly></th>
+                    <th><input class="qty3" style="border: 0px" readonly></th>
+                    <th><input class="qty4" style="border: 0px" readonly></th>
+                    <th><input class="qty5" style="border: 0px" readonly></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <td> <input id="price1"  maxlength="9" size=7 type="text" /></td>
+                    <td> <input id="price2"  maxlength="9" size=7 type="text" /></td>
+                    <td> <input id="price3"  maxlength="9" size=7 type="text" /></td>
+                    <td> <input id="price4"  maxlength="9" size=7 type="text" /></td>
+                    <td> <input id="price5"  maxlength="9" size=7 type="text" /></td>
+                </tbody>
+
+            </table>
+        </div>
+
+    </td>
+    <%currencyClassVal = curSymbol;%>
+
+    <td data-name="sourceAl">
+        <div id="sourceAl">
+
+        </div>
+    </td>
+    <td data-name="subtotal" >
+        <span class="subtotal" id="subtotal"/></td>
+    <td class="deleteCell centerCell">
+        <span title="Delete" class="icon-close5 removeJob"></span>
+    </td>
+</tr>

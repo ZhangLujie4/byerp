@@ -1,0 +1,42 @@
+<h3>社保</h3>
+<div id="createBtnHolder" class="btnsBlock">
+
+    	<a href="javascript:;" class="btn blue slim plus" title="Create" id="top-bar-createBtn">导入</a>
+    	<a href="javascript:;" class="btn blue slim plus" title="import" id="top-bar-importBtn">市医疗保险导入</a>
+    	
+</div>
+
+<div class="vocationFilter _filterDropDownWrap">
+	<ul class="dateFilter" style = "left:100px">
+	        <li class="dateRange">
+	            <span class="icon-calendar"></span>
+	            <span id="startTime"><%=startDate%></span></span>
+	            <span class="icon-arrow-down2"></span>
+	        </li>
+	        <li>
+	            <ul class="frameDetail _filterDropDownBody hidden">
+	                <li class="customTime">
+	                    <div class="customTimeItem">
+	                        <label for="startDate">选择年月: </label>
+	                        <input readonly type="text" id="startDate">
+	                    </div>
+
+	                </li>
+	                <li class="buttons">
+	                    <button id="updateDate" class="btn">
+	                        <span>更新</span>
+	                    </button>
+	                    <button id="cancelBtn" class="btn">
+	                        <span>取消</span>
+	                    </button>
+	                </li>
+	            </ul>
+	        </li>
+	    </ul>
+</div>
+
+<style type="text/css">  
+    .ui-datepicker-calendar {  
+        display: none;
+    }  
+</style>

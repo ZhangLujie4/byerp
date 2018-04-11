@@ -1,0 +1,26 @@
+<div class="form-holder">
+    <div class="clearfix"></div>
+    <h3 class="borderBottom">现金转帐</h3>
+    <div class="clearfix"></div>
+    <form method="post" action="" id="createJournalForm" class="createJournalForm form">
+        <dl class="journal-info">
+            <dt><label for="date">日期</label></dt>
+            <dd><input id="date" name="date" value="" readonly></dd>
+
+            <dt><label>从</label></dt>
+            <dd class="cashBalanceRow _newSelectListWrap">
+                <a id="debitAccount" class="current-selected" href="javascript:;">选择</a>
+                <label class="cashBalance">Balance</label>
+                <span id="maxAmount" class=""></span>
+            </dd>
+
+            <dt><label>到</label></dt>
+            <dd class="_newSelectListWrap">
+                <a id="creditAccount" class="current-selected" href="javascript:;">选择</a>
+            </dd>
+
+            <dt><label>Amount</label></dt>
+            <dd><input id="amount" value="0" class=""/> <span id="currency"></span></dd>
+        </dl>
+    </form>
+</div>

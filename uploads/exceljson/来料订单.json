@@ -1,0 +1,15 @@
+﻿{
+  "table_no": "BYYCLLL",
+  "startLine": "5",
+  "description":"1",
+  "quantity":"6",
+  "priceQty":"7",
+  "product":"10",
+  "fields_name": {
+    "2": "型号",
+    "3": "色号",
+    "4": "单位喷涂面积（m2/m）",
+    "5": "长度（mm）",
+    "8": "保护膜（mm）"
+  }
+}

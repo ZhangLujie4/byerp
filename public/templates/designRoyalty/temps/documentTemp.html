@@ -1,0 +1,58 @@
+<% var cost = model.project.bidCost*(model.comRate/100); %>
+<div class="_invoiceTemplate">
+    <div class="extractPdf">
+        <div class="_templateHeader">
+            <div class="_headerRightPart">
+                <div class="_entityBlock">
+                    <div class="_entityTitle">提成明细</div>
+                    <div class="_entityNumber"><b><%=model.project.name || ''%></b></div>
+                    <table class="tableFixed">
+                        <colgroup>
+                            <col width="100%">
+                            <col width="100px">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <td>合同金额 :</td>
+                            <td><%=model.amount%></td>
+                        </tr>
+                        <tr>
+                            <td>已收金额 :</td>
+                            <td><%=(model.receive)?model.receive:0%></td>
+                        </tr>
+                        <tr>
+                            <td>剩余金额 :</td>
+                            <td><%=model.balance%></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <table class="_templateTable tableFixed">
+            <colgroup>
+                <col width="80px">
+                <col width="50%">
+                <col width="50%">
+
+            </colgroup>
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>提成(元)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% persons.forEach(function(person, index){ %>
+            <tr data-id="<%=person.name._id%>">
+                <td><%=index + 1%></td>
+                <td><%=person.name%></td>
+                <td><%=person.royalty%></td>
+            </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+</div>

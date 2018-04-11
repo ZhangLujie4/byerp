@@ -1,0 +1,124 @@
+<div class="form-holder">
+    <div class="inner">
+        <div class="clearfix"></div>
+        <div class="topInputHolder">
+            <div class="thirdPartBlock left">
+                <dl class="person-info">
+                    <dt><label for="project">工程</label></dt>
+                    <dd>
+                        <span id="project"><%= project.name %></span>
+                    </dd>
+                </dl>
+                <dl class="person-info">
+                    <dt><label for="jobName">工单名称</label></dt>
+                    <dd>
+                        <% if (jobs && jobs._id) {%>
+                        <input id="jobName" value="<%=jobs.name%>" readonly/>
+                        <% } else {%>
+                        <input id="jobName" maxlength="36"/>
+                        <% } %>
+                    </dd>
+                </dl>
+                <dl class="person-info">
+                    <dt><label for="jobDescription">描述</label></dt>
+                    <dd>
+                        <% if (jobs && jobs._id) {%>
+                        <textarea id="jobDescription"><%=jobs.description%></textarea>
+                        <% } else {%>
+                        <textarea id="jobDescription"/>
+                        <% } %>
+                    </dd>
+                </dl>
+            </div>
+            <div class="thirdPartBlock left">
+                <dl class="person-info">
+                    <div class="miniAvatarCustomer miniAvatar"
+                         data-id="<%=(project.customer && project.customer._id) ? project.customer._id: ''%>">
+                        <img alt="" src="" class="avatar"/>
+                    </div>
+                    <div class="miniAvatarInfo">
+                        <dt><label for="customer">客户</label></dt>
+                        <dd>
+                            <span id="customer"><%= project.customer &&  project.customer.name ? project.customer.name.first + ' ' + project.customer.name.last : '' %></span>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+            <div class="thirdPartBlock left">
+                <dl class="person-info">
+                    <div class="miniAvatarPM miniAvatar"
+                         data-id="<%=( project.salesmanager &&  project.salesmanager._id) ?  project.salesmanager._id: ''%>">
+                        <img alt="" src="" class="avatar"/>
+                    </div>
+                    <div class="miniAvatarInfo">
+                        <dt><label for="salesManager">SM</label></dt>
+                        <dd>
+                            <span id="salesManager"><%= project.salesmanager && project.salesmanager.name ?  project.salesmanager.name.first + ' ' +  project.salesmanager.name.last : ''%></span>
+                        </dd>
+                    </div>
+                </dl>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="topContentHolder">
+            <div id="wTrackItemsHolder" class="_wTrackItemsHolder">
+                <table id="rawTable" class="list tableFixed _invoiceTable">
+                    <colgroup>
+                        <col width="13%">
+                        <col width="10%">
+                        <col width="8%">
+                        <col width="12%">
+                        <col width="12%">
+                        <col width="5%">
+                        <col width="5%">
+                        <col width="5%">
+                        <col width="5%">
+                        <col width="5%">
+                        <col width="5%">
+                        <col width="5%">
+                        <col width="10%">
+                        <col width="30px">
+                    </colgroup>
+                    <thead>
+                    <tr  class="_deleteHeader">
+                        <th>员工</th>
+                        <th>部门</th>
+                        <th>发布者</th>
+                        <th>开始日期</th>
+                        <th>结束日期/ Hours</th>
+                        <th>星期一</th>
+                        <th>星期二</th>
+                        <th>星期三</th>
+                        <th>星期四</th>
+                        <th>星期五</th>
+                        <th>星期六</th>
+                        <th>星期日</th>
+                        <th>估计时间</th>
+                        <th class="deleteCell"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr id="addNewItem" class="_addNewItem">
+                        <td colspan="13">
+                            <a href="javascript:;" id="addNewEmployeeRow">增加新项</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="14" class="invisible_border">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="14" class="invisible_border">&nbsp;</td>
+                    </tr>
+
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>

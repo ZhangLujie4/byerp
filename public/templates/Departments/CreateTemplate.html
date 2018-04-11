@@ -1,0 +1,61 @@
+<div class="form-holder">
+    <form method="post" action="" id="createDepartmentForm" class="form">
+        <fieldset>
+            <div class="inner">
+                <ul class="dialog-tabs">
+                    <li><a class="active" href="javascript:;">主要信息</a></li>
+                    <li><a href="javascript:;">辅助信息</a></li>
+                </ul>
+                <div class="clearfix">
+                </div>
+                <div class="dialog-tabs-items">
+                    <div class="dialog-tabs-item active">
+                        <div class="half-block left">
+                            <dl class="department-info">
+                                <dt><label for="departmentName">部门名称</label></dt>
+                                <dd><input type="text" class="title-input blueback" name="departmentName" id="departmentName" maxlength="32" placeholder="部门名称" required/><input type="text" hidden required/></dd>
+                                <dt><label for="parentDepartment">上级部门</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="parentDepartment" class="current-selected" href="javascript:;"></a>
+                                </dd>
+                                <dt><label for="externalId">类型</label></dt>
+                                <dd><input type="text" class="title-input blueback" name="externalId" id="externalId" maxlength="32" placeholder="类型" required/><input type="text" hidden required/></dd>
+                            </dl>
+                        </div>
+                        <div class="half-block left">
+                            <dl class="department-info">
+                                <dt><label for="departmentManager">经理</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="departmentManager" class="current-selected" href="javascript:;"></a>
+                                </dd>
+                                <dt><label for="isDevelopment">在开发版显示</label></dt>
+                                <dd>
+                                    <input type="checkbox" id="isDevelopment" checked></input>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="dialog-tabs-item">
+                        <div class="groupsChooser">
+                            <div class="left">
+                                <ul id="sourceUsers">
+
+                                </ul>
+                            </div>
+                            <div class="left">
+                                <div class="swich"></div>
+                            </div>
+                            <div class="left">
+                                <ul id="targetUsers">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

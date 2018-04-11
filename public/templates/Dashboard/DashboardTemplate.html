@@ -1,0 +1,556 @@
+<ul class="chart-tabs dashboard">
+    <li><a class="active" href="javascript:;" class="">按搜索者排序</a></li>
+    <li><a href="javascript:;" class="">按来源排序</a></li>
+    <li><a href="javascript:;" class="">机会转换</a></li>
+    <li><a href="javascript:;" class="">机会失效</a></li>
+    <li><a href="javascript:;" class="">商机</a></li>
+    <li><a href="javascript:;" class="">收益/亏损</a></li>
+    <li><a href="javascript:;" class="">按销售地区查看</a></li>
+    <li><a href="javascript:;" class="">按日期排序</a></li>
+    <li><a href="javascript:;" class="">按名字排序</a></li>
+</ul>
+
+<div class="chart-tabs-items">
+    <div class="chart-tabs-item active">
+        <div class="clearfix"></div>
+        <h3 class="dashboard">谁创造了最多的潜在用户?</h3>
+        <div class="chartTopBox">
+            <div class="legend-box small">
+                <div class="total">
+                    <div class="square" style="background: linear-gradient(to left, #ACC7F2, #FFA17F); opacity: 1">
+                    </div>
+                    <div class="text">
+                        总潜在用户
+                    </div>
+                </div>
+                <div class="opportunities">
+                    <div class="square" style="background: linear-gradient(to left, #6b456c, #98aac4)">
+                    </div>
+                    <div class="text">
+                        商机
+                    </div>
+                </div>
+            </div>
+            <div class="vocationFilter _filterDropDownWrap">
+                <ul class="dateFilterLeadsBySale ">
+                    <li class="dateRangeLeadsBySale">
+                        <span class="icon-calendar"></span>
+                        <span id="startTimeLeadsBySale"><%= startDateLeadsBySale%></span> - <span id="endTimeLeadsBySale"><%= endDateLeadsBySale%></span>
+                        <span class="icon-arrow-down2"></span>
+                    </li>
+                    <li>
+                        <ul class="frameDetail _filterDropDownBody hidden">
+                            <li id="thisMonthLeadsBySale" class="filterValues checked checkedValue" data-type="leadsSale">这个月</li>
+                            <li id="thisYearLeadsBySale" class="filterValues checked" data-type="leadsSale">这个财年</li>
+                            <li class="listLine"></li>
+                            <li id="lastMonthLeadsBySale" class="filterValues checked" data-type="leadsSale">上个月</li>
+                            <li id="lastQuarterLeadsBySale" class="filterValues checked" data-type="leadsSale">上个季度</li>
+                            <li id="lastYearLeadsBySale" class="filterValues checked" data-type="leadsSale">上个财年</li>
+                            <li class="listLine"></li>
+                            <li id="customLeadsBySale" class="_filterArrow filterValues checked" data-type="leadsSale">自定义日期</li>
+                            <li class="customTimeLeadsBySale customTime hidden">
+                                <div class="customTimeItem">
+                                    <label for="startDateLeadsBySale">开始日期: </label>
+                                    <input readonly type="text" id="startDateLeadsBySale">
+                                </div>
+                                <div class="customTimeItem">
+                                    <label for="endDateLeadsBySale">结束日期: </label>
+                                    <input readonly type="text" id="endDateLeadsBySale">
+                                </div>
+                            </li>
+                            <li class="buttons">
+                                <button id="updateDateLeadsBySale" class="btn">
+                                    <span>更新</span>
+                                </button>
+                                <button id="cancelBtnLeadsBySale" class="btn">
+                                    <span>取消</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <svg class="chart salesChart"></svg>
+    </div>
+    <div class="chart-tabs-item">
+        <div class="clearfix"></div>
+        <h3 class="dashboard">我们最主要的广告系列是什么?</h3>
+        <div class="dashbordActions chartTopBox">
+            <div class="vocationFilter _filterDropDownWrap">
+
+                <ul class="dateFilterLeadsBySource">
+                    <li class="dateRangeLeadsBySource">
+                        <span class="icon-calendar"></span>
+                        <span id="startTimeLeadsBySource"><%= startDateLeadsBySource%></span> - <span id="endTimeLeadsBySource"><%= endDateLeadsBySource%></span>
+                        <span class="icon-arrow-down2"></span>
+                    </li>
+                    <li>
+                        <ul class="frameDetail _filterDropDownBody hidden">
+                            <li id="thisMonthLeadsBySource" class="filterValues checked checkedValue" data-type="leadsSource">这个月</li>
+                            <li id="thisYearLeadsBySource" class="filterValues checked" data-type="leadsSource">这个财年</li>
+                            <li class="listLine"></li>
+                            <li id="lastMonthLeadsBySource" class="filterValues checked" data-type="leadsSource">上个月</li>
+                            <li id="lastQuarterLeadsBySource" class="filterValues checked" data-type="leadsSource">上个季度</li>
+                            <li id="lastYearLeadsBySource" class="filterValues checked" data-type="leadsSource">上个财年</li>
+                            <li class="listLine"></li>
+                            <li id="customLeadsBySource" class="_filterArrow filterValues checked" data-type="leadsSource">自定义日期</li>
+                            <li class="customTimeLeadsBySource customTime hidden">
+                                <div  class="customTimeItem">
+                                    <label for="startDateLeadsBySource">开始日期: </label>
+                                    <input readonly type="text" id="startDateLeadsBySource">
+                                </div>
+                                <div class="customTimeItem">
+                                    <label for="endDateLeadsBySource">结束日期: </label>
+                                    <input readonly type="text" id="endDateLeadsBySource">
+                                </div>
+                            </li>
+                            <li class="buttons">
+                                <button id="updateDateLeadsBySource" class="btn">
+                                    <span>更新</span>
+                                </button>
+                                <button id="cancelBtnLeadsBySource" class="btn">
+                                    <span>取消</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="legend-box small clearfix">
+                <div class="total">
+                    <div class="square" style="background: linear-gradient(to left, #ACC7F2, #FFA17F); opacity: 1">
+                    </div>
+                    <div class="text">
+                        总潜在用户
+                    </div>
+                </div>
+                <div class="opportunities ">
+                    <div class="square" style="background: linear-gradient(to left, #6b456c, #98aac4)">
+                    </div>
+                    <div class="text">
+                        机会
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <svg class="chart sourcesChart"></svg>
+    </div>
+    <div class="chart-tabs-item">
+        <h3 class="dashboard">每次销售的转化率是多少?</h3>
+        <div class="_clearfix">
+            <div class="dropDownDateRangeContainer">
+                <div class="choseDateRange dropDownDateRange" data-type="opportunitieConversion">
+                    <div class="item" data-day="7">7天</div>
+                    <div class="item" data-day="30">30天</div>
+                    <div class="item active" data-day="90">90天</div>
+                    <div class="item" data-day="365">12个月/div>
+                    <span class="selectArrow"></span>
+                </div>
+            </div>
+            <div class="legend-box medium opportunities">
+                <div class="new">
+                    <div style="background-color: rgb(38, 167, 222);" class="square">
+                    </div>
+                    <div class="text">
+                        已完成的商机
+                    </div>
+                </div>
+                <div class="convertRate">
+                    <div style="background-color: #66ff66" class="square">
+                    </div>
+                    <div class="text">
+                        商机转换率
+                    </div>
+                </div>
+            </div>
+        </div>
+        <svg class="opportunitieConversionAmount"></svg>
+        <svg class="opportunitieConversionCount"></svg>
+    </div>
+    <div class="chart-tabs-item">
+        <div class="clearfix"></div>
+        <h3 class="dashboard">最后的活动有多长时间?</h3>
+        <div class="legend-box opportunities medium">
+            <div class="new">
+                <div style="background-color: #93648D;" class="square">
+                </div>
+                <div class="text">
+                    新建
+                </div>
+            </div>
+            <div class="new">
+                <div style="background-color: #4CC3D9;" class="square">
+                </div>
+                <div class="text">
+                    去估计
+                </div>
+            </div>
+            <div class="new">
+                <div style="background-color: #F1DD9E;" class="square">
+                </div>
+                <div class="text">
+                    完成估计
+                </div>
+            </div>
+            <div class="% 25-50">
+                <div style="background-color: #7BC8A4;" class="square">
+                </div>
+                <div class="text">
+                    发送offer
+                </div>
+            </div>
+            <div class="% 50-75">
+                <div style="background-color: #FFC65D;" class="square">
+                </div>
+                <div class="text">
+                    PM批准
+                </div>
+            </div>
+            <div class="% 75-100">
+                <div style="background-color: #5D4C46;" class="square">
+                </div>
+                <div class="text">
+                    预开发
+                </div>
+            </div>
+            <div class="% 75-100">
+                <div style="background-color: #EB6E44;" class="square">
+                </div>
+                <div class="text">
+                    开发中
+                </div>
+            </div>
+            <div class="% 75-100">
+                <div style="background-color: #93073E;" class="square">
+                </div>
+                <div class="text">
+                    损失
+                </div>
+            </div>
+        </div>
+        <svg class="opportunitieAgingSum"></svg>
+        <svg class="opportunitieAgingCount"></svg>
+    </div>
+    <div class="chart-tabs-item">
+        <h3 class="dashboard">我的商机在什么阶段?</h3>
+        <div>
+            <div class="dropDownDateRangeContainer">
+                <div class="choseDateRange dropDownDateRange" data-type="opportunitie">
+                    <div class="item" data-day="7">7天</div>
+                    <div class="item active" data-day="30">30天</div>
+                    <div class="item" data-day="90">90天</div>
+                    <div class="item" data-day="365">12个月</div>
+                    <span class="selectArrow"></span>
+                </div>
+            </div>
+            <div class="legend-box opportunities">
+                <div class="new">
+                    <div style="background-color: #93648D;" class="square">
+                    </div>
+                    <div class="text">
+                        新建
+                    </div>
+                </div>
+                <div class="new">
+                    <div style="background-color: #4CC3D9;" class="square">
+                    </div>
+                    <div class="text">
+                        去估计
+                    </div>
+                </div>
+                <div class="new">
+                    <div style="background-color: #F1DD9E;" class="square">
+                    </div>
+                    <div class="text">
+                        完成估计
+                    </div>
+                </div>
+                <div class="% 25-50">
+                    <div style="background-color: #7BC8A4;" class="square">
+                    </div>
+                    <div class="text">
+                        发送offer
+                    </div>
+                </div>
+                <div class="% 50-75">
+                    <div style="background-color: #FFC65D;" class="square">
+                    </div>
+                    <div class="text">
+                        PM批准
+                    </div>
+                </div>
+                <div class="% 75-100">
+                    <div style="background-color: #5D4C46;" class="square">
+                    </div>
+                    <div class="text">
+                        预开发
+                    </div>
+                </div>
+                <div class="% 75-100">
+                    <div style="background-color: #EB6E44;" class="square">
+                    </div>
+                    <div class="text">
+                        开发中
+                    </div>
+                </div>
+                <div class="% 75-100">
+                    <div style="background-color: #93073E;" class="square">
+                    </div>
+                    <div class="text">
+                        损失
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <svg class="opportunitiesChart"></svg>
+    </div>
+    <div class="chart-tabs-item">
+        <h3 class="dashboard">我们赢得了多少商机?</h3>
+        <div class="dropDownDateRangeContainer left">
+            <div class="choseDateRange dropDownDateRange choseDateItem" data-type="winLost">
+                <div class="item active" data-item="D">天</div>
+                <div class="item" data-item="W">周</div>
+                <div class="item" data-item="M">月</div>
+                <div class="item" data-item="DW">每周的天数</div>
+                <div class="item" data-item="DM">每月的天数</div>
+                <span class="selectArrow"></span>
+            </div>
+        </div>
+
+        <div class="legend-box wonLegend">
+            <div class="converted ">
+                <div class="square" style="background: #6CC062">
+                </div>
+                <div class="text">
+                    盈利
+                </div>
+                <div class="square" style="background: #00B4EA">
+                </div>
+                <div class="text">
+                    打开计数
+                </div>
+                <div class="square" style="background: #F68065">
+                </div>
+                <div class="text">
+                    亏损
+                </div>
+                <div class="square legendCircle" style="background: #6CC062">
+                </div>
+                <div class="text">
+                    盈利 % (Count)
+                </div>
+            </div>
+        </div>
+
+        <div class="dropDownDateRangeContainer">
+            <div class="choseDateRange dropDownDateRange" data-type="winLost">
+                <div class="item" data-day="7">7天</div>
+                <div class="item active" data-day="30">30天</div>
+                <div class="item" data-day="90">90天</div>
+                <div class="item" data-day="365">12个月</div>
+                <span class="selectArrow"></span>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+
+        <svg class="winAndLostOpportunitiesChart"></svg>
+    </div>
+    <div class="chart-tabs-item">
+        <h3>按销售地区</h3>
+        <div class="filterWrap salesTab">
+            <div class="vocationFilter _filterDropDownWrap small">
+
+                <ul class="dateFilter">
+                    <li class="dateRange">
+                        <span class="icon-calendar"></span>
+                        <span id="startTime"><%= startDate%></span> - <span id="endTime"><%= endDate%></span>
+                        <span class="icon-arrow-down2"></span>
+                    </li>
+                    <li>
+                        <ul class="frameDetail _filterDropDownBody hidden">
+                            <li id="thisMonth" class="filterValues checked checkedValue" data-type="">这个月</li>
+                            <li id="thisYear" class="filterValues checked" data-type="">这个财年</li>
+                            <li class="listLine"></li>
+                            <li id="lastMonth" class="filterValues checked" data-type="">上个月</li>
+                            <li id="lastQuarter" class="filterValues checked" data-type="">上个季度</li>
+                            <li id="lastYear" class="filterValues checked" data-type="">上个财年</li>
+                            <li class="listLine"></li>
+                            <li id="custom" class="_filterArrow filterValues checked" data-type="">自定义日期</li>
+                            <li class="customTime customTime hidden">
+                                <div  class="customTimeItem">
+                                    <label for="startDate">开始日期: </label>
+                                    <input readonly type="text" id="startDate">
+                                </div>
+                                <div  class="customTimeItem">
+                                    <label for="endDate">结束日期: </label>
+                                    <input readonly type="text" id="endDate">
+                                </div>
+                            </li>
+                            <li class="buttons">
+                                <button id="updateDate" class="btn">
+                                    <span>更新</span>
+                                </button>
+                                <button id="cancelBtn" class="btn">
+                                    <span>取消</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="dashboardGraphicsWrap">
+            <div class="treemap_sales halfWidth leftMap"></div>
+            <div class="halfWidth">
+                <svg class="salesByCountryChart"></svg>
+            </div>
+            <div class="fullWidth">
+                <svg class="salesByCountryBarChart"></svg>
+            </div>
+        </div>
+    </div>
+    <div class="chart-tabs-item leadsTab">
+        <h3>线索</h3>
+        <div class="leadsTop align-left clearfix">
+            <div class="col xs-4">
+                <div class="vocationFilter _filterDropDownWrap">
+                    <ul class="dateFilterLeads">
+                        <li class="dateRangeLeads">
+                            <span class="icon-calendar"></span>
+                            <span id="startTimeLeads"><%= startDateLeads%></span> - <span id="endTimeLeads"><%= endDateLeads%></span>
+                            <span class="icon-arrow-down2"></span>
+                        </li>
+                        <li>
+                            <ul class="frameDetail _filterDropDownBody hidden">
+                                <li id="thisMonthLeads" class="leads filterValues checked checkedValue" data-type="leads">这个月</li>
+                                <li id="thisYearLeads" class="leads filterValues checked" data-type="leads">这个财年</li>
+                                <li class="listLine"></li>
+                                <li id="lastMonthLeads" class="leads filterValues checked" data-type="leads">上个月</li>
+                                <li id="lastQuarterLeads" class="leads filterValues checked" data-type="leads">上个季度</li>
+                                <li id="lastYearLeads" class="leads filterValues checked" data-type="leads">上个财年</li>
+                                <li class="listLine"></li>
+                                <li id="customLeads" class="_filterArrow leads filterValues checked" data-type="leads">自定义日期</li>
+                                <li class="customTimeLeads customTime hidden">
+                                    <div class="customTimeItem">
+                                        <label for="startDate">开始日期: </label>
+                                        <input readonly type="text" id="startDateLeads">
+                                    </div>
+                                    <div class="customTimeItem">
+                                        <label for="endDate">结束日期: </label>
+                                        <input readonly type="text" id="endDateLeads">
+                                    </div>
+                                </li>
+                                <li class="buttons">
+                                    <button id="updateDateLeads" class="btn">
+                                        <span>更新</span>
+                                    </button>
+                                    <button id="cancelBtnLeads" class="btn">
+                                        <span>取消</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div data-type="leadsChart" class="choseDateItem">
+                    <div class="item active" data-item="createdBy">由谁创建</div>
+                    <div class="item" data-item="assignedTo">分配给谁</div>
+                </div>
+            </div>
+            <div class="col xs-8">
+                <div class="legend-box">
+                    <div class="converted">
+                        <div class="square" style="background: #57D0B5">
+                        </div>
+                        <div class="text">
+                            转换潜在用户
+                        </div>
+                    </div>
+
+                    <div class="unconverted">
+                        <div class="square" style="background: #00B4EA">
+                        </div>
+                        <div class="text">
+                            未转换的潜在用户
+                        </div>
+                    </div>
+
+                    <div class="convertRate">
+                        <div class="square" style="background: #00B4EA">
+                        </div>
+                        <div class="text">
+                            商机转换几率
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="clearfix"></div>
+        <div>
+            <svg class="leadsBarChart"></svg>
+        </div>
+    </div>
+    <div class="chart-tabs-item">
+
+        <h3>按名字排序</h3>
+        <div class="leadsTop align-left">
+            <div class="vocationFilter _filterDropDownWrap">
+                <ul class="dateFilterLeadsByName">
+                    <li class="dateRangeLeadsByName">
+                        <span class="icon-calendar"></span>
+                        <span id="startTimeLeadsByName"><%= startDateLeadsByNames%></span> - <span id="endTimeLeadsByName"><%= endDateLeadsByNames%></span>
+                        <span class="icon-arrow-down2"></span>
+                    </li>
+                    <li>
+                        <ul class="frameDetail _filterDropDownBody hidden">
+                            <li id="thisMonthLeadsByName" class="leadsName filterValues checked checkedValue" data-type="leadsName">这个月</li>
+                            <li id="thisYearLeadsByName" class="leadsName filterValues checked" data-type="leadsName">这个财年</li>
+                            <li class="listLine"></li>
+                            <li id="lastMonthLeadsByName" class="leadsName filterValues checked" data-type="leadsName">上个月</li>
+                            <li id="lastQuarterLeadsByName" class="leadsName filterValues checked" data-type="leadsName">上个季度</li>
+                            <li id="lastYearLeadsByName" class="leadsName filterValues checked" data-type="leadsName">上个财年</li>
+                            <li class="listLine"></li>
+                            <li id="customLeadsByName" class="_filterArrow leadsName filterValues checked" data-type="leadsName">自定义日期</li>
+                            <li class="customTimeLeadsByName customTime hidden">
+                                <div class="customTimeItem">
+                                    <label for="startDateLeadsByName">开始日期: </label>
+                                    <input readonly type="text" id="startDateLeadsByName">
+                                </div>
+                                <div class="customTimeItem">
+                                    <label for="endDateLeadsByName">结束日期: </label>
+                                    <input readonly type="text" id="endDateLeadsByName">
+                                </div>
+                            </li>
+                            <li class="buttons">
+                                <button id="updateDateLeadsByName" class="btn">
+                                    <span>更新</span>
+                                </button>
+                                <button id="cancelBtnLeadsByName" class="btn">
+                                    <span>取消</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div data-type="leadsByName" class="choseDateItem">
+                <div class="item active" data-item="leadsBySales">分配给</div>
+                <div class="item" data-item="qualifiedBy">Qualified By</div>
+                <div class="item" data-item="qualifiedFrom">Qualified From</div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <svg class="leadsByNameBarChart"></svg>
+
+    </div>
+</div>
+

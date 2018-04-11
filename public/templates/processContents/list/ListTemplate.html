@@ -1,0 +1,10 @@
+<% processContentsCollection.forEach(function(processContent, index){ %>
+<tr data-index="<%=index%>" data-id="<%= processContent._id%>" >
+    <td class="centerCell"><input type="checkbox" value="<%=processContent._id%>" class="checkbox"/></td>
+    <td><%=processContent.processType%></td>
+    <td><%=processContent.processContent%></td>
+    <td><%=processContent.unit%></td>
+    <td><%=processContent.price%></td>
+    <td><%=processContent.createdBy.user%></td>
+</tr>
+<% }) %>

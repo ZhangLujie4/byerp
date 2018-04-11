@@ -1,0 +1,8 @@
+<% produceMonitoringCollection.forEach(function(produceMonitoring, index){ %>
+<% workCentres = produceMonitoring.workCentre; %>
+<tr data-index="<%=index%>" data-id="<%= produceMonitoring._id%>" >
+    <td class="centerCell"><%=produceMonitoring.day%></td>
+    <% workCentres.forEach(function(workCentre){ %>
+        <td class="centerCell barcodeDetail" data-id="<%=workCentre.code%>" data-day="<%=produceMonitoring.day%>">扫码数:<%=workCentre.count%>/面积:<%=workCentre.area.toFixed(3)%>/加工费:<%=workCentre.processCost.toFixed(3)%></td>
+	<% }); %>
+<% }) %>

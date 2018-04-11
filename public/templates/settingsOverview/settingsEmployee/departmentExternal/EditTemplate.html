@@ -1,0 +1,33 @@
+<div class="form-holder _departmentExteral">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <h3 class="_dialogTableTitle">编辑</h3>
+        	<div class="half-block left">
+        		<div>
+			        <dt><label for="date">时间: </label></dt>
+			        <dd  class = "_inputIconWrap">
+			        	<input id="date" type="text" value="<%= model.year + '-' + model.month %>">
+			        </dd>
+		        </div>
+		        <div>
+			        <dt><label for="departmentsDd">部门: </label></dt>
+			        <dd class = "_newSelectListWrap">
+			        	<a id="departmentsDd" data-id="<%=(model.department) ? model.department._id : ''%>" class = "current-selected" href = "javascript:;"> <%=(model.department && model.department.name) ? model.department.name : '选择'%> </a>
+			        </dd>
+		        </div>
+	        </div>
+	        <div class="half-block right">
+	        	<div>
+			        <dt><label for="allowanceName">补贴名称: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input id="allowanceName" type="text" value="<%=model.allowanceName%>">
+			        </dd>
+			    </div>
+			    <div>
+			        <dt><label for="amount">补贴数额: </label></dt>
+			        <dd  class = "_inputIconWrap">
+			        	<input id="amount" type="text" value="<%=model.amount%>">
+			        </dd>
+			    </div>
+	        </div>
+    </form>
+</div>

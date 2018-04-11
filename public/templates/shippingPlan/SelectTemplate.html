@@ -1,0 +1,66 @@
+
+<div class="form-holder _newForm _stockCorrectionForm">
+    <form method="post" id="stockCorrection">
+        <h4 class="_dialogMainTitle"><strong>源单</strong><span id="name">#<span class="blue"><%=model.name%></span></span><strong>发货计划</strong></h4>
+        <div class="_formWrap">
+            <div class="half-block left withPaddingRightProject">
+                <div class="inner">
+                    <div class="task-info">
+                        <dt>
+                            <label>预计日期</label>
+                        </dt>
+                        <div class="_modalList">
+                            <div class="_modalSelect _newSelectListWrap">
+                            <input class="_animate"
+                                   id="date"
+                                   readonly
+                                   required/>
+                            </div>
+                        </div>
+                        
+                        <dt>
+                            <label for="load">装货地点</label>
+                        </dt>
+                        <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="load"
+                                   id="load"
+                                   placeholder="装货地点"/>
+                        </dd>
+                        <dt>
+                            <label for="unLoad">卸货地点</label>
+                        </dt>
+                        <dd>
+                            <input type="text"
+                                   maxlength="30"
+                                   name="unLoad"
+                                   id="unLoad"
+                                   placeholder="卸货地点"/>
+                        </dd>
+
+                        <dt>
+                            <label for="description
+                            ">备注</label>
+                        </dt>
+                        <dd>
+                            <textarea name="description"
+                                      id="description"
+                                      maxlength="500"
+                                      class="internal_Notes opp-internal-create">                              
+                            </textarea>
+                        </dd> 
+
+                    </div>
+                </div>
+            </div>
+            <div class="_formBlock">
+<!--                 <a href="javascript:;" class="btn blue slim plus" title="获取发货数量" id="getNewShipBtn">获取发货数量</a>
+                <div id="productItemsHolder" class="_SkuItemsHolder"></div>
+                <h4>测试</h4>
+                <input type="text" id="jstree-search"/> -->
+                <div id="jstree_div" class="demo"></div>
+            </div>
+        </div>
+    </form>
+</div>

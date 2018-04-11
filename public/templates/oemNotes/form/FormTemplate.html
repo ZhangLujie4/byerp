@@ -1,0 +1,40 @@
+<div class="form-holder">
+    <form class="form" id="goodsNote">
+        <fieldset>
+            <div class="inner">
+                <div class="_goodOutWrap">
+                    <div class="topPanel">
+                        <% var reason=model.reason %>
+                        <% var notes=""%>
+                        <% switch(reason){ case 'RI': notes='原料入库单'; break;case 'RO': notes='原料出库单';break;case 'FI': notes='成品入库单';break;case 'FO': notes='成品出库计划';break; }%>
+                        <h2><%=notes !== ""? notes : '无' %>
+                            <span><%var name = model.name.split('*');%> 
+                                <span id="name">#<a class="blue"
+                                    href="<%='/#easyErp/order/tform/'+ model.order._id %>"><%=name[0]%></a>*<%=name[1]%></span></span>
+                        </h2>
+                        <%if(reason == 'FO' && !model.status.approved){%>
+                            <div class="right">
+                                <button class="btn editCancel" hidden>
+                                    <span>取消</span>
+                                </button>
+                            </div>
+                            <div class="right">
+                                <button class="btn CreateOutNote" hidden>
+                                    <span>保存</span>
+                                </button>
+                            </div>
+                            <div class="right">
+                                <button class="btn  editNote">
+                                    <span>编制出库单</span>
+                                </button>
+                            </div>
+                        <%}%>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div id="templateDiv"></div>
+                <div class="clearfix"></div>
+            </div>
+        </fieldset>
+    </form>
+</div>

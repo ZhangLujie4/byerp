@@ -1,0 +1,37 @@
+<div class="form-holder _managementRule">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <h3 class="_dialogTableTitle">新增</h3>
+        	<div class="half-block left">		
+		        <div>
+			        <dt><label for="number">项目序号: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input id="number" type="text" value="<%=model.number%>">
+			        </dd>
+
+			        <dt><label for="content">实施内容: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<textarea id="content"><%=model.content%>
+			        	</textarea>
+			        </dd>
+		        </div>
+	        </div>
+	        <div class="half-block right">
+	        	<div>
+			        <dt><label for="categoryTex">类别: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input id="categoryTex" type="text" value="<%=model.categoryTex%>">
+			        </dd>
+
+			        <dt><label for="categoryNum">类别序号: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input id="categoryNum" type="text" value="<%=model.categoryNum%>">
+			        </dd>
+
+			        <dt><label for="penalty">未达标处罚: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<textarea id="penalty"><%=model.penalty%></textarea>
+			        </dd>
+			    </div>
+	        </div>
+    </form>
+</div>

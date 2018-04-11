@@ -1,0 +1,25 @@
+<% shippingNoteCollection.forEach(function(item, index){ %>
+<tr data-index="<%= index %>" data-id="<%= item._id%>">
+	<td class="centerCell"><input type="checkbox" value="<%=item._id%>" data-id="<%=item._id%>" data-status="<%=item.status%>" 
+            <% if ( item.status === "Done") { %>
+                    class="checkbox notRemovable" disabled='disabled'
+                <% } else { %>
+                    class="checkbox"
+                <% } %>
+                /></td>
+	<td><%=index+1%></td>
+    <td><%=item.ID%></td>
+    <td><%=moment(item.shipDate).format('YYYY-MM-DD')%></td>
+    <td><%=item.projectName%></td>
+    <td><%=item.load%></td>
+    <td><%=item.unLoad%></td>
+    <td><%=item.trips ? item.trips: ''%></td>
+    <td><%=item.totalQuantity%></td>
+    <td><%=item.returnNum%></td>
+    <td><%=item.area? item.area.toFixed(3) : ''%></td>
+    <td><%=item.price? item.price.toFixed(2) : ''%></td>
+    <td class="centerCell _statusOrders">
+        <span class="<%=item.status === 'Done' ? 'icon-checked2 green transparented' : 'icon-close3 red transparented'%>"></span>
+    </td>
+</tr>
+<% }) %>

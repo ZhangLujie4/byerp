@@ -1,0 +1,76 @@
+<div class="form-holder _productParameter">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <h3 class="_dialogTableTitle">新增</h3>
+        	<div class="half-block left">		
+        		<dl>
+			        <dt><label for="name">名称: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input type="text"
+                                 id="name"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label> 
+			        </dd>
+
+			        <dt><label for="value">值: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input type="text"
+                                 id="value"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label> 
+			        </dd>
+
+			        <dt><label for="column">对应列: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input type="text"
+                                 id="column"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label> 
+			        </dd>
+
+                 <dt><label for="seq">序号</label></dt>
+                 <dd class ="_inputIconWrap">
+                   <input type="text"
+                          id ="seq"
+                          required
+                          maxlength="32" />
+                 </dd>
+			    </dl>
+	        </div>
+	        <div class="half-block right">
+	        	<dl>
+	        		<dt><label for="range">变动范围: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input type="checkbox"
+                                 id="range"
+                                 required
+                                 maxlength="32"/>
+                                  <label></label> 
+			        </dd>
+	        		<div id="range-content" style="display:none;">
+				        <dt><label for="maxRange">最大值: </label></dt>
+				        <dd class = "_inputIconWrap">
+				        	<input type="text"
+	                                 id="maxRange"
+	                                 required
+	                                 value="0" 
+	                                 maxlength="32"/>
+	                                  <label></label> 
+				        </dd>
+
+				        <dt><label for="minRange">最小值: </label></dt>
+				        <dd class = "_inputIconWrap">
+				        	<input type="text"
+	                                 id="minRange"
+	                                 required
+	                                 value="0" 
+	                                 maxlength="32"/>
+	                                  <label></label> 
+				        </dd>
+			        </div>
+		        </dl>
+	        </div>
+    </form>
+</div>

@@ -1,0 +1,82 @@
+﻿﻿<div class="form-holder task-create-holder">
+    <form method="post" action="" id="editTaskForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">主要内容</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt>
+                                    <label for="name">税种名称</label>
+                                </dt>
+                                <dd>
+                                    <div>
+                                        <input
+                                                type="text"
+                                                name="name"
+                                                id="name"
+                                                style="width: 150px"
+                                                value="<%=model.name%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="sequence">顺序</label>
+                                </dt>
+                                <dd>
+                                    <div>
+                                        <input
+                                                type="text"
+                                                name="sequence"
+                                                id="sequence"
+                                                style="width: 150px"
+                                                value="<%=model.sequence%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="rate">默认税率(%)</label>
+                                </dt>
+                                <dd>
+                                    <div>
+                                        <input
+                                                type="text"
+                                                name="rate"
+                                                id="rate"
+                                                style="width: 150px"
+                                                value="<%=model.rate%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt><label for="gist">计税依据:</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="gist"
+                                       class="current-selected"
+                                       href="javascript:;"><%=model.gist ? model.gist.name:'工程金额'%></a>
+                                </dd>
+                                <% if(model.gist){%>
+                                <div style="margin-top: 30px;margin-bottom: 30px"><dt style="width: 143px;margin-top: 10px">是否修改为工程金额</dt>
+                                    <dd >
+                                        <input type="radio" name="project" style="width: 30px;height: 18px;border: 2px;border-radius: 50%;margin-top: 10px" data-value="1" >是
+                                        <input type="radio" name="project" style="width: 30px;height: 18px;border: 2px;border-radius: 50% " data-value="0"  checked>否
+                                    </dd>
+                                </div>
+                                <%}%>
+                                <div style="margin-top: 30px;margin-bottom: 30px"><dt style="width: 143px;margin-top: 10px">扣款状态</dt>
+                                    <dd >
+                                        <input type="radio" name="state" style="width: 30px;height: 18px;border: 2px;border-radius: 50%;margin-top: 10px" data-value="oneself" value="本人" <%=(model.type=='oneself') ? 'checked' : ''%>>本人
+                                        <input type="radio" name="state" style="width: 30px;height: 18px;border: 2px;border-radius: 50% " data-value="other" value="公司" <%=(model.type=='other') ? 'checked' : ''%>>公司
+                                    </dd>
+                                </div>
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </fieldset>
+    </form>
+</div>

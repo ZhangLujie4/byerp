@@ -1,0 +1,21 @@
+<% Collection.forEach(function(item, index){ %>
+<tr data-id="<%=item._id%>">
+    <td class="centerCell"><input type="checkbox" value="<%=item._id%>" data-id="<%=item._id%>" class="checkbox listCB"/></td>
+    <td class="certNo">
+        <%=item.certNo%>
+    </td>
+    <td data-type="input" class="certificateName"><%=item.name%></td>
+    <td data-type="input" class="genre"><%=item.genre%></td>
+    <td data-type="input" class="issuer"><%=item.issuer%></td>
+    <%if(item.status == 0){%>
+    <td data-type="input" data-id="<%=item.status%>" class="status">空闲</td>
+    <%} else if(item.status == 1){%>
+    <td data-type="input" data-id="<%=item.status%>" class="status">待确认</td>
+    <%} else if(item.status == 2){%>
+    <td data-type="input" data-id="<%=item.status%>" class="status">借出</td>
+    <%}else{%>
+    <td data-type="input" class="status">无</td>
+    <%}%>
+    <td data-type="input" class="remark"><%=item.remark%></td>
+</tr>
+<% }) %>

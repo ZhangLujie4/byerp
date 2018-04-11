@@ -1,0 +1,45 @@
+<div class="form-holder">
+    <form method="post" action="" class="form" id="stockCorrection">
+        <fieldset>
+            <div class="inner">
+
+                <div class="clearfix"></div>
+
+                <div class="topPanel">
+                    <h2>批量入库</h2>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="topInputHolder">
+                    <div class="half-block left">
+                        <dl class="opp-info">
+                            <dt><label for="date">日期</label></dt>
+                            <dd><input id="date" class="_inputBordered "/readonly></dd>
+
+                            <dt><label for="shippinglist">码单</label></dt>
+                            <dd><input id="shippinglist" class="shippinglist" type="text"/></dd>
+                        </dl>
+
+                    <!--<div class="_dialogRow">Shipping method</div>
+                    <div class="_dialogRow wrapper"><a class="current-selected" id="shippingMethods" href="javascript:;">Select</a></div>
+                    <div class="_dialogRow">Shipping Cost</div>
+                    <div class="_dialogRow"><input id="shippingCost" value="<%=model && model.shippingExpenses ? (model.shippingExpenses.amount / 100).toFixed(2) : 0%>"></div>
+-->
+                </div>
+                <div class="half-block right">
+                        <dl class="opp-info">
+                            <dt><label for="warehouseDd">仓库</label></dt>
+                            <dd><a id="warehouseDd" class="current-selected" href="javascript:;" data-id="<%=model.warehouse ? model.warehouse._id : ''%>"><%=model.warehouse ? model.warehouse.name : '选择'%></a></dd>
+                        </dl>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div id="productItemsHolder" class="_SkuItemsHolder"></div>
+                <div id="goodsHolder" class="_goodsHolder">
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </fieldset>
+    </form>
+</div>

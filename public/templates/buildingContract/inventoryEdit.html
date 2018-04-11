@@ -1,0 +1,44 @@
+<% inventory.forEach(function(inventory){ %>
+<tr class="inventoryItem">
+    <!-- <td data-name="product" class="jobs trash " style="text-align: center;">
+       <input type="text" style="border: 0; text-align:center;" id="product" value="<%=inventory.product%>" readonly="readonly"/>
+    </td> -->
+    <td data-name="product" class="jobs trash " style="text-align: center;">
+        <a id="product" class="current-selected" data-id="<%=inventory.product._id%>" href="javascript:;"><%=(inventory.product) ? inventory.product.name : '请选择'%></a>
+    </td>
+    <td data-name="quantity" class="jobs trash " style="text-align: center;">
+        <input type="text" style="border: 0; text-align:center;" id="quantity" value="<%=inventory.quantity%>" readonly="readonly"/>
+    </td>
+    <td data-name="price" class="jobs trash " style="text-align: center;">
+        <input type="text" style="border: 0; text-align:center;" id="price" value="<%=inventory.price%>" readonly="readonly"/>
+    </td>
+    <td data-name="unit" class="jobs trash " style="text-align: center;">
+        <input type="text" style="border: 0; text-align:center;" id="unit" value="<%=inventory.unit%>" readonly="readonly"/>
+    </td>
+    <td data-name="totalPrice" class="jobs trash " style="text-align: center;">
+        <input type="text" style="border: 0; text-align:center;" id="totalPrice" value="<%=inventory.totalPrice%>" readonly="readonly"/>
+    </td>
+    <!-- <td data-name="alumSource" class="jobs trash " style="text-align: center;">
+        <input type="text" style="text-align:center;" id="alumSource" value="<%=inventory.alumSource%>" />
+    </td> -->
+    <td data-name="alumSource" class="jobs trash " style="text-align: center;">
+        <a id="alumSource" class="current-selected" href="javascript:;"><%=(inventory.alumSource) ? inventory.alumSource : '请选择'%></a>
+    </td>
+    <td data-name="alumRange" class="jobs trash " style="text-align: center;">
+        <input type="text" style="text-align:center; width: 48%" id="alumRange1" value="<%=inventory.alumRange1%>" />
+        <!-- <i> - </i>
+        <input type="text" style="text-align:center; width: 48%" id="alumRange2" value="<%=inventory.alumRange2%>" /> -->
+    </td>
+    <td data-name="alumPrice" class="jobs trash " style="text-align: center;">
+        <i> ± </i><input type="text" style="text-align:center; width: 64%" id="alumPrice" value="<%=inventory.alumPrice%>" />
+    </td>
+    <td data-name="executePrice" class="jobs trash " style="text-align: center;">
+        <i> ± </i><input type="text" style="text-align:center; width: 64%" id="executePrice" value="<%=inventory.executePrice%>" />
+    </td>
+
+    <td class="deleteCell centerCell">
+        <span title="Delete" class="icon-close5 removeItem"></span>
+    </td>
+
+</tr>
+<% }); %>

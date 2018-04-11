@@ -1,0 +1,9 @@
+<% paymentCollection.forEach(function(payment, index){ %>
+<tr data-id="<%=payment._id%>">
+    <td class="centerCell"><input type="checkbox" value="<%=payment._id%>" class="checkbox"/></td>
+    <td><%=payment.name%></td>
+    <td><%=payment.invoice.name%></td>
+    <td class="totalPaid <%=currencyClass(payment.currency._id)%>"><%=(payment.paidAmount) ? payment.paidAmount : '0.00'%></td>
+    <td><%=payment.date%></td>
+</tr>
+<% }) %>

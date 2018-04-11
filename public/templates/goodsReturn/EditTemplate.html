@@ -1,0 +1,74 @@
+﻿
+<div class="form-holder task-create-holder" style="margin-bottom: 0px;">
+    <form method="post" action="" id="editBuilding" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <div class="clearfix"></div>
+            <div class="topInputHolder">
+                <h2>退货申请</h2>
+            </div>
+
+            <div class="half-block left">
+                <div class="inner">
+                    <dl class="task-info">
+
+                        <dt><label for="projectId">项目名称</label></dt>
+                        <div class="_modalList">
+                            <div class="_modalSelect _newSelectListWrap">
+                                <a class="current-selected" href="javascript:;" id="projectId"
+                                   data-id=<%=model.projectId._id%>><%=model.projectId ? model.projectId.name : '选择'%></a>
+                            </div>
+                        </div>
+
+                        <dt><label>退货单号</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="orderNumber" value="<%=model.orderNumber%>"/>
+                        </dd>
+
+                        <dt><label>退货原因</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="reason" value="<%=model.reason%>"/>
+                        </dd>
+
+                        <div class="clearfix"></div>
+                    </dl>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="half-block right">
+                <div class="inner">
+                    <dl class="task-info">
+
+                        <dt><label for="deliverNumber">发货车次</label></dt>
+                        <div class="_modalList">
+                            <div class="_modalSelect _newSelectListWrap">
+                                <a class="current-selected" href="javascript:;" id="deliverNumber"
+                                   data-id=<%=model.deliverNumber._id%>><%=model.deliverNumber ? model.deliverNumber.trips : '选择'%></a>
+                            </div>
+                        </div>
+
+                        <dt><label>退货类型</label></dt>
+                        <dd>
+                            <% if(model.type=='goodsReturn') { %>
+                                <input maxlength="30" type="text" id="type" value="建材退货" style="border: none;"/>
+                            <% } else {%>
+                                <input maxlength="30" type="text" id="type" value="来料退货"/>
+                            <% } %>
+                        </dd>
+
+                        <dt><label>退货数量</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="quantity" value="<%=model.quantity%>"/>
+                        </dd>
+
+                        <div class="clearfix"></div>
+                    </dl>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

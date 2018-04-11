@@ -1,0 +1,11 @@
+<% collection.forEach(function(model, index){ %>
+<tr data-id="<%=model.project?model.project._id:''%>" id="projectList">
+    <td><%=index+1%></td>
+    <td><%=model.project?model.project.name:''%></td>
+    <td><%=model.receive%> </td>
+    <td><%=model.spend%>  </td>
+    <td><%=model.receive-model.spend%>  </td>
+    <td><%=model.receive-model.spend%></td>
+</tr>
+<%})%>
+

@@ -1,0 +1,100 @@
+<div class="selectCompany moduleList">
+    <div>
+        <div class="formTitle">
+            <h3>公司</h3>
+        </div>
+        <%if (property) {%>
+        <div class="propertyContainer">
+
+            <div class="propertyBox">
+                <div class="propertyImg">
+                    <img alt=""
+                         src="<%=property.imageSrc || 'https://static.hsappstatic.net/salesImages/static-1.38/avatars/default-company-avatar.gif'%>"/>
+                </div>
+                <div class="propertyBody">
+                    <span class="propertyFullName"><%=property.fullName%></span>
+                    <a href="javascript:;"><%=property.website%></a>
+                </div>
+
+                <a href="javascript:;" class="removeProperty" title="Remove Company" id="removeProperty">
+                    <span class="icon-close3" aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="person-info">
+                <div class="propertyFormList">
+                    <label>名称</label>
+                    <div class="inputBox">
+                        <input  data-id="name_first" value="<%=property.fullName%>"/>
+                    </div>
+                </div>
+
+                <div class="propertyFormList">
+                    <label>街道:</label>
+                    <div class="inputBox">
+                        <input class="editable" data-id="address_street" value="<%=property.address.street%>"/>
+                    </div>
+                </div>
+
+                <div class="propertyFormList">
+                    <label>城市:</label>
+                    <div class="inputBox">
+                        <input class="editable" data-id="address_city" value="<%=property.address.city%>"/>
+                    </div>
+                </div>
+
+                <div class="propertyFormList">
+                    <label>状态:</label>
+                    <div class="inputBox">
+                        <input class="editable" data-id="address_state" value="<%=property.address.state%>"/>
+                    </div>
+                </div>
+
+                <div class="propertyFormList">
+                    <label>邮政编码:</label>
+                    <div class="inputBox">
+                        <input class="editable" data-id="address_zip" value="<%=property.address.zip%>"/>
+                    </div>
+                </div>
+
+                <div class="propertyFormList">
+                    <label>地区:</label>
+                    <div class="inputBox">
+                        <input class="editable" data-id="address_country" value="<%=property.address.country%>"/>
+                    </div>
+                </div>
+
+                <div class="propertyFormList">
+                    <label>电话:</label>
+                    <div class="inputBox">
+                        <input class="editable" data-id="phones_phone" value="<%=property.phones.phone%>"/>
+                    </div>
+                </div>
+
+                <div class="propertyFormList">
+                    <label>电子邮件:</label>
+                    <div class="inputBox">
+                        <input class="editable" data-id="phones_phone" value="<%=property.email%>"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="propertySubmit">
+                <a class="btn" title="View All Properties" href="<%='/#easyErp/Companies/tform/'+ property._id%> "
+                   id="showMoreButton">查看所有属性</a>
+            </div>
+            <div class="btnBlock propertyEditBtn">
+
+                <a href="javascript:;" id="saveBtn" class="btn blue btnSave">保存</a>
+
+                <a href="javascript:;" id="cancelBtn" class="btn  ">取消</a>
+            </div>
+
+        </div>
+        <%} else { %>
+        <a class="_companySaveButton icon-plus" title="Add Company" id="addProperty" aria-hidden="true"></a>
+        <%}%>
+
+
+    </div>
+</div>
+

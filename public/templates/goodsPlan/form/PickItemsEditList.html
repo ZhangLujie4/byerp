@@ -1,0 +1,106 @@
+ <% var index = 0; %>
+<% products.forEach(function(product){ %>
+    <%var allocated=0;%>
+    <%if(product.pa.length != 0){%>
+        <% product.pa.forEach(function(p){ %>
+            <% allocated+=p.allocated;%>
+        <% }) %>   
+        <% product.pa.forEach(function(p){ %>
+            <% p.goodsInNotes.forEach(function(goodsIn){ %>
+                <% if(goodsIn.quantity){ %>
+                    <% var parameter1 = ""; %>
+                    <% var parameter2 = ""; %>
+                      <%  index++; %>
+                    <tr class="productItem" data-id="<%=product._id%>" data-quantity="<%=product.quantity%>" data-allocate="<%=allocated%>" data-fulfilled="<%=product.fulfilled%>"  data-goodsIn="<%=goodsIn.goodsNoteId._id%>" data-pa="<%=p._id%>"  data-hand="<%=goodsIn.quantity%>" data-product="<%=product.product._id%>" data-index="<%=index%>">
+                        <td class="index" style="text-align: center;"><%=index%></td>
+                        <td data-name="productName" class="productsDd" style="text-align: center;">
+                            <div class="_newSelectListWrap">
+                                <%= product.product.name %>
+                            </div>
+                        </td>
+                        <% goodsIn.parameters.forEach(function(para){ %>
+                            <% if(para.value !== ""){ %>
+                                <% var flag = false; %>
+                                <% product.parameters.forEach(function(p){ %>
+                                    <% if(para.paraname === p.paraname){ %>
+                                        <% flag = true; %>
+                                    <% } %>
+                                <% }); %>
+                                <% if(flag){ %>
+                                    <% parameter2 = parameter2 + " " + para.paraname + " : " + para.value; %>
+                                <% }else{ %>
+                                    <% parameter1 = parameter1 + " " + para.paraname + " : " + para.value; %>
+                                <% } %>
+                            <% } %>
+                        <% }); %>
+                        <td data-name="parameter" style="text-align: left;">
+                            <div class="_newSelectListWrap">
+                                <span style="color: green"><strong><%=parameter2%></strong></span><%=" " + parameter1%>
+                            </div>
+                        </td>                       
+                        <td style="text-align: center;" data-name="allocate">
+                            <div class="_newSelectListWrap">
+                                <%= allocated%>
+                            </div>
+                        </td>
+                       <% var picked=0;%>
+                        <%product.goodsNotes.forEach(function(item,index){%>
+                            <%picked+=item.quantity;%>
+                       <%   })%>
+                        <td style="text-align: center;" data-name="picked">
+                            <div class="_newSelectListWrap">
+                                <%= picked%>
+                            </div>
+                        </td>
+                        <td style="text-align: left;" data-name="goodsInNote">
+                            <div class="_newSelectListWrap">
+                                <%= goodsIn.goodsNoteId.name%>
+                            </div>
+                        </td>
+                        <td style="text-align: left;" data-name="location" class="locationDd" data-location="<%=p.location._id%>">
+                            <div class="_newSelectListWrap">
+                                <%= p.location.name%>
+                            </div>
+                        </td>
+                        <td style="text-align: left;" data-name="onHand">
+                            <div class="_newSelectListWrap">
+                                <%=goodsIn.quantity%>
+                            </div>
+                        </td>
+                        <td class="outNumber" style="text-align: center;">
+                            <div class="_newSelectListWrap">
+                                <input type="number" id="fufilled" class="_fufilled" title="领取数量" value="<%=0%>"/>
+                            </div>
+                        </td>
+                    </tr>
+
+                <% } %>
+            <% }); %>
+        <% }); %>
+    <% } else{%>
+        <%  index++; %>
+        <% var parameter = ""; %>
+        <tr data-id="<%=product._id%>" class="productItem">
+            <td class="index" style="text-align: center;"><%=index%></td>
+            <td data-name="productName" style="text-align: center;">
+                <div class="_newSelectListWrap">
+                    <%=product.product.name%>
+                </div>
+            </td>
+            <% product.parameters.forEach(function(para){ %>
+                <% if(para.value !== ""){ %>
+                    <% parameter = parameter + " " + para.paraname + " : " + para.value;%>
+                <% } %>
+            <% }); %>
+            <td data-name="parameter" style="text-align: left;">
+                <div class="_newSelectListWrap">
+                <span><%=parameter%></span>
+                </div>
+            </td>
+            <td data-name="explain" colspan="6" style="text-align: center;">
+                【仓库还缺该产品，请先采购！】
+            </td>
+        </tr>
+    <% }%>
+<% }); %>
+

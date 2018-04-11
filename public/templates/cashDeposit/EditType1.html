@@ -1,0 +1,140 @@
+﻿<div class="form-holder task-create-holder">
+    <form method="post" action="" id="editTaskForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">主要内容</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                    <div class="half-block left withPaddingLeft">
+                        <div class="inner">
+                            <div class="task-info">
+
+                                <dt><label for="project">项目名称:</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="project"
+                                       class="current-selected"
+                                       data-id="<%=model.project._id%>"
+                                       href="javascript:;"><%=model.project.name%></a>
+                                </dd>
+
+                                <dt><label for="payDate">支付日期:</label></dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="payDate"
+                                                id="payDate"
+                                                style="width: 150px"
+                                                value="<%=model.payDate%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="cash">现金交入:</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="cash"
+                                                id="cash"
+                                                style="width: 150px"
+                                                value="<%=model.cash%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="unPay">未收到数额:</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="unPay"
+                                                id="unPay"
+                                                style="width: 150px"
+                                                value="<%=model.unPay%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="note">备注:</label>
+                                </dt>
+                                <dd>
+                                    <div >
+                                        <input
+                                                type="text"
+                                                name="note"
+                                                id="note"
+                                                style="width: 150px"
+                                                value="<%=model.note%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt><label for="flow">保证金状态:</label></dt>
+                                <dd class="_newSelectListWrap" >
+                                    <a id="flow"
+                                       class="current-selected"
+                                       data-id="<%=model.flow._id%>"
+                                       href="javascript:;"><%=model.flow.name%></a>
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt>
+                                    <label for="pmr">项目经理:</label>
+                                </dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="pmr"
+                                       class="current-selected"
+                                       data-id="<%=model.pmr?model.pmr._id:''%>"
+                                       href="javascript:;"><%=model.pmr?model.pmr.name.first+' '+model.pmr.name.last:'选择'%></a>
+                                </dd>
+                                <dt>
+                                    <label for="amount">金额:</label>
+                                </dt>
+                                <dd data-name="amount">
+                                    <div>
+                                        <input
+                                                type="text"
+                                                name="amount"
+                                                id="amount"
+                                                style="width: 150px"
+                                                value="<%=model.amount%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="projectAmount">工程款扣除:</label>
+                                </dt>
+                                <dd>
+                                    <div>
+                                        <input
+                                                type="text"
+                                                name="projectAmount"
+                                                id="projectAmount"
+                                                style="width: 150px"
+                                                value="<%=model.projectAmount%>"
+                                        />
+                                    </div>
+                                </dd>
+                                <div ><dt style="width: 127px;margin-top: 10px">是否签订借款协议</dt>
+                                    <dd >
+                                        <input type="radio" name="loanAgreement" style="width: 30px;height: 18px;border: 2px;border-radius: 50%;margin-top: 10px" data-value="1"<%=model.loanAgreement=='1'? 'checked':''%>>是
+                                        <input type="radio" name="loanAgreement" style="width: 30px;height: 18px;border: 2px;border-radius: 50% " data-value="0"<%=model.loanAgreement!='1'?'checked':''%>>否
+                                    </dd>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </fieldset>
+    </form>
+</div>

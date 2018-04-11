@@ -1,0 +1,66 @@
+﻿﻿<div class="form-holder task-create-holder" style="margin-bottom: 12px;">
+    <form method="post" action="" id="editWorkOrderForm" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <div class="clearfix"></div>
+            <div class="topInputHolder">
+                <h2>客户订单(设计)</h2>
+            </div>
+                   
+            <div class="half-block left withPaddingRightProject">
+                <div class="inner">
+                    <div class="task-info">
+                        <dt>
+                            <label>工程名称</label>
+                        </dt>
+                        <dd>
+                            <a id="opportunitieDd"  data-id="<%=model.projectName%>"  href="javascript:;" ><%=model.projectName%></a>
+                        </dd>
+                        
+                        <dt>
+                            <label for="orderNumber">订单编号</label>
+                        </dt>
+                        <dd>
+                            <input type="text" 
+                                   name="orderNumber"
+                                   id="orderNumber" 
+                                   value="<%= model.orderNumber %>" readonly="readonly" />
+                        </dd>
+
+                    </div>
+                </div>
+            </div>
+           
+            <div class="half-block left withPaddingRightProject">
+                <div class="inner">
+                    <div class="task-info">
+                        <dt>
+                            <label>设计员</label>
+                        </dt>
+                        <div class="_modalList">
+                            <div class="_modalSelect _newSelectListWrap">
+                                <a id="employeesDd"
+                                   class="current-selected"
+                                   href="javascript:;"><%= (model.designer) ? model.designer.first + ' ' + model.designer.last : '请选择' %>
+                                </a>
+                            </div>
+                        </div> 
+
+                        <dt>
+                            <label for="designDays">设计天数</label>
+                        </dt>
+                        <dd>
+                            <input type="text" 
+                                   name="designDays"
+                                   id="designDays" 
+                                   value="<%= model.designDays %>" />
+                        </dd>
+
+                       
+
+                    </div>
+                </div>
+            </div>
+            
+        </fieldset>
+    </form>
+</div>

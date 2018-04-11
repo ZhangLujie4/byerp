@@ -1,0 +1,99 @@
+<div class="form-holder settingsCertificate-create-holder"> 
+    <form method="post" action="" id="createCertificateForm" class="form">
+        <fieldset>
+            <div class="inner">
+                <div class="clearfix"></div>
+                    <div class="half-block left">
+                        <dl class="opp-info">
+                          
+                            <dt><label for="name">印章名称</label></dt>
+                            <dd class="_newSelectListWrap">
+                                 <input type="text"
+                                     id="name"
+                                     required
+                                     maxlength="32"
+                                     value="<%=model.name%>" />
+                                      <label></label> 
+                            </dd>
+
+                            <dt><label for="stampsCode">印章编号</label></dt>
+                            <dd class="_newSelectListWrap">
+                                 <input type="text"
+                                     id="stampsCode"
+                                     required
+                                     maxlength="32"
+                                     value="<%=model.stampsCode%>" />
+                                      <label></label> 
+                            </dd>
+
+                            <dt><label for="type">印章类型</label></dt>
+                            <dd class="_newSelectListWrap">
+                                 <input type="text"
+                                     id="type"
+                                     required
+                                     maxlength="32"
+                                     value="<%=model.type%>" />
+                                      <label></label> 
+                            </dd>
+
+                            <dt><label for="approvalProcess">审批流程</label></dt>
+                            <dd class="_newSelectListWrap">
+                                 <input type="text"
+                                     id="approvalProcess"
+                                     required
+                                     maxlength="32"
+                                     value="<%=model.approvalProcess%>" />
+                                      <label></label> 
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <div class="half-block left">
+                        <dl class="opp-info">
+                            <dt><label for="startDate">启用时间</label></dt>
+                            <dd class="_inputIconWrap">
+                                <input type="text"
+                                 id="startDate"
+                                 required
+                                 maxlength="32"
+                                 value="<%=model.startDate%>" />
+                                 <label></label> 
+                            </dd>
+
+                            <dt><label for="keeper">保管人</label></dt>
+                            <dd class="_newSelectListWrap">
+                                <a id="keeper"
+                                   class="current-selected"
+                                   href="javascript:;"
+                                   data-id="<%=model.keeper._id%>"><%=model.keeper.name? (model.keeper.name.first+ model.keeper.name.last) : ''%>
+                                </a>
+                            </dd>
+
+                            <dt><label for="charger">经过人</label></dt>
+                            <dd class="_newSelectListWrap">
+                                <a id="charger"
+                                   class="current-selected"
+                                   href="javascript:;"
+                                   data-id="<%=model.charger._id%>"><%=model.charger.name? (model.charger.name.first + model.charger.name.last): ''%>
+                                </a>
+                            </dd>
+
+                            <dt><label for="comment">备注</label></dt>
+                            <dd class="_inputIconWrap">
+                                    <input type="text"
+                                     id="comment"
+                                     required
+                                     maxlength="32"
+                                     placeholder="级别"
+                                     value="<%=model.comment%>" />
+                                      <label></label> 
+                            </dd>
+                        </dl>   
+
+                    </div>
+                    
+            </div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,94 @@
+<%var printed = model.status && model.status.printed%>
+<%var picked = model.status && model.status.picked%>
+<%var packed = model.status && model.status.packed%>
+<%var shipped = model.status && model.status.shipped%>
+<%var approved = model.status && model.status.approved%>
+
+<div class="form-holder">
+    <form class="form" id="goodsNote">
+        <fieldset>
+            <div class="inner">
+                <div class="_goodOutWrap">
+                    <div class="topPanel">
+                        <h2><strong>出库单</strong>
+                            <span><%var name = model.name.split('*');%> 
+                            <% if(model.order.orderType === "salesOrder"){ %>
+                                <span id="name">#<a class="blue" href="<%='/#easyErp/order/tform/'+ model.order._id %>"><%=name[0]%></a>
+                            <% }else{ %>
+                                <span id="name">#<a class="blue" href="<%='/#easyErp/goodsPlan/tform/'+ model.order._id %>"><%=name[0]%></a>
+                            <% }%>
+                                *<%=name[1]%></span>
+                            </span>
+                        </h2>
+                        <div class="right">
+                        <% if(!approved){ %>
+                            <button id="printPdf" class="btn ">
+                                <span class="icon-print">打印</span>
+                            </button>
+                            <button class="btn sendEmail">
+                                <span>发送邮件</span>
+                            </button>
+                        <% } %>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <table class="list _projectTableLeftAlign tableFixed _invoiceTable">
+                        <colgroup>
+                            <col width="20%">
+                            <col width="20%">
+                            <col width="20%">
+                            <col width="20%">
+                            <col width="20%">
+                        </colgroup>
+                        <thead>
+                        <tr class="productListItemsColumns _deleteHeader">
+
+                            <th class="<%= printed ? 'done' : 'undone'%>"
+                                title="T">
+                                打印 <span class="right"><span class="edited "><%= printed ?  common.utcDateToLocaleDate(model.status.printedOn) : '' %></span></span>
+                            </th>
+                            <th class="<%=picked ? 'done' : 'undone'%>"
+                                title="">
+                                检出 <span class="right"><span class="edited "><%= picked ?  common.utcDateToLocaleDate(model.status.pickedOn) : '' %></span></span>
+                            </th>
+                            <th class="<%=packed ? 'done' : 'undone'%>"
+                                title="">
+                                打包 <span class="right"><span class="edited "><%= packed ?  common.utcDateToLocaleDate(model.status.packedOn) : '' %></span></span>
+                            </th>
+                            <th class="<%=shipped ? 'done' : 'undone'%>"
+                                title="">
+                                运输 <span class="right"><span class="edited "><%= shipped ?  common.utcDateToLocaleDate(model.status.shippedOn) : '' %></span></span>
+                            </th>
+                            <th class="<%=approved ? 'done' : 'undone'%>"
+                                title="">
+                                审核 <span class="right"><span class="edited "><%= approved ?  common.utcDateToLocaleDate(model.status.approvedOn) : '' %></span></span>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr class="<%=shipped ? 'hidden' : ''%>">
+                            <td><a id="printPdf" class="btn changeStatus <%=printed ? 'done' : ''%>" href="javascript:;"
+                                   data-id="printed"><%=printed ? '打印中' : '打印'%></a></td>
+                            <td><a class="btn changeStatus <%=picked ? 'done' : ''%>" href="javascript:;"
+                                   data-id="picked"><%=picked ? '检出中' : '检出'%></a></td>
+                            <td><a id="packBtn" class="btn <%=packed ? 'done changeStatus' : ''%>" href="javascript:;"
+                                   data-id="packed"><%=packed ? '打包中' : '打包'%></a></td>
+                            <td><a class="btn changeStatus <%=shipped ? 'done' : ''%>" href="javascript:;"
+                                   data-id="shipped"><%=shipped ? '运输中' : '运输'%></a></td>
+                            <td><a class="btn changeStatus <%=approved ? 'done' : ''%>" href="javascript:;"
+                                   data-id="approved"><%=approved ? '审核中' : '审核'%></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clearfix"></div>
+
+                <div id="templateDiv">
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </fieldset>
+    </form>
+</div>

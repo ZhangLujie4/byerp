@@ -1,0 +1,57 @@
+<div class="clearfix"></div>
+
+<div class="half-block left">
+    <!--<div class="h2">
+        <span>
+            Sale
+        </span>
+    </div>-->
+    <dl class="person-info">
+        <dt><label for="isCustomer">是否为客户</label></dt>
+        <dd>
+            <input id="isCustomer" type="checkbox" class="checkbox" <%=(model && model.salesPurchases &&
+            model.salesPurchases.isCustomer) ? 'checked' : ''%>>
+        </dd>
+        <dt><label for="departmentDd">销售部门</label></dt>
+        <dd class="_newSelectListWrap">
+            <a id="departmentDd" class="current-selected" href="javascript:;"><%=(model && model.salesPurchases &&
+                model.salesPurchases.salesTeam) ? model.salesPurchases.salesTeam.departmentName : '选择'%></a>
+        </dd>
+        <dt><label for="employeesDd">业务员</label></dt>
+        <dd class="_newSelectListWrap">
+            <a id="employeesDd" class="current-selected" href="javascript:;"><%=(model && model.salesPurchases &&
+                model.salesPurchases.salesPerson) ? model.salesPurchases.salesPerson.fullName : '选择'%></a>
+        </dd>
+        <dt><label for="implementedBy">发展人</label></dt>
+        <dd class="_newSelectListWrap">
+            <a id="implementedBy" class="current-selected" href="javascript:;"><%=(model && model.salesPurchases &&
+                model.salesPurchases.implementedBy) ? model.salesPurchases.implementedBy.fullName : '选择'%></a>
+        </dd>
+
+    </dl>
+</div>
+<div class="half-block left">
+    <!--<div class="h2">
+        <span>
+            Purchase
+        </span>
+    </div>-->
+    <dt><label for="isSupplier">是否供应商</label></dt>
+    <dd>
+        <input id="isSupplier" type="checkbox" class="checkbox" <%=(model && model.salesPurchases &&
+        model.salesPurchases.isSupplier) ? 'checked' : ''%>>
+    </dd>
+    <dt><label for="reference">编号</label></dt>
+    <dd>
+        <input type="text" id="reference" placeholder="编号" maxlength="32"
+               value="<%=model.salesPurchases.reference%>"/>
+    </dd>
+    <!--<dt><label for="language">Language</label></dt>
+    <dd class="_newSelectListWrap">
+        <a id="language" class="current-selected" href="javascript:;"><%=model.salesPurchases.language%></a>
+    </dd>
+    <dt><label for="salesPriceList">Sale Pricelist</label></dt>
+    <dd>
+        <a id="salesPriceList" class="current-selected" href="javascript:;">Select</a>
+    </dd>-->
+</div>

@@ -1,0 +1,28 @@
+<% products.forEach(function(product){ %>
+<tr class="productItem" >
+    <td >
+        <input data-id="" type="text" id="name" value="<%=product.name%>">
+    </td>
+    <td >
+        <input data-id="" type="text" id="modelNumber" value="<%=product.modelNumber%>">
+    </td>
+    <td >
+        <input data-id="" type="text" id="unite" value="<%=product.unite%>">
+    </td>
+    <td data-name="quantity">
+        <input data-name="quantity" type="text" id="quantity" value="<%=product.quantity%>">
+    </td>
+    <td data-name="price">
+        <input data-name="price" type="text" id="price" value="<%=product.unitPrice%>">
+    </td>
+    <td class="amount">
+        <input data-id="" type="text" id="amount" value="<%=product.subTotal%>">
+    </td>
+    <td data-name="taxes">
+        <input data-name="taxes" type="text" id="taxes" value="<%=product.taxes%>">
+    </td>
+    <td class="taxesAmount">
+        <input data-id="" type="text" id="taxesAmount" value="<%=product.taxesTotal%>">
+    </td>
+</tr>
+<% }); %>

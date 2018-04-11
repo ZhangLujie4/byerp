@@ -1,0 +1,22 @@
+<% socialInsuranceCollection.forEach(function(item, index){ %>
+<tr data-index="<%= index %>" data-id="<%= item._id%>">
+    <td class="centerCell"><input type="checkbox" value="<%=item._id%>" class="checkbox"/></td>
+    <td><%=item.name%></td>
+    <td><%=item.ID%></td>
+    <td><%=item.socialInsuranceNumber%></td>
+    <td><%=item.year%></td>
+    <td><%=item.month%></td>
+    <td><%=item.endowmentCol%></td>
+    <td><%=item.endowmentInd%></td>
+    <td><%=item.unemployeeCol%></td>
+    <td><%=item.unemployeeInd%></td>
+    <td><%=item.medicalCol%></td>
+    <td><%=item.medicalInd%></td>
+    <td><%=item.maternityCol%></td>
+    <td><%=item.maternityInd%></td>
+    <td><%=item.injuryCol%></td>
+    <td><%=item.injuryInd%></td>
+    <td><%=item.cityHealth? item.cityHealth: 0%></td>
+    <td data-id="<%=item.department._id%>"><%=item.department.name%></td>
+</tr>
+<% }) %>

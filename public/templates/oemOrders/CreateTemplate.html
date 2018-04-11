@@ -1,0 +1,109 @@
+<div class="form-holder _newForm">
+    <form method="post" action="" id="createPersonsForm">
+        <h4 class="_dialogMainTitle">新增</h4>
+        <div class="_formWrap">
+            <div class="_formBlock _equal">
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">状态</span>
+                    <div class="_newSelectListWrap">
+                        <a id="workflowsDd"
+                           class="current-selected"
+                           href="javascript:;">选择
+                        </a>
+                    </div>
+                </div>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">供应商</span>
+                    <div class="_newSelectListWrap">
+                        <a id="customerDd" class="current-selected" href="javascript:;">选择</a>
+                    </div>
+                </div>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">银行账户</span>
+                    <div class="_newSelectListWrap">
+                        <a id="paymentMethod"
+                           class="current-selected"
+                           href="javascript:;">选择</a>
+
+                    </div>
+                </div>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">工程</span>
+                    <div class="_newSelectListWrap">
+                        <a id="projectDd" class="current-selected" href="javascript:;">选择</a>
+                    </div>
+                </div>
+            </div>
+            <div class="_formBlock _equal">
+                <div class="_animateInputBox">
+                    <span class="_staticLabel">订单日期</span>
+                    <input type="text"
+                           name="orderDate"
+                           class="_animate "
+                           id="orderDate"
+                           required
+                           readonly
+                           value=""
+                           maxlength="48"/>
+                </div>
+                <div class="_animateInputBox">
+                    <span class="_staticLabel">付款日期</span>
+                    <input type="text"
+                           class="_animate "
+                           id="expectDate"
+                           required
+                           readonly/>
+                </div>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">价格列表</span>
+                    <div class="_newSelectListWrap">
+                        <a id="priceList"
+                           data-id=""
+                           class="current-selected"
+                           href="javascript:;">
+                        </a>
+                    </div>
+                </div>
+                <div class="_animateInputBox">
+                    <span class="_staticLabel">建材工程</span>
+                    <input type="text" class="_animate " id="building">
+                </div>
+            </div>
+            <div class="_formBlock _equal">
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">仓库</span>
+                    <div class="_newSelectListWrap">
+                        <a id="warehouseDd"
+                           class="current-selected"
+                           data-id=""
+                           href="javascript:;">
+                        </a>
+                    </div>
+                </div>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">货币</span>
+                    <div class="_newSelectListWrap">
+                        <a id="currencyDd"
+                           class="current-selected"
+                           href="javascript:;">选择
+                        </a>
+                    </div>
+                </div>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">经办人</span>
+                    <div class="_newSelectListWrap">
+                        <a id="assignedTo"
+                           class="current-selected"
+                           href="javascript:;">选择
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="_formWrap">
+            <div class="_formBlock">
+                <div id="productItemsHolder"></div>
+            </div>
+        </div>
+    </form>
+</div>

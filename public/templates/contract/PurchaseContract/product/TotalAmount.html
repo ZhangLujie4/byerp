@@ -1,0 +1,32 @@
+<div id="minScheduleDate">
+    <span></span>
+</div>
+<%var curVal;%>
+<%if (model && model.currency && model.currency._id) {%>
+<%curVal = model.currency._id.symbol%>
+<%} else {%>
+<%curVal = "$"%>
+<%}%>
+<%var unTaxed;%>
+<%var taxes;%>
+<%var total;%>
+<%var discount;%>
+<%var balance;%>
+<table class="_totalAmountTable">
+    <tbody>
+
+    <tr>
+        <div style="text-align: center">
+
+            <label >总金额:</label>
+
+        <%if (model && model.productsTotal ) {%>
+        <%total = model.productsTotal%>
+        <%} else {%>
+        <%total = "0.00"%>
+        <%}%>
+            <span id="totalAmount"><%=currencySplitter(total)%></span>
+        </div>
+    </tr>
+    </tbody>
+</table>

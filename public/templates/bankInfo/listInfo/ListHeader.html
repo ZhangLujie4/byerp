@@ -1,0 +1,74 @@
+﻿<div id="top-bar-quotations" class="projectInfoTopBar">
+    <div id="createBtnHolder" class="btnsBlock">
+        <a href="javascript:;" class="icon-plus btn blue slim" title="Create" id="createBankInfo">添加记录</a>
+        <a href="http://localhost:8089/#easyErp/bankFinance/list" class=" btn blue slim" title="查看" >银行理财信息</a>
+    </div>
+</div>
+<% if(name=='结算中心'){ %>
+<div class="dialog-tabs-items">
+    <div class="dialog-tabs-item active">
+        <div id="searchContainer"></div>
+        <div >
+            <table class="list stripedList">
+                <colgroup>
+                    <col width="50px">
+                    <col width="10%">
+                    <col width="20%">
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="15%">
+                    <col width="15%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th >序号</th>
+                    <th >日期</th>
+                    <th>摘要</th>
+                    <th>借方金额(收入)</th>
+                    <th>到单</th>
+                    <th>贷方金额(支出)</th>
+                    <th>借方余额(结存)</th>
+                    <th>余额</th>
+
+                </tr>
+                </thead>
+                <tbody id="listTable"></tbody>
+                <tfoot id="summary"></tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<%} else {%>
+<div class="dialog-tabs-items">
+    <div class="dialog-tabs-item active">
+        <div id="searchContainer"></div>
+        <div >
+            <table class="list stripedList">
+                <colgroup>
+                    <col width="50px">
+                    <col width="10%">
+                    <col width="20%">
+                    <col width="18%">
+                    <col width="17%">
+                    <col width="18%">
+                    <col width="17%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th >序号</th>
+                    <th >日期</th>
+                    <th>摘要</th>
+                    <th>借方金额(收入)</th>
+                    <th>贷方金额(支出)</th>
+                    <th>借方余额(结存)</th>
+                    <th>余额</th>
+                </tr>
+                </thead>
+                <tbody id="listTable"></tbody>
+                <tfoot id="summary"></tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<%}%>

@@ -1,0 +1,9 @@
+<% productBunchTypeCollection.forEach(function(item, index){ %>
+<tr data-id="<%=item._id%>">
+	<td class="notForm centerCell"><input class="checkbox" type="checkbox" value="<%=item._id%>" class="checkbox"/></td>
+    <td data-content="level" ><%=index + 1%></td>
+    <td><%=item.name%></td>
+    <td><%=item.price%></td>
+    <td><%=item.supplier.name.first%></td>
+</tr>
+<% }) %>

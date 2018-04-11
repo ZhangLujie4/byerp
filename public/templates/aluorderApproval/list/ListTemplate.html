@@ -1,0 +1,11 @@
+<% aluorderApprovalCollection.forEach(function(aluorderApproval, index){ %>
+<tr data-index="<%=index%>" data-id="<%= aluorderApproval.projectName._id + '-' + aluorderApproval.cgdh%>" id="master">
+    <!-- <td class="centerCell">
+        <input type="checkbox" value="<%=aluorderApproval._id%>" class="checkbox"/>
+    </td> -->
+    <td class="centerCell"><%=(aluorderApproval.projectName) ? aluorderApproval.projectName.name : ''%></td>
+    <td class="centerCell"><%=aluorderApproval.cgdh%></td>
+    <td class="centerCell"><%=aluorderApproval.totalAcreage.toFixed(3)%></td>
+    <td class="centerCell"><%=aluorderApproval.totalQuantity%></td>
+</tr>
+<% }) %>

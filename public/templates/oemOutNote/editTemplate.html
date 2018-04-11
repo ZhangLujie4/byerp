@@ -1,0 +1,113 @@
+<div class="form-holder task-create-holder" style="margin-bottom: 0px;">
+    <form method="post" action="" id="editBuilding" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <div class="clearfix"></div>
+            <div class="topInputHolder">
+                <h2>建材厂工程</h2>
+            </div>
+
+            <div class="half-block left">
+                <div class="inner">
+                    <dl class="task-info">
+
+                        <dt><label for="projectName">工程名称</label></dt>
+                        <dd>
+                            <a><%=model.projectName%></a>
+                        </dd>
+
+                        <dt><label for="shippingDate">实际发货日期</label></dt>
+                        <dd>
+                            <a><input maxlength="30" type="text" id="shipDate" value="<%=moment(model.shippingDate).format('YYYY-MM-DD')%>" readonly/></a>
+                        </dd>
+
+                        <dt><label for="ID">发货单号</label></dt>
+                        <dd>
+                            <a id="ID"><%=model.ID%></a>
+                        </dd>
+
+                        <dt><label for="license">车牌号码</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="license" value="<%=model.license? model.license: ''%>"/>
+                        </dd>
+
+                        <div class="clearfix"></div>
+                    </dl>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="half-block right">
+                <div class="inner">
+                    <dl class="task-info">
+                        <dt><label for="trips">车次号</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="trips" value="<%=model.trips? model.trips: ''%>"/>
+                        </dd>
+
+
+                        <dt><label for="deliverMan">运输方</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="deliverMan" value="<%=model.deliverMan? model.deliverMan: ''%>"/>
+                        </dd>
+
+                        <dt><label for="salesman">经办营销员</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="salesman" value="<%=model.salesman? model.salesman: ''%>"/>
+                        </dd>
+
+                        <dt><label for="fee">运费</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="fee" value="<%=model.fee? model.fee: ''%>"/>
+                        </dd>
+
+                        <dt><label for="fee1">客户承担运费</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="fee1" value="<%=model.fee1? model.fee1: ''%>"/>
+                        </dd>
+
+                        <div class="clearfix"></div>
+                    </dl>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="_tableWrap">
+                <table class="list stripedList">
+                    <colgroup>
+                        <col width="10%">
+                        <col width="15%">
+                        <col width="10%">
+                        <col width="10%">
+                        <col width="55%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>品名</th>
+                            <th>产品名称</th>
+                            <th>总价</th>
+                            <th>数量</th>
+                            <th>参数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%model.orderRows.forEach(function(item, index){%>
+                            <%var parameters='';%>
+                            <%item.orderRowId.parameters.forEach(function(sub, index2){%>
+                                <%parameters = parameters+sub.paraname+ ':'+ sub.value+ '/'; %>
+                            <%})%>
+                            <tr class="orderRow" data-id="<%=item.orderRowId._id%>" data-sort="<%=index%>">
+                                <td><%=item.orderRowId.description%></td>
+                                <td><%=item.productName%></td>
+                                <td><%=(item.quantity*item.unit*item.unitPrice).toFixed(3)%></td>
+                                <td><input class="quantity" type="text" value="<%=item.quantity%>" /></td>
+                                <td><%=parameters%></td>
+                            </tr>
+                        <%})%>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </form>
+</div>

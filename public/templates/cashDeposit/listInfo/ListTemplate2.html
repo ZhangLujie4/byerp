@@ -1,0 +1,18 @@
+<% var number=1%>
+<% tasksCollection.forEach(function(task, index){%>
+<tr data-index="<%=index%>" data-id="<%= task._id%>" data-type="IC" >
+    <td style="text-align: center"><%=number%></td>
+    <% number=number+1%>
+    <td><%=task.project.name%></td>
+    <td><%=task.pmr?task.pmr.name.first+' '+task.pmr.name.last:''%></td>
+    <td><%=task.applyDate%></td>
+    <td><%=task.amount%></td>
+    <td><%=task.cash%></td>
+    <td><%=task.projectAmount%></td>
+    <td><%=task.unPay%></td>
+    <td><%=task.loanAgreement?'是':'否'%></td>
+    <td><%=task.flow.name%></td>
+    <td><%=task.note%></td>
+</tr>
+<% }) %>
+

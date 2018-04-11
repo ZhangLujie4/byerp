@@ -1,0 +1,38 @@
+<div class="form-holder _newForm">
+    <form method="post" action="" id="stockCorrection">
+        <h4 class="_dialogMainTitle">库存修正</h4>
+        <div class="_formWrap">
+            <div class="_formBlock">
+
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">仓库</span>
+                    <div class="_newSelectListWrap">
+                        <a href="javascript:;"
+                           class="current-selected"
+                           id="warehouseDd">选择</a>
+                    </div>
+                </div>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">库位</span>
+                    <div class="_newSelectListWrap">
+                        <a href="javascript:;"
+                           class="current-selected"
+                           id="locationDd">选择</a>
+                    </div>
+                </div>
+            </div>
+            <div class="_formBlock">
+                <div class="_animateTextareaBox">
+                        <textarea id="description"
+                                  class="_animate internal_Notes"
+                                  required
+                                  maxlength="500" ></textarea>
+                    <label for="description" class="_animate">原因</label>
+                </div>
+            </div>
+            <div class="_formBlock">
+                <div id="productItemsHolder"></div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,25 @@
+<% paymentCollection.forEach(function(element, index) {%>
+<tr data-id="<%=element._id%>">
+    <td class="notForm centerCell">
+        <label class="_customCHeckbox">
+            <input type="checkbox" value="<%=element._id%>" class="checkbox"
+            <% if ( !element.status.approved) { %>
+                class="checkbox"
+            <% } else {%>
+                class="checkbox notRemovable" disabled='disabled'
+            <% } %>
+            />
+            <span></span>
+        </label>
+    </td>
+    </td>
+    <td style="text-align: center"><%=element.name %></td>
+    <td style="text-align: center"><%=element.building ? element.building.name : '' %></td>
+    <td style="text-align: center"><%=element.warehouse ? element.warehouse.name : '' %></td>
+    <% var reason=element.reason %>
+    <% var notes=""%>
+    <% switch(reason){ case 'RI': notes='原料入库'; break;case 'RO': notes='原料出库';break;case 'FI': notes='成品入库';break;case 'FO': notes='成品出库计划';break; }%>
+    <td style="text-align: center"><%=notes !== ""? notes : '无' %></td>
+    <td style="text-align: center"><%=element.description !== ""? element.description : '无' %></td>
+</tr>
+<%})%>

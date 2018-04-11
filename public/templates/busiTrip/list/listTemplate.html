@@ -1,0 +1,42 @@
+<% busiTripCollection.forEach(function(busiTrip, index){ %>
+<tr data-id="<%=busiTrip._id%>">
+    <td class="notForm centerCell"><input type="checkbox" value="<%=busiTrip._id%>" class="checkbox"/></td>
+	<td data-type="input" data-content="number" class="editable"><%=busiTrip.ID%></td>
+    <!-- <td data-type="input" data-content="name" class="editable"><%=(busiTrip.name)? busiTrip.name.first + ' ' + busiTrip.name.last : ''%></td> -->
+    <td data-type="input" data-content="name" class="editable"><%=busiTrip.name.first + ' ' + busiTrip.name.last%></td>
+     <td data-type="input" data-content="registrationDate" class="editable"><%=busiTrip.registrationDate%></td>
+    <td data-type="input" data-content="value" class="editable"><%=(busiTrip.date) ? busiTrip.date.from + '至' + busiTrip.date.to : '' %></td>
+    <td data-type="input" data-content="description" class="editable"><%=busiTrip.description%></td>
+    
+    <td data-type="input" data-content="accommodationDay" class="editable"><%=(busiTrip.accommodationDay) ? busiTrip.accommodationDay : ''%></td>
+    <td data-type="input" data-content="allowancePrice" class="editable"><%=(busiTrip.diningNumber) ? busiTrip.diningNumber : ''%></td>
+    <!-- <%if(busiTrip.status == -1) {%> 
+    <td data-type="input" data-content="status" class="editable">被否决</td>
+    <% } %>
+    <%if(busiTrip.status == 0) {%> 
+    <td data-type="input" data-content="status" class="editable">等待部门经理审批</td>
+    <% } %>
+    <%if(busiTrip.status == 1) {%>
+    
+    <td data-type="input" data-content="status" class="editable">等待分管副总审批</td>
+    <% } %>
+    <%if(busiTrip.status == 2) {%>
+    
+    <td data-type="input" data-content="status" class="editable">等待总经理审批</td>
+    <% } %> -->
+
+    <%if(busiTrip.status == -1) {%> 
+    <td data-type="input" data-content="status" class="editable">未通过</td>
+    <% } %>
+    <%if(busiTrip.status == 0 || busiTrip.status == 1 || busiTrip.status == 2 || busiTrip.status == 3) {%> 
+    <td data-type="input" data-content="status" class="editable"><%=(busiTrip.manager) ? ('待'+ busiTrip.manager.name.first  + busiTrip.manager.name.last + '审批') : ''%></td>
+    <% } %>
+
+    <td data-type="input" data-content="isApproved" class="editable"><%=(busiTrip.isApproved) ? '是' : '否'%></td>
+    <td data-type="input" data-content="<%=busiTrip.isafter%>" class="editable"><%=(busiTrip.isafter) ? '是' : '否'%></td>
+    <td data-type="input" data-content="createdBy" class="editable"><%=busiTrip.createdBy.user + busiTrip.createdBy.date%></td>
+    <td data-type="input" data-content="editedBy" class="editable"><%=busiTrip.editedBy.user + busiTrip.editedBy.date%></td>
+
+</tr>
+<% }) %>
+

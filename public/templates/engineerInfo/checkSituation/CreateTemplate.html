@@ -1,0 +1,54 @@
+<div class="form-holder _engineerManager">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <h3 class="_dialogTableTitle">新增</h3>
+            <div>
+                <div class="half-block left">       
+                    <dl class="opp-info">
+                        <dt><label for="inspectDate">检查日期: </label></dt>
+                        <dd class = "_newSelectListWrap">
+                            <input id="inspectDate" type="text">
+                        </dd>
+                    </dl>
+                </div>
+                <div class="half-block right">
+                    <dl class="opp-info">
+                        <dt><label for="inspector">检查人员: </label></dt>
+                        <dd class = "_inputIconWrap">
+                            <input id="inspector" type="text">
+                        </dd>
+                    </dl>
+                </div>
+                <div id="engineerInfoID" data-id="<%=engineerInfoID%>"></div>
+                <div id="timeStamp" data-id="<%=timeStamp%>"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="table-content">
+            <table class="list checkSituList">
+                <colgroup>
+                    <col width="20%">
+                    <col width="5%">
+                    <col width="60%">
+                    <col width="15%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th class="centerCell">类别</th>
+                        <th class="centerCell">序号</th>
+                        <th class="centerCell">实施内容</th>
+                        <th class="centerCell">未达标处罚</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% collection.forEach(function(item, index){%>
+                    <tr data-index="<%= index %>" data-id="<%=item._id%>">
+                        <td class="categoryTex"><%=item.categoryTex%></td>
+                        <td class="centerCell"><%=item.number%></td>
+                        <td class="content"><%=item.content%></td>
+                        <td class="centerCell penalty"><%=item.penalty%></td>
+                    </tr>
+                    <%})%>
+                </tbody>
+            </table>
+            </div>
+    </form>
+</div>

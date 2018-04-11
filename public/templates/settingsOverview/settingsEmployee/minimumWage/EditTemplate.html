@@ -1,0 +1,21 @@
+<div class="form-holder _minimumWage">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <h3 class="_dialogTableTitle">编辑</h3>
+        	<div class="half-block left">		
+		        <div>
+			        <dt><label for="wage">最低工资标准: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input id="wage" type="text" value="<%= model.wage %>">
+			        </dd>
+		        </div>
+	        </div>
+	        <div class="half-block right">
+	        	<div>
+			        <dt><label for="communication">通讯补贴: </label></dt>
+			        <dd class = "_inputIconWrap">
+			        	<input id="communication" type="text" value="<%= model.communication/100 %>">
+			        </dd>
+			    </div>
+	        </div>
+    </form>
+</div>

@@ -1,0 +1,13 @@
+<% Collection.forEach(function(item, index){ %>
+<tr data-id="<%=item._id%>">
+    <td class="centerCell"><input type="checkbox"  data-id="<%=item._id%>"  class="checkbox listCB"/></td>
+    <td class="certNo"><%=item.certificate.certNo ? item.certificate.certNo: ''%></td>
+    <td data-type="input" class="certificateName"><%=item.certificate.name%></td>
+    <td data-type="input" class="borrowDate"><%=moment(item.borrowDate).format('YYYY-MM-DD')%></td>
+    <td data-type="input" class="name"><%=item.borrower.name%></td>
+    <td data-type="input" class="ID"><%=item.borrower.ID%></td>
+    <td data-type="input" class="phone"><%=item.borrower.phone%></td>
+    <td data-type="input" class="borrowDepartment"><%=item.borrowDepartment.name? item.borrowDepartment.name: ''%></td>
+    <td data-type="input" class="expectedDate"><%=moment(item.expectedDate).format('YYYY-MM-DD')%></td>
+</tr>
+<% }) %>

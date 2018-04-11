@@ -1,0 +1,137 @@
+<div class="form-holder settingsCertificate-create-holder"> 
+    <form method="post" action="" id="createCertificateForm" class="form">
+        <fieldset>
+            <div class="inner">
+                <ul class="dialog-tabs">
+                    <li>
+                        <a href="javascript:;" class="active">主要内容</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="">文件上传</a>
+                    </li>
+                </ul>
+
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items">
+                  <div class="dialog-tabs-item active">
+ 
+                    <div class="half-block left">
+                        <dl class="opp-info">
+                          
+                            <dt><label for="projectName">工程名称</label></dt>
+
+                            <dd class="_newSelectListWrap">
+                                <a type="text"
+                                     id="projectName"
+                                     class="current-selected"
+                                     href="javascript:;">选择
+                                </a> 
+                            </dd>
+
+                            <dt><label for="fileType">文件类型</label></dt>
+
+                            <dd class="_newSelectListWrap">
+                                 <a type="text"
+                                     id="fileType"
+                                     class="current-selected"
+                                     href="javascript:;">选择
+                                    </a> 
+                            </dd>
+
+                            <dt><label for="fileNumber">文件份数</label></dt>
+
+                            <dd class="_newSelectListWrap">
+                                 <input type="text"
+                                     id="fileNumber"
+                                     required
+                                     maxlength="32"/>
+                                      <label></label> 
+                            </dd>
+
+                            <dt><label for="pageNumber">每份需盖章页数</label></dt>
+
+                            <dd class="_newSelectListWrap">
+                                 <input type="text"
+                                     id="pageNumber"
+                                     required
+                                     maxlength="32"/>
+                                      <label></label> 
+                            </dd>
+
+                            <div id="stamp-content">
+                                <div class="stamp-item">
+                                    <dt><label for="stamp">需盖图章</label></dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a type="text"
+                                            class="current-selected stamp"
+                                            href="javascript:;">选择
+                                        </a> 
+
+                                    </dd>
+                                </div>
+                            </div>
+                            <a id="add" style="float: right; cursor: pointer;">添加</a>
+                        </dl>
+                    </div>
+                    <div class="half-block left">
+                        <dl class="opp-info">
+                            <dt><label for="applyDate">申请日期</label></dt>
+                            <dd class="_inputIconWrap">
+                                    <input type="text"
+                                     id="applyDate"
+                                     required
+                                     maxlength="32"/>
+                                      <label></label> 
+                            </dd>
+
+                            <dt><label for="applyMan">申请人</label></dt>
+                            <dd class="_newSelectListWrap">
+                                    <a type="text"
+                                     id="applyMan"
+                                     class="current-selected"
+                                     href="javascript:;">选择
+                                    </a> 
+                            </dd>
+
+                            <dt><label for="department">部门</label></dt>
+                            <dd class="_newSelectListWrap">
+                                    <a type="text"
+                                     id="department"
+                                     class="current-selected"
+                                     href="javascript:;">选择
+                                    </a> 
+                            </dd>
+
+                            <dt><label for="comment">备注</label></dt>
+                            <dd class="_inputIconWrap">
+                                    <input type="text"
+                                     id="comment"
+                                     required
+                                     maxlength="32"/>
+                                      <label></label> 
+                            </dd>
+
+                        </dl>   
+                    </div>
+                </div>
+                
+                <div class="dialog-tabs-item">
+                    <div class="_modalList">
+                        <div class="area_holder">
+                         <textarea id="internalNotes" class="internal_Notes" placeholder="内部注释..." maxlength="500"
+                                   class="opp-internal-create"></textarea>
+                            <a href="javascript:;" class="attach_file">
+                                <span class="icon-attach"></span>
+                            </a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="attach-container"></div>
+                </div>
+                </div>
+            </div>
+
+            
+        </fieldset>
+    </form>
+</div>

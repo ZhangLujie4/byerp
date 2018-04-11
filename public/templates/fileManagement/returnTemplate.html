@@ -1,0 +1,118 @@
+<div class="form-holder Certificate-create-holder"> 
+    <form method="post" action="" id="createCertificateForm" class="form">
+        <fieldset>
+            <div class="inner">
+                <div class="topInputHolder">
+                    <h2>归还证书</h2>
+                </div>
+                <div class="half-block left">
+                    <dl class="opp-info">
+                      
+                        <dt><label for="certificateNumber">证书编号</label></dt>
+
+                        <dd class="_newSelectListWrap">
+                             <a id="certificateNumber"
+                                 data-id="<%=model._id%>"
+                                 ><%=model.certificate.certNo%></a>
+                                  <label></label> 
+                        </dd>
+
+                        <dt><label for="certificateName">证书名字</label></dt>
+                        <dd class="_inputIconWrap">
+                                <a
+                                 data-id="<%=model.certificate._id%>"
+                                 id="certificateName"><%=model.certificate.name%></a>
+                                  <label></label>  
+                        </dd>
+
+                        <dt><label for="genre">证书类别</label></dt>
+                        <dd class="_inputIconWrap">
+                                <a id="genre"> 
+                                    <%=model.certificate.genre%></a>
+                                  <label></label>  
+                        </dd>
+
+                        <dt>
+                            <label for="borrowDate">租借日期</label>
+                        </dt>
+                        <dd class="_inputIconWrap">
+                                <a class="borrowDate"
+                                       name="borrowDate"
+                                       id="borrowDate" 
+                                    ><%=moment(model.borrowDate).format('YYYY-MM-DD')%></a>
+                                <label></label>
+                        </dd>
+
+                        <dt><label for="name">借方姓名</label></dt>
+                        <dd class="_inputIconWrap">
+                                <a id="name">
+                                <%=model.borrower.name%></a>
+                                  <label></label>  
+                        </dd>
+
+                        <dt><label for="ID">借方身份证号</label></dt>
+                        <dd class="_inputIconWrap">
+                                <a id="ID">
+                                <%=model.borrower.ID%></a>
+                                  <label></label>  
+                        </dd>
+
+                        <dt><label for="phone">借方联系方式</label></dt>
+                        <dd class="_inputIconWrap">
+                                <a id="phone">
+                                <%=model.borrower.phone%></a>
+                                  <label></label>  
+                        </dd>
+
+                        <dt><label for="borrowDepartment">租借部门</label></dt>
+                        <dd class="_inputIconWrap">
+                            <a id="borrowDepartment"
+                               class="current-selected"
+                               data-id="<%=model.borrowDepartment._id%>"
+                               href="javascript:;">
+                               <%=model.borrowDepartment.name%>
+                            </a>
+                        </dd>
+
+                    </dl>
+                </div>
+                <div class="half-block left">
+                    <dl class="opp-info">
+                        
+                        <dt>
+                            <label for="expectedDate">预计归还日期</label>
+                        </dt>
+                         <dd class="_inputIconWrap">
+                                <a class="extrainfo"
+                                       id="expectedDate" ><%=moment(model.expectedDate).format('YYYY-MM-DD')%></a>
+                                <label></label>
+                        </dd>
+
+                        <dt><label for="reason">租借事由</label></dt>
+                        <dd class="_inputIconWrap">
+                            <textarea
+                                name="reason"  
+                                id="reason"
+                                maxlength="400"
+                                required>
+                                <%=model.reason%>
+                            </textarea>
+                        </dd>
+
+                        <dt>
+                            <label for="returnDate">归还日期</label>
+                        </dt>
+                         <dd class="_inputIconWrap">
+                                <input class="extrainfo"
+                                       type="text"
+                                       name="returnDate"
+                                       id="returnDate"/>
+                                <label></label>
+                        </dd>
+                    </dl>   
+                </div>
+            </div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,59 @@
+<div class="form-holder _newForm">
+    <form method="post" action="" id="createChartOfAccount" class="form">
+        <h4 class="_dialogMainTitle">科目表</h4>
+        <div class="_formWrap">
+            <div class="_formBlock">
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">科目类别</span>
+                    <div class="_newSelectListWrap">
+                        <a id="accountsCategory"
+                           class="current-selected">选择科目类别</a>
+                    </div>
+                </div>
+                <div class="_animateInputBox">
+                    <input type="text"
+                           class="_animate"
+                           id="nameInput"
+                           required
+                           maxlength="45"/>
+                    <label class="_animate">科目名称</label>
+                </div>
+
+                <div class="_formRow hidden" id="budgeted">
+                    <label class="_animatedCheckbox">
+                        <input id="budgeted"
+                               type="checkbox"
+                               checked>
+                        <span></span>
+                    </label>
+                    <label for="budgeted">是否预算控制</label>
+                </div>
+
+               <!-- <div class="_formRow hidden" id="subCheck">
+                    <label class="_animatedCheckbox">
+                        <input id="subAccount"
+                               type="checkbox">
+                        <span></span>
+                    </label>
+                    <label for="subAccount">Make this a sub-account</label>
+                </div>-->
+
+                <!--<div class="_animateSelectBox">
+                    <span class="_selectTitle">Account</span>
+                    <div class="_newSelectListWrap">
+                        <a id="chartsDd"
+                           class="current-selected">Select account</a>
+                    </div>
+                </div>-->
+                <div class="_animateInputBox">
+                    <input type="text"
+                           class="_animate"
+                           id="code"
+                           required
+                           maxlength="25"/>
+                    <label class="_animate">科目代码</label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,17 @@
+<% productCollection.forEach(function(item, index){ %>
+<%
+var parameter = '';
+if(item.parameter){
+	item.parameter.forEach(function(i, index){
+	    parameter = parameter + i.name + "/";
+	});
+	}
+%>
+
+<tr data-id="<%=item._id%>">
+	<td data-type="input" data-content="number" class="editable"><%=index + 1%></td>
+
+    <td data-type="input" data-content="name" class="editable"><%=item.name%></td>
+    <td data-type="input" data-content="parameter" class="editable"><%=parameter%></td>
+</tr>
+<% }) %>

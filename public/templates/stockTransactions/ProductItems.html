@@ -1,0 +1,52 @@
+<div>
+    <table class="list _projectTableLeftAlign tableFixed _invoiceTable">
+        <colgroup>
+            <col width="20%">
+            <col width="20%">
+            <col width="20%">
+            <col width="20%">
+            <col width="20%">
+            <col width="30px">
+        </colgroup>
+        <thead>
+        <tr class="productListItemsColumns _deleteHeader">
+            <th class="width20" data-sort="Product">
+                名称
+            </th>
+            <th class="width20" data-sort="quantity">
+                调库数量
+            </th>
+            <th class="width20" data-sort="onHand">
+                源仓库数量
+            </th>
+            <th class="width20" data-sort="destination">
+                目的仓库数量
+            </th>
+            <th class="width20" data-sort="after">
+                移库结果       
+            </th>
+            <th class="deleteCell"></th>
+        </tr>
+        </thead>
+        <tbody id="tbodyProducts">
+        <tr></tr>
+
+        <tr>
+            <td class="invisible_border">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="invisible_border">&nbsp;</td>
+        </tr>
+        </tbody>
+        <tr class="hidden" id="newItem">
+            <td class="addProductItem">
+                <a href="javascript:;">新增</a>
+            </td>
+
+        </tr>
+    </table>
+    <div class="clearfix"></div>
+    <div id="totalAmountContainer" class="_totalAmountContainer _createPopup">
+    </div>
+</div>
+

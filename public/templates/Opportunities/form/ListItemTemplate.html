@@ -1,0 +1,31 @@
+<table id="listTable">
+    <% opportunities.forEach(function(opportunity, index){ %>
+    <tr class="compactView" data-id="<%=opportunity._id%>">
+        <td class="checkboxRow">
+            <label>
+                <input type="checkbox" value="<%=opportunity._id%>" class="checkbox"/>
+            </label>
+        </td>
+        <td>
+            <div class="compactRowWrap">
+                <div class="compactRow">
+                    <div class="opportunity" data-key="name"><%= opportunity.name%></div>
+                    <!-- <div class="salesPerson" data-key="salesPerson" ><%=(opportunity.salesPerson && opportunity.salesPerson.name) ? opportunity.salesPerson.name.first + ' ' +
+                        opportunity.salesPerson.name.last : ''%></div> -->
+                    <div class="salesPerson" data-key="taxDesc"><%= opportunity.taxDesc%></div>
+                </div>
+                <div class="compactRow">
+                    <!-- <div
+                        <%if (opportunity.expectedRevenue && opportunity.expectedRevenue.value) {%>
+                            class="dollar"
+                        <%}%>
+                    data-key="expectedRevenue.value">
+                    <%=opportunity.expectedRevenue && opportunity.expectedRevenue.value ? currencySplitter(opportunity.expectedRevenue.value.toString()) : ''%></div> -->
+                    <div class="stage" data-key="bailType"><%= opportunity.bailType %></div>
+                    <div class="stage" data-key="workflow"><%= opportunity.workflow.name %></div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <% }); %>
+</table>

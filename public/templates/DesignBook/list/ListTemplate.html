@@ -1,0 +1,15 @@
+<% projectsCollection.forEach(function(project, index){%>
+<tr data-index="<%= index %>" data-id="<%=project._id%>" data-type="<%=project.designContractType?project.designContractType._id:''%>" data-name="<%=project.projectName.name%>">
+    <td><%=index+1%></td>
+    <td><%=project.designContractType?project.designContractType.name:''%></td>
+    <td><%=project.projectName.name%></td>
+    <td><%=project.designDate%></td>
+    <td><%=project.amount%></td>
+    <td><%=project.accountReceivable%></td>
+    <td><%=project.accountReceived%></td>
+    <td><%=project.designDepartment?project.designDepartment.name:''%></td>
+    <td><%=project.designLeader?project.designLeader.name.first+' '+project.designLeader.name.last:''%></td>
+    <td><%=project.projectNumber%></td>
+    <td class="notForm note"><a style="color: #00c2e0">查看</a></td>
+</tr>
+<% }) %>

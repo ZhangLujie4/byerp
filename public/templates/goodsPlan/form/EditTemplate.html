@@ -1,0 +1,35 @@
+<div class="form-holder">
+    <form method="post"
+          action=""
+          id="createPersonsForm"
+          class="form">
+        <fieldset>
+            <div class="inner">
+                <ul class="_statusOrderBlock" data-class="">
+                    <li style="margin-bottom: 10px" class="_saveEdit">
+                        <span class="btn blue  saveBtn">保存</span>
+                    </li>
+                        <%var allocateStatus = model.status ? model.status.allocateStatus : 'NOT' %>
+                        <%var fulfillStatus = model.status ? model.status.fulfillStatus : 'NOT' %>
+                        <%var shippingStatus = model.status ? model.status.shippingStatus : 'NOT' %>
+                    <li class="_statusIndicators">
+                        <span title="Allocated"
+                              class="_allocationed <%=allocateStatus === 'NOA' ? 'icon-checked yellow' : allocateStatus === 'ALL' ? 'icon-checked green' : '_notDid'%>"></span>
+                        <span title="Fulfilled"
+                              class="icon-box <%=fulfillStatus === 'NOA' ? 'yellow' : fulfillStatus === 'ALL' ? 'green' : 'red'%> _fullfilled"></span>
+                    </li>
+                    <li class="_statusActions"></li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items mainTabs">
+                    <div class="dialog-tabs-item mainTabs active">
+                        <div id="productItemsHolder"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </fieldset>
+    </form>
+    <div class="clearfix"></div>
+</div>

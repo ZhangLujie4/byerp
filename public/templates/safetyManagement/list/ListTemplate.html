@@ -1,0 +1,21 @@
+<% safetyManagementCollection.forEach(function(item, index){ %>
+<tr data-index="<%= index %>" data-id="<%= item._id%>">
+    <td class="centerCell"><input type="checkbox" value="<%=item._id%>" class="checkbox"/></td>
+    <td><%=item.classify.name%></td>
+    <td><%=item.content%></td>
+    <td><%=item.remark%></td>
+    <%if(item.status == 'new'){%>
+    <td class="status" data-content="<%=item.status%>">待<%=item.approveMan.name ? item.approveMan.name.first+item.approveMan.name.last : ''%>审批</td>
+    <%} else if(item.status == 'In Progress'){%>
+    <td class="status" data-content="<%=item.status%>">待<%=item.approveMan.name ? item.approveMan.name.first+item.approveMan.name.last : ''%>审批</td>
+    <%} else if(item.status == 'Cancelled'){%>
+    <td class="status" data-content="<%=item.status%>">未通过</td>
+    <%}else if(item.status == 'done'){%>
+    <td class="status" data-content="<%=item.status%>">通过</td>
+    <%}else{%>
+    <td></td>
+    <%}%>
+    <td><%=item.createdBy.user.login%></td>
+    <td><%=item.createdBy.date%></td>
+</tr>
+<% }) %>

@@ -1,0 +1,80 @@
+<div class="form-holder _newForm">
+    <form method="post" action="" class="payment">
+        <h4 class="_dialogMainTitle">付款 <%=model.name%></h4>
+        <%if (!model.refund) {%>
+        <button class="btn right slim refund">
+            <span>退款</span>
+        </button>
+        <%}%>
+        <div class="_formWrap">
+            <div class="_formBlock _equal">
+                <dl class="opp-info">
+                    <dt><label for="supplierDD" class="semiBold">客户（供应商）</label></dt>
+                    <dd>
+                            <span id="supplierDd" class=""
+                                  data-id="<%=model.supplier ? model.supplier._id : null%>"><%=model.supplier ? model.supplier.name.first + ' ' +
+                                model.supplier.name.last : ''%></span>
+                    </dd>
+                    <dt>
+                        <label for="paidAmount" class="semiBold">支付金额</label>
+                    </dt>
+                    <dd>
+                        <span id="paidAmount"><%=model.paidAmount ? currencySplitter(model.paidAmount) : 0.00%></span>
+                    </dd>
+                    <dt>
+                        <label for="paymentMethod" class="semiBold">银行账户</label>
+                    </dt>
+                    <dd class="_newSelectListWrap">
+                        <span id="paymentMethod"><%=model.paymentMethod ? model.paymentMethod.name : ''%></span>
+                    </dd>
+                    <dt>
+                        <label for="account" class="semiBold">账户</label>
+                    </dt>
+                    <dd class="_newSelectListWrap">
+                        <span id="account"><%=model.bankAccount ? model.bankAccount.name : '账户无法找到'%></span>
+                    </dd>
+                    <% if (model.otherIncomeLossAccount) {%>
+                    <dt>
+                        <label for="otherIncomeLossAccount" class="semiBold">其他 收入\支出 账户</label>
+                    </dt>
+                    <dd class="_newSelectListWrap">
+                        <span id="otherIncomeLossAccount"><%=model.otherIncomeLossAccount.name%></span>
+                    </dd>
+                    <% } %>
+                    <% if (model.bankExpenses && model.bankExpenses.amount) {%>
+                    <dt>
+                        <label for="bankExpenses" class="semiBold">银行支出</label>
+                    </dt>
+                    <dd class="_newSelectListWrap">
+                        <span id="bankExpensesAcc"><%=model.bankExpenses.account.name%></span> <span id="bankExpenses"><%=model.currency.symbol %><%=model.bankExpenses.amount%></span>
+                    </dd>
+                    <% } %>
+                    <dl id="differenceAmountContainer" class="left hidden">
+                        <dt><label class="semiBold">差额</label></dt>
+                        <dd><span id="differenceAmount"></span></dd>
+                    </dl>
+                </dl>
+            </div>
+            <div class="_formBlock _equal">
+                <dl class="opp-info">
+                    <dt><label for="paymentDate" class="semiBold">日期</label></dt>
+                    <dd>
+                        <span id="paymentDate"><%=model.date%></span>
+                    </dd>
+                    <dt><label for="paymentRef" class="semiBold">上级文件</label></dt>
+                    <dd>
+                            <span id="paymentRef"
+                                  data-id="<%=model.invoice && model.invoice._id ? model.invoice._id :  model.order ? model.order._id : null%>"><%=model.invoice && model.invoice.name ? model.invoice.name :  model.order ? model.order.name : ''%></span>
+                    </dd>
+                    <dt><label for="currencyDd" class="semiBold">货币</label></dt>
+                    <dd>
+                            <span id="currencyDd"
+                                  data-id="<%= model && model.currency ? model.currency._id : null%>"><%= model && model.currency ?
+                                model.currency.name : ''%></span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="_formBlock" id="chart"></div>
+    </form>
+</div>

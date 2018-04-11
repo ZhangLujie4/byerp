@@ -1,0 +1,76 @@
+<% tax.forEach(function(tax){ %>
+<% var a=0 %>
+<% var b=0%>
+<% if(invoice.taxSave.length>0){%>
+<tr class="taxItem" >
+    <% invoice.taxSave.forEach(function(invoiceTax){%>
+    <% b=b+1 %>
+    <% if(tax._id==invoiceTax.tax && a==0){%>
+    <% a=1%>
+    <td class="centerCell"><input type="checkbox" data-id="<%=invoiceTax._id%>" value="<%=tax._id%>" class="checkbox" style="width: 70px" <%='checked'%>/></td>
+    <td >
+        <input data-id="" type="text" id="name" value="<%=tax.name%>" style="border: 0px;text-align: center" readonly>
+    </td>
+    <td  data-name="rate">
+        <input data-id="" type="text" id="rate" value="<%=invoiceTax.rate%>" style="text-align: center">
+    </td>
+    <% if(!tax.gist){%>
+    <td style="text-align: center">
+        <input type="text" id="gist"  value="<%=(invoice.invoiceInfo.invoice)?invoice.invoiceInfo.invoice.realAmount:invoice.invoiceInfo.sell%>"  style="border: 0px;text-align: center" readonly>
+    </td>
+    <%} else {%>
+    <td class="gist" style="text-align: center" data-id="<%=tax.gist._id%>">
+        <input type="text" id="gist" value="<%=invoiceTax.gist%>"  data-id="<%=tax.gist._id%>" style="border: 0px;text-align: center" readonly >
+    </td>
+    <%}%>
+    <td class="amount" style="text-align: center">
+        <input data-name="amount" type="text" id="amount" value="<%=invoiceTax.amount%>" style="border: 0px;text-align: center" readonly>
+    </td>
+
+    <%} else if(a==0 && b==invoice.taxSave.length){%>
+    <td class="centerCell"><input type="checkbox" value="<%=tax._id%>" class="checkbox" style="width: 70px" /></td>
+    <td >
+        <input data-id="" type="text" id="name" value="<%=tax.name%>" style="border: 0px;text-align: center" readonly>
+    </td>
+    <td  data-name="rate">
+        <input data-id="" type="text" id="rate" value="<%=tax.rate%>" style="text-align: center">
+    </td>
+    <% if(!tax.gist){%>
+    <td style="text-align: center">
+        <input type="text" id="gist" value="<%=(invoice.invoiceInfo.invoice)?invoice.invoiceInfo.invoice.realAmount:invoice.invoiceInfo.sell%>"  style="border: 0px;text-align: center" readonly>
+    </td>
+    <%} else {%>
+    <td class="gist" style="text-align: center" data-id="<%=tax.gist._id%>">
+        <input type="text" id="gist" value=""  data-id="<%=tax.gist._id%>" style="border: 0px;text-align: center" readonly >
+    </td>
+    <%}%>
+    <td class="amount" style="text-align: center">
+        <input data-name="amount" type="text" id="amount" value="" style="border: 0px;text-align: center" readonly>
+    </td>
+    <% }%>
+    <%});%>
+</tr>
+<% }else {%>
+<tr class="taxItem" >
+<td class="centerCell"><input type="checkbox" value="<%=tax._id%>" class="checkbox" style="width: 70px" /></td>
+<td >
+    <input data-id="" type="text" id="name" value="<%=tax.name%>" style="border: 0px;text-align: center" readonly>
+</td>
+<td  data-name="rate">
+    <input data-id="" type="text" id="rate" value="<%=tax.rate%>" style="text-align: center">
+</td>
+<% if(!tax.gist){%>
+<td style="text-align: center">
+    <input type="text" id="gist" value="<%=(invoice.invoiceInfo.invoice)?invoice.invoiceInfo.invoice.realAmount:invoice.invoiceInfo.sell%>"  style="border: 0px;text-align: center" readonly>
+</td>
+<%} else {%>
+<td class="gist" style="text-align: center" data-id="<%=tax.gist._id%>">
+    <input type="text" id="gist" value=""  data-id="<%=tax.gist._id%>" style="border: 0px;text-align: center" readonly >
+</td>
+<%}%>
+<td class="amount" style="text-align: center">
+    <input data-name="amount" type="text" id="amount" value="" style="border: 0px;text-align: center" readonly>
+</td>
+</tr>
+<%}%>
+<% }); %>

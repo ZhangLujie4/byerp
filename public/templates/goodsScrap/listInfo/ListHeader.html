@@ -1,0 +1,31 @@
+﻿<!-- <div id="searchContainer"></div> -->
+<% if (!goodsScrapCollection.length) { %>
+<h2 class="notFoundItems">还未添加报废返工条码</h2>
+<% }else{ %>
+<div class="_tableAluveneerOrdersWrap" style="min-width: 1250px;">
+    <table class="list stripedList">
+        <colgroup>
+            <col width="42px">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">   
+        </colgroup>
+        <thead>
+        <span>&nbsp;&nbsp;&nbsp;工程名称:  <%=goodsScrapCollection[0].projectId.name%> &nbsp;&nbsp;&nbsp;报废&返工单号:  <%=goodsScrapCollection[0].orderNumber%></span>
+        <tr>
+            <th rowspan="2" class="centerCell">
+                <input type="checkbox" id="checkAll"/>
+            </th>
+            <th rowspan="2" class="centerCell">条码编号</th>
+            <th rowspan="2" class="centerCell">铝板名称</th>
+            <th rowspan="2" class="centerCell">铝板编号</th>
+            <th rowspan ="2" class="centerCell">仓库意见</th>            
+            
+        </tr>
+
+        </thead>
+        <tbody id="listTable"></tbody>
+    </table>
+</div>
+<% } %>

@@ -1,0 +1,130 @@
+<div class="form-holder task-create-holder">
+    <form method="post"
+          action=""
+          id="createTaskForm"
+          class="form notDialog">
+        <fieldset>
+            <ul class="dialog-tabs">
+                <li><a class="active" href="javascript:;">主要内容</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="dialog-tabs-items">
+                <div class="dialog-tabs-item active">
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+                                <dt><label for="department">部门名称:</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="department"
+                                       class="current-selected"
+                                       href="javascript:;">选择(*)</a>
+                                </dd>
+                                <dt><label for="type">保证金类型:</label></dt>
+                                <dd>
+                                    <a id="type"
+                                       class="current-selected"
+                                       href="javascript:;">选择(*)</a>
+                                </dd>
+                                <dt><label for="enterprise">受款人名称:</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="enterprise"
+                                       class="current-selected"
+                                       href="javascript:;">选择(*)</a>
+                                </dd>
+                                <dt>
+                                    <label for="project">申请工程名称:</label>
+                                </dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="project"
+                                       class="current-selected"
+                                       href="javascript:;">选择(*)</a>
+                                </dd>
+                                <dt>
+                                    <label for="descriptions">申请用途描述：</label>
+                                </dt>
+                                <dd>
+                                    <input
+                                            type="text"
+                                            name="descriptions"
+                                            id="descriptions"
+                                            style="width: 150px"
+                                            value=""
+                                    />
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="half-block left withPaddingRightProject">
+                        <div class="inner">
+                            <div class="task-info">
+
+                                <dt>
+                                    <label for="amount">本次申请金额:</label>
+                                </dt>
+                                <dd>
+                                        <input
+                                                type="text"
+                                                name="amount"
+                                                id="amount"
+                                                style="width: 150px"
+                                                value=""
+                                        />(*)
+                                </dd>
+                                <dt>
+                                    <label for="applyDate">申请日期：</label>
+                                </dt>
+                                <dd>
+                                    <div class="_inputIconWrap">
+                                        <input class="extrainfo"
+                                               type="text"
+                                               name="applyDate"
+                                               id="applyDate"
+                                               style="width: 150px"
+                                               value=""
+                                               readonly/>
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="openDate">开标日期：</label>
+                                </dt>
+                                <dd>
+                                    <div class="_inputIconWrap">
+                                        <input class="extrainfo"
+                                               type="text"
+                                               name="openDate"
+                                               id="openDate"
+                                               style="width: 150px"
+                                               value=""
+                                               readonly/>(*)
+                                    </div>
+                                </dd>
+                                <dt>
+                                    <label for="endDate">截止日期：</label>
+                                </dt>
+                                <dd>
+                                    <div class="_inputIconWrap">
+                                        <input class="extrainfo"
+                                               type="text"
+                                               name="endDate"
+                                               id="endDate"
+                                               style="width: 150px"
+                                               value=""
+                                               readonly/>(*)
+                                    </div>
+                                </dd>
+                                <div><dt style="width: 120px;margin-top: 10px">是否为公司项目</dt>
+                                    <dd >
+                                        <input type="radio" name="companyProject" style="width: 30px;height: 18px;border: 2px;border-radius: 50%;margin-top: 10px" data-value="1" >是
+                                        <input type="radio" name="companyProject" style="width: 30px;height: 18px;border: 2px;border-radius: 50% " data-value="0"  checked>否
+                                    </dd>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="attach-container"></div>
+        </fieldset>
+    </form>
+</div>

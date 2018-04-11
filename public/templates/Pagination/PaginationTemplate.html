@@ -1,0 +1,57 @@
+<div class="pagination _pagination">
+
+    <div class="countOnPage _countOnPage">
+
+        <div class="_pagesInfo">
+                <span>
+                    <span id="gridStart"></span>
+                    -
+                    <span id="gridEnd"></span>
+                    <span class="_separator">共</span>
+                    <span id="gridCount"></span>
+                    项, 显示&nbsp
+                </span>
+        </div>
+        
+        <div class="_quantityListWrap">
+            <span class="_listTitle"></span>
+            <ul class="pageList _quantityList">
+            <li class="itemsNumber _listItem">25</li>
+            <li class="itemsNumber _listItem">50</li>
+            <li class="itemsNumber _listItem">100</li>
+            <li class="itemsNumber _listItem">200</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="nextPrev _pageActionBlock">
+        <button id="firstShowPage" class="_paginationBtn first_ShowPage" type="button" disabled="disabled">
+            <span class="icon-cheveronL"></span>
+        </button>
+        <button id="previousPage" class="_paginationBtn previous_Page" type="button" disabled="disabled">
+            <span class="icon-arrow-left2"></span>
+        </button>
+        <div class="_item">
+                页</div>
+            <div class="_actionBlock">
+                <input id="currentShowPage" class="_currentPage" type="text">
+                <div class="allPage _pagesListWrap">
+                    <button class="_paginationBtn currentPageList">
+                        <span class="icon-arrow-up2"></span>
+                    </button>
+                    <ul id="pageList" class="_pagesList allNumberPerPage"></ul>
+                </div>
+            </div>
+        <div class="_item">
+            <span>
+                共</span>
+                <span id="lastPage" class="_lastPage"></span>
+        </div>
+            <button class="_paginationBtn next_Page" id="nextPage" type="button" disabled="disabled">
+                <span class="icon-arrow-right2"></span>
+            </button>
+            <button class="_paginationBtn last_ShowPage" id="lastShowPage" type="button" disabled="disabled">
+                <span class="icon-cheveronR"></span>
+            </button>
+    </div>
+</div>

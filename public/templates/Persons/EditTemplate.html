@@ -1,0 +1,128 @@
+<div class="form-holder">
+    <form method="post" action="" id="editPersonsForm" class="form">
+        <fieldset>
+            <div class="inner">
+                <ul class="dialog-tabs">
+                    <li><a class="active" href="javascript:;">基本信息</a></li>
+                    <li><a href="javascript:;">业务关系</a></li>
+                    <li><a href="javascript:;">代理人</a></li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items">
+                    <div class="dialog-tabs-item active">
+                        <div class="formTitle">
+                            <h3>个人信息</h3>
+
+                        </div>
+                        <div class="avatar left">
+                            <div class="upload">
+                                编辑
+                                <input type="file" value="Edit" id="inputImg" accept="image/*">
+                            </div>
+                            <canvas id="avatar" width="140" height="140"></canvas>
+                        </div>
+                        <div class="avatarInfoContainer">
+                            <div class="half-block left">
+                                <dl class="person-info">
+                                    <dt><label for="firstName">姓</label></dt>
+                                    <dd><input type="text" name="firstName" id="firstName"
+                                               value="<%= model.name.first %>" placeholder="Name" required
+                                               maxlength="32"/></dd>
+                                    <dt><label for="lastName">名</label></dt>
+                                    <dd><input type="text" name="lastName" id="lastName" value="<%= model.name.last %>"
+                                               placeholder="Surname" required maxlength="32"/></dd>
+                                    <dt><label for="jobPositionInput">工作职责</label></dt>
+                                    <dd><input type="text" id="jobPositionInput" value="<%= model.jobPosition%>"
+                                               placeholder="e.g. Sales Manager" maxlength="32"/></dd>
+
+                                    <dt><label for="dateOfBirth">生日日期</label></dt>
+                                    <dd><input id="dateOfBirth" class="dateBirth" type="text"
+                                               value="<%= model.dateBirth%>" placeholder="Birthday" readonly/></dd>
+                                    <dt><label for="emailInput">电子邮件</label></dt>
+                                    <dd><input type="text" id="emailInput" value="<%= model.email%>"
+                                               placeholder="e.g. email@site.com" maxlength="48"/></dd>
+                                    <dt><label for="skypeInputEdit">Skype</label></dt>
+                                    <dd><input type="text" id="skypeInputEdit" value="<%=model.skype%>" placeholder="Skype login"
+                                               maxlength="32"/></dd>
+                                    <dt><label for="LI">LinkedIn</label></dt>
+                                    <dd><input type="text" id="LI" value="<%=model.social.LI%>" placeholder="LinkedIn"
+                                               maxlength="256"/></dd>
+                                    <dt><label for="FB">Facebook</label></dt>
+                                    <dd><input type="text" id="FB" value="<%=model.social.FB%>" placeholder="Facebook"
+                                               maxlength="256"/></dd>
+
+                                    <dt><label for="companiesDd">公司</label></dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="companiesDd" data-id="<%=(model.company)?model.company._id:''%>"
+                                           class="current-selected" href="javascript:;"><%=(model.company)?(model.company.name.first):"选择"%></a>
+                                    </dd>
+                                    <!--                                    <dt><label for="tagsDd">Tags</label></dt>
+                                                                        <dd>
+                                                                          <a id="tagsDd" class="current-selected" href="javascript:;">Select</a>
+                                                                          <ul class="newSelectList hidden">
+                                                                            <li>Select</li>
+                                                                          </ul>
+                                                                        </dd>-->
+                                </dl>
+                            </div>
+                            <div class="half-block left">
+                                <!--   <div class='sale-purchase'>
+                                     <span class="left">Address</span>
+                                 </div>-->
+                                <dl class="person-info">
+                                    <dt><label for="addressInput">街道</label></dt>
+                                    <dd><input type="text" id="addressInput" value="<%= model.address.street%>"
+                                               placeholder="街道..." maxlength="32"/></dd>
+                                    <dt><label for="cityInput">城市</label></dt>
+                                    <dd><input type="text" id="cityInput" value="<%= model.address.city%>"
+                                               placeholder="城市" maxlength="32"/></dd>
+                                    <dt><label for="countryInput">地区</label></dt>
+                                    <dd><input type="text" id="countryInput" value="<%= model.address.country%>"
+                                               placeholder="国家" maxlength="32"/></dd>
+                                    <dt><label for="stateInput">状态</label></dt>
+                                    <dd><input type="text" id="stateInput" value="<%= model.address.state%>"
+                                               placeholder="状态" maxlength="32"/></dd>
+                                    <dt><label for="zipInput">邮政编码</label></dt>
+                                    <dd><input type="text" id="zipInput" value="<%= model.address.zip%>"
+                                               placeholder="邮政编码" maxlength="32"/></dd>
+                                    <dt><label for="phoneInput">电话 </label></dt>
+                                    <dd><input type="text" id="phoneInput" value="<%= model.phones.phone%>"
+                                               placeholder="电话号码" maxlength="20"/></dd>
+                                    <dt><label for="mobileInput">手机</label></dt>
+                                    <dd><input type="text" id="mobileInput" value="<%= model.phones.mobile%>"
+                                               placeholder="手机号码" maxlength="20"/></dd>
+
+                                </dl>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="details-dialog">
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="cropImages form" style="display:none;">
+                            <div class="formTitle">
+                                <h3 class="left">裁剪图片</h3>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <br/>
+
+                            <div class="image_input" style="float: left;margin-right: 20px;"></div>
+                            <img class="image_output"/>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="dialog-tabs-item">
+                        <div id="salesPurchases-container"></div>
+                    </div>
+                    <div class="dialog-tabs-item">
+                        <div class="assignees-container"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,395 @@
+<div class="form-holder">
+    <div id="convert-dialog-form">
+        <form>
+            <!-- <fieldset>
+                <select id="createCustomerOrNot">
+                    <option value="true" selected="selected">创建一个新建设单位</option>
+                    <option value="">不创建一个新建设单位</option>
+                </select>
+            </fieldset> -->
+        </form>
+    </div>
+    <form class="form notDialog" id="leadForm" data-id="<%=model._id%>">
+        <div id="workflowProgress" class="workflowProgress">
+
+        </div>
+        <div class="inner">
+            <div class="floatColumn col4-10" style="width: 70%;">
+                <div class="moduleList aboutHolder">
+
+                    <div class="right">
+                        <button class="btn" id="convertToOpportunity"><span>确定为投标工程</span></button>
+                    </div>
+                    <div class="formTitle">
+                        <h3>投标申请工程信息 </h3>
+                    </div>
+                    <div class="person-info">
+                        <div class="half-block left">
+                            <div class="propertyFormList">
+                                <label>工程名称</label>
+                                <div class="inputBox">
+                                    <input class="editable" id="name" value="<%=model.name%>"/>
+                                </div>
+                            </div>
+
+                            <div class="propertyFormList">
+                                <label>地址</label>
+                                <div class="inputBox">
+                                    <input class="editable" id="address.street" value="<%=model.address.street%>"/>
+                                </div>
+                            </div>
+
+                            <!-- <div class="propertyFormList">
+                                <label>截止日期</label>
+                                <div class="inputBox">
+                                    <input class="extrainfo" type="text" name="Close Date" id="expectedClosing"
+                                           value="<%=model.expectedClosing || ''%>"
+                                           readonly="">
+                                </div>
+                            </div> -->
+                            <!-- <div class="propertyFormList">
+                                <label>分配给</label>
+                                <div class="inputBox _newSelectListWrap">
+                                    <a class="current-selected assignName" href="javascript:;" id="salesPersonDd"
+                                       data-id="salesPerson"><%= model.salesPerson && model.salesPerson.name ?
+                                        model.salesPerson.name.first + ' ' + model.salesPerson.name.last : '选择'%></a>
+                                </div>
+                            </div> -->
+
+                            <!-- <div class="propertyFormList">
+                                <label>优先权</label>
+                                <div class="inputBox _newSelectListWrap">
+                                    <a class="current-selected assignName" href="javascript:;" id="priorityDd"
+                                       data-id="priority"><%= model.priority%></a>
+                                </div>
+                            </div> -->
+
+                            <div class="propertyFormList">
+                                <label>登记部门</label>
+                                <div class="inputBox _newSelectListWrap">
+                                    <a class="current-selected assignName" href="javascript:;" id="regDepart"
+                                       data-id="regDepart"><%= model.regDepart.name%></a>
+                                </div>
+                            </div>
+
+                            <div class="propertyFormList">
+                                <label>经办人</label>
+                                <div class="inputBox">
+                                    <input class="editable" id="transactor" value="<%=model.transactor%>"/>
+                                </div>
+                            </div>
+
+                            <div class="propertyFormList">
+                                <label>保证金(元)</label>
+                                <div class="inputBox">
+                                    <input class="editable" id="bail" value="<%=model.bail%>"/>
+                                </div>
+                            </div>
+
+                            <div class="propertyFormList">
+                                <label>投标保证金截止日期</label>
+                                <div class="inputBox">
+                                    <input class="extrainfo" type="text" name="bidbailDate" id="bidbailDate"
+                                           value="<%=model.leadDate.bidbailDate || ''%>"
+                                           readonly="">
+                                </div>
+                            </div>
+
+                            <!-- <div class="propertyFormList">
+                                <label>来源</label>
+                                <div class="inputBox _newSelectListWrap">
+                                    <a class="current-selected assignName" href="javascript:;" id="sourceDd"
+                                       data-id="source"><%=model.source || '选择'%></a>
+                                </div>
+                            </div> -->
+                            <!-- <div class="separateBlock">联系人</div> -->
+                        </div>
+                        
+                        <div class="half-block right">
+                            <div class="propertyFormList">
+                                <label>建设单位</label>
+                                <div class="inputBox _newSelectListWrap">
+                                    <a class="current-selected assignName" href="javascript:;" id="customerDd"
+                                       data-id="customer"><%=model.customer ? model.customer.fullName : '选择'%></a>
+                                </div>
+                            </div>
+
+                            <!-- <div class="propertyFormList">
+                                <label>登记部门</label>
+                                <div class="inputBox">
+                                    <input class="editable" id="regDepart" value="<%=model.regDepart.name%>"/>
+                                </div>
+                            </div> -->
+
+                            <div class="propertyFormList">
+                                <label>联系人</label>
+                                <div class="inputBox">
+                                    <input class="editable" id="contactName.first" value="<%=model.contactName.first%>"/>
+                                </div>
+                            </div>
+
+                            <div class="propertyFormList">
+                                <label>项目经理</label>
+                                <div class="inputBox">
+                                    <input class="editable" id="proManager" value="<%=model.proManager%>"/>
+                                </div>
+                            </div>
+
+                            <div class="propertyFormList">
+                                <label>登记日期</label>
+                                <div class="inputBox">
+                                    <input class="extrainfo" type="text" name="Date of reg" id="createByDate"
+                                           value="<%=model.createdBy.date || ''%>"
+                                           readonly="">
+                                </div>
+                            </div>
+
+                            <div class="propertyFormList">
+                                <label>投标截止日期</label>
+                                <div class="inputBox">
+                                    <input class="extrainfo" type="text" name="bid Date" id="bidDate"
+                                           value="<%=model.leadDate.bidDate || ''%>"
+                                           readonly="">
+                                </div>
+                            </div>
+
+                            <div class="propertyFormList">
+                                <label>投标申请部门</label>
+                                <div class="inputBox">
+                                    <input class="editable" id="bidDepartment" value="<%=model.bidDepartment%>"/>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>工程概况</label>
+                            <div class="inputBox">
+                                <!-- <input class="editable" id="projectDesc.pD1" value="<%=model.projectDesc.pD1%>"/> -->
+                                <textarea class="editable" id="projectDesc.pD1" style="min-height: 70px;" value="<%=model.projectDesc.pD1%>"><%=model.projectDesc.pD1%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>工程付款方式</label>
+                            <div class="inputBox">
+                                <!-- <input class="editable" id="projectDesc.pD1" value="<%=model.projectDesc.pD1%>"/> -->
+                                <textarea class="editable" id="projectDesc.pD2" style="min-height: 70px;" value="<%=model.projectDesc.pD2%>"><%=model.projectDesc.pD2%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>注意事项</label>
+                            <div class="inputBox">
+                                <!-- <input class="editable" id="projectDesc.pD3" value="<%=model.projectDesc.pD3%>"/> -->
+                                <textarea class="editable" id="projectDesc.pD3" style="min-height: 70px;" value="<%=model.projectDesc.pD3%>"><%=model.projectDesc.pD3%></textarea>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>业务联系人意见</label>
+                            <div class="inputBox">
+                                <!-- <input class="editable" id="projectDesc.pD4" value="<%=model.projectDesc.pD4%>"/> -->
+                                <textarea class="editable" id="projectDesc.pD4" style="min-height: 70px;" value="<%=model.projectDesc.pD4%>"><%=model.projectDesc.pD4%></textarea>
+                            </div>
+                        </div>
+                         
+                        <div class="half-block left">
+                            <div class="propertyFormList">
+                                <label>是否公司项目</label>
+                                <div class="inputBox">
+                                    <input class="editable" id="isComproject" 
+                                    value="<%=(model.isComproject) ? '是':'否' %>" readonly="readonly"/>
+                                    <!-- <select name="isComprojectselect" id="isComproject" class="title-input blueback" >
+                                        <option value="是">是</option>
+                                        <option value="否">否</option>
+                                    </select> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="half-block right">
+                            <div class="propertyFormList">
+                                <label>资格预审收费金额(元)</label>
+                                <div class="inputBox">
+                                    <input class="editable" id="projectDesc.pD5" value="<%=model.projectDesc.pD5%>"/>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="separateBlock">工程相关信息</div> -->
+
+                        <!-- <div class="propertyFormList">
+                            <label>工程概况</label>
+                            <div class="inputBox">
+                                <input class="editable" id="projectDesc.pD1" value="<%=model.projectDesc.pD1%>"/>
+                            </div>
+                        </div> -->
+
+                        
+
+                        <!-- <div class="propertyFormList">
+                            <label>工程付款方式</label>
+                            <div class="inputBox">
+                                <input class="editable" id="projectDesc.pD2" value="<%=model.projectDesc.pD2%>"/>
+                            </div>
+                        </div> -->
+                                                
+                        <div class="propertyFormList">
+                            <label>备注</label>
+                            <div class="inputBox">
+                                <!-- <input class="editable" id="comments" value="<%=model.comments%>"/> -->
+                                <textarea class="editable" id="comments" style="min-height: 70px;" value="<%=model.comments%>"><%=model.comments%></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- <div class="propertyFormList">
+                            <label>姓</label>
+                            <div class="inputBox">
+                                <input class="editable" id="contactName_first" value="<%=model.contactName.first%>"/>
+                            </div>
+                        </div>
+                        <div class="propertyFormList">
+                            <label>名</label>
+                            <div class="inputBox">
+                                <input class="editable" id="contactName_last" value="<%=model.contactName.last%>"/>
+                            </div>
+                        </div>
+                        <div class="propertyFormList">
+                            <label>工作职位</label>
+                            <div class="inputBox">
+                                <input class="editable" id="jobPosition" value="<%=model.jobPosition%>"/>
+                            </div>
+                        </div>
+                        <div class="propertyFormList">
+                            <label>生日</label>
+                            <div class="inputBox">
+                                <input class="extrainfo" type="text" name="Date of Birth" id="dateBirth"
+                                       value="<%=model.dateBirth || ''%>"
+                                       readonly="">
+                            </div>
+                        </div>
+                        <div class="propertyFormList">
+                            <label>电子邮件</label>
+                            <div class="inputBox">
+                                <input class="editable" id="email" value="<%=model.email%>"/>
+                            </div>
+                        </div>
+                        <div class="propertyFormList">
+                            <label>电话</label>
+                            <div class="inputBox">
+                                <input class="editable" id="phones_phone" value="<%=model.phones.phone%>"/>
+                            </div>
+                        </div> -->
+                        <!--<div class="propertyFormList">
+                            <label>Mobile</label>
+                            <div  class="inputBox">
+                                <input class="editable"  id="phones_mobile" value="<%=model.phones.mobile%>"/>
+                            </div>
+                        </div>-->
+                        <!--  <div class="propertyFormList">
+                            <label>Skype</label>
+                            <div class="inputBox">
+                                <input class="editable" id="skype" value="<%=model.skype%>"/>
+                            </div>
+
+                            <div class="social">
+                                <% if (model.skype){%>
+
+                                <a class="skype" href="skype:<%=model.skype%>?call"></a>
+
+                                <%}%>
+                            </div>
+                        </div>
+                        <div class="propertyFormList">
+                            <label>LinkedIn</label>
+                            <div class="inputBox">
+                                <input class="editable urlValue" id="social_LI" value="<%=model.social.LI%>"/>
+                            </div>
+                            <div class="social">
+                                <% if (model.social.LI){%><a class="linkedin" href="<%=model.social.LI%>"></a><%}%>
+                            </div>
+
+                        </div> -->
+
+
+                        <!-- <div class="propertyFormList">
+                             <label>Facebook</label>
+                             <div  class="inputBox">
+                                 <input class="editable"  id="social_FB" value="<%=model.social.FB%>"/>
+                             </div>
+                         </div>-->
+
+                        <!-- <div class="separateBlock">公司</div>
+                        <div class="propertyFormList">
+                            <label>公司</label>
+                            <div class="inputBox _newSelectListWrap">
+                                <a class="current-selected assignName" href="javascript:;" id="companyDd"
+                                   data-id="company"><%=model.company ? model.company.fullName : '选择'%></a>
+                            </div>
+                        </div>
+                        <div class="propertyFormList">
+                            <label>名称</label>
+                            <div class="inputBox">
+                                <input class="editable" id="tempCompanyField" value="<%=model.tempCompanyField%>"/>
+                            </div>
+                        </div>
+
+                        <div class="propertyFormList">
+                            <label>街道</label>
+                            <div class="inputBox">
+                                <input class="editable" id="address_street" value="<%=model.address.street%>"/>
+                            </div>
+                        </div>
+                        <div class="propertyFormList">
+                            <label>城市</label>
+                            <div class="inputBox">
+                                <input class="editable" id="address_city" value="<%=model.address.city%>"/>
+                            </div>
+                        </div>
+                        <div class="propertyFormList">
+                            <label>状态</label>
+                            <div class="inputBox">
+                                <input class="editable" id="address_state" value="<%=model.address.state%>"/>
+                            </div>
+                        </div>
+                        <div class="propertyFormList">
+                            <label>邮政编码</label>
+                            <div class="inputBox">
+                                <input class="editable" id="address_zip" value="<%=model.address.zip%>"/>
+                            </div>
+                        </div>
+                        <div class="propertyFormList">
+                            <label>地区</label>
+                            <div class="inputBox _newSelectListWrap">
+                                <a class="current-selected" href="javascript:;" id="address_country"
+                                   data-id="address_country"
+                                   data-value="<%=model.address.country%>"><%=model.address.country || '选择'%></a>
+                            </div>
+                        </div> -->
+
+
+                        <div class="tags-container propertyFormList"></div>
+                    </div>
+
+                    <div class="propertyEditBtn" id="formBtnBlock">
+
+                        <a href="javascript:;" id="saveBtn" class="btn blue btnSave">保存</a>
+
+                        <a href="javascript:;" id="cancelBtn" class="btn">取消</a>
+                    </div>
+                </div>
+
+                <div class="attachments"></div>
+            </div>
+            <div class="floatColumn col6-10" style="width: 30%;">
+                <div class="notes">
+                    <!-- <div class="followers right"> -->
+                    <!-- <div class="followers right" style="float: left; margin-bottom: 4px;">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+

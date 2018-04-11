@@ -1,0 +1,32 @@
+<div class="<!--tableResponsive-->">
+    <table class="list issuesTable" id="historyTable">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>身份证号</th>
+            <th>社保编号</th>
+            <th>错误原因</th>
+        </tr>
+        </thead>
+        <tbody id="Table">
+        <% issues.forEach(function(item, index){ %>
+        <tr class="history" id="<%=item._id%>" data-id="">
+            <td data-content="index"><%= index+1 %></td>
+            <td class="borrowDate" data-content="name"><%= item.name %></td>
+            <td class="" data-content="ID">
+                <span><%=item.ID%></span>
+            </td>
+            <td class="" data-content="socialInsuranceNumber">
+                <span><%=item.socialInsuranceNumber%></span>
+            </td>
+            <td class="" data-content="reason">
+                <span><%=item.reason%></span>
+            </td>
+        </tr>
+
+        <% }); %>
+
+        </tbody>
+    </table>
+</div>

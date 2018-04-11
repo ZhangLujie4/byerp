@@ -1,0 +1,18 @@
+<% checkSituApproveCollection.forEach(function(item, index){ %>
+<tr data-id="<%=item.root[0].timeStamp%>">
+	<td class="centerCell"><input type="checkbox" value="<%=item.root[0].timeStamp%>" data-id="<%=item.root[0].timeStamp%>" class="checkbox"/></td>
+	<td><%=index + 1%></td>
+	<td><%=item.root[0].engineerInfo.name%></td>
+	<td><%=moment(item.root[0].inspectDate).format('YYYY-MM-DD')%></td>
+	<td><%=item.root[0].inspector%></td>
+	<%if(item.root[0].status == 'new' || item.root[0].status == 'In Progress'){%>
+	<td class="status" data-content="<%=item.root[0].status%>">待<%=item.root[0].approveMan.name.first+item.root[0].approveMan.name.last%>审批</td>
+	<%}else if(item.root[0].status == 'done'){%>
+	<td class="status" data-content="<%=item.root[0].status%>">审批通过</td>
+	<%}else if(item.root[0].status == 'Cancelled'){%>
+	<td class="status" data-content="<%=item.root[0].status%>">审批不通过</td>
+	<%}else{%>
+	<td></td>
+	<%}%>
+</tr>
+<% }) %>

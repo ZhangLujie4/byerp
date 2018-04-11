@@ -1,0 +1,406 @@
+<div class="form-holder">
+    <% if(!isPaid){%>
+    <span class="btn blue btnSave saveBtn positioned">保存</span>
+    <%}%>
+    <form method="post" action="" class="form" id="invoiceForm">
+        <fieldset>
+            <div class="inner">
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items mainTabs">
+                    <div class="dialog-tabs-item mainTabs active">
+
+                        <%if(!isPaid || paidAndNotApproved){%>
+                        <div class="half-block left">
+                            <dl class="opp-info">
+
+                                <dt><label for="supplier"><%=(forSales) ? '客户' : '供应商'%></label></dt>
+                                <dd>
+                                    <a id="supplier" class="<%= model.approved ? '' : 'current-selected'%>"
+                                       data-id="<%=(model.supplier)?model.supplier._id:''%>"
+                                       href="javascript:;"><%=(model.supplier &&
+                                        model.supplier.name)?model.supplier.name.first
+                                        + ' ' + model.supplier.name.last:"选择"%></a>
+                                </dd>
+
+                                <!--<dt><label for="fiscal_pos">Fiscal Position</label></dt>
+                                <dd>
+                                    <a id="fiscal_pos" data-id="" class="current-selected" href="javascript:;">Select</a>
+                                </dd>
+-->
+                                <dt><label for="source_document">订单号</label></dt>
+                                <dd>
+                                    <span type="text" id="source_document"><%=(model.sourceDocument) ? model.sourceDocument.name : ''%></span>
+                                </dd>
+
+                                <dt><label for="supplier_invoice_num">发票号</label></dt>
+                                <dd>
+                                    <input type="text" id="supplier_invoice_num" class="_inputBordered"
+                                           value="<%=(model.name) ? model.name : ''%>"
+                                           placeholder="Supplier Invoice Number" maxlength="32"/>
+                                </dd>
+                                <dt><label for="journal">凭证</label></dt>
+                                <dd class="_newSelectListWrap">
+                                    <a id="journal" class="<%= model.approved ? '' : 'current-selected'%>"
+                                       href="javascript:;"><%= model.journal && model.journal._id ?
+                                        model.journal.name : '选择'%></a>
+                                </dd>
+                                <dt><label for="paymentMethod">付款方式</label></dt>
+                                <dd class="">
+                                    <a id="paymentMethod" class="<%= model.approved ? '' : 'current-selected'%>"
+                                       href="javascript:;"><%=model.paymentMethod || '选择'%></a>
+                                </dd>
+
+                                <!--<dt><label for="invoice_date">Invoice Date </label></dt>-->
+                                <!--<dd>-->
+                                <!--<input type="text" class="date" id="invoice_date"-->
+                                <!--value="<%=(model.invoiceDate) ? model.invoiceDate : ''%>" maxlength="32"-->
+                                <!--placeholder="Invoice Date" readonly/>-->
+                                <!--</dd>-->
+                                <!--<dt><label for="paymentTerm">Payment Terms</label></dt>-->
+                                <!--<dd class="_newSelectListWrap">-->
+                                <!--<a id="paymentTerm" class="<%= !model.approved ? 'current-selected' : ''%>" href="javascript:;"><% if (model.paymentTerms) { %>-->
+                                <!--<%=model.paymentTerms.name || 'Select'%>-->
+                                <!--<% } else { %>-->
+                                <!--<%=model.paymentTerms || 'Select'%>-->
+                                <!--<% } %>-->
+                                <!--</a>-->
+                                <!--</dd>-->
+                                <!--<dt><label for="due_date">Due Date </label></dt>-->
+                                <!--<dd>-->
+                                <!--<input type="text" class="date-->
+                                <!--<% if (!model.dueDate) {%>-->
+                                <!--errorContent"-->
+                                <!--<% } else { %>-->
+                                <!--"-->
+                                <!--<% } %>-->
+                                <!--id="due_date" value="<%=(model.dueDate) ? model.dueDate : ''%>" maxlength="32"-->
+                                <!--placeholder="Due Date" readonly />-->
+                                <!--</dd>-->
+
+                            </dl>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="inline-row  left">
+                            <dl class="opp-info">
+
+                                <!--<dt><label for="invoice_date">Invoice Date </label></dt>-->
+                                <!--<dd>-->
+                                <!--<input type="text" class="date" id="invoice_date"-->
+                                <!--value="<%=(model.invoiceDate) ? model.invoiceDate : ''%>" maxlength="32"-->
+                                <!--placeholder="Invoice Date" readonly/>-->
+                                <!--</dd>-->
+                                <div class="left">
+                                    <dt><label for="invoice_date">发票日期 </label></dt>
+                                    <dd>
+                                        <input type="text" class="date _inputBordered" id="invoice_date"
+                                               value="<%=(model.invoiceDate) ? model.invoiceDate : ''%>" maxlength="32"
+                                               placeholder="Invoice Date" readonly/>
+                                    </dd>
+                                </div>
+                                <div class="left">
+                                    <dt><label for="paymentTerm">支付条款</label></dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="paymentTerm" class="<%= !model.approved ? 'current-selected' : ''%>"
+                                           href="javascript:;"><% if (model.paymentTerms) { %>
+                                            <%=model.paymentTerms.name || '选择'%>
+                                            <% } else { %>
+                                            <%=model.paymentTerms || '选择'%>
+                                            <% } %>
+                                        </a>
+                                    </dd>
+                                </div>
+                                <div class="left">
+                                    <dt><label for="due_date">到期日 </label></dt>
+                                    <dd>
+                                        <input type="text" class="date _inputBordered
+                                <% if (!model.dueDate) {%>
+                                errorContent"
+                                        <% } else { %>
+                                        "
+                                        <% } %>
+                                        id="due_date" value="<%=(model.dueDate) ? model.dueDate : ''%>" maxlength="32"
+                                        placeholder="Due Date" readonly />
+                                    </dd>
+                                </div>
+                                <div class="left">
+                                    <dt><label for="currencyDd">货币</label></dt>
+                                    <dd>
+                                        <a id="currencyDd"
+                                           data-id="<%= model.currency && model.currency._id ? model.currency._id._id : null%>"
+                                           href="javascript:;"><%= model.currency && model.currency._id ?
+                                            model.currency._id.name : ''%></a>
+                                    </dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <%} else {%>
+                        <div class="half-block left">
+                            <dl class="opp-info">
+
+                                <dt><label for="supplier"><%=(forSales) ? '客户' : '供应商'%></label></dt>
+                                <dd>
+                                    <span id="supplier" data-id="<%=(model.supplier)?model.supplier._id:''%>"
+                                          href="javascript:;"><%=(model.supplier && model.supplier.name)?model.supplier.name.first + ' ' + model.supplier.name.last:""%></span>
+                                </dd>
+
+                                <dt><label for="source_document">订单号</label></dt>
+                                <dd>
+                                    <span type="text" id="source_document"><%=(model.sourceDocument) ? model.sourceDocument.name : ''%></span>
+                                </dd>
+
+                                <dt><label for="supplier_invoice_num">发票号</label></dt>
+                                <dd>
+                                    <span type="text"
+                                          id="supplier_invoice_num"><%=(model.name) ? model.name : ''%></span>
+                                </dd>
+
+
+                                <dt><label for="paymentMethod">支付方法</label></dt>
+                                <dd class="">
+                                    <a id="paymentMethod" class="current-selected" href="javascript:;"><%=model.paymentMethod
+                                        || '选择'%></a>
+                                </dd>
+
+                                <!--<dt><label for="d_date">Due Date </label></dt>-->
+                                <!--<dd>-->
+                                <!--<span id="d_date"><%=(model.dueDate) ? model.dueDate : ''%></span>-->
+                                <!--</dd>-->
+                                <!--<dt><label for="paymentTerm">Payment Terms</label></dt>-->
+                                <!--<dd>-->
+                                <!--<span id="paymentTerm" href="javascript:;"><% if (model.paymentTerms) { %>-->
+                                <!--<%=model.paymentTerms.name || 'Select'%>-->
+                                <!--<% } else { %>-->
+                                <!--id="paymentTerm"-->
+                                <!--<% } %>-->
+                                <!--</span>-->
+                                <!--</dd>-->
+                            </dl>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="inline-row  left">
+                            <dl class="opp-info">
+                                <div class="left">
+                                    <dt><label for="inv_date">发票日期 </label></dt>
+                                    <dd>
+                                        <span id="inv_date"><%=(model.invoiceDate) ? model.invoiceDate : ''%></span>
+                                    </dd>
+                                </div>
+                                <div class="left">
+                                    <dt><label for="paymentTerm">支付条款</label></dt>
+                                    <dd>
+                                    <span id="paymentTerm" href="javascript:;"><% if (model.paymentTerms) { %>
+                                        <%=model.paymentTerms.name || '选择'%>
+                                        <% } else { %>
+                                        id="paymentTerm"
+                                        <% } %>
+                                    </span>
+                                    </dd>
+                                </div>
+                                <div class="left">
+                                    <dt><label for="d_date">到期日 </label></dt>
+                                    <dd>
+                                        <span id="d_date"><%=(model.dueDate) ? model.dueDate : ''%></span>
+                                    </dd>
+                                </div>
+
+                                <div class="left">
+                                    <dt><label for="currencyDd">货币</label></dt>
+                                    <dd>
+                                        <a id="currencyDd" class=""
+                                           data-id="<%= model.currency && model.currency._id ? model.currency._id : null%>"
+                                           href="javascript:;"><%= model.currency && model.currency._id ?
+                                            model.currency._id.name : ''%></a>
+                                    </dd>
+
+                                </div>
+                            </dl>
+                        </div>
+                        <%}%>
+
+                        <div class="clearfix"></div>
+                        <!-- <ul class="dialog-tabs" data-class="childTabs">
+                             <li><a class="active" href="javascript:;">Invoice</a></li>
+                             <%if(!isWtrack){%>
+                             <li><a href="javascript:;">Other Info</a></li>
+                             <%}%>
+                             <li><a href="javascript:;">Payments</a></li>
+                             &lt;!&ndash;<li><a href="javascript:;">Attachments</a></li>&ndash;&gt;
+                         </ul>-->
+                        <div class="clearfix"></div>
+                        <!--<div class="dialog-tabs-items childTabs">-->
+                        <div class="dialog-tabs-item childTabs active">
+                            <%if(!isWtrack) {%>
+                            <div id="invoiceItemsHolder">
+
+                            </div>
+                            <div class="clearfix"></div>
+                            <%} else { %>
+                            <div>
+                                <table class="list task-list">
+                                    <thead>
+                                    <tr>
+                                        <th>N</th>
+                                        <th>
+                                            工程项目
+                                        </th>
+                                        <th>
+                                            员工
+                                        </th>
+                                        <th>
+                                            部门
+                                        </th>
+                                        <th>
+                                            年
+                                        </th>
+                                        <th>
+                                            月
+                                        </th>
+                                        <th>
+                                            周
+                                        </th>
+                                        <th>
+                                            比率
+                                        </th>
+                                        <th>
+                                            时
+                                        </th>
+                                        <th>
+                                            一
+                                        </th>
+                                        <th>
+                                            二
+                                        </th>
+                                        <th>
+                                            三
+                                        </th>
+                                        <th>
+                                            四
+                                        </th>
+                                        <th>
+                                            五
+                                        </th>
+                                        <th>
+                                            六
+                                        </th>
+                                        <th>
+                                            日
+                                        </th>
+                                        <th>
+                                            状态
+                                        </th>
+                                        <th>
+                                            收入
+                                        </th>
+                                        <th>
+                                            金额
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="linwoiceGenerateTable"></tbody>
+                                </table>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div id="totalAmountContainer" class="_totalAmountContainer">
+                                <table border="0" cellpadding="0" cellspacing="0" class="right calculateTotal">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <label>
+                                                不含税金额
+                                            </label>
+                                        </td>
+                                        <td>
+                                                    <span>
+                                                        <span id="totalUntaxes" class="money">
+                                                            <%if (total) {%>
+                                                            <%= currencySplitter(total)%>
+                                                            <%} else {%>
+                                                            0.00
+                                                            <%}%>
+                                                        </span>
+                                                    </span>
+                                        </td>
+                                    </tr>
+                                    <tr class="taxes">
+                                        <td>
+                                            <label>税</label>
+                                        </td>
+                                        <td>
+                                                    <span>
+                                                        <span id="taxes" class="money">
+                                                            0.00
+                                                        </span>
+                                                    </span>
+                                        </td>
+                                    </tr>
+                                    <tr class="totalAmount">
+                                        <td>
+                                            <label class="" data-original-title="" title="">合计</label>
+                                        </td>
+                                        <td>
+                                                    <span class="">
+                                                        <span id="totalAmount" class="money">
+                                                            <%if (total) {%>
+                                                            <%=currencySplitter(total)%>
+                                                            <%} else {%>
+                                                            0.00
+                                                            <%}%>
+                                                        </span>
+                                                    </span>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <%}%>
+                        </div>
+                        <!-- <div class="dialog-tabs-item childTabs">
+                             <div class="other-info-container">
+                                 <div class="half-block left">
+                                     <dl class="opp-info">
+
+                                         &lt;!&ndash;<dt><label for="salesPerson">Responsible</label></dt>
+                                         <dd>
+                                             <a id="salesPerson"
+                                                data-id=""
+                                                class="current-selected" href="javascript:;"></a>
+                                         </dd>&ndash;&gt;
+                                     </dl>
+                                 </div>
+                                 <div class="half-block left">
+                                     <dl class="opp-info">
+
+                                         <dt><label for="force_period">Force Period</label></dt>
+                                         <dd>
+                                             <a id="force_period" href="javascript:;">Select</a>
+                                         </dd>
+
+                                         <dt>
+                                             <label for="payment_reference">Payment Reference</label>
+                                         </dt>
+                                         <dd>
+                                             <span><%=(model.paymentReference) ? model.paymentReference : ''%></span>
+                                         </dd>
+
+                                     </dl>
+                                 </div>
+                             </div>
+                         </div>-->
+                        <div class="dialog-tabs-item childTabs">
+
+                        </div>
+                        <!-- </div>-->
+
+                    </div>
+                    <!-- <div class="dialog-tabs-item mainTabs">
+                         <div class="assignees-container"></div>
+                     </div>-->
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </fieldset>
+    </form>
+</div>

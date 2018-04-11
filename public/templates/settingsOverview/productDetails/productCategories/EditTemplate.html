@@ -1,0 +1,35 @@
+<div class="form-holder _newForm">
+  <form method="post" id="createDepartmentForm">
+    <fieldset>
+      <h4 class="_dialogTitlePositioned">编辑种类</h4>
+      <div class="_formWrap _enlargedItemMargin">
+        <div class="_formBlock">
+          <div class="_animateInputBox">
+            <input type="text"
+                   class="_animate"
+                   name="categoryName"
+                   id="categoryName"
+                   maxlength="32"
+                   required
+                   value="<%=model.name%>"/>
+            <label class="_animate"
+                   for="categoryName">部门名称</label>
+          </div>
+          <div class="_animateSelectBox">
+            <label class="_selectTitle" for="parentCategory">上级分类</label>
+            <div class="_newSelectListWrap">
+              <a id="parentCategory"
+                 class="current-selected"
+                 href="javascript:;"
+                 data-id="<%=(model.parent) ? model.parent._id: ''%>"
+                 data-level="<%=model.nestingLevel || ''%>"
+                 data-fullname="<%=model.fullName%>">
+                <%=model.parent ? model.parent.name : model.name%>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>

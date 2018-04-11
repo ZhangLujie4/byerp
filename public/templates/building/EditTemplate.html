@@ -1,0 +1,50 @@
+
+<div class="form-holder task-create-holder" style="margin-bottom: 0px;">
+    <form method="post" action="" id="editBuilding" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <div class="clearfix"></div>
+            <div class="topInputHolder">
+                <h2>建材厂工程</h2>
+            </div>
+
+            <div class="half-block left">
+                <div class="inner">
+                    <dl class="task-info">
+
+                        <dt><label for="name">工程名称</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="name" value="<%=model.name%>"/>
+                        </dd>
+
+                        <div class="clearfix"></div>
+                    </dl>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="half-block right">
+                <div class="inner">
+                    <dl class="task-info">
+
+                        <dt><label>客户</label></dt>
+                        <dd class="inputBox _newSelectListWrap">
+                            <a class="current-selected assignName" href="javascript:;" id="customerId"
+                               data-id=<%=model.customerId._id%>><%=model.customerId ? model.customerId.name.first + ' ' + model.customerId.name.last : '选择'%></a>
+                        </dd>
+
+                        <dt><label>项目经理</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="projectManager" value="<%=model.projectManager%>"/>
+                        </dd>
+
+                        <div class="clearfix"></div>
+                    </dl>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

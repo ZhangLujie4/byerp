@@ -1,0 +1,16 @@
+<% collection.forEach(function(item, index){ %>
+<tr data-id="<%=item._id%>">
+    <td class="centerCell"><a href="javascript:;" class="transferLocation">→</a></td>
+    <td><%=item.product ? item.product.code : ''%></td>
+    <td><%=item.product ? item.product.name : ''%></td>
+    <td><%=item.warehouse ? item.warehouse.name : ''%></td>
+    <td><%=item.location ? item.location.name: ''%></td>
+    <td><%=item.createdBy ? common.utcDateToLocaleDate(item.createdBy.date) : ''%></td>
+    <td><%=item.order ?  item.order.name : ''%></td>
+    <td><%=item.goodsInNote ?  item.goodsInNote.name : ''%></td>
+    <td class="inStock"><span><%=item.inStock%></span></td>
+    <td class="allocated"><span><%= item.allocated %></span></td>
+    <td class="onHand"><span><%= item.onHand %></span></td>
+</tr>
+<% }) %>
+

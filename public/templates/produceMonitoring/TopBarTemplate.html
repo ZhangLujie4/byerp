@@ -1,0 +1,37 @@
+<h3>生产日报表</h3>
+<div id="createBtnHolder" class="btnsBlock">
+    <a href="#home/action-<%=contentType%>/Create" class="btn blue slim plus" title="Create" id="top-bar-createBtn">生成日报表</a>
+    <a href="#home/action-<%=contentType%>/Remove" class="btn blue slim" id="top-bar-deleteBtn" title="Remove">删除</a>
+</div>
+<div class="vocationFilter _filterDropDownWrap">
+    <ul class="dateFilter">
+        <li class="dateRange" style="width: 240px">
+            <span class="icon-calendar"></span>
+            <span id="startTime"><%= startDate%></span> - <span id="endTime"><%= endDate%></span>
+            <span class="icon-arrow-down2"></span>
+        </li>
+        <li>
+            <ul class="frameDetail _filterDropDownBody hidden">
+                <li id="custom" class="_filterArrow filterValues checked">指定日期</li>
+                <li class="customTime hidden">
+                    <div class="customTimeItem">
+                        <label for="startDate">开始日期: </label>
+                        <input readonly type="text" id="startDate">
+                    </div>
+                    <div class="customTimeItem">
+                        <label for="endDate">结束日期: </label>
+                        <input readonly type="text" id="endDate">
+                    </div>
+                </li>
+                <li class="buttons hidden">
+                    <button id="updateDate" class="btn">
+                        <span>更新</span>
+                    </button>
+                    <button id="cancelBtn" class="btn">
+                        <span>取消</span>
+                    </button>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

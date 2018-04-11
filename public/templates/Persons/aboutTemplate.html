@@ -1,0 +1,132 @@
+<h3 class="formTitle">About <%=name.first%></h3>
+<div class="person-info">
+    <div class="avatar">
+        <div class="upload">编辑
+            <input type="file" value="Edit" id="inputImg">
+        </div>
+        <canvas id="avatar"
+                width="140"
+                height="140">
+        </canvas>
+    </div>
+    <div class="propertyFormList">
+
+        <label>名字</label>
+        <div class="inputBox">
+            <input class="editable" data-id="name_first" value="<%=name.first%>"/>
+        </div>
+    </div>
+    <div class="propertyFormList">
+        <label>姓氏</label>
+        <div class="inputBox">
+            <input class="editable" data-id="name_last" value="<%=name.last%>"/>
+        </div>
+    </div>
+    <div class="propertyFormList">
+        <label>工作职位</label>
+        <div class="inputBox">
+            <input class="editable" data-id="jobPosition" value="<%=jobPosition%>"/>
+        </div>
+    </div>
+    <div class="propertyFormList">
+        <label>电子邮件</label>
+        <div class="inputBox">
+            <input class="editable" data-id="email" value="<%=email%>"/>
+        </div>
+    </div>
+    <div class="propertyFormList">
+        <label>Skype</label>
+        <div class="inputBox">
+            <input class="editable" data-id="skype" value="<%=skype%>"/>
+        </div>
+    </div>
+    <div class="propertyFormList">
+        <label>LinkedIn</label>
+        <div class="inputBox">
+            <input class="editable" data-id="social_LI" value="<%=social.LI%>"/>
+        </div>
+    </div>
+    <div class="propertyFormList">
+        <label>Facebook</label>
+        <div class="inputBox">
+            <input class="editable" data-id="social_FB" value="<%=social.FB%>"/>
+        </div>
+    </div>
+    <div class="propertyFormList">
+        <label>电话</label>
+        <div class="inputBox">
+            <input class="editable" data-id="phones_phone" value="<%=phones.phone%>"/>
+        </div>
+    </div>
+    <div class="propertyFormList">
+        <label>手机</label>
+        <div class="inputBox">
+            <input class="editable" data-id="phones_mobile" value="<%=phones.mobile%>"/>
+        </div>
+    </div>
+    <div class="propertyFormList">
+        <label>街道</label>
+        <div class="inputBox">
+            <input class="editable" data-id="address_street" value="<%=address.street%>"/>
+        </div>
+    </div>
+    <div class="propertyFormList">
+        <label>城市</label>
+        <div class="inputBox">
+            <input class="editable" data-id="address_city" value="<%=address.city%>"/>
+        </div>
+    </div>
+    <div class="propertyFormList">
+        <label>状态</label>
+        <div class="inputBox">
+            <input class="editable" data-id="address_state" value="<%=address.state%>"/>
+        </div>
+    </div>
+    <div class="propertyFormList">
+        <label>邮政编码</label>
+        <div class="inputBox">
+            <input class="editable" data-id="address_zip" value="<%=address.zip%>"/>
+        </div>
+    </div>
+
+    <div class="propertyFormList">
+        <label>地区</label>
+        <div class="inputBox _newSelectListWrap">
+            <a class="current-selected" href="javascript:;" id="country" data-id="address_country"
+               data-value="<%=address.country%>"><%=address.country || '选择'%></a>
+        </div>
+    </div>
+    <div class="propertyFormList">
+        <label>生日日期</label>
+        <div class="inputBox">
+            <input class="extrainfo" type="text" name="Date of Birth" id="dateBirth" value="<%=dateBirth%>"
+                   readonly="">
+        </div>
+    </div>
+    <div class="social">
+        <% if (social.FB){%><a class="facebook" href="<%=social.FB%>"></a><%}%>
+        <% if (social.LI){%><a class="linkedin" href="<%=social.LI%>"></a><%}%>
+        <% if (skype){%><a class="skype" href="skype:<%=skype%>?call"></a><%}%>
+        <div class="clearfix"></div>
+    </div>
+    <div id="salesPurchases-container"></div>
+</div>
+<div class="cropImages form" style="display:none;">
+    <div class="formTitle">
+        <h3 class="left">裁剪图像</h3>
+
+        <div class="clearfix"></div>
+    </div>
+    <br/>
+
+    <div class="image_input" style="float: left;margin-right: 20px;"></div>
+    <img class="image_output"/>
+
+    <div class="clearfix"></div>
+</div>
+<div class="propertyEditBtn" id="formBtnBlock">
+
+    <a href="javascript:;" id="saveBtn" class="btn blue btnSave">保存</a>
+
+    <a href="javascript:;" id="cancelBtn" class="btn">取消</a>
+</div>

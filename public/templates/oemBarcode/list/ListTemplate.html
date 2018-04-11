@@ -1,0 +1,10 @@
+<% oemBarcodeCollection.forEach(function(oemBarcode, index){ %>
+<tr data-index="<%=index%>" data-id="<%= oemBarcode._id%>" >
+	<td class="centerCell"><input type="checkbox" value="<%=oemBarcode._id%>" class="checkbox"/></td>
+    <td class="centerCell"><%=oemBarcode.projectId.name%></td>
+    <td class="centerCell"><%=oemBarcode.orderNumber%></td>
+    <td class="centerCell"><%=oemBarcode.deliverNumber.trips%></td>
+    <td class="centerCell"><%=oemBarcode.reason%></td>
+    <td class="centerCell"><%=oemBarcode.quantity%></td>
+</tr>
+<% }) %>

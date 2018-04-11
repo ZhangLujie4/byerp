@@ -1,0 +1,11 @@
+<% dailyReportCollection.forEach(function(item, index){ %>
+<tr data-id="<%=item._id%>">
+    <td class="notForm centerCell <%=item.whoCanRW%>">
+        <input type="checkbox" value="<%=item._id%>" class="checkbox"/>
+    </td>
+    <td class="<%=item.whoCanRW%>"><%=item.dateStr%></td>
+    <td class="<%=item.whoCanRW%>"><%=item.employee.name.first%> <%=item.employee.name.last%></td>
+    <td class="<%=item.whoCanRW%>"><%=item.whoCanRW%></td>
+    <td class="<%=item.whoCanRW%>"><%=(item.status == 'new')? '未批阅' : '已批阅'%></td>
+</tr>
+<%})%>

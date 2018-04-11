@@ -1,0 +1,47 @@
+<div class="form-holder _engineerManager">
+    <form method="post" action="" class="form" id="invoiceForm">
+        <h3 class="_dialogTableTitle">查看</h3>
+            <div class="table-content">
+            <table class="list checkSituEditList">
+                <colgroup>
+                    <col width="8%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="5%">
+                    <col width="40%">
+                    <col width="30%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th class="centerCell">检查日期</th>
+                        <th class="centerCell">检查人员</th>
+                        <th class="centerCell">类别</th>
+                        <th class="centerCell">序号</th>
+                        <th class="centerCell">实施内容</th>
+                        <th class="centerCell">整改</th>
+                        <th class="centerCell">处罚</th>
+                        <th class="centerCell">重点监护</th>
+                        <th class="centerCell">备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% model.forEach(function(item, index){%>
+                    <tr data-index="<%= index %>" data-id="<%=item._id%>">
+                        <td class="inspectDate centerCell"><%=moment(item.inspectDate).format('YYYY-MM-DD')%></td>
+                        <td class="inspector centerCell"><%=item.inspector%></td>
+                        <td class="categoryTex"><%=item.rule.categoryTex%></td>
+                        <td class="centerCell number"><%=item.rule.number%></td>
+                        <td class="content"><%=item.rule.content%></td>
+                        <td class="rectification"><%=item.rectification%></td>
+                        <td class="centerCell penalty"><%=item.penalty%></td>
+                        <td class="focus"><%=item.focus%></td>
+                    </tr>
+                    <%})%>
+                </tbody>
+            </table>
+            </div>
+    </form>
+</div>

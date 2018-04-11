@@ -1,0 +1,31 @@
+<div class="form-holder _newForm">
+    <form method="post" action="" id="invoiceForm">
+        <h4 class="_dialogMainTitle">编辑</h4>
+        <div class="_formWrap _enlargedItemMargin">
+            <div class="_formBlock">
+                <div class="_animateInputBox">
+                    <input type="text"
+                           class="_animate "
+                           id="guaSalary"
+                           maxlength="250" value="<%=model.guaSalary?model.guaSalary:0%>"/>
+                    <label class="_animate">保底年薪</label>
+                </div>
+                <div class="_animateInputBox">
+                    <input type="text"
+                           class="_animate "
+                           id="basePay"
+                           required
+                           maxlength="250" value="<%=model.basePay?model.basePay:0%>"/>
+                    <label class="_animate">基本工资</label>
+                </div>
+                <div class="_animateInputBox">
+                    <input type="text"
+                           class="_animate "
+                           id="description"
+                           maxlength="250" value="<%=model.description%>"/>
+                    <label class="_animate">备注</label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,34 @@
+
+<div id="salary-title">
+    <style>
+        .fn-left {
+            float: left;
+        }
+        .com-info-list li {
+            width: 33.3%;
+        }
+        .com-info-list {
+            overflow: hidden;
+        }
+        .com-info-list li:nth-child(2) {
+            text-align: center;
+        }
+        .com-info-list li:nth-child(3) {
+            text-align: right;
+        }
+    </style>
+
+    <div>
+        <h1 style = "text-align: center;">工资发放清单</h1>
+    </div>
+    <div> 
+        <h4 style = "text-align: center;">发放月份:<%=year%>年<%=month + 1%>月</h4>  
+    </div>
+    <div style="margin-top: 15px">
+        <ul class="com-info-list">
+            <li class="fn-left">单位名称：浙江宝业幕墙装饰有限公司</li>
+            <li class="fn-left">部门: <%=department ? department : ''%></li>
+            <li class="fn-left">第<%=page%>页/共<%=lastPage%>页</li>
+        </ul>
+    </div>
+</div>

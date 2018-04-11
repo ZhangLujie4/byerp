@@ -1,0 +1,25 @@
+﻿<% workCentreCollection.forEach(function(item,index){ %>
+<% workCentres = item.workCentre; %>
+<% });%>
+<% var width = parseInt(100/(workCentres.length+2));%>
+<div id="searchContainer"></div>
+<div class="_tableOpportunitiesWrap">
+    <table class="list stripedList">
+        <colgroup>
+            <col width="15%">
+            <% workCentres.forEach(function(workCentre){ %>
+                <col width="<%=width%>%">
+            <% }); %>
+        </colgroup>
+        <thead>
+        <span>&nbsp;&nbsp;&nbsp;工程名称:  <%=(workCentreCollection[0].projectName)? workCentreCollection[0].projectName.name : ''%> &nbsp;&nbsp;&nbsp;订单编号:  <%=(workCentreCollection[0].orderNumber)? workCentreCollection[0].orderNumber : ''%></span>
+        <tr>
+            <th style="text-align: center;">日期</th>
+            <% workCentres.forEach(function(workCentre){ %>
+                <th style="text-align: center;"><%=workCentre.code%><%=workCentre.name%></th>
+            <% }); %>
+        </tr>
+        </thead>
+        <tbody id="listTable"></tbody>
+    </table>
+</div>

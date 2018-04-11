@@ -1,0 +1,14 @@
+<% goodsReturnCollection.forEach(function(goodsReturn, index){ %>
+<tr data-index="<%=index%>" data-id="<%= goodsReturn._id%>" >
+    <td class="centerCell"><input type="checkbox" value="<%=goodsReturn._id%>" class="checkbox"/></td>
+    <td class="centerCell"><%=goodsReturn.projectId.name%></td>
+    <td class="centerCell"><%=(goodsReturn.deliverNumber) ? goodsReturn.deliverNumber.trips : ''%></td>
+    <td class="centerCell"><%=goodsReturn.orderNumber%></td>
+    <td class="centerCell"><%=goodsReturn.quantity%></td>
+    <td class="centerCell"><%=goodsReturn.reason%></td>
+    <td class="centerCell"><%=goodsReturn.state%></td>
+    <td class="centerCell"><%=(goodsReturn.createdBy&&goodsReturn.createdBy.date)?( goodsReturn.createdBy.date + ((goodsReturn.createdBy.user)
+        ?(' (' + goodsReturn.createdBy.user + ')') : '')):''%>
+    </td>
+</tr>
+<% }) %>

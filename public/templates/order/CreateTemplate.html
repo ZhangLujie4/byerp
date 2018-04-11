@@ -1,0 +1,110 @@
+<div class="form-holder _newForm _ordersDialog">
+    <form method="post" action="" id="createPersonsForm">
+        <h4 class="_dialogMainTitle">新增</h4>
+        <div class="_formWrap">
+            <div class="_formBlock _equal">
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">状态</span>
+                    <div class="_newSelectListWrap">
+                        <a id="workflowsDd"
+                           class="current-selected"
+                           href="javascript:;">选择
+                        </a>
+                    </div>
+                </div>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">客户</span>
+                    <div class="_newSelectListWrap">
+                        <%if (!project) {%>
+                        <a id="customerDd" class="current-selected" href="javascript:;">选择</a>
+                        <%} else {%>
+                        <span id="customerDd" class="_staticInfo">选择</span>
+                        <%}%>
+                    </div>
+                </div>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">银行账户</span>
+                    <div class="_newSelectListWrap">
+                        <a id="paymentMethod"
+                           class="current-selected"
+                           href="javascript:;">选择</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="_formBlock _equal">
+                <div class="_animateInputBox">
+                    <span class="_staticLabel">订单日期</span>
+                    <input type="text"
+                           name="orderDate"
+                           class="_animate "
+                           id="orderDate"
+                           required
+                           readonly
+                           value=""
+                           maxlength="48"/>
+                </div>
+                <div class="_animateInputBox">
+                    <span class="_staticLabel">预定支付日期</span>
+                    <input type="text"
+                           class="_animate "
+                           id="expectDate"
+                           required
+                           readonly/>
+                </div>
+                <%if (!project) {%>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">价格列表</span>
+                    <div class="_newSelectListWrap">
+                        <a id="priceList"
+                           data-id=""
+                           class="current-selected"
+                           href="javascript:;">选择
+                        </a>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <div class="_formBlock _equal">
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">仓库</span>
+                    <div class="_newSelectListWrap">
+                        <a id="warehouseDd"
+                           data-id=""
+                           class="current-selected"
+                           href="javascript:;">选择
+                        </a>
+                    </div>
+                </div>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">货币</span>
+                    <div class="_newSelectListWrap">
+                        <a id="currencyDd"
+                           data-id=""
+                           class="current-selected"
+                           href="javascript:;">选择
+                        </a>
+                    </div>
+                </div>
+                <div class="_animateSelectBox">
+                    <span class="_selectTitle">销售经理</span>
+                    <div class="_newSelectListWrap">
+                        <a id="assignedTo"
+                           data-id=""
+                           class="current-selected"
+                           href="javascript:;">选择
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="_formWrap">
+            <div class="_formBlock">
+<!--
+                <span class="btn blue slim _resetPriceBtn" id="resetPrices">Reset Prices</span>
+-->
+                <div id="productItemsHolder"></div>
+            </div>
+        </div>
+    </form>
+</div>

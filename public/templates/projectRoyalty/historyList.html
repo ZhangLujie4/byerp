@@ -1,0 +1,46 @@
+<div class="_invoiceTemplate">
+    <div class="extractPdf">
+        <div class="_entityTitle" style="text-align: end">付款记录</div>
+        <table class="_templateTable tableFixed">
+            <colgroup>
+                <col width="80px">
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>日期</th>
+                <th>支付金额</th>
+                <th style="text-align: left">姓名</th>
+                <th style="text-align: left">基本提成</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <% model.forEach(function(royalty, index){ %>
+            <%index=index + 1%>
+            <% royalty.details.forEach(function(detail, a){ %>
+            <tr >
+                <% if(a==0){%>
+                <td><%=index%></td>
+                <td style="text-align: left" ><%=royalty.payment.date?moment(royalty.payment.date).format('YYYY-MM-DD'):''%></td>
+                <td style="text-align: left" ><%=royalty.payment.paidAmount/100%></td>
+                <%} else{%>
+                <td></td>
+                <td></td>
+                <td></td>
+                <%}%>
+                <td style="text-align: left" ><%=detail.name%></td>
+                <td style="text-align: left" ><%=detail.basic/100%></td>
+            </tr>
+            <% }); %>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+</div>

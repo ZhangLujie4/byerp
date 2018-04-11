@@ -1,0 +1,533 @@
+﻿﻿
+<div class="form-holder">
+    <form method="post"
+          action=""
+          id="createApplicationForm"
+          class="form">
+        <fieldset>
+            <div class="inner">
+                <ul class="dialog-tabs">
+                    <li>
+                        <a class="active"
+                           href="javascript:;">主要
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"
+                           class="">个人信息
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">受托人</a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="dialog-tabs-items">
+                    <div class="dialog-tabs-item active">
+                        <div class="left">
+                            <div class="avatar">
+                                <div class="upload">编辑
+                                    <input type="file"
+                                           value="Edit"
+                                           id="inputImg"/>
+                                </div>
+                                <canvas id="avatar"
+                                        width="140"
+                                        height="140">
+                                </canvas>
+                            </div>
+                        </div>
+                        <div class="avatarInfoContainer employee">
+                            <div class="half-block left">
+                                <dl class="edit-employee-info">
+                                    <dt>
+                                        <label for="first">名</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   class="blueback"
+                                                   placeholder="First Name"
+                                                   id="first"
+                                                   required maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="last">姓</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   placeholder="Last Name"
+                                                   class="blueback"
+                                                   id="last"
+                                                   required maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="expectedSalary">期望工资</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   placeholder="Expected Salary"
+                                                   id="expectedSalary"
+                                                   maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="proposedSalary">建议工资</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   placeholder="Proposed Salary"
+                                                   id="proposedSalary"
+                                                   maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="dateBirth">出生日期</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   placeholder="Date of Birth"
+                                                   name="dateBirthday"
+                                                   id="dateBirth"
+                                                   required
+                                                   readonly/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="mobile">个人电话</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   placeholder="Personal Mobile"
+                                                   name="mobile"
+                                                   id="mobile"
+                                                   maxlength="20"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="personalEmail">个人邮箱</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   placeholder="e.g.email@site.com"
+                                                   id="personalEmail"
+                                                   required
+                                                   maxlength="48"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="skype">网络电话</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   placeholder="Skype"
+                                                   id="skype"
+                                                   maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="LI">LinkedIn</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="LI"
+                                                   placeholder="LinkedIn"
+                                                   maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="FB">Facebook</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   id="FB"
+                                                   placeholder="Facebook"
+                                                   maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="sourceDd">来源 </label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="sourceDd"
+                                           class="current-selected"
+                                           href="javascript:;">选择来源
+                                        </a>
+                                        <ul class="newSelectList" style="display: none;">
+                                            <li id="www.rabota.ua">www.rabota.ua</li>
+                                            <li id="www.work.ua">www.work.ua</li>
+                                            <li id="www.ain.net">www.ain.net</li>
+                                            <li id="other">其他</li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="half-block left">
+                                <dl class="edit-employee-info">
+                                    <dt>
+                                        <label for="nextAction">后期安排</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   placeholder="Next Action Date"
+                                                   id="nextAction"
+                                                   maxlength="32"
+                                                   readonly/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="jobPositionDd">岗位</label></dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="jobPositionDd"
+                                           class="current-selected"
+                                           href="javascript:;">选择岗位
+                                        </a>
+                                    </dd>
+                                    <dt>
+                                        <label for="departmentDd">部门</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="departmentDd"
+                                           class="current-selected"
+                                           href="javascript:;">选择部门
+                                        </a>
+                                    </dd>
+                                    <dt>
+                                        <label for="projectManagerDD">经理</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="projectManagerDD"
+                                           class="current-selected"
+                                           href="javascript:;">选择项目经理
+                                        </a>
+                                    </dd>
+                                    <dt>
+                                        <label for="jobTypeDd">工作性质</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="jobTypeDd"
+                                           class="current-selected"
+                                           href="javascript:;">选择工作性质
+                                        </a>
+                                    </dd>
+                                    <dt>
+                                        <label for="weeklySchedulerDd">工作安排</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="weeklySchedulerDd" class="current-selected"
+                                           data-id=""
+                                           href="javascript:;">Select
+                                        </a>
+                                    </dd>
+                                    <dt>
+                                        <label for="payrollStructureTypeDd">合同</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="payrollStructureTypeDd" class="current-selected"
+                                           data-id=""
+                                           href="javascript:;">选择
+                                        </a>
+                                    </dd>
+                                    <dt>
+                                        <label for="scheduledPayDd">日常工资</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="scheduledPayDd" class="current-selected"
+                                           data-id=""
+                                           href="javascript:;">Select
+                                        </a>
+                                    </dd>
+                                    <dt>
+                                        <label for="workEmail">工作邮箱</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   placeholder="Work Email"
+                                                   id="workEmail"
+                                                   required
+                                                   maxlength="48"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="phone">工作电话</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="_inputIconWrap">
+                                            <input type="text"
+                                                   placeholder="Work Phone"
+                                                   name="phone"
+                                                   id="phone"
+                                                   required
+                                                   maxlength="32"/>
+                                            <label></label>
+                                        </div>
+                                    </dd>
+                                    <dt>
+                                        <label for="workflowsDd">状态</label>
+                                    </dt>
+                                    <dd id="selectWorkflow" class="_newSelectListWrap">
+                                        <a id="workflowsDd"
+                                           class="current-selected"
+                                           href="javascript:;">Select workflow
+                                        </a>
+                                    </dd>
+                                    <dt>
+                                        <label for="relatedUsersDd">相关用户</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="relatedUsersDd"
+                                           class="current-selected"
+                                           href="javascript:;">Select related user
+                                        </a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="cropImages form" style="display:none;">
+                                <div class="formTitle">
+                                    <h3 class="left">Crop Images</h3>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="image_input" style="float: left; margin-right: 20px;"></div>
+                                <img class="image_output"/>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dialog-tabs-item">
+                        <div>
+                            <div class="formTitle left">
+                                <h3 class="left">员工身份 &amp; 其他信息</h3>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="half-block left">
+                                <dl class="edit-employee-info">
+                                    <dt>
+                                        <label for="nationality">国籍</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="nationality"
+                                           class="current-selected"
+                                           href="javascript:;">Select nationality
+                                        </a>
+                                    </dd>
+                                    <dt>
+                                        <label for="identNo">身份证 №</label>
+                                    </dt>
+                                    <dd>
+                                        <input type="text"
+                                               placeholder="Identification №"
+                                               name="identNo"
+                                               id="identNo"
+                                               required
+                                               maxlength="32"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="passportNo">护照 №</label>
+                                    </dt>
+                                    <dd>
+                                        <input type="text"
+                                               placeholder="Passport №"
+                                               name="passportNo"
+                                               id="passportNo"
+                                               required
+                                               maxlength="32"/>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="half-block left">
+                                <dl class="edit-employee-info">
+                                    <dt>
+                                        <label for="bankAccountNo">银行账户 №</label>
+                                    </dt>
+                                    <dd>
+                                        <input type="text"
+                                               placeholder="Bank Account №"
+                                               id="bankAccountNo"
+                                               name="bankAccountNo">
+                                    </dd>
+                                    <dt>
+                                        <label for="otherId">其他证件</label>
+                                    </dt>
+                                    <dd>
+                                        <input type="text"
+                                               placeholder="Other Id"
+                                               name="otherId"
+                                               id="otherId"
+                                               required
+                                               maxlength="32"/>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                            <div class="formTitle left">
+                                <h3 class="left">联系方式</h3>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="half-block left">
+                                <dl class="edit-employee-info">
+                                    <dt>
+                                        <label for="applicationsCreateStreet">街道</label>
+                                    </dt>
+                                    <dd>
+                                        <input type="text"
+                                               placeholder="Street"
+                                               class="homeAddress"
+                                               name="street"
+                                               id="applicationsCreateStreet"
+                                               maxlength="32"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="applicationsCreateCity">城市</label>
+                                    </dt>
+                                    <dd>
+                                        <input type="text"
+                                               placeholder="City"
+                                               class="homeAddress"
+                                               name="city"
+                                               id="applicationsCreateCity"
+                                               maxlength="32"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="applicationsCreateState">州</label>
+                                    </dt>
+                                    <dd>
+                                        <input type="text"
+                                               placeholder="State"
+                                               class="homeAddress"
+                                               name="state"
+                                               id="applicationsCreateState"
+                                               maxlength="32"/>
+                                    </dd>
+                                </dl>
+
+                            </div>
+                            <div class="half-block left">
+                                <dl class="edit-employee-info">
+                                    <dt>
+                                        <label for="applicationsCreateZip">邮编</label>
+                                    </dt>
+                                    <dd>
+                                        <input type="text"
+                                               placeholder="Zip Code"
+                                               class="homeAddress"
+                                               name="zip"
+                                               id="applicationsCreateZip"
+                                               maxlength="32"/>
+                                    </dd>
+                                    <dt>
+                                        <label for="applicationsCreateCountry"></label>国家
+                                    </dt>
+                                    <dd>
+                                        <a class="homeAddress current-selected" name="country"
+                                           id="applicationsCreateCountry">选择</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                            <div class="formTitle">
+                                <h3 class="left">状态</h3>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="half-block left withPaddingLeft">
+                                <dl class="edit-employee-info">
+                                    <dt>
+                                        <label for="genderDd">性别</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="genderDd"
+                                           class="current-selected"
+                                           href="javascript:;">选择性别
+                                        </a>
+                                        <ul class="newSelectList">
+                                            <li id="male">male</li>
+                                            <li id="female">female</li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="half-block left withPaddingLeft">
+
+                                <dl class="edit-employee-info">
+                                    <dt>
+                                        <label for="maritalDd">婚姻状况</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="maritalDd"
+                                           class="current-selected"
+                                           href="javascript:;">选择婚姻状况
+                                        </a>
+                                        <ul class="newSelectList">
+                                            <li id="married">married</li>
+                                            <li id="unmarried">unmarried</li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="half-block left withPaddingLeft">
+                                <dl class="edit-employee-info">
+                                    <dt><label for="employmentTypeDd">工作性质</label>
+                                    </dt>
+                                    <dd class="_newSelectListWrap">
+                                        <a id="employmentTypeDd" data-id="" class="current-selected"
+                                           href="javascript:;">选择</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="formTitle">
+                                <h3 class="left">
+                                    <legend>简单介绍</legend>
+                                </h3>
+                                <div class="area_holder">
+                                 <textarea id="internalNotes"
+                                           placeholder="Internal notes..."
+                                           maxlength="500"
+                                           class="internal_Notes opp-internal-create">
+                                 </textarea>
+                                    <a href="javascript:;" class="attach_file">
+                                        <span class="icon-attach"></span>
+                                    </a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="attach-container">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="dialog-tabs-item">
+                        <div class="assignees-container"></div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

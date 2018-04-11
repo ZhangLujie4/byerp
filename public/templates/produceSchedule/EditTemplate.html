@@ -1,0 +1,51 @@
+﻿
+<div class="form-holder task-create-holder" style="margin-bottom: 0px;">
+    <form method="post" action="" id="editBuilding" class="form" data-id="<%=model._id%>">
+        <fieldset>
+            <div class="clearfix"></div>
+            <div class="topInputHolder">
+                <h2>生产计划</h2>
+            </div>
+
+            <div class="half-block left">
+                <div class="inner">
+                    <dl class="task-info">
+
+                        <dt><label for="projectId">工程名称</label></dt>
+                        <dd class="inputBox _newSelectListWrap">
+                            <a class="current-selected assignName" href="javascript:;" id="projectId"
+                               data-id=<%=model.projectId._id%>><%=model.projectId ? model.projectId.projectName : '选择'%></a>
+                        </dd>
+
+                        <dt><label>生产类型</label></dt>
+                        <dd>
+                            <input maxlength="30" type="text" id="produceType" value="<%=model.produceType%>"/>
+                        </dd>
+
+                        <div class="clearfix"></div>
+                    </dl>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="half-block right">
+                <div class="inner">
+                    <dl class="task-info">
+
+                        <dt><label for="orderNumber">订单编号</label></dt>
+                        <dd class="inputBox _newSelectListWrap">
+                            <a class="current-selected assignName" href="javascript:;" id="orderNumber"
+                               data-id=<%=model.orderNumber%>><%=model.orderNumber ? model.orderNumber : '选择'%></a>
+                        </dd>
+
+                        <div class="clearfix"></div>
+                    </dl>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

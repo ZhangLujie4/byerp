@@ -1,0 +1,14 @@
+{
+  "table_no": "BYYCLLL",
+  "startLine": "5",
+  "product":"1",
+  "quantity":"2",
+  "priceQty":"3",
+  "description":"4",
+  "fields_name": {
+    "5": "高(mm)",
+    "6": "宽(mm)",
+    "7": "基板厚度(mm)",
+    "8": "总面积(m2)"
+  }
+}

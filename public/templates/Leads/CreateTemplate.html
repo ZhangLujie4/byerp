@@ -1,0 +1,225 @@
+<div class="form-holder _listModalWrap">
+    <form method="post" action="" class="form" id="leadForm">
+        <div class="dialog-tabs-items">
+            <div class="dialog-tabs-item active">
+                <div class="_listModal _leadsDialog">
+                    <div class="_listModalColumn">
+                        <div class="_listModalTitle"><label><b>工程预登记</b></label></div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="name">工程名称</label></div>
+                            <div class="_modalSelect"><input type="text" class="title-input blueback" id="name"
+                                                             placeholder="工程名称" required
+                                                             maxlength="48"/></div>
+                        </div>
+                        <div class="_listModalTitle"><label><b>建设单位</b></label></div>
+                        <div class="_modalList">
+                            <div class="_modalSelect _newSelectListWrap"><a id="customerDd" class="current-selected"
+                                                                            href="javascript:;">选择</a></div>
+                        </div>
+                        <!-- <div class="_modalList">
+                            <div class="_modalLabel"><label for="sourceDd">来源</label>
+                            </div>
+                            <div class="_modalSelect _newSelectListWrap"><a id="sourceDd" class="current-selected"
+                                                                            href="javascript:;">选择</a></div>
+                        </div> -->
+                        <!-- <div class="_modalList">
+                            <div class="_modalLabel"><label for="salesPerson">分配给</label></div>
+                            <div class="_modalSelect _newSelectListWrap"><a id="salesPerson" class="current-selected"
+                                                                            href="javascript:;">选择</a></div>
+                        </div> -->
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="workflowsDd">状态</label></div>
+                            <div class="_modalSelect _newSelectListWrap"><a id="workflowsDd" class="current-selected"
+                                                                            href="javascript:;">选择</a></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="priorityDd">优先级</label></div>
+                            <div class="_modalSelect _newSelectListWrap"><a id="priorityDd" class="current-selected"
+                                                                            href="javascript:;">选择</a></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="isComproject">是否公司项目</label></div>
+                            <div class="_modalSelect">
+                            <!-- <input type="text" class="title-input blueback" id="isBid"
+                                                             placeholder="是否投标工程" required
+                                                             maxlength="48"/> -->
+                            <select name="isComprojectselect" id="isComproject" class="title-input blueback">
+                                <option value="true">是</option>
+                                <option value="false">否</option>
+                            </select>
+                            </div>
+                        </div>
+                        <!-- <div class="_modalList">
+                            <div class="_modalLabel"><label for="regDepart">登记部门</label></div>
+                            <div class="_modalSelect"><input type="text" class="title-input blueback" id="regDepart"
+                                                             placeholder="登记部门" required
+                                                             maxlength="48"/></div>
+                        </div> -->
+
+                        <div class="_listModalTitle"><label><b>登记部门</b></label></div>
+                        <div class="_modalList">
+                            <div class="_modalSelect _newSelectListWrap"><a id="regDepart" class="current-selected"
+                                                                            href="javascript:;">选择</a></div>
+                        </div>
+
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="proManager">项目经理</label></div>
+                            <div class="_modalSelect"><input type="text" class="title-input blueback" id="proManager"
+                                                             placeholder="项目经理" required
+                                                             maxlength="48"/></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="transactor">经办人</label></div>
+                            <div class="_modalSelect"><input type="text" class="title-input blueback" id="transactor"
+                                                             placeholder="经办人" required
+                                                             maxlength="48"/></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="recordDate">登记日期</label></div>
+                            <div class="_modalSelect"><input class="extrainfo" type="text" name="record Date"
+                                                             placeholder="登记日期" id="recordDate"
+                                                             readonly=""></div>
+                        </div>
+                        <!-- <div class="_modalList">
+                            <div class="_modalLabel"><label for="bidDepartment">投标申请部门</label></div>
+                            <div class="_modalSelect"><input type="text" class="title-input blueback" id="bidDepartment"
+                                                             placeholder="投标申请部门" required
+                                                             maxlength="48"/></div>
+                        </div> -->
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="isBid">是否投标工程</label></div>
+                            <div class="_modalSelect">
+                            <!-- <input type="text" class="title-input blueback" id="isBid"
+                                                             placeholder="是否投标工程" required
+                                                             maxlength="48"/> -->
+                            <select name="isBidselect" id="isBid" class="title-input blueback">
+                                <option value="true">是</option>
+                                <option value="false">否</option>
+                            </select>
+                            </div>
+                        </div>
+                        <!-- <div class="_modalList">
+                            <div class="_modalLabel"><label for="expectedClosingDate">截止日期</label></div>
+                            <div class="_modalSelect"><input class="extrainfo" type="text" name="Close Date"
+                                                             placeholder="截止日期" id="expectedClosingDate"
+                                                             readonly=""></div>
+                        </div> -->
+                    </div>
+                   <!--  <div class="_listModalColumn">
+                        <div class="_listModalTitle"><label><b>人员</b></label></div>
+                        <div class="_modalList">
+                            <div class="_modalSelect _newSelectListWrap"><a id="customerDd" class="current-selected"
+                                                                            href="javascript:;">选择</a></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="first">名字 </label></div>
+                            <div class="_modalSelect"><input type="text" class="name" id="first"
+                                                             placeholder="名字" maxlength="32"/></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="last">姓氏 </label></div>
+                            <div class="_modalSelect"><input type="text" class="name" id="last" placeholder="姓氏"
+                                                             maxlength="32"/></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="last">工作职位</label></div>
+                            <div class="_modalSelect"><input type="text" id="jobPosition" placeholder="工作职位"
+                                                             maxlength="32"/></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="dateBirthOnCreate">生日日期</label></div>
+                            <div class="_modalSelect"><input class="extrainfo" type="text" name="Date of Birth"
+                                                             placeholder="生日日期" id="dateBirthOnCreate"
+                                                             readonly=""></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="email">电子邮件 </label></div>
+                            <div class="_modalSelect"><input type="text" id="email" placeholder="e.g. email@site.com"
+                                                             maxlength="48"/></div>
+                        </div>
+
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="phone">电话</label></div>
+                            <div class="_modalSelect"><input type="text" id="phone" placeholder="电话号码"
+                                                             maxlength="32"/></div>
+                        </div>
+
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="skype">Skype</label></div>
+                            <div class="_modalSelect"><input type="text" id="skype" value="" placeholder="Skype"
+                                                             maxlength="256"/></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="LI">LinkedIn</label></div>
+                            <div class="_modalSelect"><input type="text" id="LI" placeholder="LinkedIn"
+                                                             maxlength="256"/></div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="_listModalColumn">
+                        <div class="_listModalTitle"><label><b>公司</b></label></div>
+                        <div class="_modalList">
+                            <div class="_modalSelect _newSelectListWrap"><a id="companyDd" class="current-selected"
+                                                                            href="javascript:;">选择</a></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="company">公司名称</label></div>
+                            <div class="_modalSelect"><input type="text" id="company" data-id=""
+                                                             placeholder="公司名称" maxlength="32"/></div>
+                        </div>
+
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="street">街道</label></div>
+                            <div class="_modalSelect"><input type="text" class="address" id="street" name="street"
+                                                             placeholder="街道" maxlength="60"/></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="city">城市</label></div>
+                            <div class="_modalSelect"><input type="text" class="address" id="city" name="city"
+                                                             placeholder="城市" maxlength="60"/></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="state">状态</label></div>
+                            <div class="_modalSelect"><input type="text" class="address" id="state" name="state"
+                                                             placeholder="状态" maxlength="32"/></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="zip">邮政编码</label></div>
+                            <div class="_modalSelect"><input type="text" class="address" id="zip" name="zip"
+                                                             placeholder="邮政编码" maxlength="32"/></div>
+                        </div>
+                        <div class="_modalList">
+                            <div class="_modalLabel"><label for="country">地区</label></div>
+                            <div class="_modalSelect _newSelectListWrap"><a class="address current-selected"
+                                                                            id="country" name="country">选择</a></div>
+                        </div>
+                    </div> -->
+                    <div class="clearfix"></div>
+                    <!-- <div class="_modalList">
+                        <div class="area_holder">
+                            <div class="_modalLabel"><label for="internalNotes">内部注释</label></div>
+                            <div class="_modalSelect">
+                                <textarea id="internalNotes" class="internal_Notes" placeholder="内部注释"
+                                          maxlength="2500"/>
+                                <span class="attach_file icon-attach"></span>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="clearfix"></div>
+                <div class="half-block left withPadivingLeft">
+
+                </div>
+
+                <div class="half-block left withPadivingLeft">
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="attach-container"></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="dialog-tabs-item">
+                <div class="assignees-container"></div>
+            </div>
+        </div>
+    </form>
+</div>

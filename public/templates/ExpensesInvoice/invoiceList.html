@@ -1,0 +1,26 @@
+<% invoice.forEach(function(invoice){ %>
+<% var balance%>
+<% balance=invoice.paymentInfo.balance/100 %>
+<% if(balance !=0){%>
+<tr class="invoiceItem" >
+    <td class="centerCell"><input type="checkbox" value="<%=invoice._id%>" class="checkbox"  /></td>
+    <td >
+        <input data-id="" type="text" id="id" value="<%=invoice.invoiceId%>">
+    </td>
+    <td >
+        <input data-id="" type="text" id="amount" value="<%=invoice.totalAmountSmall%>">
+    </td>
+
+    <td >
+        <input data-id="" type="text" id="unPay" value="<%=balance%>">
+        <input type="text" id="paymentRef" value="<%=invoice.invoiceDate%>" style="display: none">
+    </td>
+    <td data-name="cash">
+        <input data-name="cash" type="text" id="cash" value="<%=balance%>">
+    </td>
+    <td data-name="pay">
+        <input data-name="accept" type="text" id="accept" value="0" style="display: none">
+    </td>
+</tr>
+<%}%>
+<% }); %>

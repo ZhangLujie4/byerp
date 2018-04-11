@@ -1,0 +1,36 @@
+<div class="barCodesList">
+    <table class="list _projectTableLeftAlign tableFixed">
+        <colgroup>
+            <col width="45px">
+            <col width="50%">
+            <col width="50%">
+        </colgroup>
+        <thead>
+            <tr class="productListItemsColumns _deleteHeader">
+                <th class="centerCell">
+                    <label class="_customCHeckbox">
+                        <input type="checkbox" id="checkAllBarCodes"/>
+                        <span></span>
+                    </label>
+                </th>
+                <th class="width20">#</th>
+                <th class="width20">编号</th>
+            </tr>
+        </thead>
+        <tbody id="listTable" class="enableTableOdd">
+            <% barCodes.forEach(function(barCode, index){ %>
+            <% index = index + 1; %>
+                <tr data-id="<%=barCode._id%>">
+                    <td class="notForm centerCell">
+                        <label class="_customCHeckbox">
+                            <input type="checkbox" value="<%=barCode._id%>" class="checkbox"/>
+                            <span></span>
+                        </label>
+                    </td>
+                    <td><%= index %></td>
+                    <td><%= barCode.barId %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,17 @@
+<% collection.forEach(function(element, index) {%>
+<tr data-id="<%=element._id%>">
+    <td class="notForm centerCell">
+        <label class="_customCHeckbox">
+            <input type="checkbox" value="<%=element._id%>" class="checkbox"/>
+            <span></span>
+        </label>
+    </td>
+    <td style="text-align:center"><%= element.project.name %></td>
+    <td style="text-align:center"><%= element.project.bidCost %></td>
+    <td style="text-align:center"><%= element.year %></td>
+    <td style="text-align:center"><%= element.comRate %></td>
+    <td style="text-align:center" class="goEdit">
+        <a href="javascript:;" class="icon-note goEdit _actionCircleBtn" aria-hidden="true"></a>
+    </td>
+</tr>
+<%})%>

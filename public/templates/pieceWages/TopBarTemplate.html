@@ -1,0 +1,31 @@
+<h3>扫码计件工资报表</h3>
+<div class="vocationFilter _filterDropDownWrap">
+    <ul class="dateFilter" style = "left:100px">
+        <li class="dateRange">
+            <span class="icon-calendar"></span>
+            <span id="startTime"><%= startDate%></span></span>
+            <span class="icon-arrow-down2"></span>
+        </li>
+        <li>
+            <ul class="frameDetail _filterDropDownBody hidden">
+                <li class="customTime">
+                    <div class="customTimeItem">
+                        <label for="startDate">选择年月: </label>
+                        <input readonly type="text" id="startDate">
+                    </div>
+
+                </li>
+                <li class="buttons">
+                    <button id="updateDate" class="btn">
+                        <span>更新</span>
+                    </button>
+                    <button id="cancelBtn" class="btn">
+                        <span>取消</span>
+                    </button>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="createBtnHolder" class="btnsBlock">
+</div>

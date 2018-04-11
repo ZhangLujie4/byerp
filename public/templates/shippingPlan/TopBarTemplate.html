@@ -1,0 +1,41 @@
+<h3>发货计划</h3>
+<div id="createBtnHolder" class="btnsBlock">
+	<a href="javascript:;" class="btn blue slim plus" title="上传" id="top-bar-createBtn">新增</a>
+    <a href="javascript:;" class="btn blue slim plus" title="删除" id="top-bar-deleteBtn">删除</a>
+    <a href="javascript:;" class="btn blue slim plus" title="保存" id="top-bar-saveBtn">保存</a>
+</div>
+
+<div class="vocationFilter _filterDropDownWrap">
+    <ul class="dateFilter" style = "left:100px">
+        <li class="dateRange">
+            <span class="icon-calendar"></span>
+            <span id="startTime"><%=startDate%></span>-
+            <span id="endTime"><%=endDate%></span>
+            <span class="icon-arrow-down2"></span>
+        </li>
+        <li>
+            <ul class="frameDetail _filterDropDownBody hidden">
+                <li class="customTime">
+                    <div class="customTimeItem">
+                        <label for="startDate">选择年月: </label>
+                        <input readonly type="text" id="startDate">
+                    </div>
+                    <div class="customTimeItem">
+                        <label for="endDate">选择年月: </label>
+                        <input readonly type="text" id="endDate">
+                    </div>
+
+                </li>
+                <li class="buttons">
+                    <button id="updateDate" class="btn">
+                        <span>更新</span>
+                    </button>
+                    <button id="cancelBtn" class="btn">
+                        <span>取消</span>
+                    </button>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>

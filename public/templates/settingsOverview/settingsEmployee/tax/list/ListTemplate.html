@@ -1,0 +1,13 @@
+<% tax.forEach(function(tax, index){ %>
+<tr data-id="<%=tax._id%>">
+    <td data-content="level" class="centerCell"><%=tax.level%></td>
+    <td data-type="input"><%=tax.low%></td>
+    <td data-type="input"><%=tax.high%></td>
+    <td data-type="input"><%=tax.rate%></td>
+    <td data-type="input"><%=tax.countDeduction%></td>
+    <td>
+        <a href="javascript:;" class="icon-note goToEdit _actionCircleBtn" aria-hidden="true"></a>
+        <a href="javascript:;" class="icon-trash goToRemove _actionCircleBtn" aria-hidden="true"></a>
+    </td>
+</tr>
+<% }) %>

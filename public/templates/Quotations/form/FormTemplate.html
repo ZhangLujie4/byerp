@@ -1,0 +1,40 @@
+<div class="form-holder">
+    <fieldset>
+        <div class="inner">
+            <div class="right quotationsButtonsWrap _btnsBlockFixed">
+                <button id="editButton" class="btn">
+                    <span class="icon-pencil2"></span>
+                </button>
+                <button id="exportToPdf" class="btn ">
+                    <span class="icon-pdf"></span>
+                </button>
+                <button class="btn attach_file" id="attachment_file">
+                    <span class="icon-attach"></span>
+                </button>
+                <%if(model.workflow && model.workflow.name !== 'Canceled'){%>
+                <button class="createProforma btn">
+                    <span>形式发票</span>
+                </button>
+                <button class="confirmOrder btn">
+                    <span>确认订单</span>
+                </button>
+                <!--<button class="cancelQuotation">-->
+                <!--<span>Cancel</span>-->
+                <!--</button>-->
+                <%} else {%>
+                <button class="setDraft">
+                    <span>拟订货</span>
+                </button>
+                <%}%>
+            </div>
+            <div class="clearfix"></div>
+            <div id="historyDiv" class="_pureTemplate"></div>
+            <div id="templateDiv"></div>
+            <div id="attachments"></div>
+
+
+            <div class="clearfix"></div>
+        </div>
+    </fieldset>
+    <div class="clearfix"></div>
+</div>

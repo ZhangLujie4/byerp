@@ -1,0 +1,74 @@
+<% products.forEach(function(product){ %>
+<tr class="productItem deleteRow" data-id="<%=product.product._id%>">
+    <% var str='' %>
+    <% product.product.variants.forEach(function(variant){ %>
+    <% if(variant.optionId){%>
+    <%  str=str+variant.optionId.name+variant.value+';' %>
+    <%}%>
+    <%})%>
+    <td data-name="productName" >
+        <div class=>
+            <div class="jobsWescWrap _newSelectListWrap ">
+                <a class="current-selected productsDd" href="javascript:;" data-id="<%= product ? product.product._id : null%>"><%=product.product.name%></a>
+                <textarea class="productDescr"><%= product.product.variants? str : ''%></textarea>
+            </div>
+        </div>
+    </td>
+    <td></td>
+    <td data-name="quantity" >
+        <input id="quantity"  maxlength="9" size=10 type="text"
+               value="<%=product.quantity%>"/>
+    </td>
+    <td data-name="price" >
+        <input id="editInput"  maxlength="9" size=7 type="text" value="<%=currencySplitter(product.unitPrice.toString())%>" /></td>
+    <td  data-name="processingCharges" >
+        <div >
+            <table class="list stripedList">
+                <colgroup>
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th><input class="qty1" style="border: 0px" value="<%=product.qty1 ? product.qty1:''%>" readonly></th>
+                    <th><input class="qty2" style="border: 0px" value="<%=product.qty2 ? product.qty2:''%>" readonly></th>
+                    <th><input class="qty3" style="border: 0px" value="<%=product.qty3 ? product.qty3:''%>" readonly></th>
+                    <th><input class="qty4" style="border: 0px" value="<%=product.qty4 ? product.qty4:''%>" readonly></th>
+                    <th><input class="qty5" style="border: 0px" value="<%=product.qty5 ? product.qty5:''%>" readonly></th>
+                </tr>
+                </thead>
+                <tbody>
+                <td> <input id="price1"  maxlength="9" size=7 type="text" value="<%=product.price1 ? product.price1:''%>" /></td>
+                <td> <input id="price2"  maxlength="9" size=7 type="text" value="<%=product.price2 ? product.price2:''%>" /></td>
+                <td> <input id="price3"  maxlength="9" size=7 type="text" value="<%=product.price3 ? product.price3:''%>" /></td>
+                <td> <input id="price4"  maxlength="9" size=7 type="text" value="<%=product.price4 ? product.price4:''%>" /></td>
+                <td> <input id="price5"  maxlength="9" size=7 type="text" value="<%=product.price5 ? product.price5:''%>" /></td>
+                </tbody>
+
+            </table>
+        </div>
+        <td class="" data-name="sourceAl">
+            <% if(product.sourceAl){%>
+            <dd class="_newSelectListWrap" >
+                <a id="alumSource" class="current-selected" href="javascript:;" data-id="<%= product.sourceAl ? product.sourceAl._id : null%>" ><%=product.sourceAl ? product.sourceAl.name:'铝锭价来源'%></a>
+            </dd>
+            <%} else{%>
+                 <div id="sourceAl">
+                 </div>
+            <%}%>
+        </td>
+    <td class="subtotal"><span class="sum"><%= product.subTotal ? currencySplitter(product.subTotal.toString()) : ''%></span></td>
+    <td class="deleteCell centerCell">
+        <span title="Delete" class="icon-close5 removeJob"></span>
+    </td>
+</tr>
+<% }); %>
+<tr>
+    <td colspan="6" class="addProductItem">
+        <a href="javascript:;">添加新项</a>
+    </td>
+</tr>
+
