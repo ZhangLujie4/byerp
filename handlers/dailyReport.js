@@ -127,26 +127,37 @@ var Module = function (models) {
                     {
                         $lookup:
                             {
-                                from: "Users",
-                                localField: "userId",
-                                foreignField: "_id",
-                                as: "user"
+                                from: 'Users',
+                                localField: 'userId',
+                                foreignField: '_id',
+                                as: 'user'
                             }
                     },
                     {
-                        $unwind:"$user"
+                        $unwind: '$user'
                     },
                     {
                         $lookup:
                             {
-                                from: "Employees",
-                                localField: "user.relatedEmployee",
-                                foreignField: "_id",
-                                as: "employee"
+                                from: 'Employees',
+                                localField: 'user.relatedEmployee',
+                                foreignField: '_id',
+                                as: 'employee'
                             }
                     },
                     {
-                        $unwind:"$employee"
+                        $project: {
+                            _id     : 1,
+                            userId  : 1,
+                            dateStr : 1,
+                            status  : 1,
+                            content : 1,
+                            review  : 1,
+                            groups  : 1,
+                            whoCanRW: 1,
+                            employee: {$arrayElemAt:['$employee', 0]},
+                            user    :'$user'
+                        }
                     }
                 ])
                 .skip(skip)
@@ -303,26 +314,37 @@ var Module = function (models) {
                 {
                     $lookup:
                         {
-                            from: "Users",
-                            localField: "userId",
-                            foreignField: "_id",
-                            as: "user"
+                            from: 'Users',
+                            localField: 'userId',
+                            foreignField: '_id',
+                            as: 'user'
                         }
                 },
                 {
-                    $unwind:"$user"
+                    $unwind: '$user'
                 },
                 {
                     $lookup:
                         {
-                            from: "Employees",
-                            localField: "user.relatedEmployee",
-                            foreignField: "_id",
-                            as: "employee"
+                            from: 'Employees',
+                            localField: 'user.relatedEmployee',
+                            foreignField: '_id',
+                            as: 'employee'
                         }
                 },
                 {
-                    $unwind:"$employee"
+                    $project: {
+                        _id     :1,
+                        userId  : 1,
+                        dateStr : 1,
+                        status  : 1,
+                        content : 1,
+                        review  : 1,
+                        groups  : 1,
+                        whoCanRW: 1,
+                        employee: {$arrayElemAt:['$employee', 0]},
+                        user    :'$user'
+                    }
                 }
             ])
             // .sort({status : 1, dateStr : -1})
